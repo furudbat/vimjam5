@@ -1,14 +1,14 @@
 ## Script that manages saving games.
 class_name SaveGame extends Node
 
-const ENABLED = true
+## @NOTE: save game is disabbled for game jam
+const ENABLED = false
 const ENCRYPTION_KEY = "godotrules"
 const SAVE_GAME_TEMPLATE = "savegame.save"
 const SAVE_GROUP_NAME = "Persist"
 const NODE_DATA = "node_data"
 
 static func delete_save() -> void:
-	
 	if not ENABLED:
 		return
 		
@@ -18,7 +18,6 @@ static func has_save() -> bool:
 	return FileAccess.file_exists("user://" + SAVE_GAME_TEMPLATE)
 
 static func save_game(tree:SceneTree):
-	
 	if not ENABLED:
 		return
 	
@@ -34,7 +33,6 @@ static func save_game(tree:SceneTree):
 	var save_nodes = tree.get_nodes_in_group(SAVE_GROUP_NAME)
 	
 	for node in save_nodes:
-		
 		var save_data = {}
 		
 		# Check the node is an instanced scene so it can be instanced again during load.
@@ -82,7 +80,6 @@ static func save_game(tree:SceneTree):
 		save_file.store_line(JSON.stringify(save_data))
 
 static func load_game(tree:SceneTree) -> void:
-	
 	if not ENABLED:
 		return
 

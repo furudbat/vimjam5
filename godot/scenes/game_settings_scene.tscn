@@ -1,13 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://g4qhvbvdm62w"]
+[gd_scene load_steps=5 format=3 uid="uid://cwj22s0dgjdnv"]
 
-[ext_resource type="Script" path="res://scenes/game_settings_scene.gd" id="1_3764u"]
-[ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="1_w6tmj"]
 [ext_resource type="PackedScene" uid="uid://nbaodrlopo7y" path="res://ui/components/game_settings.tscn" id="2_qsqie"]
 [ext_resource type="Theme" uid="uid://d22mpqutkotsu" path="res://ui/theme.tres" id="3_unbh4"]
 [ext_resource type="AudioStream" uid="uid://dlchk3c1baiy8" path="res://music/corgie-title.ogg" id="4_7okdb"]
 
+[sub_resource type="GDScript" id="GDScript_rqasr"]
+script/source = "extends Node2D
+
+@onready var overlay := %FadeOverlay
+@onready var return_button := %ReturnButton
+
+func _ready():
+	overlay.on_complete_fade_out.connect(_on_fade_overlay_on_complete_fade_out)
+	return_button.pressed.connect(_on_return_button_pressed)
+	
+	overlay.visible = true
+	return_button.grab_focus()
+
+func _on_fade_overlay_on_complete_fade_out():
+	get_tree().change_scene_to_file(\"res://scenes/main_menu_scene.tscn\")
+
+func _on_return_button_pressed():
+	overlay.fade_out()
+"
+
 [node name="GameSettingsScene" type="Node2D"]
-script = ExtResource("1_3764u")
+script = SubResource("GDScript_rqasr")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -35,10 +53,6 @@ unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_unbh4")
 text = "return_to_main"
-
-[node name="FadeOverlay" parent="UI" instance=ExtResource("1_w6tmj")]
-unique_name_in_owner = true
-visible = false
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_7okdb")
