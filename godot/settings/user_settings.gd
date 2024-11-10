@@ -21,7 +21,7 @@ var USER_SETTING_DEFAULTS = {
 	GAME_LANGUAGE:"en"
 }
 
-var config:ConfigFile
+var config: ConfigFile
 
 func _ready():
 	config = ConfigFile.new()

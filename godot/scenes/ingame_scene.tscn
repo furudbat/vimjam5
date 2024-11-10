@@ -1,18 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=8 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" path="res://scenes/ingame_scene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://dkn2wjni2qgwb" path="res://ui/components/beast_meter.tscn" id="2_chkld"]
+[ext_resource type="Texture2D" uid="uid://cucifq7erg4dn" path="res://sprites/spr_ui_main.png" id="2_jsi5k"]
+[ext_resource type="PackedScene" uid="uid://drwkdtdcofl3e" path="res://ui/components/level_timer.tscn" id="4_831j3"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7a47"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.960784, 0.960784, 0.960784, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ifta"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vf2ic"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ic21"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_33xar"]
 
 [node name="IngameScene" type="Node2D"]
 script = ExtResource("1_objyc")
@@ -22,6 +19,11 @@ custom_minimum_size = Vector2(426, 240)
 offset_right = 426.0
 offset_bottom = 240.0
 color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect"]
+z_index = 1
+texture = ExtResource("2_jsi5k")
+centered = false
 
 [node name="HSplitContainer" type="HSplitContainer" parent="ColorRect"]
 custom_minimum_size = Vector2(426, 240)
@@ -33,13 +35,13 @@ collapsed = true
 dragger_visibility = 2
 
 [node name="MeterContainer" type="VBoxContainer" parent="ColorRect/HSplitContainer"]
+z_index = 1
 layout_mode = 2
-theme_override_constants/separation = 0
 
 [node name="DistancePanel" type="Panel" parent="ColorRect/HSplitContainer/MeterContainer"]
-custom_minimum_size = Vector2(48, 16)
+custom_minimum_size = Vector2(48, 24)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_p7a47")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0ifta")
 
 [node name="CenterContainer" type="CenterContainer" parent="ColorRect/HSplitContainer/MeterContainer/DistancePanel"]
 custom_minimum_size = Vector2(48, 8)
@@ -53,13 +55,13 @@ grow_vertical = 2
 [node name="Distance" type="Label" parent="ColorRect/HSplitContainer/MeterContainer/DistancePanel/CenterContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 12
 text = "0m"
 
 [node name="PanelContainer" type="PanelContainer" parent="ColorRect/HSplitContainer/MeterContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_vf2ic")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8ic21")
 
 [node name="BeastMeter" parent="ColorRect/HSplitContainer/MeterContainer/PanelContainer" instance=ExtResource("2_chkld")]
 unique_name_in_owner = true
@@ -69,24 +71,45 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="DistancePanel" type="Panel" parent="ColorRect/HSplitContainer/MainContainer"]
-custom_minimum_size = Vector2(48, 16)
+[node name="InfoPanel" type="Panel" parent="ColorRect/HSplitContainer/MainContainer"]
+z_index = 2
+custom_minimum_size = Vector2(48, 24)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_p7a47")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_33xar")
 
-[node name="CenterContainer" type="CenterContainer" parent="ColorRect/HSplitContainer/MainContainer/DistancePanel"]
-custom_minimum_size = Vector2(48, 8)
+[node name="HSplitContainer" type="HSplitContainer" parent="ColorRect/HSplitContainer/MainContainer/InfoPanel"]
 layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 16.0
-grow_vertical = 2
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 24.0
+grow_horizontal = 2
+collapsed = true
+dragger_visibility = 2
 
-[node name="Info" type="Label" parent="ColorRect/HSplitContainer/MainContainer/DistancePanel/CenterContainer"]
+[node name="InfoContainer" type="HBoxContainer" parent="ColorRect/HSplitContainer/MainContainer/InfoPanel/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect/HSplitContainer/MainContainer/InfoPanel/HSplitContainer/InfoContainer"]
+custom_minimum_size = Vector2(48, 8)
+layout_mode = 2
+
+[node name="Info" type="Label" parent="ColorRect/HSplitContainer/MainContainer/InfoPanel/HSplitContainer/InfoContainer/CenterContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
-text = "Level"
+theme_override_font_sizes/font_size = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/HSplitContainer/MainContainer/InfoPanel/HSplitContainer"]
+custom_minimum_size = Vector2(66, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TimerUI" parent="ColorRect/HSplitContainer/MainContainer/InfoPanel/HSplitContainer/HBoxContainer" instance=ExtResource("4_831j3")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LevelTimer" type="Timer" parent="ColorRect/HSplitContainer/MainContainer/InfoPanel/HSplitContainer/HBoxContainer"]
+unique_name_in_owner = true
 
 [node name="MainSceneContainer" type="CenterContainer" parent="ColorRect/HSplitContainer/MainContainer"]
 unique_name_in_owner = true
