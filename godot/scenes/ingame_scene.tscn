@@ -1,6 +1,94 @@
-[gd_scene load_steps=2 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=5 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" path="res://scenes/ingame_scene.gd" id="1_objyc"]
+[ext_resource type="PackedScene" uid="uid://dkn2wjni2qgwb" path="res://ui/components/beast_meter.tscn" id="2_chkld"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7a47"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.960784, 0.960784, 0.960784, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vf2ic"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="IngameScene" type="Node2D"]
 script = ExtResource("1_objyc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(426, 240)
+offset_right = 426.0
+offset_bottom = 240.0
+color = Color(0, 0, 0, 1)
+
+[node name="HSplitContainer" type="HSplitContainer" parent="ColorRect"]
+custom_minimum_size = Vector2(426, 240)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+split_offset = 48
+collapsed = true
+dragger_visibility = 2
+
+[node name="MeterContainer" type="VBoxContainer" parent="ColorRect/HSplitContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="DistancePanel" type="Panel" parent="ColorRect/HSplitContainer/MeterContainer"]
+custom_minimum_size = Vector2(48, 16)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p7a47")
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect/HSplitContainer/MeterContainer/DistancePanel"]
+custom_minimum_size = Vector2(48, 8)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Distance" type="Label" parent="ColorRect/HSplitContainer/MeterContainer/DistancePanel/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "0m"
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect/HSplitContainer/MeterContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_vf2ic")
+
+[node name="BeastMeter" parent="ColorRect/HSplitContainer/MeterContainer/PanelContainer" instance=ExtResource("2_chkld")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MainContainer" type="VBoxContainer" parent="ColorRect/HSplitContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="DistancePanel" type="Panel" parent="ColorRect/HSplitContainer/MainContainer"]
+custom_minimum_size = Vector2(48, 16)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p7a47")
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect/HSplitContainer/MainContainer/DistancePanel"]
+custom_minimum_size = Vector2(48, 8)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 16.0
+grow_vertical = 2
+
+[node name="Info" type="Label" parent="ColorRect/HSplitContainer/MainContainer/DistancePanel/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Level"
+
+[node name="MainSceneContainer" type="CenterContainer" parent="ColorRect/HSplitContainer/MainContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://nbaodrlopo7y"]
+[gd_scene load_steps=4 format=3 uid="uid://nbaodrlopo7y"]
 
 [ext_resource type="PackedScene" uid="uid://cpo1u33eut0i4" path="res://ui/components/float_range_game_settings_option.tscn" id="1_0gpwr"]
 [ext_resource type="Script" path="res://ui/components/game_settings.gd" id="1_eje8l"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wfup0"]
 
 [node name="GameSettings" type="VBoxContainer"]
 script = ExtResource("1_eje8l")
@@ -11,35 +13,70 @@ layout_mode = 2
 theme_override_constants/margin_top = 10
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer"]
-custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_constants/h_separation = 20
-theme_override_constants/v_separation = 8
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 6
 columns = 2
 
+[node name="MasterVolumeIcon" type="TextureRect" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("PlaceholderTexture2D_wfup0")
+expand_mode = 1
+
 [node name="MasterVolumeLabel" type="Label" parent="MarginContainer/GridContainer"]
+visible = false
 layout_mode = 2
 text = "settings_volume_master"
 
 [node name="MasterVolumeSlider" parent="MarginContainer/GridContainer" instance=ExtResource("1_0gpwr")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 4
 property = "mastervolume"
 
+[node name="MusicVolumeIcon" type="TextureRect" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("PlaceholderTexture2D_wfup0")
+expand_mode = 1
+
 [node name="MusicVolumeLabel" type="Label" parent="MarginContainer/GridContainer"]
+visible = false
 layout_mode = 2
 text = "settings_volume_music"
 
 [node name="MusicVolumeSlider" parent="MarginContainer/GridContainer" instance=ExtResource("1_0gpwr")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 4
 property = "musicvolume"
 
+[node name="SoundVolumeIcon" type="TextureRect" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("PlaceholderTexture2D_wfup0")
+expand_mode = 1
+
 [node name="SoundVolumeLabel" type="Label" parent="MarginContainer/GridContainer"]
+visible = false
 layout_mode = 2
 text = "settings_volume_sound"
 
 [node name="SoundVolumeSlider" parent="MarginContainer/GridContainer" instance=ExtResource("1_0gpwr")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 4
 property = "soundvolume"

@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkn2wjni2qgwb"]
+
+[ext_resource type="Script" path="res://ui/components/beast_meter.gd" id="1_x2vng"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jaerd"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.960784, 0.960784, 0.960784, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7ogjx"]
+
+[node name="BeastMeter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x2vng")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 48.0
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_jaerd")
+
+[node name="PlayerIcon" type="TextureRect" parent="VBoxContainer/Panel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_7ogjx")
+
+[node name="EnemyIcon" type="TextureRect" parent="VBoxContainer/Panel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_7ogjx")

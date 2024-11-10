@@ -1,44 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dv2y18ye8j7o0"]
+[gd_scene load_steps=7 format=3 uid="uid://dv2y18ye8j7o0"]
 
 [ext_resource type="Script" path="res://scenes/main_menu_scene.gd" id="1_1foie"]
-[ext_resource type="PackedScene" uid="uid://cik30de5gaaah" path="res://scenes/ingame_scene.tscn" id="2_nl5i6"]
-[ext_resource type="Theme" uid="uid://d22mpqutkotsu" path="res://ui/theme.tres" id="4_on22w"]
 [ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="5_s1468"]
 [ext_resource type="PackedScene" uid="uid://nbaodrlopo7y" path="res://ui/components/game_settings.tscn" id="6_4lty4"]
 [ext_resource type="AudioStream" uid="uid://dlchk3c1baiy8" path="res://music/corgie-title.ogg" id="6_drnm6"]
 
-[sub_resource type="GDScript" id="GDScript_rqasr"]
-script/source = "extends Node2D
-
-@onready var overlay := %FadeOverlay
-@onready var return_button := %ReturnButton
-
-func _ready():
-	overlay.on_complete_fade_out.connect(_on_fade_overlay_on_complete_fade_out)
-	return_button.pressed.connect(_on_return_button_pressed)
-	
-	overlay.visible = true
-	return_button.grab_focus()
-
-func _on_fade_overlay_on_complete_fade_out():
-	get_tree().change_scene_to_file(\"res://scenes/main_menu_scene.tscn\")
-
-func _on_return_button_pressed():
-	overlay.fade_out()
-"
-
-[sub_resource type="PackedScene" id="PackedScene_iy55m"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"names": PackedStringArray("GameSettingsScene", "Node2D", "script", "UI", "CanvasLayer", "CenterContainer", "CenterContainer", "anchors_preset", "anchor_right", "anchor_bottom", "grow_horizontal", "grow_vertical", "VBoxContainer", "VBoxContainer", "layout_mode", "theme_override_constants/separation", "SettingsLabel", "Label", "layout_mode", "theme_type_variation", "text", "GameSettings", "layout_mode", "ReturnButton", "Button", "unique_name_in_owner", "layout_mode", "theme", "text", "Music", "AudioStreamPlayer", "stream", "autoplay", "bus"),
-"node_count": 8,
-"node_paths": [NodePath("."), NodePath("./UI"), NodePath("./UI/CenterContainer"), NodePath("./UI/CenterContainer/VBoxContainer"), NodePath("./UI/CenterContainer/VBoxContainer"), NodePath("./UI/CenterContainer/VBoxContainer"), NodePath(".")],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 1, 2, 0, 0, 1073741824, 0, 4, 3, -1, 0, 0, 1073741825, 0, 6, 5, -1, 5, 7, 1, 8, 2, 9, 3, 10, 4, 11, 5, 0, 1073741826, 0, 13, 12, -1, 2, 14, 6, 15, 7, 0, 1073741827, 0, 17, 16, -1, 3, 18, 8, 19, 9, 20, 10, 0, 1073741828, 0, 2147483647, 21, 11, 1, 22, 12, 0, 1073741829, 0, 24, 23, -1, 4, 25, 13, 26, 14, 27, 15, 28, 16, 0, 1073741830, 0, 30, 29, -1, 3, 31, 17, 32, 18, 33, 19, 0),
-"variants": [SubResource("GDScript_rqasr"), 15, 1.0, 1.0, 2, 2, 2, 20, 2, &"HeaderLarge", "settings", ExtResource("6_4lty4"), 2, true, 2, ExtResource("4_on22w"), "return_to_main", ExtResource("6_drnm6"), true, &"Music"],
-"version": 3
-}
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6ojf"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ikbh"]
 font_size = 8
@@ -46,97 +14,126 @@ font_color = Color(1, 1, 1, 0.486275)
 
 [node name="MainMenuScene" type="Node2D"]
 script = ExtResource("1_1foie")
-game_scene = ExtResource("2_nl5i6")
-settings_scene = SubResource("PackedScene_iy55m")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="GridContainer" type="GridContainer" parent="UI"]
-anchors_preset = 9
+[node name="Panel" type="Panel" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 522.0
+grow_horizontal = 2
 grow_vertical = 2
-columns = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_x6ojf")
 
-[node name="Empty" type="Label" parent="UI/GridContainer"]
+[node name="Container" type="HBoxContainer" parent="UI/Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 418.0
+offset_bottom = 232.0
+
+[node name="Left Side" type="VBoxContainer" parent="UI/Panel/Container"]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
+size_flags_vertical = 8
+alignment = 2
+
+[node name="Credits L" type="MarginContainer" parent="UI/Panel/Container/Left Side"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_top = 10
+
+[node name="Label" type="Label" parent="UI/Panel/Container/Left Side/Credits L"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "credits"
+label_settings = SubResource("LabelSettings_2ikbh")
+horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="MainMenu" type="VBoxContainer" parent="UI/GridContainer"]
+[node name="Main" type="VBoxContainer" parent="UI/Panel/Container"]
 layout_mode = 2
-theme_override_constants/separation = 5
+size_flags_horizontal = 3
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="UI/GridContainer/MainMenu"]
+[node name="LogoContainer" type="MarginContainer" parent="UI/Panel/Container/Main"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 4.0
 
-[node name="TextureRect" type="TextureRect" parent="UI/GridContainer/MainMenu/AspectRatioContainer"]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="UI/Panel/Container/Main/LogoContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="UI/Panel/Container/Main/LogoContainer/AspectRatioContainer"]
 custom_minimum_size = Vector2(56, 56)
 layout_mode = 2
 texture = ExtResource("5_s1468")
 expand_mode = 1
 
-[node name="ContinueButton" type="Button" parent="UI/GridContainer/MainMenu"]
-unique_name_in_owner = true
+[node name="MainMenu" type="VBoxContainer" parent="UI/Panel/Container/Main"]
 layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="ContinueButton" type="Button" parent="UI/Panel/Container/Main/MainMenu"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
 text = "continue"
 
-[node name="NewGameButton" type="Button" parent="UI/GridContainer/MainMenu"]
+[node name="NewGameButton" type="Button" parent="UI/Panel/Container/Main/MainMenu"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(180, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "new_game"
 
-[node name="ExitButton" type="Button" parent="UI/GridContainer/MainMenu"]
+[node name="ExitButton" type="Button" parent="UI/Panel/Container/Main/MainMenu"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(180, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "leave_game"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/GridContainer"]
+[node name="Footer" type="MarginContainer" parent="UI/Panel/Container/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+theme_override_constants/margin_top = 10
+
+[node name="Label" type="Label" parent="UI/Panel/Container/Main/Footer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Copyright"
+label_settings = SubResource("LabelSettings_2ikbh")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Right Side" type="VBoxContainer" parent="UI/Panel/Container"]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 8
-theme_override_constants/separation = 20
 alignment = 2
 
-[node name="GameSettings" parent="UI/GridContainer/VBoxContainer" instance=ExtResource("6_4lty4")]
+[node name="SettingsContainer" type="MarginContainer" parent="UI/Panel/Container/Right Side"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+size_flags_stretch_ratio = 3.0
+
+[node name="GameSettings" parent="UI/Panel/Container/Right Side/SettingsContainer" instance=ExtResource("6_4lty4")]
 layout_mode = 2
 
-[node name="Credits L" type="MarginContainer" parent="UI/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 8
-theme_override_constants/margin_top = 10
-
-[node name="Label" type="Label" parent="UI/GridContainer/Credits L"]
-layout_mode = 2
-text = "credits"
-label_settings = SubResource("LabelSettings_2ikbh")
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="Footer" type="MarginContainer" parent="UI/GridContainer"]
+[node name="Credits R" type="MarginContainer" parent="UI/Panel/Container/Right Side"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
 theme_override_constants/margin_top = 10
 
-[node name="Label" type="Label" parent="UI/GridContainer/Footer"]
-layout_mode = 2
-text = "credits"
-label_settings = SubResource("LabelSettings_2ikbh")
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="Credits R" type="MarginContainer" parent="UI/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 8
-theme_override_constants/margin_top = 10
-
-[node name="Label" type="Label" parent="UI/GridContainer/Credits R"]
+[node name="Label" type="Label" parent="UI/Panel/Container/Right Side/Credits R"]
 layout_mode = 2
 label_settings = SubResource("LabelSettings_2ikbh")
 horizontal_alignment = 1
@@ -144,5 +141,4 @@ vertical_alignment = 2
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_drnm6")
-autoplay = true
 bus = &"Music"
