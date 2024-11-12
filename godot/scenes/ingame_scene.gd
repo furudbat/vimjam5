@@ -9,8 +9,14 @@ extends Node2D
 
 # Scenes
 var intro_scene = preload("res://scenes/intro.tscn")
-var dummy_scene = preload("res://scenes/dummy.tscn")
+var dummy_scene = preload("res://scenes/mini-games/dummy.tscn")
 var main_scene_instance = null
+
+var level = 0
+var section = 0
+var levels = [
+	[ preload("res://scenes/maps/map_01.tscn") ]
+]
 
 # distance
 var distance: int = Constants.START_DISTANCE
@@ -58,10 +64,6 @@ func _ready() -> void:
 	level_timer.timeout.connect(_on_timer_timeout)
 	
 func _process(delta: float) -> void:
-	if game_state == GameState.MAP:
-		# TODO: process Map
-		pass
-		
 	if OS.is_debug_build():
 		if Input.is_key_pressed(KEY_ENTER):
 			if game_state == GameState.MAP:
@@ -110,6 +112,13 @@ func _process(delta: float) -> void:
 	# Update timer
 	timer_ui.time = level_timer.time_left
 	
+	# Update Map
+	if game_state == GameState.MAP:
+		if main_scene_instance != null:
+			main_scene_instance.distance = distance
+			main_scene_instance.player_velocity = player_velocity
+			main_scene_instance.enemy_velocity = enemy_velocity
+	
 	# Debug
 	if OS.is_debug_build():
 		if Input.is_key_pressed(KEY_SPACE):
@@ -121,12 +130,35 @@ func _exit_intro():
 		game_state = GameState.MAP
 		player_state = CharacterState.RUNNING
 		enemy_state = CharacterState.RUNNING
-		# TODO: map scene
 		main_scene_container.remove_child(main_scene_instance)
 		main_scene_instance = null
-		level_timer.start(Constants.START_TIME_SEC)
-		player_velocity = Constants.START_PLAYER_VELOCITY
-		player_acceleration_factor = Constants.PLAYER_ACCELERATION_FACTOR
+		level = 0
+		section = 0
+		_init_level()
+		
+func _next_level():
+	# @TODO: go to next level
+	_init_level()
+
+func _init_level():
+	var map_instance = levels[level][section].instantiate()
+	map_instance.obstical_reached.connect(_obstical_reached)
+	main_scene_instance = map_instance
+	main_scene_container.add_child(main_scene_instance)
+	level_timer.start(Constants.START_TIME_SEC)
+	player_velocity = Constants.START_PLAYER_VELOCITY
+	player_acceleration_factor = Constants.PLAYER_ACCELERATION_FACTOR
+	
+func _obstical_reached():
+	# remove map scene
+	main_scene_container.remove_child(main_scene_instance)
+	main_scene_instance = null
+	# @TODO: setup door scene
+	var door_instance = dummy_scene.instantiate()
+	door_instance.solve_puzzle.connect(_solve_puzzle)
+	main_scene_instance = door_instance
+	main_scene_container.add_child(main_scene_instance)
+	game_state = GameState.OBSTACLE
 
 func _game_over():
 	game_state = GameState.GAME_OVER
@@ -140,12 +172,12 @@ func _game_over():
 	
 func _solve_puzzle():
 	if game_state == GameState.OBSTACLE:
-		game_state = GameState.MAP
-		# TODO: reset on map
 		main_scene_container.remove_child(main_scene_instance)
 		main_scene_instance = null
+		_next_level()
+		game_state = GameState.MAP
 		# TODO: reset timer
-		level_timer.start(10)
+		level_timer.start(30)
 		enemy_boosted = false
 		enemy_velocity_boost = 1.0
 		player_velocity = Constants.START_PLAYER_VELOCITY

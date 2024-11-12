@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=4 uid="uid://8q76plsyales"]
+
+[ext_resource type="Script" path="res://scenes/maps/map_01.gd" id="1_wt70o"]
+[ext_resource type="Texture2D" uid="uid://bf8ttxbe4wlua" path="res://assets/spr_tilemap_map.png" id="2_pqxdf"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_l2r58"]
+[ext_resource type="PackedScene" uid="uid://cplxjj10u1244" path="res://scenes/maps/player.tscn" id="5_wjh0p"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4sjqi"]
+texture = ExtResource("2_pqxdf")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+3:3/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+3:5/0 = 0
+2:2/0 = 0
+3:0/0 = 0
+3:1/0 = 0
+4:0/0 = 0
+2:0/size_in_atlas = Vector2i(1, 2)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, -16)
+4:2/size_in_atlas = Vector2i(1, 2)
+4:2/0 = 0
+4:2/0/texture_origin = Vector2i(0, -16)
+5:2/size_in_atlas = Vector2i(1, 2)
+5:2/0 = 0
+5:2/0/texture_origin = Vector2i(0, -16)
+1:0/size_in_atlas = Vector2i(1, 2)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, -16)
+0:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_2q1l7"]
+tile_size = Vector2i(32, 32)
+custom_data_layer_0/name = ""
+custom_data_layer_0/type = 0
+sources/1 = SubResource("TileSetAtlasSource_4sjqi")
+
+[sub_resource type="Curve2D" id="Curve2D_dg86g"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 208, 249, 0, 0, 0, 0, 210, 76)
+}
+point_count = 2
+
+[node name="Map1" type="Node2D"]
+script = ExtResource("1_wt70o")
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+position = Vector2(211, 70)
+script = ExtResource("3_l2r58")
+follow_mode = 5
+follow_target = NodePath("../Path2D/PlayerPath/Player")
+tween_on_load = false
+
+[node name="Map" type="TileMapLayer" parent="."]
+unique_name_in_owner = true
+rotation = -0.0023483
+scale = Vector2(1, 1)
+tile_map_data = PackedByteArray("AAAGAP//AQAAAAIAAAAGAAAAAQAAAAMAAAAGAAEAAQAAAAQAAAAGAAIAAQAAAAMAAAAGAAMAAQAAAAIAAAAGAAQAAQAAAAAAAAAGAAUAAQAAAAIAAAAGAAYAAQAAAAAAAAAGAAcAAQACAAQAAAAGAAgAAQAAAAEAAAAGAAkAAQAAAAAAAAAGAAoAAQAAAAAAAAAGAAsAAQAAAAIAAAAHAAcAAQADAAIAAAAFAAcAAQAEAAIAAAAIAAcAAQAFAAIAAAAEAAcAAQACAAIAAAAFAAgAAQAAAAIAAAAHAAgAAQADAAMAAAAHAAkAAQAEAAAAAAAFAAkAAQAAAAEAAAAHAAoAAQAAAAEAAAAFAAoAAQADAAMAAAAIAAgAAQADAAEAAAAEAAgAAQADAAEAAAAIAAQAAQADAAEAAAACAAcAAQAAAAEAAAACAAgAAQAAAAIAAAACAAkAAQAAAAMAAAACAAYAAQACAAIAAAAJAAMAAQAFAAIAAAABAAIAAQABAAAAAAACAAIAAQACAAAAAAADAAIAAQADAAAAAAADAAMAAQADAAEAAAAMAAEAAQABAAAAAAANAAEAAQACAAAAAAAOAAEAAQADAAAAAAAOAAIAAQADAAEAAAAAAAUAAQAAAAIAAAAAAAYAAQAAAAMAAAD//wAAAQACAAAAAAAAAAAAAQADAAAAAAAGAAwAAQAAAAEAAAAGAA0AAQAAAAIAAAAGAA4AAQAAAAMAAAA=")
+tile_set = SubResource("TileSet_2q1l7")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_dg86g")
+
+[node name="PlayerPath" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(208, 249)
+rotates = false
+cubic_interp = false
+loop = false
+
+[node name="Player" parent="Path2D/PlayerPath" instance=ExtResource("5_wjh0p")]
+unique_name_in_owner = true

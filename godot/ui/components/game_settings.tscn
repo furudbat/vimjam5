@@ -2,8 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cpo1u33eut0i4" path="res://ui/components/float_range_game_settings_option.tscn" id="1_0gpwr"]
 [ext_resource type="Script" path="res://ui/components/game_settings.gd" id="1_eje8l"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wfup0"]
+[ext_resource type="PackedScene" uid="uid://w0kkqhcx1ngl" path="res://sprites/icons.tscn" id="2_xgmqi"]
 
 [node name="GameSettings" type="VBoxContainer"]
 script = ExtResource("1_eje8l")
@@ -18,15 +17,14 @@ theme_override_constants/h_separation = 4
 theme_override_constants/v_separation = 6
 columns = 2
 
-[node name="MasterVolumeIcon" type="TextureRect" parent="MarginContainer/GridContainer"]
-unique_name_in_owner = true
-clip_contents = true
-custom_minimum_size = Vector2(16, 16)
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = SubResource("PlaceholderTexture2D_wfup0")
-expand_mode = 1
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="MasterVolumeIcon" parent="MarginContainer/GridContainer/MarginContainer" instance=ExtResource("2_xgmqi")]
+position = Vector2(11, 10)
 
 [node name="MasterVolumeLabel" type="Label" parent="MarginContainer/GridContainer"]
 visible = false
@@ -39,15 +37,15 @@ layout_mode = 2
 size_flags_vertical = 4
 property = "mastervolume"
 
-[node name="MusicVolumeIcon" type="TextureRect" parent="MarginContainer/GridContainer"]
-unique_name_in_owner = true
-clip_contents = true
-custom_minimum_size = Vector2(16, 16)
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = SubResource("PlaceholderTexture2D_wfup0")
-expand_mode = 1
+
+[node name="MusicVolumeIcon" parent="MarginContainer/GridContainer/MarginContainer2" instance=ExtResource("2_xgmqi")]
+position = Vector2(11, 10)
+icon = 2
 
 [node name="MusicVolumeLabel" type="Label" parent="MarginContainer/GridContainer"]
 visible = false
@@ -60,15 +58,15 @@ layout_mode = 2
 size_flags_vertical = 4
 property = "musicvolume"
 
-[node name="SoundVolumeIcon" type="TextureRect" parent="MarginContainer/GridContainer"]
-unique_name_in_owner = true
-clip_contents = true
-custom_minimum_size = Vector2(16, 16)
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = SubResource("PlaceholderTexture2D_wfup0")
-expand_mode = 1
+
+[node name="SoundVolumeIcon" parent="MarginContainer/GridContainer/MarginContainer3" instance=ExtResource("2_xgmqi")]
+position = Vector2(11, 10)
+icon = 1
 
 [node name="SoundVolumeLabel" type="Label" parent="MarginContainer/GridContainer"]
 visible = false

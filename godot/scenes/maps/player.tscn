@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cplxjj10u1244"]
+
+[ext_resource type="PackedScene" uid="uid://byfcvdix8s7a" path="res://sprites/player_character.tscn" id="1_qcqa6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ymblv"]
+radius = 14.0
+height = 44.0
+
+[node name="Player" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="PlayerCharacter" parent="CharacterBody2D" instance=ExtResource("1_qcqa6")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(1, 3)
+shape = SubResource("CapsuleShape2D_ymblv")
