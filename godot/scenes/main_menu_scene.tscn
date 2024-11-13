@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dv2y18ye8j7o0"]
+[gd_scene load_steps=6 format=3 uid="uid://dv2y18ye8j7o0"]
 
 [ext_resource type="Script" path="res://scenes/main_menu_scene.gd" id="1_1foie"]
 [ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="5_s1468"]
@@ -6,11 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dlchk3c1baiy8" path="res://music/corgie-title.ogg" id="6_drnm6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6ojf"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_2ikbh"]
-font_size = 8
-font_color = Color(1, 1, 1, 0.486275)
+bg_color = Color(0, 0, 0, 0)
 
 [node name="MainMenuScene" type="Node2D"]
 script = ExtResource("1_1foie")
@@ -25,117 +21,95 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_x6ojf")
 
-[node name="Container" type="HBoxContainer" parent="UI/Panel"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 418.0
-offset_bottom = 232.0
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Panel"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -92.0
+offset_right = 92.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Left Side" type="VBoxContainer" parent="UI/Panel/Container"]
-custom_minimum_size = Vector2(80, 0)
+[node name="LogoContainer" type="MarginContainer" parent="UI/Panel/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 8
-alignment = 2
-
-[node name="Credits L" type="MarginContainer" parent="UI/Panel/Container/Left Side"]
-layout_mode = 2
-size_flags_vertical = 8
-theme_override_constants/margin_top = 10
-
-[node name="Label" type="Label" parent="UI/Panel/Container/Left Side/Credits L"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 8
-text = "credits"
-label_settings = SubResource("LabelSettings_2ikbh")
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="Main" type="VBoxContainer" parent="UI/Panel/Container"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="LogoContainer" type="MarginContainer" parent="UI/Panel/Container/Main"]
-layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 6
-size_flags_stretch_ratio = 4.0
+size_flags_stretch_ratio = 3.09
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="UI/Panel/Container/Main/LogoContainer"]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="UI/Panel/VBoxContainer/LogoContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+size_flags_stretch_ratio = 1.83
 alignment_vertical = 0
 
-[node name="TextureRect" type="TextureRect" parent="UI/Panel/Container/Main/LogoContainer/AspectRatioContainer"]
+[node name="TextureRect" type="TextureRect" parent="UI/Panel/VBoxContainer/LogoContainer/AspectRatioContainer"]
 custom_minimum_size = Vector2(56, 56)
 layout_mode = 2
 texture = ExtResource("5_s1468")
 expand_mode = 1
 
-[node name="MainMenu" type="VBoxContainer" parent="UI/Panel/Container/Main"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/Panel/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.34
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Panel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 16
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/Panel/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MainMenu" type="VBoxContainer" parent="UI/Panel/VBoxContainer/MarginContainer/HBoxContainer/CenterContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
 theme_override_constants/separation = 5
 
-[node name="ContinueButton" type="Button" parent="UI/Panel/Container/Main/MainMenu"]
+[node name="ContinueButton" type="Button" parent="UI/Panel/VBoxContainer/MarginContainer/HBoxContainer/CenterContainer/MainMenu"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "continue"
 
-[node name="NewGameButton" type="Button" parent="UI/Panel/Container/Main/MainMenu"]
+[node name="NewGameButton" type="Button" parent="UI/Panel/VBoxContainer/MarginContainer/HBoxContainer/CenterContainer/MainMenu"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "new_game"
 
-[node name="ExitButton" type="Button" parent="UI/Panel/Container/Main/MainMenu"]
+[node name="ExitButton" type="Button" parent="UI/Panel/VBoxContainer/MarginContainer/HBoxContainer/CenterContainer/MainMenu"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "leave_game"
 
-[node name="Footer" type="MarginContainer" parent="UI/Panel/Container/Main"]
+[node name="SettingsContainer" type="MarginContainer" parent="UI/Panel/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="GameSettings" parent="UI/Panel/VBoxContainer/MarginContainer/HBoxContainer/SettingsContainer" instance=ExtResource("6_4lty4")]
+layout_mode = 2
+
+[node name="Footer" type="MarginContainer" parent="UI/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 10
+size_flags_vertical = 2
 theme_override_constants/margin_top = 10
 
-[node name="Label" type="Label" parent="UI/Panel/Container/Main/Footer"]
+[node name="Label" type="Label" parent="UI/Panel/VBoxContainer/Footer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
-text = "Copyright"
-label_settings = SubResource("LabelSettings_2ikbh")
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="Right Side" type="VBoxContainer" parent="UI/Panel/Container"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-alignment = 2
-
-[node name="SettingsContainer" type="MarginContainer" parent="UI/Panel/Container/Right Side"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 10
-size_flags_stretch_ratio = 3.0
-
-[node name="GameSettings" parent="UI/Panel/Container/Right Side/SettingsContainer" instance=ExtResource("6_4lty4")]
-layout_mode = 2
-
-[node name="Credits R" type="MarginContainer" parent="UI/Panel/Container/Right Side"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 8
-theme_override_constants/margin_top = 10
-
-[node name="Label" type="Label" parent="UI/Panel/Container/Right Side/Credits R"]
-layout_mode = 2
-label_settings = SubResource("LabelSettings_2ikbh")
+text = "(c) FurudBat & Blacktiger5"
 horizontal_alignment = 1
 vertical_alignment = 2
 

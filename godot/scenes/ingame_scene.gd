@@ -3,8 +3,8 @@ extends Node2D
 # Scene Nodes
 @onready var main_scene_container = %MainSceneContainer
 @onready var beast_meter = %BeastMeter
-@onready var distance_label = %Distance
-@onready var level_timer = %LevelTimer
+@onready var distance_label: Label = %Distance
+@onready var level_timer: Timer = %LevelTimer
 @onready var timer_ui = %TimerUI
 
 # Scenes
@@ -14,9 +14,6 @@ var main_scene_instance = null
 
 var level = 0
 var section = 0
-var levels = [
-	[ preload("res://scenes/maps/map_01.tscn") ]
-]
 
 # distance
 var distance: int = Constants.START_DISTANCE
@@ -46,6 +43,7 @@ enum GameState {
 	MAP,
 	OBSTACLE,
 	GAME_OVER,
+	WIN,
 }
 var game_state = GameState.INTRO
 
@@ -62,6 +60,8 @@ func _ready() -> void:
 	level_timer.one_shot = true
 	level_timer.stop()
 	level_timer.timeout.connect(_on_timer_timeout)
+	
+	assert(Constants.MAX_LEVELS <= Constants.LEVELS.size())
 	
 func _process(delta: float) -> void:
 	if OS.is_debug_build():
@@ -110,7 +110,8 @@ func _process(delta: float) -> void:
 	distance_label.text = "%4dm" % distance
 	
 	# Update timer
-	timer_ui.time = level_timer.time_left
+	if game_state == GameState.MAP or game_state == GameState.OBSTACLE:
+		timer_ui.time = level_timer.time_left
 	
 	# Update Map
 	if game_state == GameState.MAP:
@@ -137,17 +138,40 @@ func _exit_intro():
 		_init_level()
 		
 func _next_level():
-	# @TODO: go to next level
+	var current_level: Array = Constants.LEVELS[level]
+	if section < current_level.size()-1:
+		section = section + 1
+	else:
+		if level < Constants.MAX_LEVELS-1:
+			level = level + 1
+			section = 0
+		else:
+			# Last level pass, no level left ... win
+			return false
+			
 	_init_level()
+	return true
 
 func _init_level():
-	var map_instance = levels[level][section].instantiate()
+	assert(level < Constants.LEVELS.size())
+	assert(section < Constants.LEVELS[level].size())
+	assert(level < Constants.LEVELS_TIME_SEC.size())
+	
+	# init level
+	var map_instance = Constants.LEVELS[level][section].instantiate()
 	map_instance.obstical_reached.connect(_obstical_reached)
 	main_scene_instance = map_instance
 	main_scene_container.add_child(main_scene_instance)
-	level_timer.start(Constants.START_TIME_SEC)
-	player_velocity = Constants.START_PLAYER_VELOCITY
+	
+	# setup player/enemy
 	player_acceleration_factor = Constants.PLAYER_ACCELERATION_FACTOR
+	if not enemy_boosted:
+		level_timer.start(Constants.LEVELS_TIME_SEC[level])
+		enemy_velocity_boost = 1.0
+		if level == 0 and section == 0:
+			player_velocity = Constants.START_PLAYER_VELOCITY
+		else:
+			player_velocity = Constants.NEXT_LEVEL_START_PLAYER_VELOCITY
 	
 func _obstical_reached():
 	# remove map scene
@@ -170,17 +194,25 @@ func _game_over():
 	player_velocity = Vector2(0, 0)
 	enemy_velocity = Vector2(0, 0)
 	
+func _win_game():
+	game_state = GameState.WIN
+	main_scene_instance = null
+	distance = 0
+	player_state = CharacterState.STOPPED
+	enemy_state = CharacterState.STOPPED
+	level_timer.stop()
+	player_velocity = Vector2(0, 0)
+	enemy_velocity = Vector2(0, 0)
+	# @TODO: go to win scene
+	
 func _solve_puzzle():
 	if game_state == GameState.OBSTACLE:
 		main_scene_container.remove_child(main_scene_instance)
 		main_scene_instance = null
-		_next_level()
-		game_state = GameState.MAP
-		# TODO: reset timer
-		level_timer.start(30)
-		enemy_boosted = false
-		enemy_velocity_boost = 1.0
-		player_velocity = Constants.START_PLAYER_VELOCITY
+		if _next_level():
+			game_state = GameState.MAP
+		else:
+			_win_game()
 	
 func _on_timer_timeout():
 	enemy_boosted = true
