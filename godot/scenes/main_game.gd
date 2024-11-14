@@ -18,7 +18,7 @@ var level = 0
 var section = 0
 
 # distance
-var distance: int = Constants.START_DISTANCE
+var distance = Constants.START_DISTANCE
 var player_pos_m: Vector2 = Vector2(0, distance)
 var enemy_pos_m: Vector2 = Vector2(0, 0)
 
@@ -226,10 +226,4 @@ func _on_door_entered(door, body):
 
 func _on_door_exited(door, body):
 	pass
-	
-	
-func _format_time(seconds: float):
-	var minutes = int(seconds) / 60
-	var remaining_seconds = int(seconds) % 60
-	return "%02d:%02d" % [minutes, remaining_seconds]
 	

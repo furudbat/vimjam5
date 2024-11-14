@@ -34,10 +34,10 @@ func setup_global_theme():
 		var hover_stylebox = StyleBoxFlat.new()
 		hover_stylebox.bg_color = ColorPalette.BACKGROUND
 		hover_stylebox.corner_detail = 2
-		hover_stylebox.border_width_left = BORDER_WIDTH+1
-		hover_stylebox.border_width_top = BORDER_WIDTH+1
-		hover_stylebox.border_width_right = BORDER_WIDTH+1
-		hover_stylebox.border_width_bottom = BORDER_WIDTH+1
+		hover_stylebox.border_width_left = BORDER_WIDTH
+		hover_stylebox.border_width_top = BORDER_WIDTH
+		hover_stylebox.border_width_right = BORDER_WIDTH
+		hover_stylebox.border_width_bottom = BORDER_WIDTH
 		hover_stylebox.border_color = ColorPalette.ACCENT
 		
 		var bordered_flat_stylebox = StyleBoxFlat.new()

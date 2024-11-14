@@ -5,7 +5,7 @@ extends Node2D
 @onready var exit_button := %ExitButton
 
 var new_game = true
-var start_scene = load("res://scenes/prologe.tscn")
+var start_scene = load("res://scenes/prolog.tscn")
 
 func _ready() -> void:
 	continue_button.visible = SaveGame.has_save() and SaveGame.ENABLED

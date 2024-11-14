@@ -21,7 +21,9 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 
 [node name="MasterVolumeIcon" parent="MarginContainer/GridContainer/MarginContainer" instance=ExtResource("2_xgmqi")]
+unique_name_in_owner = true
 position = Vector2(11, 10)
+active_property = "mastervolume_enabled"
 
 [node name="MasterVolumeLabel" type="Label" parent="MarginContainer/GridContainer"]
 visible = false
@@ -41,8 +43,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="MusicVolumeIcon" parent="MarginContainer/GridContainer/MarginContainer2" instance=ExtResource("2_xgmqi")]
+unique_name_in_owner = true
 position = Vector2(11, 10)
 icon = 2
+active_property = "musicvolume_enabled"
 
 [node name="MusicVolumeLabel" type="Label" parent="MarginContainer/GridContainer"]
 visible = false
@@ -62,8 +66,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="SoundVolumeIcon" parent="MarginContainer/GridContainer/MarginContainer3" instance=ExtResource("2_xgmqi")]
+unique_name_in_owner = true
 position = Vector2(11, 10)
 icon = 1
+active_property = "soundvolume_enabled"
 
 [node name="SoundVolumeLabel" type="Label" parent="MarginContainer/GridContainer"]
 visible = false

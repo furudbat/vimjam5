@@ -127,7 +127,7 @@ z_index = 1
 
 [node name="PhantomCamera2D" type="Node2D" parent="Map" node_paths=PackedStringArray("follow_target")]
 physics_interpolation_mode = 1
-position = Vector2(209, 239)
+position = Vector2(208.999, 239)
 rotation = 0.0023483
 script = ExtResource("2_bpgns")
 follow_mode = 5
@@ -137,7 +137,7 @@ tween_on_load = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(213, 120)
+position = Vector2(212.999, 120)
 rotation = 0.0023483
 process_callback = 0
 

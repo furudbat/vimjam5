@@ -24,7 +24,7 @@ const PLAYER_MAX_VELOCITY: Vector2 = Vector2(0, 6)
 
 # Map
 const TILE_PX_PER_M: int = 32
-const MAP_MOVEMENT_SPEED_UP: float = 5.2
+const MAP_MOVEMENT_SPEED_UP: float = 4.8
 
 # Levels
 const LEVELS = [

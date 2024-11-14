@@ -1,6 +1,6 @@
 extends HSlider
 
-@export var property:String = ""
+@export var property = ""
 
 var initialised = false
 

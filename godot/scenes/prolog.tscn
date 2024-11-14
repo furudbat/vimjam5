@@ -1,0 +1,94 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck46epavjai3"]
+
+[ext_resource type="Script" path="res://scenes/prolog.gd" id="1_3y4gn"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2gwbr"]
+size = Vector2(426, 240)
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_3y4gn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Page" type="Sprite2D" parent="CanvasLayer/Panel"]
+unique_name_in_owner = true
+texture = SubResource("PlaceholderTexture2D_2gwbr")
+centered = false
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -17.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/separation = 2
+
+[node name="SkipProgressBar" type="ProgressBar" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 12)
+layout_mode = 2
+size_flags_vertical = 1
+show_percentage = false
+
+[node name="SkipLabel" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/SkipProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.5
+offset_top = -6.0
+offset_right = 8.5
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.188235, 0.129412, 0.176471, 1)
+theme_override_font_sizes/font_size = 8
+text = "Skip"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(26, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="NextLabel" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 8
+text = "Next
+"
+
+[node name="Skip" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(46, 0)
+layout_mode = 2
+text = "SKIP"
+flat = true
+
+[node name="Next" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+text = "NEXT"
+flat = true
