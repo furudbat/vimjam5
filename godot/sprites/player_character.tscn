@@ -270,7 +270,6 @@ libraries = {
 texture = ExtResource("1_r7dfq")
 hframes = 3
 vframes = 4
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_eyt5g")

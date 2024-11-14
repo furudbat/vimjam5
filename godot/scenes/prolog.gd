@@ -5,7 +5,7 @@ extends Node2D
 
 signal exit_intro
 
-const SKIP_AT_TIME = 1.3
+const SKIP_AT_TIME = 0.9
 var skip_time_pressed = 0
 
 const MAX_PAGES = 6
@@ -17,6 +17,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Input.is_action_pressed("secondary_action"):
+		skip_time_pressed += delta
+	else:
+		skip_time_pressed = 0
+		
 	skip_progress.value = skip_time_pressed
 	
 	if Input.is_action_just_released("primary_action"):
@@ -26,7 +31,4 @@ func _process(delta: float) -> void:
 		get_tree().change_scene_to_file("res://scenes/main_game.tscn")
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_pressed("secondary_action"):
-		skip_time_pressed += delta
-	else:
-		skip_time_pressed = 0
+	pass

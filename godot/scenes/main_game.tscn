@@ -57,7 +57,7 @@ size = Vector2(27, 28)
 
 [sub_resource type="Curve2D" id="Curve2D_tbhpb"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 209, 502, 0, 0, 0, 0, 209, -31)
+"points": PackedVector2Array(0, 0, 0, 0, 209, 502, 0, 0, 0, 0, 209, -104)
 }
 point_count = 2
 
@@ -99,6 +99,7 @@ shape = SubResource("RectangleShape2D_r7jcd")
 debug_color = Color(0.849404, 0.373835, 0, 0.42)
 
 [node name="Path2D" type="Path2D" parent="Map"]
+unique_name_in_owner = true
 curve = SubResource("Curve2D_tbhpb")
 
 [node name="PlayerPath" type="PathFollow2D" parent="Map/Path2D"]
@@ -123,7 +124,6 @@ loop = false
 
 [node name="Enemy" parent="Map/Path2D/EnemyPath" instance=ExtResource("4_gqu37")]
 unique_name_in_owner = true
-z_index = 1
 
 [node name="PhantomCamera2D" type="Node2D" parent="Map" node_paths=PackedStringArray("follow_target")]
 physics_interpolation_mode = 1

@@ -17,6 +17,7 @@ func _ready() -> void:
 	mini_game.visible = false
 	
 	for stone in get_tree().get_nodes_in_group("Stones"):
+		stone.get_node("Area2D").connect("input_event", func(viewport, event, shape_idx): _on_stone_input_event(stone, viewport, event, shape_idx))
 		stones.append(stone)
 
 
@@ -30,19 +31,28 @@ func _process(delta: float) -> void:
 			return
 			
 	if started:
-		# Check Stone collisions
-		if Input.is_action_just_pressed("primary_action"):
-			var mouse_pos = get_global_mouse_position()
-			for stone in stones:
-				if stone.visible and stone.get_rect().has_point(stone.to_local(mouse_pos)):
-					stone_counter = stone_counter - 1
-					stone.get_node("Area2D/CollisionShape2D").disabled = true
-					stone.visible = false
-					break
-			
 		# @TODO: mini game logic
 		if stone_counter <= 0:
 			solve_puzzle.emit()
 			started = false
 			return
 			
+
+func _on_stone_input_event(stone: Node, viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	print(stone, event)
+	if started and event is InputEventMouseButton and event.is_action_just_pressed("primary_action"):
+		if stone.visible:
+			stone_counter = stone_counter - 1
+			viewport.get_node("CollisionPolygon2D").disabled = true
+			stone.visible = false
+
+func _on_stone_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	print(viewport, event)
+	if started and event is InputEventMouseButton and event.is_action_just_pressed("primary_action"):
+		var parent = viewport.get_parent()
+		if parent.visible:
+			stone_counter -= 1
+			var collision_polygon = viewport.get_node("CollisionPolygon2D")
+			if collision_polygon:
+				collision_polygon.disabled = true
+			parent.visible = false

@@ -74,6 +74,6 @@ Use <kbd>LMB</kbd> to click through the Prolog (Comic) or hold <kbd>RMB</kbd> to
 
 ### License
 
-Check [LICENSE](LICENSE) for further details.
+This project is licensed under the terms of the [MIT](LICENSE) license.
 
 *Copyright (c) 2024 furudbat ([@furudbat](https://twitter.com/furudbat))*
