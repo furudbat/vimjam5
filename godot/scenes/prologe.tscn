@@ -1,19 +1,17 @@
 [gd_scene load_steps=2 format=3 uid="uid://ck46epavjai3"]
 
-[ext_resource type="Script" path="res://scenes/intro.gd" id="1_jfndc"]
+[ext_resource type="Script" path="res://scenes/prologe.gd" id="1_3y4gn"]
 
 [node name="Intro" type="Node2D"]
-script = ExtResource("1_jfndc")
+script = ExtResource("1_3y4gn")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(378, 216)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -189.0
-offset_top = -108.0
-offset_right = 189.0
-offset_bottom = 108.0
+offset_right = 378.0
+offset_bottom = 216.0
 grow_horizontal = 2
 grow_vertical = 2
 

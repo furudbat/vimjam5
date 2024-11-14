@@ -5,7 +5,7 @@ extends Node2D
 @onready var exit_button := %ExitButton
 
 var new_game = true
-var ingame_scene = load("res://scenes/ingame_scene.tscn")
+var start_scene = load("res://scenes/prologe.tscn")
 
 func _ready() -> void:
 	continue_button.visible = SaveGame.has_save() and SaveGame.ENABLED
@@ -23,11 +23,11 @@ func _ready() -> void:
 		new_game_button.grab_focus()
 	
 func _on_new_game_button_pressed() -> void:
-	get_tree().change_scene_to_packed(ingame_scene)
+	get_tree().change_scene_to_packed(start_scene)
 	
 func _on_continue_button_pressed() -> void:
 	new_game = false
-	get_tree().change_scene_to_packed(ingame_scene)
+	get_tree().change_scene_to_packed(start_scene)
 
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()

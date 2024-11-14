@@ -28,14 +28,9 @@ const MAP_MOVEMENT_SPEED_UP: float = 5.2
 
 # Levels
 const LEVELS = [
-	[ preload("res://scenes/maps/map_01.tscn"), preload("res://scenes/maps/map_01.tscn"), preload("res://scenes/maps/map_01.tscn") ],
-	[ preload("res://scenes/maps/map_01.tscn"), preload("res://scenes/maps/map_01.tscn"), preload("res://scenes/maps/map_01.tscn") ],
-	[ preload("res://scenes/maps/map_01.tscn"), preload("res://scenes/maps/map_01.tscn"), preload("res://scenes/maps/map_01.tscn") ],
-]
-const LEVELS_DOORS = [
-	[ preload("res://scenes/mini-games/dummy.tscn") ],
-	[ preload("res://scenes/mini-games/dummy.tscn") ],
-	[ preload("res://scenes/mini-games/dummy.tscn") ],
+	[ 1, 2, 3 ],
+	[ 4, 5, 6 ],
+	[ 7, 8, 9 ],
 ]
 const LEVELS_TIME_SEC = [
 	60,

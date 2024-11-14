@@ -1,0 +1,249 @@
+[gd_scene load_steps=22 format=4 uid="uid://cik30de5gaaah"]
+
+[ext_resource type="Script" path="res://scenes/main_game.gd" id="1_2a8mx"]
+[ext_resource type="PackedScene" uid="uid://ubxbtvl27qu8" path="res://scenes/entities/door.tscn" id="2_50q4q"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_bpgns"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_6qxfc"]
+[ext_resource type="PackedScene" uid="uid://b3aye25ikfuxd" path="res://sprites/enemy_character.tscn" id="4_gqu37"]
+[ext_resource type="Texture2D" uid="uid://bf8ttxbe4wlua" path="res://assets/spr_tilemap_map.png" id="4_h7j5a"]
+[ext_resource type="PackedScene" uid="uid://byfcvdix8s7a" path="res://sprites/player_character.tscn" id="5_s66uw"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_qc23y"]
+[ext_resource type="Texture2D" uid="uid://cucifq7erg4dn" path="res://assets/spr_ui_main.png" id="7_box1l"]
+[ext_resource type="PackedScene" uid="uid://dkn2wjni2qgwb" path="res://ui/components/beast_meter.tscn" id="8_te4fg"]
+[ext_resource type="PackedScene" uid="uid://drwkdtdcofl3e" path="res://ui/components/level_timer.tscn" id="9_ukmyv"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_48ylm"]
+scenes/1/scene = ExtResource("2_50q4q")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ela4y"]
+texture = ExtResource("4_h7j5a")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+3:3/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+3:5/0 = 0
+2:2/0 = 0
+3:0/0 = 0
+3:1/0 = 0
+4:0/0 = 0
+2:0/size_in_atlas = Vector2i(1, 2)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, -16)
+4:2/size_in_atlas = Vector2i(1, 2)
+4:2/0 = 0
+4:2/0/texture_origin = Vector2i(0, -16)
+5:2/size_in_atlas = Vector2i(1, 2)
+5:2/0 = 0
+5:2/0/texture_origin = Vector2i(0, -16)
+1:0/size_in_atlas = Vector2i(1, 2)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, -16)
+0:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_2lg6x"]
+tile_size = Vector2i(32, 32)
+custom_data_layer_0/name = ""
+custom_data_layer_0/type = 0
+sources/1 = SubResource("TileSetAtlasSource_ela4y")
+sources/0 = SubResource("TileSetScenesCollectionSource_48ylm")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7jcd"]
+size = Vector2(27, 28)
+
+[sub_resource type="Curve2D" id="Curve2D_tbhpb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 209, 502, 0, 0, 0, 0, 209, -31)
+}
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_0xreq"]
+script = ExtResource("3_6qxfc")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ifta"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ic21"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_33xar"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dfog6"]
+
+[node name="IngameScene" type="Node2D"]
+script = ExtResource("1_2a8mx")
+
+[node name="Map" type="TileMapLayer" parent="."]
+unique_name_in_owner = true
+position = Vector2(4, -119)
+tile_map_data = PackedByteArray("AAAGAP//AQAAAAIAAAAGAAAAAQAAAAMAAAAGAAEAAAAAAAAAAQAGAAIAAQAAAAIAAAAGAAMAAQAAAAIAAAAGAAQAAQAAAAAAAAAGAAUAAQAAAAIAAAAGAAYAAQAAAAAAAAAGAAcAAQACAAQAAAAGAAgAAQAAAAEAAAAGAAkAAQAAAAAAAAAGAAoAAQAAAAAAAAAGAAsAAQAAAAIAAAAHAAcAAQADAAIAAAAFAAcAAQAEAAIAAAAIAAcAAQAFAAIAAAAEAAcAAQACAAIAAAAFAAgAAQAAAAIAAAAHAAgAAQADAAMAAAAHAAkAAQAEAAAAAAAFAAkAAQAAAAEAAAAHAAoAAQAAAAEAAAAFAAoAAQADAAMAAAAIAAgAAQADAAEAAAAEAAgAAQADAAEAAAAIAAQAAQADAAEAAAACAAcAAQAAAAEAAAACAAgAAQAAAAIAAAACAAkAAQAAAAMAAAACAAYAAQACAAIAAAAJAAMAAQAFAAIAAAABAAIAAQABAAAAAAACAAIAAQACAAAAAAADAAIAAQADAAAAAAADAAMAAQADAAEAAAAMAAEAAQABAAAAAAANAAEAAQACAAAAAAAOAAEAAQADAAAAAAAOAAIAAQADAAEAAAAAAAUAAQAAAAIAAAAAAAYAAQAAAAMAAAD//wAAAQACAAAAAAAAAAAAAQADAAAAAAAGAAwAAQAAAAEAAAAGAA0AAQAAAAIAAAAGAA4AAQAAAAMAAAA=")
+tile_set = SubResource("TileSet_2lg6x")
+
+[node name="Door1" type="Area2D" parent="Map" groups=["Doors"]]
+unique_name_in_owner = true
+
+[node name="DoorMarker1" type="Marker2D" parent="Map/Door1" groups=["DoorMarkers"]]
+unique_name_in_owner = true
+position = Vector2(208.814, 79.4906)
+rotation = 0.0023483
+gizmo_extents = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Door1"]
+position = Vector2(209, 50)
+shape = SubResource("RectangleShape2D_r7jcd")
+debug_color = Color(0.849404, 0.373835, 0, 0.42)
+
+[node name="Path2D" type="Path2D" parent="Map"]
+curve = SubResource("Curve2D_tbhpb")
+
+[node name="PlayerPath" type="PathFollow2D" parent="Map/Path2D"]
+unique_name_in_owner = true
+position = Vector2(209, 502)
+rotation = -1.5708
+rotates = false
+loop = false
+
+[node name="Player" parent="Map/Path2D/PlayerPath" instance=ExtResource("5_s66uw")]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(263, 1.5609e-05)
+rotation = 0.0023483
+
+[node name="EnemyPath" type="PathFollow2D" parent="Map/Path2D"]
+unique_name_in_owner = true
+position = Vector2(209, 502)
+rotation = -1.5708
+rotates = false
+loop = false
+
+[node name="Enemy" parent="Map/Path2D/EnemyPath" instance=ExtResource("4_gqu37")]
+unique_name_in_owner = true
+z_index = 1
+
+[node name="PhantomCamera2D" type="Node2D" parent="Map" node_paths=PackedStringArray("follow_target")]
+physics_interpolation_mode = 1
+position = Vector2(209, 239)
+rotation = 0.0023483
+script = ExtResource("2_bpgns")
+follow_mode = 5
+follow_target = NodePath("../Path2D/PlayerPath/Player")
+tween_resource = SubResource("Resource_0xreq")
+tween_on_load = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
+position = Vector2(213, 120)
+rotation = 0.0023483
+process_callback = 0
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("6_qc23y")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Sprite2D" parent="CanvasLayer"]
+z_index = 3
+texture = ExtResource("7_box1l")
+centered = false
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(426, 240)
+offset_right = 426.0
+offset_bottom = 240.0
+split_offset = 48
+collapsed = true
+dragger_visibility = 2
+
+[node name="MeterContainer" type="VBoxContainer" parent="CanvasLayer/HSplitContainer"]
+z_index = 1
+layout_mode = 2
+
+[node name="DistancePanel" type="Panel" parent="CanvasLayer/HSplitContainer/MeterContainer"]
+z_index = 4
+custom_minimum_size = Vector2(48, 24)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0ifta")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/HSplitContainer/MeterContainer/DistancePanel"]
+custom_minimum_size = Vector2(48, 8)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Distance" type="Label" parent="CanvasLayer/HSplitContainer/MeterContainer/DistancePanel/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "0m"
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HSplitContainer/MeterContainer"]
+z_index = 4
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8ic21")
+
+[node name="BeastMeter" parent="CanvasLayer/HSplitContainer/MeterContainer/PanelContainer" instance=ExtResource("8_te4fg")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MainContainer" type="VBoxContainer" parent="CanvasLayer/HSplitContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="InfoPanel" type="Panel" parent="CanvasLayer/HSplitContainer/MainContainer"]
+z_index = 4
+custom_minimum_size = Vector2(48, 24)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_33xar")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/HSplitContainer/MainContainer/InfoPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 24.0
+grow_horizontal = 2
+collapsed = true
+dragger_visibility = 2
+
+[node name="InfoContainer" type="HBoxContainer" parent="CanvasLayer/HSplitContainer/MainContainer/InfoPanel/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/HSplitContainer/MainContainer/InfoPanel/HSplitContainer/InfoContainer"]
+custom_minimum_size = Vector2(48, 8)
+layout_mode = 2
+
+[node name="Info" type="Label" parent="CanvasLayer/HSplitContainer/MainContainer/InfoPanel/HSplitContainer/InfoContainer/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HSplitContainer/MainContainer/InfoPanel/HSplitContainer"]
+custom_minimum_size = Vector2(66, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TimerUI" parent="CanvasLayer/HSplitContainer/MainContainer/InfoPanel/HSplitContainer/HBoxContainer" instance=ExtResource("9_ukmyv")]
+unique_name_in_owner = true
+layout_mode = 2
+time = -1
+
+[node name="LevelTimer" type="Timer" parent="CanvasLayer/HSplitContainer/MainContainer/InfoPanel/HSplitContainer/HBoxContainer"]
+unique_name_in_owner = true
+
+[node name="ContentContainer" type="PanelContainer" parent="CanvasLayer/HSplitContainer/MainContainer"]
+unique_name_in_owner = true
+z_index = 2
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dfog6")

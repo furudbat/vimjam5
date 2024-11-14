@@ -1,0 +1,132 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpbc70giyiuvd"]
+
+[ext_resource type="Script" path="res://scenes/mini-games/game1.gd" id="1_0ow33"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3b60"]
+bg_color = Color(0.188235, 0.129412, 0.176471, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nny7f"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65vi8"]
+size = Vector2(27, 29)
+
+[node name="MiniGame1" type="Node2D"]
+script = ExtResource("1_0ow33")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Title" type="Panel" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(378, 216)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_k3b60")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Title"]
+custom_minimum_size = Vector2(378, 216)
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 23.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/Title/CenterContainer"]
+layout_mode = 2
+text = "Clear the Path"
+
+[node name="MiniGame" type="Panel" parent="CanvasLayer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(378, 216)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_k3b60")
+
+[node name="Stone4" type="Sprite2D" parent="CanvasLayer/MiniGame" groups=["Stones"]]
+position = Vector2(72, 137.513)
+scale = Vector2(4.75, 4.67104)
+texture = SubResource("PlaceholderTexture2D_nny7f")
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/MiniGame/Stone4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/MiniGame/Stone4/Area2D"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_65vi8")
+
+[node name="Stone2" type="Sprite2D" parent="CanvasLayer/MiniGame" groups=["Stones"]]
+position = Vector2(103, 154)
+scale = Vector2(5.53125, 3.64062)
+texture = SubResource("PlaceholderTexture2D_nny7f")
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/MiniGame/Stone2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/MiniGame/Stone2/Area2D"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_65vi8")
+
+[node name="Stone1" type="Sprite2D" parent="CanvasLayer/MiniGame" groups=["Stones"]]
+position = Vector2(57, 166)
+scale = Vector2(3.5, 2.84375)
+texture = SubResource("PlaceholderTexture2D_nny7f")
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/MiniGame/Stone1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/MiniGame/Stone1/Area2D"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_65vi8")
+
+[node name="Stone3" type="Sprite2D" parent="CanvasLayer/MiniGame" groups=["Stones"]]
+position = Vector2(283.25, 129.625)
+scale = Vector2(6.14062, 5.16406)
+texture = SubResource("PlaceholderTexture2D_nny7f")
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/MiniGame/Stone3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/MiniGame/Stone3/Area2D"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_65vi8")
+
+[node name="Stone5" type="Sprite2D" parent="CanvasLayer/MiniGame" groups=["Stones"]]
+position = Vector2(288, 162.562)
+scale = Vector2(4.6875, 3.09766)
+texture = SubResource("PlaceholderTexture2D_nny7f")
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/MiniGame/Stone5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/MiniGame/Stone5/Area2D"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_65vi8")
+
+[node name="Stone6" type="Sprite2D" parent="CanvasLayer/MiniGame" groups=["Stones"]]
+position = Vector2(207, 192.125)
+scale = Vector2(4.6875, 1.25781)
+texture = SubResource("PlaceholderTexture2D_nny7f")
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/MiniGame/Stone6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/MiniGame/Stone6/Area2D"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_65vi8")
+
+[node name="Stone7" type="Sprite2D" parent="CanvasLayer/MiniGame" groups=["Stones"]]
+position = Vector2(92, 192)
+scale = Vector2(1.65625, 1.25781)
+texture = SubResource("PlaceholderTexture2D_nny7f")
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/MiniGame/Stone7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/MiniGame/Stone7/Area2D"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_65vi8")
+
+[node name="Stone8" type="Sprite2D" parent="CanvasLayer/MiniGame" groups=["Stones"]]
+position = Vector2(177, 112.062)
+scale = Vector2(1.65625, 6.12891)
+texture = SubResource("PlaceholderTexture2D_nny7f")
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/MiniGame/Stone8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/MiniGame/Stone8/Area2D"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_65vi8")
