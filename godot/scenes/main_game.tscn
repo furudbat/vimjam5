@@ -57,7 +57,7 @@ size = Vector2(27, 28)
 
 [sub_resource type="Curve2D" id="Curve2D_tbhpb"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 209, 502, 0, 0, 0, 0, 209, -104)
+"points": PackedVector2Array(0, 0, 0, 0, 209, 502, 0, 0, 0, 0, 209, -4406)
 }
 point_count = 2
 
@@ -80,12 +80,27 @@ script = ExtResource("1_2a8mx")
 
 [node name="Map" type="TileMapLayer" parent="."]
 unique_name_in_owner = true
-position = Vector2(4, -119)
-tile_map_data = PackedByteArray("AAAGAP//AQAAAAIAAAAGAAAAAQAAAAMAAAAGAAEAAAAAAAAAAQAGAAIAAQAAAAIAAAAGAAMAAQAAAAIAAAAGAAQAAQAAAAAAAAAGAAUAAQAAAAIAAAAGAAYAAQAAAAAAAAAGAAcAAQACAAQAAAAGAAgAAQAAAAEAAAAGAAkAAQAAAAAAAAAGAAoAAQAAAAAAAAAGAAsAAQAAAAIAAAAHAAcAAQADAAIAAAAFAAcAAQAEAAIAAAAIAAcAAQAFAAIAAAAEAAcAAQACAAIAAAAFAAgAAQAAAAIAAAAHAAgAAQADAAMAAAAHAAkAAQAEAAAAAAAFAAkAAQAAAAEAAAAHAAoAAQAAAAEAAAAFAAoAAQADAAMAAAAIAAgAAQADAAEAAAAEAAgAAQADAAEAAAAIAAQAAQADAAEAAAACAAcAAQAAAAEAAAACAAgAAQAAAAIAAAACAAkAAQAAAAMAAAACAAYAAQACAAIAAAAJAAMAAQAFAAIAAAABAAIAAQABAAAAAAACAAIAAQACAAAAAAADAAIAAQADAAAAAAADAAMAAQADAAEAAAAMAAEAAQABAAAAAAANAAEAAQACAAAAAAAOAAEAAQADAAAAAAAOAAIAAQADAAEAAAAAAAUAAQAAAAIAAAAAAAYAAQAAAAMAAAD//wAAAQACAAAAAAAAAAAAAQADAAAAAAAGAAwAAQAAAAEAAAAGAA0AAQAAAAIAAAAGAA4AAQAAAAMAAAA=")
+position = Vector2(135, -1920)
+tile_map_data = PackedByteArray("AAAGAP//AQAAAAIAAAAGAAAAAQAAAAMAAAAGAAEAAQAAAAIAAAAGAAIAAQAAAAIAAAAGAAMAAQAAAAIAAAAGAAQAAQAAAAAAAAAGAAUAAQAAAAIAAAAGAAYAAQAAAAAAAAAGAAcAAQACAAQAAAAGAAgAAQAAAAEAAAAGAAkAAQAAAAAAAAAGAAoAAQAAAAAAAAAGAAsAAQAAAAIAAAAGAAwAAQAAAAEAAAAGAA0AAQAAAAIAAAAGAA4AAQAAAAMAAAAGAPv/AQAAAAEAAAAGAPz/AQAAAAIAAAAGAP3/AAAAAAAAAQAGAP7/AQAAAAMAAAAGAPf/AAAAAAAAAQAGAPj/AQAAAAEAAAAGAPn/AQAAAAIAAAAGAPr/AQAAAAMAAAAGAPP/AQAAAAIAAAAGAPT/AQAAAAEAAAAGAPX/AQAAAAIAAAAGAPb/AQAAAAMAAAAGAO//AQAAAAAAAAAGAPD/AQAAAAEAAAAGAPH/AQAAAAIAAAAGAPL/AQAAAAEAAAAGAOv/AQAAAAAAAAAGAOz/AQAAAAEAAAAGAO3/AQAAAAIAAAAGAO7/AQAAAAMAAAAGAOf/AQAAAAEAAAAGAOj/AQAAAAIAAAAGAOn/AQAAAAIAAAAGAOr/AQAAAAMAAAAGAOP/AQAAAAAAAAAGAOT/AAAAAAAAAQAGAOX/AQAAAAIAAAAGAOb/AQAAAAMAAAAIAAoAAQACAAIAAAACAAgAAQABAAAAAAADAAgAAQACAAAAAAAJAAgAAQAAAAEAAAAJAAsAAQAAAAEAAAAJAAwAAQAAAAIAAAALAA0AAQAEAAIAAAACAA0AAQAEAAIAAAAEAAsAAQAEAAIAAAABAA0AAQACAAAAAAAMAA0AAQACAAAAAAAGAOD/AQAAAAMAAAAGAOH/AQAAAAIAAAAGAOL/AQAAAAMAAAAGAN7/AQAAAAEAAAAGAN//AQAAAAIAAAAGANv/AQAAAAEAAAAGANz/AQAAAAIAAAAGAN3/AQAAAAMAAAAGANf/AQAAAAMAAAAGANj/AQAAAAIAAAAGANn/AQAAAAMAAAAGANT/AQAAAAAAAAAGANX/AQAAAAEAAAAGANb/AQAAAAIAAAAGANH/AQAAAAMAAAAGANL/AQAAAAIAAAAGANP/AQAAAAMAAAAGANr/AQAAAAAAAAAGAND/AQAAAAIAAAAGAM7/AQAAAAIAAAAGAM//AQAAAAAAAAAGAMz/AQAAAAIAAAAGAM3/AQAAAAMAAAAGAMn/AQAAAAIAAAAGAMr/AQAAAAEAAAAGAMv/AQAAAAMAAAAGAMX/AQAAAAAAAAAGAMb/AQAAAAEAAAAGAMf/AQAAAAIAAAAGAMj/AQAAAAMAAAAGAML/AQAAAAEAAAAGAMP/AQAAAAIAAAAGAMT/AQAAAAMAAAAGAMD/AQAAAAQAAAAGAMH/AQAAAAMAAAAGAL7/AQAAAAIAAAAGAL//AQAAAAMAAAAGALr/AQAAAAMAAAAGALv/AQAAAAEAAAAGALz/AQAAAAIAAAAGAL3/AQAAAAMAAAAGALf/AQAAAAAAAAAGALj/AQAAAAEAAAAGALn/AQAAAAIAAAAGALP/AQAAAAAAAAAGALT/AQAAAAEAAAAGALX/AQAAAAIAAAAGALb/AQAAAAMAAAAGAK//AQAAAAMAAAAGALD/AQAAAAEAAAAGALH/AQAAAAIAAAAGALL/AQAAAAMAAAAGAKz/AQAAAAAAAAAGAK3/AQAAAAEAAAAGAK7/AQAAAAIAAAAGAKj/AQAAAAMAAAAGAKn/AQAAAAMAAAAGAKr/AQAAAAIAAAAGAKv/AQAAAAMAAAAGAKb/AQAAAAMAAAAGAKf/AQAAAAQAAAAGAKX/AQAAAAIAAAAGAKP/AQAAAAMAAAAGAKT/AQAAAAEAAAAGAKD/AQAAAAAAAAAGAKH/AQAAAAEAAAAGAKL/AQAAAAIAAAAGAJz/AQAAAAAAAAAGAJ3/AQAAAAEAAAAGAJ7/AQAAAAIAAAAGAJ//AQAAAAMAAAAGAJj/AQAAAAMAAAAGAJn/AQAAAAEAAAAGAJr/AQAAAAIAAAAGAJv/AQAAAAMAAAAGAJX/AQAAAAAAAAAGAJb/AQAAAAEAAAAGAJf/AQAAAAIAAAAGAJH/AQAAAAIAAAAGAJL/AQAAAAMAAAAGAJP/AQADAAMAAAAGAJT/AQAAAAMAAAAGAI//AQAAAAIAAAAGAJD/AQAAAAMAAAAGAI3/AQAAAAIAAAAGAI7/AQAAAAQAAAAGAIv/AQAAAAAAAAAGAIz/AQAAAAEAAAAGAIf/AQAAAAMAAAAGAIj/AQAAAAEAAAAGAIn/AQAAAAIAAAAGAIr/AQADAAMAAAAGAIT/AQADAAMAAAAGAIX/AQAAAAMAAAAGAIb/AQAAAAIAAAAGAIL/AQAAAAMAAAAGAIP/AQAAAAEAAAAGAH//AQAAAAQAAAAGAID/AQAAAAEAAAAGAIH/AQAAAAIAAAAGAH3/AQAAAAIAAAAGAH7/AQAAAAMAAAAGAHv/AQADAAMAAAAGAHz/AQAAAAMAAAAGAHn/AQAAAAIAAAAGAHr/AQAAAAMAAAAGAHf/AQAAAAIAAAAGAHj/AQAAAAMAAAAGAHb/AQAAAAIAAAAHAHb/AQAFAAIAAAAFAHb/AQACAAIAAAALAJ3/AQACAAQAAAAHAHX/AQACAAQAAAAFAHX/AQACAAIAAAAGAHX/AQAAAAMAAAAGAHT/AQADAAIAAAAFAHf/AQACAAIAAAAIAHX/AQAFAAIAAAAEAHb/AQABAAAAAAAEAHT/AQADAAEAAAA=")
 tile_set = SubResource("TileSet_2lg6x")
+
+[node name="Door0" type="Area2D" parent="Map" groups=["Doors"]]
+unique_name_in_owner = true
+position = Vector2(-1, -112)
+
+[node name="DoorMarker0" type="Marker2D" parent="Map/Door0" groups=["DoorMarkers"]]
+position = Vector2(208.814, 79.4906)
+rotation = 0.0023483
+gizmo_extents = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Door0"]
+position = Vector2(209, 37)
+shape = SubResource("RectangleShape2D_r7jcd")
+debug_color = Color(0.849404, 0.373835, 0, 0.42)
 
 [node name="Door1" type="Area2D" parent="Map" groups=["Doors"]]
 unique_name_in_owner = true
+position = Vector2(-1, -305)
 
 [node name="DoorMarker1" type="Marker2D" parent="Map/Door1" groups=["DoorMarkers"]]
 unique_name_in_owner = true
@@ -94,7 +109,79 @@ rotation = 0.0023483
 gizmo_extents = 16.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Door1"]
-position = Vector2(209, 50)
+position = Vector2(209, 37)
+shape = SubResource("RectangleShape2D_r7jcd")
+debug_color = Color(0.849404, 0.373835, 0, 0.42)
+
+[node name="Door2" type="Area2D" parent="Map" groups=["Doors"]]
+unique_name_in_owner = true
+position = Vector2(-1, -914)
+
+[node name="DoorMarker2" type="Marker2D" parent="Map/Door2" groups=["DoorMarkers"]]
+unique_name_in_owner = true
+position = Vector2(208.814, 79.4906)
+rotation = 0.0023483
+gizmo_extents = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Door2"]
+position = Vector2(209, 37)
+shape = SubResource("RectangleShape2D_r7jcd")
+debug_color = Color(0.849404, 0.373835, 0, 0.42)
+
+[node name="Door3" type="Area2D" parent="Map" groups=["Doors"]]
+unique_name_in_owner = true
+position = Vector2(-1, -2068)
+
+[node name="DoorMarker3" type="Marker2D" parent="Map/Door3" groups=["DoorMarkers"]]
+unique_name_in_owner = true
+position = Vector2(208.814, 79.4906)
+rotation = 0.0023483
+gizmo_extents = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Door3"]
+position = Vector2(209, 37)
+shape = SubResource("RectangleShape2D_r7jcd")
+debug_color = Color(0.849404, 0.373835, 0, 0.42)
+
+[node name="Door4" type="Area2D" parent="Map" groups=["Doors"]]
+unique_name_in_owner = true
+position = Vector2(-1, -2868)
+
+[node name="DoorMarker4" type="Marker2D" parent="Map/Door4" groups=["DoorMarkers"]]
+position = Vector2(208.814, 79.4906)
+rotation = 0.0023483
+gizmo_extents = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Door4"]
+position = Vector2(209, 37)
+shape = SubResource("RectangleShape2D_r7jcd")
+debug_color = Color(0.849404, 0.373835, 0, 0.42)
+
+[node name="Door5" type="Area2D" parent="Map" groups=["Doors"]]
+unique_name_in_owner = true
+position = Vector2(0, -3668)
+
+[node name="DoorMarker5" type="Marker2D" parent="Map/Door5" groups=["DoorMarkers"]]
+position = Vector2(208.814, 79.4906)
+rotation = 0.0023483
+gizmo_extents = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Door5"]
+position = Vector2(209, 37)
+shape = SubResource("RectangleShape2D_r7jcd")
+debug_color = Color(0.849404, 0.373835, 0, 0.42)
+
+[node name="Door6" type="Area2D" parent="Map" groups=["Doors"]]
+unique_name_in_owner = true
+position = Vector2(-1, -4148)
+
+[node name="DoorMarker6" type="Marker2D" parent="Map/Door6" groups=["DoorMarkers"]]
+position = Vector2(208.814, 79.4906)
+rotation = 0.0023483
+gizmo_extents = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Door6"]
+position = Vector2(209, 37)
 shape = SubResource("RectangleShape2D_r7jcd")
 debug_color = Color(0.849404, 0.373835, 0, 0.42)
 
@@ -104,16 +191,17 @@ curve = SubResource("Curve2D_tbhpb")
 
 [node name="PlayerPath" type="PathFollow2D" parent="Map/Path2D"]
 unique_name_in_owner = true
-position = Vector2(209, 502)
+position = Vector2(209, 330.713)
 rotation = -1.5708
+progress = 171.289
 rotates = false
 loop = false
 
 [node name="Player" parent="Map/Path2D/PlayerPath" instance=ExtResource("5_s66uw")]
 unique_name_in_owner = true
 z_index = 1
-position = Vector2(263, 1.5609e-05)
-rotation = 0.0023483
+position = Vector2(-7.27177e-06, 9.65595e-06)
+rotation = 1.5708
 
 [node name="EnemyPath" type="PathFollow2D" parent="Map/Path2D"]
 unique_name_in_owner = true
@@ -124,10 +212,11 @@ loop = false
 
 [node name="Enemy" parent="Map/Path2D/EnemyPath" instance=ExtResource("4_gqu37")]
 unique_name_in_owner = true
+rotation = 1.5708
 
 [node name="PhantomCamera2D" type="Node2D" parent="Map" node_paths=PackedStringArray("follow_target")]
 physics_interpolation_mode = 1
-position = Vector2(208.999, 239)
+position = Vector2(209, 330.713)
 rotation = 0.0023483
 script = ExtResource("2_bpgns")
 follow_mode = 5
@@ -137,7 +226,7 @@ tween_on_load = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(212.999, 120)
+position = Vector2(344, -1589.29)
 rotation = 0.0023483
 process_callback = 0
 
@@ -246,4 +335,11 @@ unique_name_in_owner = true
 z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxEmpty_dfog6")
+
+[node name="GameTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
+
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]

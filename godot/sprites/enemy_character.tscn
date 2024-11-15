@@ -5,6 +5,7 @@
 
 [sub_resource type="Animation" id="Animation_7ty3o"]
 length = 0.001
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -412,6 +413,7 @@ root_node = NodePath("../Sprite2D")
 libraries = {
 "": SubResource("AnimationLibrary_3rrgb")
 }
+autoplay = "walk_up"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_mco34")
@@ -432,4 +434,4 @@ root_node = NodePath("%AnimationTree/../Sprite2D")
 tree_root = SubResource("AnimationNodeStateMachine_l5xkt")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_moving = false
-parameters/Walk/blend_position = Vector2(-0.00440526, 0.978723)
+parameters/Walk/blend_position = Vector2(-1, -0.0106384)

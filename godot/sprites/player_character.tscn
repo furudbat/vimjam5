@@ -5,6 +5,7 @@
 
 [sub_resource type="Animation" id="Animation_7ty3o"]
 length = 0.001
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -265,6 +266,7 @@ root_node = NodePath("../Sprite2D")
 libraries = {
 "": SubResource("AnimationLibrary_3rrgb")
 }
+autoplay = "walk_up"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_r7dfq")

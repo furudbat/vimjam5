@@ -18,4 +18,5 @@ func _process(delta: float) -> void:
 	velocity = player_velocity
 
 func _physics_process(delta: float) -> void:
-	move_and_slide()
+	if is_moving:
+		move_and_slide()

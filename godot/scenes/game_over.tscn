@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsfrgkv3h1046"]
+
+[ext_resource type="Script" path="res://scenes/win.gd" id="1_nf3g7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_atuew"]
+bg_color = Color(0.188235, 0.129412, 0.176471, 1)
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_nf3g7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+custom_minimum_size = Vector2(426, 240)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_atuew")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="CanvasLayer/Panel/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Game Over"
+
+[node name="Time" type="Label" parent="CanvasLayer/Panel/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Time: 0000"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="BackToMainMenu" type="Button" parent="CanvasLayer/Panel/CenterContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8
+text = " Back to Main Menu "
+
+[connection signal="pressed" from="CanvasLayer/Panel/CenterContainer/VBoxContainer/MarginContainer/BackToMainMenu" to="." method="_on_back_to_main_menu_pressed"]

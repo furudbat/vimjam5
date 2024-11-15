@@ -16,10 +16,10 @@ Solve Microgames like in WarioWare and escape the Beast.
 
 - [x] Title Screen
 - [ ] Music and Sound
-    - [-] Settings
+    - [x] Settings
 - [ ] Intro: Comic
 - [-] Map - auto run, solve obstacles to keep running
-    - [ ] reach Exit - Win
+    - [x] reach Exit - Win
 - [x] Timer (Countdown) - beast gets big boost
 - [x] Beast Meter - see the distance of the beast
 - [x] Game Over - when beast is catched up
@@ -27,6 +27,8 @@ Solve Microgames like in WarioWare and escape the Beast.
     - [ ] 1/? Microgames
     - [ ] show Contols/Mouse promts
 - [x] Language: English
+- [ ] ~~pick-a-path~~
+- [ ] ~~~Items: boos speed,, ...~~
 
 ### Jam
 

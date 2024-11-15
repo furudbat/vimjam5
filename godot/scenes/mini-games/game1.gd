@@ -39,20 +39,8 @@ func _process(delta: float) -> void:
 			
 
 func _on_stone_input_event(stone: Node, viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	print(stone, event)
-	if started and event is InputEventMouseButton and event.is_action_just_pressed("primary_action"):
+	if started and event is InputEventMouseButton and event.is_action_pressed("primary_action"):
 		if stone.visible:
 			stone_counter = stone_counter - 1
-			viewport.get_node("CollisionPolygon2D").disabled = true
+			stone.get_node("Area2D/CollisionPolygon2D").disabled = true
 			stone.visible = false
-
-func _on_stone_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	print(viewport, event)
-	if started and event is InputEventMouseButton and event.is_action_just_pressed("primary_action"):
-		var parent = viewport.get_parent()
-		if parent.visible:
-			stone_counter -= 1
-			var collision_polygon = viewport.get_node("CollisionPolygon2D")
-			if collision_polygon:
-				collision_polygon.disabled = true
-			parent.visible = false
