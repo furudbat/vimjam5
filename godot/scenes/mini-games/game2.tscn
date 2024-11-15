@@ -56,7 +56,7 @@ unique_name_in_owner = true
 wait_time = 0.5
 
 [node name="StartPosition" type="Marker2D" parent="PanelContainer/MiniGame"]
-position = Vector2(216, 120)
+position = Vector2(192, 104)
 
 [node name="MobPath" type="Path2D" parent="PanelContainer/MiniGame"]
 unique_name_in_owner = true

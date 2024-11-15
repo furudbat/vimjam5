@@ -1,9 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://ck46epavjai3"]
+[gd_scene load_steps=8 format=3 uid="uid://ck46epavjai3"]
 
 [ext_resource type="Script" path="res://scenes/prolog.gd" id="1_3y4gn"]
+[ext_resource type="Texture2D" uid="uid://dqbxmj6d7pr2" path="res://assets/spr_icons_16x16.png" id="2_gguwk"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2gwbr"]
 size = Vector2(426, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ttkq"]
+atlas = ExtResource("2_gguwk")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6p4gn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcvl0"]
+atlas = ExtResource("2_gguwk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tqnm7"]
 
 [node name="Intro" type="Node2D"]
 script = ExtResource("1_3y4gn")
@@ -42,40 +55,67 @@ theme_override_constants/separation = 2
 
 [node name="SkipProgressBar" type="ProgressBar" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(32, 12)
+custom_minimum_size = Vector2(34, 18)
 layout_mode = 2
 size_flags_vertical = 1
 show_percentage = false
 
-[node name="SkipLabel" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/SkipProgressBar"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/SkipProgressBar"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -8.5
 offset_top = -6.0
-offset_right = 8.5
 offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/SkipProgressBar/HBoxContainer"]
+texture = SubResource("AtlasTexture_7ttkq")
+centered = false
+offset = Vector2(0, -2)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/SkipProgressBar/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="SkipLabel" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/SkipProgressBar/HBoxContainer/MarginContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.188235, 0.129412, 0.176471, 1)
 theme_override_font_sizes/font_size = 8
 text = "Skip"
+horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(26, 0)
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6p4gn")
 
-[node name="NextLabel" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(34, 0)
+layout_mode = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+texture = SubResource("AtlasTexture_gcvl0")
+centered = false
+offset = Vector2(0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="NextLabel" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/PanelContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_font_sizes/font_size = 8
 text = "Next
 "
+horizontal_alignment = 1
 
 [node name="Skip" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
@@ -83,6 +123,7 @@ visible = false
 custom_minimum_size = Vector2(46, 0)
 layout_mode = 2
 text = "SKIP"
+icon = SubResource("ViewportTexture_tqnm7")
 flat = true
 
 [node name="Next" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]

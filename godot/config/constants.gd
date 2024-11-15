@@ -51,8 +51,8 @@ const LEVELS = [
 	[ 3, 2, 1 ],
 ]
 const LEVELS_TIME_SEC = [
-	30,
+	40,
 	60,
 	20,
 ]
-const MAX_LEVELS = 2
+const MAX_LEVELS = 3

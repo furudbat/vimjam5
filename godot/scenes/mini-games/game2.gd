@@ -10,12 +10,13 @@ extends Node
 
 signal puzzle_solved()
 
-const BUG_SMUSHED_WIN = 10
+const BUG_SMUSHED_WIN = 8
+const BUG_VELOCITY_MIN = 80
+const BUG_VELOCITY_MAX = 160
+const BUG_RESPAWN_TIME = 0.2
+
 var bug_smushed_counter = 0
 var started = false
-
-const BUG_VELOCITY_MIN = 120
-const BUG_VELOCITY_MAX = 220
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,7 +30,7 @@ func _process(delta: float) -> void:
 			started = true
 			title.visible = false
 			mini_game.visible = true
-			mob_timer.start()
+			mob_timer.start(BUG_RESPAWN_TIME)
 			return
 	else:
 		if bug_smushed_counter >= BUG_SMUSHED_WIN:
