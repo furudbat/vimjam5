@@ -2,7 +2,8 @@
 # distance setting (beast meter) 
 const MAX_DISTANCE_M: float = 200
 ## player/beast start distance at the game start
-const START_DISTANCE = MAX_DISTANCE_M/6
+const START_DISTANCE = 35
+const DISTANCE_LOW = 10
 
 # timer UI
 const CLOCK_LOW_TIME_SEC: float = 10.0
@@ -24,7 +25,7 @@ const PLAYER_MAX_VELOCITY: Vector2 = Vector2(0, 1.8)
 
 # Map
 const TILE_PX_PER_M: int = 16
-const MAP_MOVEMENT_SPEED_UP: float = 0.45
+const MAP_MOVEMENT_SPEED_UP: float = 0.40
 
 # Levels
 const MAX_GAMES = 1
@@ -45,13 +46,13 @@ const MAX_GAMES = 1
 #]
 
 const LEVELS = [
-	[ 1, 1, 1 ],
-	[ 1, 1, 1 ],
-	[ 1, 1, 1 ],
+	[ 1, 2, 3 ],
+	[ 1, 3, 2 ],
+	[ 3, 2, 1 ],
 ]
 const LEVELS_TIME_SEC = [
-	40,
+	30,
 	60,
-	30
+	20,
 ]
-const MAX_LEVELS = 3
+const MAX_LEVELS = 2

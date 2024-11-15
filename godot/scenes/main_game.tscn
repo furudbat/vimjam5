@@ -57,7 +57,7 @@ size = Vector2(27, 28)
 
 [sub_resource type="Curve2D" id="Curve2D_tbhpb"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 209, 502, 0, 0, 0, 0, 209, -4406)
+"points": PackedVector2Array(0, 0, 0, 0, 209, 462, 0, 0, 0, 0, 209, -4476)
 }
 point_count = 2
 
@@ -191,7 +191,7 @@ curve = SubResource("Curve2D_tbhpb")
 
 [node name="PlayerPath" type="PathFollow2D" parent="Map/Path2D"]
 unique_name_in_owner = true
-position = Vector2(209, 330.713)
+position = Vector2(209, 290.714)
 rotation = -1.5708
 progress = 171.289
 rotates = false
@@ -199,24 +199,25 @@ loop = false
 
 [node name="Player" parent="Map/Path2D/PlayerPath" instance=ExtResource("5_s66uw")]
 unique_name_in_owner = true
-z_index = 1
+z_index = 2
 position = Vector2(-7.27177e-06, 9.65595e-06)
 rotation = 1.5708
 
 [node name="EnemyPath" type="PathFollow2D" parent="Map/Path2D"]
 unique_name_in_owner = true
-position = Vector2(209, 502)
+position = Vector2(209, 462)
 rotation = -1.5708
 rotates = false
 loop = false
 
 [node name="Enemy" parent="Map/Path2D/EnemyPath" instance=ExtResource("4_gqu37")]
 unique_name_in_owner = true
+z_index = 3
 rotation = 1.5708
 
 [node name="PhantomCamera2D" type="Node2D" parent="Map" node_paths=PackedStringArray("follow_target")]
 physics_interpolation_mode = 1
-position = Vector2(209, 330.713)
+position = Vector2(209, 290.714)
 rotation = 0.0023483
 script = ExtResource("2_bpgns")
 follow_mode = 5
@@ -226,7 +227,7 @@ tween_on_load = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(344, -1589.29)
+position = Vector2(344, -1629.29)
 rotation = 0.0023483
 process_callback = 0
 
@@ -236,9 +237,10 @@ process_physics_priority = 300
 script = ExtResource("6_qc23y")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
 
 [node name="HUD" type="Sprite2D" parent="CanvasLayer"]
-z_index = 3
+z_index = 100
 texture = ExtResource("7_box1l")
 centered = false
 
@@ -251,11 +253,11 @@ collapsed = true
 dragger_visibility = 2
 
 [node name="MeterContainer" type="VBoxContainer" parent="CanvasLayer/HSplitContainer"]
-z_index = 1
+z_index = 111
 layout_mode = 2
 
 [node name="DistancePanel" type="Panel" parent="CanvasLayer/HSplitContainer/MeterContainer"]
-z_index = 4
+z_index = 111
 custom_minimum_size = Vector2(48, 24)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0ifta")
@@ -276,7 +278,7 @@ theme_override_font_sizes/font_size = 12
 text = "0m"
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HSplitContainer/MeterContainer"]
-z_index = 4
+z_index = 112
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8ic21")
@@ -286,11 +288,12 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="MainContainer" type="VBoxContainer" parent="CanvasLayer/HSplitContainer"]
+z_index = 101
 layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="InfoPanel" type="Panel" parent="CanvasLayer/HSplitContainer/MainContainer"]
-z_index = 4
+z_index = 111
 custom_minimum_size = Vector2(48, 24)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_33xar")
@@ -305,6 +308,7 @@ collapsed = true
 dragger_visibility = 2
 
 [node name="InfoContainer" type="HBoxContainer" parent="CanvasLayer/HSplitContainer/MainContainer/InfoPanel/HSplitContainer"]
+z_index = 12
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -318,6 +322,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 12
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HSplitContainer/MainContainer/InfoPanel/HSplitContainer"]
+z_index = 12
 custom_minimum_size = Vector2(66, 0)
 layout_mode = 2
 size_flags_vertical = 4
@@ -332,7 +337,7 @@ unique_name_in_owner = true
 
 [node name="ContentContainer" type="PanelContainer" parent="CanvasLayer/HSplitContainer/MainContainer"]
 unique_name_in_owner = true
-z_index = 2
+z_as_relative = false
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1

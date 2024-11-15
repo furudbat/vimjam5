@@ -81,7 +81,7 @@ func _process(delta: float) -> void:
 		if Input.is_key_pressed(KEY_ENTER):
 			if game_state == GameState.MAP:
 				current_obstical_scene = load("res://scenes/mini-games/dummy.tscn").instantiate()
-				current_obstical_scene.solve_puzzle.connect(_solve_puzzle)
+				current_obstical_scene.puzzle_solved.connect(_puzzle_solved)
 				content_container.add_child(current_obstical_scene)
 				game_state = GameState.OBSTACLE
 				return
@@ -189,7 +189,7 @@ func _obstical_reached(door):
 		var game_nr = Constants.LEVELS[level][section]
 		# overlay scene on map
 		current_obstical_scene = load("res://scenes/mini-games/game%d.tscn" % game_nr).instantiate()
-		current_obstical_scene.solve_puzzle.connect(_solve_puzzle)
+		current_obstical_scene.puzzle_solved.connect(_puzzle_solved)
 		content_container.add_child(current_obstical_scene)
 		game_state = GameState.OBSTACLE
 		player_state = CharacterState.STOPPED
@@ -230,7 +230,7 @@ func _win_game():
 	get_tree().root.add_child(win_scene)
 	get_tree().current_scene = win_scene
 	
-func _solve_puzzle():
+func _puzzle_solved():
 	if game_state == GameState.OBSTACLE:
 		content_container.remove_child(current_obstical_scene)
 		current_obstical_scene = null

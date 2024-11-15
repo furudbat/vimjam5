@@ -7,7 +7,7 @@ signal puzzle_solved()
 
 var started = false
 
-const MAX_STONES = 8
+const MAX_STONES = 12
 var stone_counter = MAX_STONES
 var stones = []
 
@@ -25,10 +25,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not started:
 		if Input.is_action_just_released("primary_action"):
-				started = true
-				title.visible = false
-				mini_game.visible = true
-				return
+			started = true
+			title.visible = false
+			mini_game.visible = true
+			return
 	else:
 		if stone_counter <= 0:
 			puzzle_solved.emit()

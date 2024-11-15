@@ -3,7 +3,7 @@ extends Node2D
 @onready var title = %Title
 @onready var mini_game = %MiniGame
 
-signal solve_puzzle()
+signal puzzle_solved()
 
 var started = false
 
@@ -15,16 +15,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_released("primary_action"):
-		if not started:
+	if not started:
+		if Input.is_action_just_released("primary_action"):
 			started = true
 			title.visible = false
 			mini_game.visible = true
 			return
-	
-	if started:
+	else:
 		# @TODO: mini game logic
 		if Input.is_action_pressed("primary_action"):
-			solve_puzzle.emit()
+			puzzle_solved.emit()
 			started = false
 			return
