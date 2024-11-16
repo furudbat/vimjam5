@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://byfcvdix8s7a"]
+[gd_scene load_steps=16 format=3 uid="uid://byfcvdix8s7a"]
 
 [ext_resource type="Script" path="res://scenes/entities/player_character.gd" id="1_3oh48"]
 [ext_resource type="Texture2D" uid="uid://dxucpedb6sctc" path="res://assets/spr_character.png" id="1_r7dfq"]
@@ -55,7 +55,12 @@ tracks/3/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_kk34p"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3rrgb"]
+_data = {
+"RESET": SubResource("Animation_7ty3o")
+}
+
+[sub_resource type="Animation" id="Animation_cjtfx"]
 resource_name = "walk_left"
 length = 1.2
 loop_mode = 1
@@ -108,7 +113,7 @@ tracks/3/keys = {
 "values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_biboi"]
+[sub_resource type="Animation" id="Animation_r8wbi"]
 resource_name = "walk_right"
 length = 1.2
 loop_mode = 1
@@ -161,7 +166,7 @@ tracks/3/keys = {
 "values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_nny62"]
+[sub_resource type="Animation" id="Animation_q28c0"]
 resource_name = "walk_up"
 length = 1.2
 loop_mode = 1
@@ -214,12 +219,11 @@ tracks/3/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3rrgb"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_men1w"]
 _data = {
-"RESET": SubResource("Animation_7ty3o"),
-"walk_left": SubResource("Animation_kk34p"),
-"walk_right": SubResource("Animation_biboi"),
-"walk_up": SubResource("Animation_nny62")
+"walk_left": SubResource("Animation_cjtfx"),
+"walk_right": SubResource("Animation_r8wbi"),
+"walk_up": SubResource("Animation_q28c0")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eyt5g"]
@@ -227,13 +231,13 @@ radius = 6.0
 height = 18.0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iecb4"]
-animation = &"walk_up"
+animation = &"player/walk_up"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_swf0b"]
-animation = &"walk_left"
+animation = &"player/walk_left"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fotbh"]
-animation = &"walk_right"
+animation = &"player/walk_right"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_7bavs"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_iecb4")
@@ -264,7 +268,8 @@ script = ExtResource("1_3oh48")
 unique_name_in_owner = true
 root_node = NodePath("../Sprite2D")
 libraries = {
-"": SubResource("AnimationLibrary_3rrgb")
+"": SubResource("AnimationLibrary_3rrgb"),
+"player": SubResource("AnimationLibrary_men1w")
 }
 autoplay = "walk_up"
 
@@ -282,4 +287,4 @@ root_node = NodePath("%AnimationTree/../Sprite2D")
 tree_root = SubResource("AnimationNodeStateMachine_l5xkt")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_moving = false
-parameters/Walk/blend_position = Vector2(-0.00440526, 0.978723)
+parameters/Walk/blend_position = Vector2(-0.996327, 0.014354)

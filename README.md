@@ -2,9 +2,9 @@
 
 ![logo](img/logo.png)
 
-![](https://img.shields.io/badge/Godot%20Compatible-4.3%2B-%234385B5)
+![godot](https://img.shields.io/badge/Godot%20Compatible-4.3%2B-%234385B5)
 
-Entry for [VimJam5](https://itch.io/jam/vimjam5) - Run from the Aztec Beast Ahuizotl by solving Microgames and escape the temple
+Entry for [VimJam5](https://itch.io/jam/vimjam5) - Run from the Aztec Beast Ahuizotl by solving Microgames and escape the Temple
 
 ## Description
 
@@ -17,18 +17,20 @@ Solve Microgames like in WarioWare and escape the Beast.
 - [x] Title Screen
 - [ ] Music and Sound
     - [x] Settings
-- [ ] Intro: Comic
-- [-] Map - auto run, solve obstacles to keep running
-    - [x] reach Exit - Win
+- [x] Intro: Comic
+- [x] Map - auto run, solve obstacles to keep running
+    - [x] reach Exit -> Win
 - [x] Timer (Countdown) - beast gets big boost
 - [x] Beast Meter - see the distance of the beast
 - [x] Game Over - when beast is catched up
 - [ ] Solve Microgames (obstacles)
-    - [ ] 1/? Microgames
-    - [ ] show Contols/Mouse promts
+    - [x] 3/? Microgames
+        - [x] win conditions
+        - [ ] ~~stun by making mistakes~~
+    - [x] show Contols/Mouse promts
 - [x] Language: English
 - [ ] ~~pick-a-path~~
-- [ ] ~~~Items: boos speed,, ...~~
+- [ ] ~~~Items: boost speed,, ...~~
 
 ### Jam
 
@@ -43,7 +45,7 @@ Solve Microgames like in WarioWare and escape the Beast.
 You are auto-running on the main map, if you reach an obstacl, solve the Microgame.
 Keep running until you reach the Exit.
 Keep a good distance from the the Beast, if it catches you, it's Game Over.
-Don't let the Timer run out out the Beast will get you.
+Don't let the Timer run out or bad things will happen.
 
 ### Controls
 
@@ -64,7 +66,7 @@ Use <kbd>LMB</kbd> to click through the Prolog (Comic) or hold <kbd>RMB</kbd> to
 
 ## Credits
 
- - [@furudbat](https://twitter.com/furudbat) - Developer
+ - [@furudbat](https://twitter.com/furudbat) - Programming
  - [@blacktiger5](https://bsky.app/profile/blacktiger5.bsky.social) - Art
 
 

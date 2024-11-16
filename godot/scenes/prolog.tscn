@@ -1,10 +1,35 @@
-[gd_scene load_steps=8 format=3 uid="uid://ck46epavjai3"]
+[gd_scene load_steps=34 format=3 uid="uid://ck46epavjai3"]
 
 [ext_resource type="Script" path="res://scenes/prolog.gd" id="1_3y4gn"]
 [ext_resource type="Texture2D" uid="uid://dqbxmj6d7pr2" path="res://assets/spr_icons_16x16.png" id="2_gguwk"]
+[ext_resource type="Texture2D" uid="uid://gmxlych13egj" path="res://assets/prolog/Lore-Comic1.png" id="3_0es4b"]
+[ext_resource type="Texture2D" uid="uid://d3tapxikmfgk2" path="res://assets/prolog/Lore-Comic2.png" id="4_4rble"]
+[ext_resource type="Texture2D" uid="uid://c2r1fmjpkjdtd" path="res://assets/prolog/Lore-Comic3.png" id="5_yby3c"]
+[ext_resource type="Texture2D" uid="uid://d22owlc38vh1s" path="res://assets/prolog/Lore-Comic4.png" id="6_h8lhl"]
+[ext_resource type="Texture2D" uid="uid://dqokao3yga3p1" path="res://assets/prolog/Lore-Comic5.png" id="7_b2e73"]
+[ext_resource type="Texture2D" uid="uid://ck2ysw643ocf7" path="res://assets/prolog/Lore-Comic6.png" id="8_oymnw"]
+[ext_resource type="Texture2D" uid="uid://b0aqssc63wjgp" path="res://assets/prolog/Lore-Comic7.png" id="9_2tv2m"]
+[ext_resource type="Texture2D" uid="uid://d18d8ucyo88m4" path="res://assets/prolog/Lore-Comic8.png" id="10_c4y43"]
+[ext_resource type="Texture2D" uid="uid://kw8dckrx7hh8" path="res://assets/prolog/Lore-Comic9.png" id="11_83urd"]
+[ext_resource type="Texture2D" uid="uid://b457oesjxmy63" path="res://assets/prolog/Lore-Comic10.png" id="12_gcm25"]
+[ext_resource type="Texture2D" uid="uid://b0r3ucxxpts7x" path="res://assets/prolog/Lore-Comic11.png" id="13_5bvyf"]
+[ext_resource type="Texture2D" uid="uid://bximb8cmtmwg" path="res://assets/prolog/Lore-Comic12.png" id="14_6jame"]
+[ext_resource type="Texture2D" uid="uid://1bbacseuilki" path="res://assets/prolog/Lore-Comic13.png" id="15_akv1b"]
+[ext_resource type="Texture2D" uid="uid://bjori2yth8gpt" path="res://assets/prolog/Lore-Comic14.png" id="16_44lj8"]
+[ext_resource type="Texture2D" uid="uid://h1fk1glkdxeg" path="res://assets/prolog/Lore-Comic15.png" id="17_2weqe"]
+[ext_resource type="Texture2D" uid="uid://bpf0l74oku6n" path="res://assets/prolog/Lore-Comic16.png" id="18_5h8gl"]
+[ext_resource type="Texture2D" uid="uid://w1qxpy22d0dh" path="res://assets/prolog/Lore-Comic17.png" id="19_w3icr"]
+[ext_resource type="Texture2D" uid="uid://dtw0hhxv2ryu" path="res://assets/prolog/Lore-Comic18.png" id="20_ugfyw"]
+[ext_resource type="Texture2D" uid="uid://djhvw20orep4j" path="res://assets/prolog/Lore-Comic19.png" id="21_l3mkc"]
+[ext_resource type="Texture2D" uid="uid://br2f0k2nsw5wj" path="res://assets/prolog/Lore-Comic20.png" id="22_msvv3"]
+[ext_resource type="Texture2D" uid="uid://bqsgyedj8r1q2" path="res://assets/prolog/Lore-Comic21.png" id="23_71amj"]
+[ext_resource type="Texture2D" uid="uid://dk38wd253w6s2" path="res://assets/prolog/Lore-Comic22.png" id="24_1k3xq"]
+[ext_resource type="Texture2D" uid="uid://bq6hk05ikk6sn" path="res://assets/prolog/Lore-Comic23.png" id="25_jsxv7"]
+[ext_resource type="Texture2D" uid="uid://iv2x865kfi3w" path="res://assets/prolog/Lore-Comic25.png" id="26_3etjl"]
+[ext_resource type="Texture2D" uid="uid://cuhxjnc0o83ax" path="res://assets/prolog/Lore-Comic26.png" id="27_ijyrk"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2gwbr"]
-size = Vector2(426, 240)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57le1"]
+bg_color = Color(0.188235, 0.129412, 0.176471, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ttkq"]
 atlas = ExtResource("2_gguwk")
@@ -18,6 +43,114 @@ region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_tqnm7"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_22sx3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0es4b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4rble")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yby3c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_h8lhl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b2e73")
+}],
+"loop": false,
+"name": &"panel1",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_oymnw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_2tv2m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_c4y43")
+}],
+"loop": false,
+"name": &"panel2",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_83urd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_gcm25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_5bvyf")
+}],
+"loop": false,
+"name": &"panel3",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_6jame")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_akv1b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_44lj8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_2weqe")
+}],
+"loop": false,
+"name": &"panel4",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_5h8gl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_w3icr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ugfyw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_l3mkc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_msvv3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_71amj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_1k3xq")
+}],
+"loop": false,
+"name": &"panel5",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_jsxv7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_3etjl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_ijyrk")
+}],
+"loop": false,
+"name": &"panel6",
+"speed": 5.0
+}]
+
 [node name="Intro" type="Node2D"]
 script = ExtResource("1_3y4gn")
 
@@ -29,13 +162,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Page" type="Sprite2D" parent="CanvasLayer/Panel"]
-unique_name_in_owner = true
-texture = SubResource("PlaceholderTexture2D_2gwbr")
-centered = false
+theme_override_styles/panel = SubResource("StyleBoxFlat_57le1")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel"]
+z_index = 2
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -133,3 +263,10 @@ custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 text = "NEXT"
 flat = true
+
+[node name="SlideShow" type="AnimatedSprite2D" parent="CanvasLayer"]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_22sx3")
+animation = &"panel6"
+autoplay = "panel1"
+centered = false

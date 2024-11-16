@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://hp6gjjavixtg"]
+[gd_scene load_steps=11 format=3 uid="uid://hp6gjjavixtg"]
 
 [ext_resource type="Script" path="res://scenes/mini-games/vines.gd" id="1_ao8eq"]
 
@@ -11,12 +11,14 @@ bg_color = Color(0.188235, 0.129412, 0.176471, 1)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ik4lr"]
 b = Vector2(-8, 24)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_08w6p"]
-size = Vector2(8, 8)
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8dtvw"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_me3cj"]
 a = Vector2(-24, 24)
 b = Vector2(0, 0)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_08w6p"]
+size = Vector2(8, 8)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_fau6y"]
 a = Vector2(0, -24)
@@ -75,7 +77,10 @@ position = Vector2(56, -32)
 shape = SubResource("SegmentShape2D_ik4lr")
 
 [node name="Sprite2D" type="Sprite2D" parent="PanelContainer/MiniGame/Vine1/BeginStaticBody2D2"]
-texture = SubResource("PlaceholderTexture2D_08w6p")
+position = Vector2(-4, 16)
+rotation = 0.261799
+scale = Vector2(8.5, 24.5)
+texture = SubResource("PlaceholderTexture2D_8dtvw")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="PanelContainer/MiniGame/Vine1" groups=["VinePinJoints"]]
 position = Vector2(56, -32)
@@ -147,4 +152,3 @@ position = Vector2(-16, 56)
 shape = SubResource("SegmentShape2D_ik4lr")
 
 [node name="Sprite2D" type="Sprite2D" parent="PanelContainer/MiniGame/Vine1/EndStaticBody2D"]
-texture = SubResource("PlaceholderTexture2D_08w6p")

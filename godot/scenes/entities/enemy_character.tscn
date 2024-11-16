@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b3aye25ikfuxd"]
+[gd_scene load_steps=15 format=3 uid="uid://b3aye25ikfuxd"]
 
 [ext_resource type="Script" path="res://scenes/entities/enemy_character.gd" id="1_wcotn"]
 [ext_resource type="Texture2D" uid="uid://duv4t31k22mo2" path="res://assets/spr_beast.png" id="2_mco34"]
@@ -91,187 +91,13 @@ tracks/6/keys = {
 "values": [Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_kk34p"]
-resource_name = "walk_left"
-length = 1.2
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [8, 9, 10, 11]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../BodyCollisionShape2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0020833, 0.3, 0.302083, 0.6, 0.602083, 0.9, 0.902083),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [-1.26105, -0.820305, -1.16673, 0.0, -1.38159, -0.273435, -1.14958, 0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../BodyCollisionShape2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0020833, 0.3, 0.302083, 0.6, 0.602083, 0.9, 0.902083),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(-5, 2), Vector2(0, 1), Vector2(-4, 3), Vector2(-1, 2), Vector2(-4, 2), Vector2(-2, 1), Vector2(-1, 2), Vector2(-1, 2)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../BodyCollisionShape2D:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.0020833, 0.3, 0.302083, 0.6, 0.602083, 0.9, 0.902083),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../HandCollisionShape2D:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(22, 1), Vector2(20, 2), Vector2(17, 1), Vector2(18, -6)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../HandCollisionShape2D:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0.0, 0.0, 0.0, 0.0]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("../HandCollisionShape2D:scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3rrgb"]
+_data = {
+"RESET": SubResource("Animation_7ty3o")
 }
 
-[sub_resource type="Animation" id="Animation_biboi"]
-resource_name = "walk_right"
-length = 1.2
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [4, 5, 6, 7]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../BodyCollisionShape2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(3, 2), Vector2(7, 2), Vector2(6, 3), Vector2(3, 2)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../BodyCollisionShape2D:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [1.05552, 1.07926, 1.38329, 1.09093]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../BodyCollisionShape2D:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../HandCollisionShape2D:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(-19, -4), Vector2(-19, 2), Vector2(-16, 1), Vector2(-17, -6)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../HandCollisionShape2D:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0.0, 0.0, 0.0, 0.0]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("../HandCollisionShape2D:scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Vector2(1, 1), Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_nny62"]
+[sub_resource type="Animation" id="Animation_ngfrn"]
 resource_name = "walk_up"
-length = 1.2
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -280,7 +106,7 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"times": PackedFloat32Array(0, 0.233333, 0.5, 0.766667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -288,82 +114,19 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../BodyCollisionShape2D:position")
+tracks/1/path = NodePath("../HandCollisionShape2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"times": PackedFloat32Array(0, 0.233333, 0.5, 0.766667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Vector2(0, 1), Vector2(0, 2), Vector2(1, 1), Vector2(1, 2)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../BodyCollisionShape2D:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../BodyCollisionShape2D:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0.0, 0.0, 0.0, 0.0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../HandCollisionShape2D:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(9, 3), Vector2(1, 2), Vector2(-7, 0), Vector2(1, -3)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../HandCollisionShape2D:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0.0, 0.0, 0.0, 0.0]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("../HandCollisionShape2D:scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
+"values": [Vector2(10, 3), Vector2(0, 1), Vector2(-9, -1), Vector2(1, -2)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3rrgb"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ijlov"]
 _data = {
-"RESET": SubResource("Animation_7ty3o"),
-"walk_left": SubResource("Animation_kk34p"),
-"walk_right": SubResource("Animation_biboi"),
-"walk_up": SubResource("Animation_nny62")
+"walk_up": SubResource("Animation_ngfrn")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eyt5g"]
@@ -371,23 +134,23 @@ radius = 5.78957
 height = 22.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qacs0"]
-radius = 5.09902
+radius = 6.08276
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iecb4"]
-animation = &"walk_up"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_he316"]
+animation = &"enemy/walk_up"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_swf0b"]
-animation = &"walk_left"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3tyny"]
+animation = &"enemy/walk_left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fotbh"]
-animation = &"walk_right"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_adipr"]
+animation = &"enemy/walk_right"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_7bavs"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_iecb4")
+blend_point_0/node = SubResource("AnimationNodeAnimation_he316")
 blend_point_0/pos = Vector2(0, 1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_swf0b")
+blend_point_1/node = SubResource("AnimationNodeAnimation_3tyny")
 blend_point_1/pos = Vector2(-1, 0)
-blend_point_2/node = SubResource("AnimationNodeAnimation_fotbh")
+blend_point_2/node = SubResource("AnimationNodeAnimation_adipr")
 blend_point_2/pos = Vector2(1, 0)
 blend_mode = 1
 
@@ -411,9 +174,10 @@ script = ExtResource("1_wcotn")
 unique_name_in_owner = true
 root_node = NodePath("../Sprite2D")
 libraries = {
-"": SubResource("AnimationLibrary_3rrgb")
+"": SubResource("AnimationLibrary_3rrgb"),
+"enemy": SubResource("AnimationLibrary_ijlov")
 }
-autoplay = "walk_up"
+autoplay = "enemy/walk_up"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_mco34")
@@ -434,4 +198,4 @@ root_node = NodePath("%AnimationTree/../Sprite2D")
 tree_root = SubResource("AnimationNodeStateMachine_l5xkt")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_moving = false
-parameters/Walk/blend_position = Vector2(-1, -0.0106384)
+parameters/Walk/blend_position = Vector2(-0.996327, 0.014354)
