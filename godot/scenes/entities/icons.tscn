@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://w0kkqhcx1ngl"]
 
-[ext_resource type="Script" path="res://sprites/icons.gd" id="1_frldc"]
+[ext_resource type="Script" path="res://scenes/entities/icons.gd" id="1_frldc"]
 [ext_resource type="Texture2D" uid="uid://ceb1ujeyfyqgc" path="res://assets/spr_icons.png" id="2_8gq5j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhiko"]

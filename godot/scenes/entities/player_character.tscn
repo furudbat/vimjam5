@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://byfcvdix8s7a"]
 
-[ext_resource type="Script" path="res://sprites/player_character.gd" id="1_3oh48"]
+[ext_resource type="Script" path="res://scenes/entities/player_character.gd" id="1_3oh48"]
 [ext_resource type="Texture2D" uid="uid://dxucpedb6sctc" path="res://assets/spr_character.png" id="1_r7dfq"]
 
 [sub_resource type="Animation" id="Animation_7ty3o"]
@@ -257,7 +257,7 @@ states/Walk/position = Vector2(547, -3)
 transitions = ["Start", "Walk", SubResource("AnimationNodeStateMachineTransition_tgkr1")]
 graph_offset = Vector2(0, -52.377)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_3oh48")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

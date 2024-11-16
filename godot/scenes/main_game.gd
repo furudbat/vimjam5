@@ -7,16 +7,12 @@ extends Node2D
 @onready var game_timer: Timer = %GameTimer
 @onready var timer_ui = %TimerUI
 @onready var content_container = %ContentContainer
-@onready var path = %Path2D
-@onready var player_path = %PlayerPath
-@onready var player = %Player
-@onready var enemy_path = %EnemyPath
-@onready var enemy = %Enemy
-
+@onready var map = %Map
 
 var level = 0
 var section = 0
 var game_time = 0
+var obsticales_counter = 0
 
 # distance
 var distance = Constants.START_DISTANCE
@@ -34,7 +30,7 @@ var enemy_boosted: bool = false
 
 # obstical
 var current_obstical_scene = null
-var current_obstical = null
+var current_obstical_tile = null
 
 # game stats
 enum CharacterState {
@@ -51,24 +47,12 @@ enum GameState {
 	WIN,
 }
 var game_state = GameState.MAP
-var door_markers = []
-var doors = []
 
 
 func _ready() -> void:
-	for door in get_tree().get_nodes_in_group("Doors"):
-		door.connect("body_entered", func(body): _on_door_entered(door, body))
-		door.connect("body_exited", func(body): _on_door_exited(door, body))
-		doors.append(door)
-	for marker in get_tree().get_nodes_in_group("DoorMarkers"):
-		door_markers.append(marker)
-		
 	level_timer.autostart = false
 	level_timer.one_shot = true
 	level_timer.stop()
-	level_timer.timeout.connect(_on_timer_timeout)
-	
-	assert(Constants.MAX_LEVELS <= Constants.LEVELS.size())
 	
 	player_state = CharacterState.RUNNING
 	enemy_state = CharacterState.RUNNING
@@ -103,22 +87,13 @@ func _process(delta: float) -> void:
 		timer_ui.time = level_timer.time_left
 	
 	# Update Map
-	if game_state == GameState.MAP:
-		var enemy_direction = _get_direction_at_progress(path, enemy_path.progress_ratio)
-		enemy.is_moving = enemy_state == CharacterState.RUNNING
-		enemy.direction = enemy_direction
-		enemy.enemy_velocity = enemy_velocity
-		
-		var player_direction = _get_direction_at_progress(path, player_path.progress_ratio)
-		player.is_moving = player_state == CharacterState.RUNNING
-		player.direction = player_direction
-		player.player_velocity = player_velocity
-		
-		## Win
-		if player_path.progress_ratio >= 1.0:
-			_win_game()
-			return
-			
+	map.active = game_state == GameState.MAP
+	map.enemy_is_moving = enemy_state == CharacterState.RUNNING
+	map.enemy_velocity = enemy_velocity
+	map.player_is_moving = player_state == CharacterState.RUNNING
+	map.player_velocity = player_velocity
+	map.distance = distance
+
 	if game_state == GameState.MAP or game_state == GameState.OBSTACLE:
 		## Game Over
 		if distance <= 0:
@@ -146,18 +121,9 @@ func _physics_process(delta: float) -> void:
 			player_pos_m = player_pos_m + (player_velocity * delta)
 		if enemy_state == CharacterState.RUNNING:
 			enemy_pos_m = enemy_pos_m + (enemy_velocity * delta * enemy_velocity_boost)
-			
-		if player_state == CharacterState.RUNNING:
-			player_path.progress = player_path.progress + player_velocity.y
-			
-		enemy_path.progress = player_path.progress - distance*Constants.TILE_PX_PER_M/2
-		#if enemy_state == CharacterState.RUNNING:
-		#	enemy_path.progress = enemy_path.progress + enemy_velocity.y
 
-		
 func _next_level():
-	var current_level: Array = Constants.LEVELS[level]
-	if section < current_level.size()-1:
+	if section < Constants.MAX_SECTIONS-1:
 		section = section + 1
 	else:
 		if level < Constants.MAX_LEVELS-1:
@@ -168,8 +134,6 @@ func _next_level():
 			# Last level pass, no level left ... win
 			return false
 			
-	assert(level < Constants.LEVELS.size())
-	assert(section < Constants.LEVELS[level].size())
 	assert(level < Constants.LEVELS_TIME_SEC.size())
 	return true
 
@@ -184,16 +148,15 @@ func _reset_timer():
 		else:
 			player_velocity = Constants.NEXT_LEVEL_START_PLAYER_VELOCITY
 	
-func _obstical_reached(door):
+func _obstical_reached(tile, body, mini_game):
 	if game_state == GameState.MAP:
-		var game_nr = Constants.LEVELS[level][section]
-		# overlay scene on map
-		current_obstical_scene = load("res://scenes/mini-games/game%d.tscn" % game_nr).instantiate()
-		current_obstical_scene.puzzle_solved.connect(_puzzle_solved)
-		content_container.add_child(current_obstical_scene)
-		game_state = GameState.OBSTACLE
-		player_state = CharacterState.STOPPED
-		current_obstical = door
+		if not tile.open:
+			current_obstical_scene = load("res://scenes/mini-games/%s.tscn" % mini_game).instantiate()
+			current_obstical_scene.puzzle_solved.connect(_puzzle_solved)
+			content_container.add_child(current_obstical_scene)
+			game_state = GameState.OBSTACLE
+			player_state = CharacterState.STOPPED
+			current_obstical_tile = tile
 
 func _game_over():
 	game_timer.paused = true
@@ -208,6 +171,7 @@ func _game_over():
 	if current_obstical_scene:
 		content_container.remove_child(current_obstical_scene)
 	current_obstical_scene = null
+	current_obstical_tile = null
 	get_tree().current_scene.queue_free()
 	var game_over_scene = preload("res://scenes/game_over.tscn").instantiate()
 	get_tree().root.add_child(game_over_scene)
@@ -224,6 +188,7 @@ func _win_game():
 	if current_obstical_scene:
 		content_container.remove_child(current_obstical_scene)
 	current_obstical_scene = null
+	current_obstical_tile = null
 	var win_scene = preload("res://scenes/win.tscn").instantiate()
 	win_scene.time = game_time
 	get_tree().current_scene.queue_free()
@@ -234,9 +199,10 @@ func _puzzle_solved():
 	if game_state == GameState.OBSTACLE:
 		content_container.remove_child(current_obstical_scene)
 		current_obstical_scene = null
-		var door_collision: CollisionShape2D = current_obstical.get_node("CollisionShape2D")
+		current_obstical_tile.open = true
+		var door_collision: CollisionShape2D = current_obstical_tile.get_node("CollisionShape2D")
 		door_collision.disabled = true
-		current_obstical = null
+		current_obstical_tile = null
 		if _next_level():
 			player_state = CharacterState.RUNNING
 			game_state = GameState.MAP
@@ -244,31 +210,19 @@ func _puzzle_solved():
 		else:
 			_win_game()
 	
+
 func _on_timer_timeout():
 	enemy_boosted = true
 	enemy_velocity_boost = 1.0
-	
-
-func _on_door_entered(door, body):
-	if body.name == "Player":
-		_obstical_reached(door)
-
-func _on_door_exited(door, body):
-	pass
-	#if body.name == "Player":
-	#	player_velocity.y = Constants.PLAYER_MAX_VELOCITY.y
-	
-func _get_direction_at_progress(path: Path2D, progress_ratio: float) -> Vector2:
-	var curve = path.curve
-	var path_length = curve.get_baked_length()
-	var distance = progress_ratio * path_length
-
-	var current_position = curve.sample_baked(distance)
-	var next_position = curve.sample_baked(distance + 0.1)
-
-	var direction = (current_position - next_position).normalized()
-	return direction
-
 
 func _on_game_timer_timeout() -> void:
 	game_time += 1
+
+func _on_map_player_reach_end() -> void:
+	_win_game()
+
+
+func _on_map_get_obsticales_counter(obsticales) -> void:
+	obsticales_counter = obsticales
+	if OS.is_debug_build():
+		print(obsticales_counter)

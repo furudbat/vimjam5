@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dpbc70giyiuvd"]
 
-[ext_resource type="Script" path="res://scenes/mini-games/game1.gd" id="1_0ow33"]
+[ext_resource type="Script" path="res://scenes/mini-games/boulders.gd" id="1_0ow33"]
 [ext_resource type="Texture2D" uid="uid://dyasteg351mgy" path="res://assets/spr_boulders.png" id="2_3xoi3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwk8e"]

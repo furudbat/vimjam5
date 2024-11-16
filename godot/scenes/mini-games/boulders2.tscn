@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://d2yvadr2gvw2o"]
 
-[ext_resource type="Script" path="res://scenes/mini-games/game3.gd" id="1_vhcj2"]
-[ext_resource type="Texture2D" uid="uid://dyasteg351mgy" path="res://assets/spr_boulders.png" id="2_4d8re"]
+[ext_resource type="Script" path="res://scenes/mini-games/boulders2.gd" id="1_lvw5e"]
+[ext_resource type="Texture2D" uid="uid://dyasteg351mgy" path="res://assets/spr_boulders.png" id="2_3rdut"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwk8e"]
 bg_color = Color(0.188235, 0.129412, 0.176471, 1)
@@ -10,39 +10,39 @@ bg_color = Color(0.188235, 0.129412, 0.176471, 1)
 bg_color = Color(0.188235, 0.129412, 0.176471, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f3o00"]
-atlas = ExtResource("2_4d8re")
+atlas = ExtResource("2_3rdut")
 region = Rect2(496, 176, 128, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wyikh"]
-atlas = ExtResource("2_4d8re")
+atlas = ExtResource("2_3rdut")
 region = Rect2(192, 112, 112, 112)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dahb6"]
-atlas = ExtResource("2_4d8re")
+atlas = ExtResource("2_3rdut")
 region = Rect2(496, 176, 128, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8smkq"]
-atlas = ExtResource("2_4d8re")
+atlas = ExtResource("2_3rdut")
 region = Rect2(816, 160, 128, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r4oi7"]
-atlas = ExtResource("2_4d8re")
+atlas = ExtResource("2_3rdut")
 region = Rect2(336, 112, 128, 112)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s2773"]
-atlas = ExtResource("2_4d8re")
+atlas = ExtResource("2_3rdut")
 region = Rect2(640, 0, 144, 224)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f71w7"]
-atlas = ExtResource("2_4d8re")
+atlas = ExtResource("2_3rdut")
 region = Rect2(336, 112, 128, 112)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eqfff"]
-atlas = ExtResource("2_4d8re")
+atlas = ExtResource("2_3rdut")
 region = Rect2(0, 64, 176, 160)
 
 [node name="MiniGame3" type="Node2D"]
-script = ExtResource("1_vhcj2")
+script = ExtResource("1_lvw5e")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 z_index = 1

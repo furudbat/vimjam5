@@ -6,14 +6,14 @@ extends Node
 @onready var mob_spawn_path = %MobPath
 @onready var mob_spawn_location = %MobSpawnLocation
 @onready var mob_timer = %MobTimer
-@onready var mob_scene = preload("res://sprites/bug.tscn")
+@onready var mob_scene = preload("res://scenes/entities/bug.tscn")
 
 signal puzzle_solved()
 
 const BUG_SMUSHED_WIN = 8
-const BUG_VELOCITY_MIN = 80
-const BUG_VELOCITY_MAX = 160
-const BUG_RESPAWN_TIME = 0.2
+const BUG_VELOCITY_MIN = 120
+const BUG_VELOCITY_MAX = 240
+const BUG_RESPAWN_TIME = 0.1
 
 var bug_smushed_counter = 0
 var started = false

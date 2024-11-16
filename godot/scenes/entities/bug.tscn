@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://dj3oxo4idcsgp"]
 
-[ext_resource type="Script" path="res://sprites/bug.gd" id="1_w413w"]
+[ext_resource type="Script" path="res://scenes/entities/bug.gd" id="1_w413w"]
 [ext_resource type="Texture2D" uid="uid://cars4pvqdoapn" path="res://assets/spr_bugs-Sheet.png" id="2_n818q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ge22o"]
