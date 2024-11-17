@@ -155,8 +155,8 @@ func _obstical_reached(tile, body, mini_game):
 			current_obstical_scene.puzzle_solved.connect(_puzzle_solved)
 			content_container.add_child(current_obstical_scene)
 			game_state = GameState.OBSTACLE
-			player_state = CharacterState.STOPPED
 			current_obstical_tile = tile
+			player_state = CharacterState.STOPPED
 
 func _game_over():
 	game_timer.paused = true
@@ -202,6 +202,9 @@ func _puzzle_solved():
 		current_obstical_tile.open = true
 		var door_collision: CollisionShape2D = current_obstical_tile.get_node("CollisionShape2D")
 		door_collision.disabled = true
+		current_obstical_tile.visible = false
+		if OS.is_debug_build():
+			print(current_obstical_tile)
 		current_obstical_tile = null
 		if _next_level():
 			player_state = CharacterState.RUNNING

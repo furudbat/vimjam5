@@ -3,7 +3,6 @@ extends CharacterBody2D
 # Scene Nodes
 @onready var sprite = %Sprite2D
 
-@export var game = 1
 @export var open = false
 @export var mini_game = "bugs"
 signal player_entered_obsticale(node, body, mini_game)

@@ -5,6 +5,7 @@ extends TileMapLayer
 @onready var player = %Player
 @onready var enemy_path = %EnemyPath
 @onready var enemy = %Enemy
+@onready var map_entities = %EntitiesLayer
 
 @export var active = false
 @export var player_is_moving = false
@@ -28,7 +29,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# connect tile signals
 	if not inited_scene_tiles:
-		for tile_child in get_children():
+		for tile_child in map_entities.get_children():
 			# assume scene tiles are CharacterBody2D
 			if tile_child is CharacterBody2D:
 				if tile_child.player_entered_obsticale:

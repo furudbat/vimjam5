@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://blkabuqfdibdd"]
+
+[ext_resource type="Script" path="res://scenes/mini-games/vines.gd" id="1_n36l5"]
+[ext_resource type="PackedScene" uid="uid://d0po6un7bfv8e" path="res://scenes/entities/vine/vine1.tscn" id="2_lnf0h"]
+[ext_resource type="PackedScene" uid="uid://dfpsnv7buqwv4" path="res://scenes/entities/vine/vine2.tscn" id="3_dsk43"]
+[ext_resource type="PackedScene" uid="uid://cyxgqtvjktbip" path="res://scenes/entities/vine/vine3.tscn" id="4_hsrwy"]
+[ext_resource type="PackedScene" uid="uid://b8ghifbsbsxpa" path="res://scenes/entities/vine/vine4.tscn" id="5_mrevm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_171vh"]
+bg_color = Color(0.188235, 0.129412, 0.176471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14klj"]
+bg_color = Color(0.188235, 0.129412, 0.176471, 1)
+
+[node name="Vines2" type="Node2D"]
+script = ExtResource("1_n36l5")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+z_index = 1
+clip_contents = true
+offset_right = 378.0
+offset_bottom = 216.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_171vh")
+
+[node name="Title" type="Panel" parent="PanelContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(378, 216)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_14klj")
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/Title"]
+custom_minimum_size = Vector2(378, 216)
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 23.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="PanelContainer/Title/CenterContainer"]
+layout_mode = 2
+text = "Cut the Vine"
+
+[node name="MiniGame" type="Panel" parent="PanelContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(378, 216)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_14klj")
+
+[node name="Vine" parent="PanelContainer/MiniGame" groups=["Vines"] instance=ExtResource("2_lnf0h")]
+position = Vector2(24, -40)
+
+[node name="Vine2" parent="PanelContainer/MiniGame" instance=ExtResource("3_dsk43")]
+position = Vector2(72, -16)
+
+[node name="Vine3" parent="PanelContainer/MiniGame" instance=ExtResource("4_hsrwy")]
+position = Vector2(160, -8)
+
+[node name="Vine4" parent="PanelContainer/MiniGame" instance=ExtResource("5_mrevm")]
+position = Vector2(280, -72)
+
+[node name="Vine5" parent="PanelContainer/MiniGame" instance=ExtResource("4_hsrwy")]
+position = Vector2(216, -40)
+
+[node name="Vine6" parent="PanelContainer/MiniGame" instance=ExtResource("3_dsk43")]
+position = Vector2(120, -48)
+
+[node name="Vine7" parent="PanelContainer/MiniGame" groups=["Vines"] instance=ExtResource("2_lnf0h")]
+position = Vector2(336, -16)
+
+[node name="CutLine" type="Line2D" parent="PanelContainer/MiniGame"]
+unique_name_in_owner = true
+z_index = 2
+width = 2.0
+default_color = Color(0.858824, 0.458824, 0.27451, 1)
+texture_mode = 2

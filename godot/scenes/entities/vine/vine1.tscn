@@ -9,7 +9,7 @@ radius = 8.0
 [node name="Vine" type="Node2D" groups=["VinePinJoints", "VineSegments"]]
 script = ExtResource("1_q0src")
 
-[node name="Begin" type="StaticBody2D" parent="." groups=["VinePinJoints"]]
+[node name="Begin" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Begin"]
 shape = SubResource("CircleShape2D_rg7ca")
@@ -21,6 +21,7 @@ node_b = NodePath("../RigidBody2D")
 
 [node name="RigidBody2D" parent="." groups=["VineSegments"] instance=ExtResource("1_n6k42")]
 position = Vector2(0, 40)
+input_pickable = true
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="." groups=["VinePinJoints"]]
 position = Vector2(0, 72)
@@ -29,6 +30,7 @@ node_b = NodePath("../RigidBody2D2")
 
 [node name="RigidBody2D2" parent="." groups=["VineSegments"] instance=ExtResource("1_n6k42")]
 position = Vector2(0, 104)
+input_pickable = true
 
 [node name="PinJoint2D3" type="PinJoint2D" parent="." groups=["VinePinJoints"]]
 position = Vector2(0, 136)
@@ -37,3 +39,4 @@ node_b = NodePath("../RigidBody2D3")
 
 [node name="RigidBody2D3" parent="." groups=["VineSegments"] instance=ExtResource("1_n6k42")]
 position = Vector2(0, 168)
+input_pickable = true

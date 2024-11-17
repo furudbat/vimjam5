@@ -50,13 +50,13 @@ mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_14klj")
 
 [node name="Vine" parent="PanelContainer/MiniGame" groups=["Vines"] instance=ExtResource("2_xynfm")]
-position = Vector2(48, -8)
+position = Vector2(48, -40)
 
 [node name="Vine2" parent="PanelContainer/MiniGame" instance=ExtResource("3_d7dxn")]
 position = Vector2(120, -40)
 
 [node name="Vine3" parent="PanelContainer/MiniGame" instance=ExtResource("4_35l5k")]
-position = Vector2(216, -24)
+position = Vector2(216, -8)
 
 [node name="Vine4" parent="PanelContainer/MiniGame" instance=ExtResource("5_x6eig")]
 position = Vector2(312, -48)
@@ -64,6 +64,6 @@ position = Vector2(312, -48)
 [node name="CutLine" type="Line2D" parent="PanelContainer/MiniGame"]
 unique_name_in_owner = true
 z_index = 2
-width = 4.0
+width = 2.0
 default_color = Color(0.858824, 0.458824, 0.27451, 1)
 texture_mode = 2

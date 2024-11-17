@@ -10,13 +10,14 @@ extends Node
 
 signal puzzle_solved()
 
-const BUG_SMUSHED_WIN = 6
-const BUG_VELOCITY_MIN = 80
-const BUG_VELOCITY_MAX = 160
-const BUG_RESPAWN_TIME = 0.2
+@export var bug_smushed_win = 6
+@export var bug_velocity_min = 60
+@export var bug_velocity_max = 120
+@export var bug_respawn_time = 0.2
 
 var bug_smushed_counter = 0
 var started = false
+var win_cooldown = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,10 +31,12 @@ func _process(delta: float) -> void:
 			started = true
 			title.visible = false
 			mini_game.visible = true
-			mob_timer.start(BUG_RESPAWN_TIME)
+			mob_timer.start(bug_respawn_time)
 			return
 	else:
-		if bug_smushed_counter >= BUG_SMUSHED_WIN:
+		if bug_smushed_counter >= bug_smushed_win:
+			win_cooldown = win_cooldown + delta
+		if win_cooldown >= 0.5:
 			puzzle_solved.emit()
 			started = false
 			return
@@ -56,7 +59,7 @@ func _on_mob_timer_timeout() -> void:
 	mob.rotation = direction
 	
 	# Choose the velocity for the mob.
-	var velocity = Vector2(randi_range(BUG_VELOCITY_MIN, BUG_VELOCITY_MAX), 0)
+	var velocity = Vector2(randi_range(bug_velocity_min, bug_velocity_max), 0)
 	mob.linear_velocity = velocity.rotated(direction)
 	
 	# Spawn the mob by adding it to the Main scene.

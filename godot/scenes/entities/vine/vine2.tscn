@@ -21,6 +21,7 @@ node_b = NodePath("../RigidBody2D")
 
 [node name="RigidBody2D" parent="." groups=["VineSegments"] instance=ExtResource("2_8aja8")]
 position = Vector2(0, 40)
+input_pickable = true
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="." groups=["VinePinJoints"]]
 position = Vector2(0, 72)
@@ -29,11 +30,4 @@ node_b = NodePath("../RigidBody2D2")
 
 [node name="RigidBody2D2" parent="." groups=["VineSegments"] instance=ExtResource("2_8aja8")]
 position = Vector2(0, 104)
-
-[node name="PinJoint2D3" type="PinJoint2D" parent="." groups=["VinePinJoints"]]
-position = Vector2(0, 136)
-node_a = NodePath("../RigidBody2D2")
-node_b = NodePath("../RigidBody2D3")
-
-[node name="RigidBody2D3" parent="." groups=["VineSegments"] instance=ExtResource("2_8aja8")]
-position = Vector2(0, 168)
+input_pickable = true
