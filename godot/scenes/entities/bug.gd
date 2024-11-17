@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@onready var sprite = %AnimatedSprite2D
+@onready var sprite := %AnimatedSprite2D
 
 signal bug_smushed()
 

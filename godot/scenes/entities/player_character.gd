@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 # Scene Nodes
-@onready var animation_player = %AnimationPlayer
-@onready var animation_tree = %AnimationTree
+@onready var animation_player := %AnimationPlayer
+@onready var animation_tree := %AnimationTree
 
 @export var direction: Vector2 = Vector2(1, 0)
 @export var is_moving = false

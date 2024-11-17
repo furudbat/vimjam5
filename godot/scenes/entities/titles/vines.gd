@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # Scene Nodes
-@onready var sprite = %Sprite2D
+@onready var sprite := %Sprite2D
 
 @export var open = false
 @export var mini_game = "vines"

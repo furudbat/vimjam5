@@ -1,8 +1,9 @@
 extends Node2D
 
-@onready var title = %Title
-@onready var mini_game = %MiniGame
-@onready var line_node = %CutLine
+@onready var title := %Title
+@onready var mini_game := %MiniGame
+@onready var line_node := %CutLine
+@onready var cut_sound := %VineCutSound1
 
 signal puzzle_solved()
 
@@ -12,21 +13,27 @@ var vines_cut_counter = 0
 var cutting = false
 var cut_line_points: Array[Vector2] = []
 var win_cooldown = 0
+var init_vines = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	title.visible = true
 	mini_game.visible = false
-	
-	var vs = get_tree().get_nodes_in_group("Vines")
-	for i in range(vs.size()):
-		var vine = vs[i]
-		vine.cut_segment.connect(func(segment_index): _cut_segment(vine, i, segment_index))
-		vines.append(vine)
-		vine.visible = false
 
-func _cut_segment(vine, vine_index, segment_index: int):
+	# @FIXME: vines not aviable on ready ???
+	if not init_vines:
+		var vs = get_tree().get_nodes_in_group("Vines")
+		for i in range(vs.size()):
+			var vine = vs[i]
+			vine.cut_segment.connect(func(segment_index): _cut_segment(vine, i, segment_index))
+			vines.append(vine)
+			vine.visible = false
+		init_vines = true
+
+func _cut_segment(vine, vine_index, segment_index):
 	vines_cut_counter = vines_cut_counter + 1
+	if OS.is_debug_build():
+		print(vine, vine_index, segment_index)
 	
 func _input(event):
 	if started:
@@ -43,6 +50,9 @@ func _input(event):
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 			_end_cut()
 			_update_line()
+			if cut_sound:
+				cut_sound.pitch_scale = randf_range(0.78, 1.14)
+				cut_sound.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -57,7 +67,7 @@ func _process(delta: float) -> void:
 	else:
 		if vines_cut_counter >= vines.size():
 			win_cooldown = win_cooldown + delta
-		if win_cooldown >= 0.9:
+		if win_cooldown >= 1.2:
 			puzzle_solved.emit()
 			started = false
 			return

@@ -1,8 +1,8 @@
 extends Control
 
 # Scene Nodes
-@onready var sprite = %Sprite2D
-@onready var sprite_timer: Timer = %SpriteTimer
+@onready var sprite := %Sprite2D
+@onready var sprite_timer := %SpriteTimer
 
 @export var time = 0
 

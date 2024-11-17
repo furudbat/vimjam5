@@ -1,7 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://byfcvdix8s7a"]
+[gd_scene load_steps=18 format=3 uid="uid://byfcvdix8s7a"]
 
 [ext_resource type="Script" path="res://scenes/entities/player_character.gd" id="1_3oh48"]
 [ext_resource type="Texture2D" uid="uid://dxucpedb6sctc" path="res://assets/spr_character.png" id="1_r7dfq"]
+[ext_resource type="AudioStream" uid="uid://bjrokuj3fejpm" path="res://assets/sounds/fantozzi-footsteps/ogg/Fantozzi-StoneL2.ogg" id="3_bc55p"]
+[ext_resource type="AudioStream" uid="uid://b178xfx06x3v7" path="res://assets/sounds/fantozzi-footsteps/ogg/Fantozzi-StoneR1.ogg" id="4_yr02t"]
 
 [sub_resource type="Animation" id="Animation_7ty3o"]
 length = 0.001
@@ -53,6 +55,30 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../StepL:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../StepR:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3rrgb"]
@@ -191,7 +217,7 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2(0, 1)]
 }
 tracks/2/type = "value"
@@ -203,7 +229,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2(1, 1)]
 }
 tracks/3/type = "value"
@@ -215,8 +241,32 @@ tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/path = NodePath("../StepL:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(0.594604),
+"update": 0,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = false
+tracks/5/path = NodePath("../StepR:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(0.482968),
+"update": 0,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_men1w"]
@@ -277,6 +327,7 @@ autoplay = "walk_up"
 texture = ExtResource("1_r7dfq")
 hframes = 3
 vframes = 4
+frame = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_eyt5g")
@@ -288,3 +339,15 @@ tree_root = SubResource("AnimationNodeStateMachine_l5xkt")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_moving = false
 parameters/Walk/blend_position = Vector2(-0.996327, 0.014354)
+
+[node name="StepL" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_bc55p")
+volume_db = -14.022
+pitch_scale = 1.11
+bus = &"Sound"
+
+[node name="StepR" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_yr02t")
+volume_db = -20.107
+pitch_scale = 1.74
+bus = &"Sound"

@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var title = %Title
-@onready var mini_game = %MiniGame
+@onready var title := %Title
+@onready var mini_game := %MiniGame
 
 signal puzzle_solved()
 

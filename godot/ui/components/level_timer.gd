@@ -1,9 +1,10 @@
 extends Control
 
-@onready var timer_label: Label = %Timer
-@onready var timer_clock_icon = %TimerClockIcon
+@onready var timer_label := %Timer
+@onready var timer_clock_icon := %TimerClockIcon
 
 @export var time: int = -1
+
 var current_font_color = ColorPalette.FONT_COLOR
 
 # Called when the node enters the scene tree for the first time.

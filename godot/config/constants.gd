@@ -10,18 +10,18 @@ const CLOCK_LOW_TIME_SEC: float = 10.0
 
 # Meter
 const START_ENEMY_VELOCITY_BOOST: float = 1.0
-const START_ENEMY_ACCELERATION_FACTOR: float = 0.6
+const START_ENEMY_ACCELERATION_FACTOR: float = 0.7
 const START_PLAYER_ACCELERATION_FACTOR: float = 0.5
 
 const START_PLAYER_VELOCITY: Vector2 = Vector2(0, 0.75)
 const NEXT_LEVEL_START_PLAYER_VELOCITY: Vector2 = Vector2(0, 1)
 const START_ENEMY_VELOCITY: Vector2 = Vector2(0, 1)
 
-const ENEMY_VELOCITY_WHEN_PLAYER_STOPPED: Vector2 = Vector2(0, 2.5)
+const ENEMY_VELOCITY_WHEN_PLAYER_STOPPED: Vector2 = Vector2(0, 2.3)
 const ENEMY_MAX_VELOCITY: Vector2 = Vector2(0, 1.2)
 
-const PLAYER_ACCELERATION_FACTOR: float = 0.5
-const PLAYER_MAX_VELOCITY: Vector2 = Vector2(0, 1.8)
+const PLAYER_ACCELERATION_FACTOR: float = 0.65
+const PLAYER_MAX_VELOCITY: Vector2 = Vector2(0, 1.9)
 
 # Map
 const TILE_PX_PER_M: int = 16
@@ -48,7 +48,8 @@ const MAX_GAMES = 1
 const LEVELS_TIME_SEC = [
 	40,
 	60,
+	30,
 	20,
 ]
 const MAX_SECTIONS = 3
-const MAX_LEVELS = 3
+const MAX_LEVELS = 4

@@ -1,11 +1,12 @@
 extends Node
 
-@onready var title = %Title
-@onready var mini_game = %MiniGame
+@onready var title := %Title
+@onready var mini_game := %MiniGame
+@onready var bug_sound := %BugSound1
 
-@onready var mob_spawn_path = %MobPath
-@onready var mob_spawn_location = %MobSpawnLocation
-@onready var mob_timer = %MobTimer
+@onready var mob_spawn_path := %MobPath
+@onready var mob_spawn_location := %MobSpawnLocation
+@onready var mob_timer := %MobTimer
 @onready var mob_scene = preload("res://scenes/entities/bug.tscn")
 
 signal puzzle_solved()
@@ -36,7 +37,7 @@ func _process(delta: float) -> void:
 	else:
 		if bug_smushed_counter >= bug_smushed_win:
 			win_cooldown = win_cooldown + delta
-		if win_cooldown >= 0.5:
+		if win_cooldown >= 0.9:
 			puzzle_solved.emit()
 			started = false
 			return
@@ -67,3 +68,6 @@ func _on_mob_timer_timeout() -> void:
 	
 func _bug_smushed() -> void:
 	bug_smushed_counter = bug_smushed_counter + 1
+	if bug_sound:
+		bug_sound.pitch_scale = randf_range(0.83, 1.34)
+		bug_sound.play()

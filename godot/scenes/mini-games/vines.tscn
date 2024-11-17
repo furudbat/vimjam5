@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://hp6gjjavixtg"]
+[gd_scene load_steps=9 format=3 uid="uid://hp6gjjavixtg"]
 
 [ext_resource type="Script" path="res://scenes/mini-games/vines.gd" id="1_ao8eq"]
 [ext_resource type="PackedScene" uid="uid://d0po6un7bfv8e" path="res://scenes/entities/vine/vine1.tscn" id="2_xynfm"]
 [ext_resource type="PackedScene" uid="uid://dfpsnv7buqwv4" path="res://scenes/entities/vine/vine2.tscn" id="3_d7dxn"]
 [ext_resource type="PackedScene" uid="uid://cyxgqtvjktbip" path="res://scenes/entities/vine/vine3.tscn" id="4_35l5k"]
 [ext_resource type="PackedScene" uid="uid://b8ghifbsbsxpa" path="res://scenes/entities/vine/vine4.tscn" id="5_x6eig"]
+[ext_resource type="AudioStream" uid="uid://b7ay6lelssyfi" path="res://assets/sounds/swing_cut/swing.wav" id="6_j081m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_171vh"]
 bg_color = Color(0.188235, 0.129412, 0.176471, 1)
@@ -67,3 +68,10 @@ z_index = 2
 width = 2.0
 default_color = Color(0.858824, 0.458824, 0.27451, 1)
 texture_mode = 2
+
+[node name="VineCutSound1" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_j081m")
+volume_db = -2.337
+pitch_scale = 0.93
+bus = &"Sound"

@@ -16,11 +16,11 @@ config/version="0.1.0"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3")
 run/max_fps=60
-boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/bg_color=Color(0.188235, 0.129412, 0.176471, 1)
 boot_splash/show_image=false
 boot_splash/fullsize=false
 boot_splash/use_filter=false
-config/icon="res://icon.svg"
+config/icon="res://spr_icon_128x128.png"
 
 [autoload]
 
@@ -29,6 +29,7 @@ Constants="*res://config/constants.gd"
 ThemeManager="*res://settings/theme_manager.gd"
 UserSettings="*res://settings/user_settings.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+TitleBgm="*res://scenes/title_bgm.tscn"
 
 [display]
 
@@ -142,4 +143,4 @@ textures/default_filters/use_nearest_mipmap_filter=true
 textures/default_filters/anisotropic_filtering_level=1
 textures/decals/filter=2
 textures/light_projectors/filter=2
-environment/defaults/default_clear_color=Color(0.168347, 0.140314, 0.231353, 0)
+environment/defaults/default_clear_color=Color(0.188235, 0.129412, 0.176471, 1)

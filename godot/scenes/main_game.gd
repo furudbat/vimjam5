@@ -1,13 +1,14 @@
 extends Node2D
 
 # Scene Nodes
-@onready var beast_meter = %BeastMeter
-@onready var distance_label: Label = %Distance
-@onready var level_timer: Timer = %LevelTimer
-@onready var game_timer: Timer = %GameTimer
-@onready var timer_ui = %TimerUI
-@onready var content_container = %ContentContainer
-@onready var map = %Map
+@onready var beast_meter := %BeastMeter
+@onready var distance_label := %Distance
+@onready var level_timer := %LevelTimer
+@onready var game_timer := %GameTimer
+@onready var timer_ui := %TimerUI
+@onready var content_container := %ContentContainer
+@onready var map := %Map
+@onready var beast_sound := %BeastSoundPlayer
 
 var level = 0
 var section = 0
@@ -77,6 +78,11 @@ func _process(delta: float) -> void:
 	
 	# Update distance
 	distance = player_pos_m.y - enemy_pos_m.y
+	distance = max(distance, 0)
+	if distance <= 0:
+		player_state = CharacterState.STOPPED
+		enemy_state = CharacterState.STOPPED
+	
 	beast_meter.distance = distance
 	beast_meter.player_pos_m = player_pos_m.y
 	beast_meter.enemy_pos_m = enemy_pos_m.y
@@ -104,6 +110,10 @@ func _process(delta: float) -> void:
 	if OS.is_debug_build():
 		if Input.is_key_pressed(KEY_SPACE):
 			player_state = CharacterState.STOPPED
+		if Input.is_key_pressed(KEY_BACKSPACE):
+			enemy_state = CharacterState.STOPPED
+		if Input.is_key_pressed(KEY_F3):
+			_puzzle_solved()
 
 func _physics_process(delta: float) -> void:
 	if game_state == GameState.MAP or game_state == GameState.OBSTACLE:
@@ -206,17 +216,16 @@ func _puzzle_solved():
 		if OS.is_debug_build():
 			print(current_obstical_tile)
 		current_obstical_tile = null
-		if _next_level():
-			player_state = CharacterState.RUNNING
-			game_state = GameState.MAP
-			player_velocity = Constants.START_PLAYER_VELOCITY
-		else:
-			_win_game()
+		_next_level()
+		player_state = CharacterState.RUNNING
+		game_state = GameState.MAP
+		player_velocity = Constants.START_PLAYER_VELOCITY
 	
 
 func _on_timer_timeout():
 	enemy_boosted = true
 	enemy_velocity_boost = 1.0
+	beast_sound.play()
 
 func _on_game_timer_timeout() -> void:
 	game_time += 1

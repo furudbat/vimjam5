@@ -1,11 +1,11 @@
 extends TileMapLayer
 
-@onready var path = %Path2D
-@onready var player_path = %PlayerPath
-@onready var player = %Player
-@onready var enemy_path = %EnemyPath
-@onready var enemy = %Enemy
-@onready var map_entities = %EntitiesLayer
+@onready var path := %Path2D
+@onready var player_path := %PlayerPath
+@onready var player := %Player
+@onready var enemy_path := %EnemyPath
+@onready var enemy := %Enemy
+@onready var map_entities := %EntitiesLayer
 
 @export var active = false
 @export var player_is_moving = false

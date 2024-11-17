@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dls36054mstgb"]
+[gd_scene load_steps=6 format=3 uid="uid://dls36054mstgb"]
 
 [ext_resource type="Script" path="res://scenes/mini-games/bugs.gd" id="1_tswgs"]
+[ext_resource type="AudioStream" uid="uid://ckhscajo38s3d" path="res://assets/sounds/bugs/random3.wav" id="2_qbj5h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_171vh"]
 bg_color = Color(0.188235, 0.129412, 0.176471, 1)
@@ -64,5 +65,11 @@ curve = SubResource("Curve2D_lwh2q")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="PanelContainer/MiniGame/MobPath"]
 unique_name_in_owner = true
+
+[node name="BugSound1" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_qbj5h")
+volume_db = 1.753
+bus = &"Sound"
 
 [connection signal="timeout" from="PanelContainer/MiniGame/MobTimer" to="." method="_on_mob_timer_timeout"]

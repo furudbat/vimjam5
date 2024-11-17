@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var time_label = %Time
+@onready var time_label := %Time
 
 @export var time = 0
 
@@ -21,3 +21,7 @@ func _format_time(seconds: int) -> String:
 	var minutes = seconds / 60
 	var remaining_seconds = seconds % 60
 	return "%02d:%02d" % [minutes, remaining_seconds]
+
+
+func _on_restart_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_game.tscn")

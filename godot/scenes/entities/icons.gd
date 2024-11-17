@@ -1,7 +1,7 @@
 extends Node2D
 
 # Scene Nodes
-@onready var sprite = %Sprite2D
+@onready var sprite := %Sprite2D
 
 enum Icon {
 	MASTER,

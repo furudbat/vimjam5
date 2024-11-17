@@ -1,7 +1,8 @@
 extends Node2D
 
-@onready var title = %Title
-@onready var mini_game = %MiniGame
+@onready var title := %Title
+@onready var mini_game := %MiniGame
+@onready var boulder_sound := %BoulderSound1
 
 signal puzzle_solved()
 
@@ -44,18 +45,21 @@ func _on_stone_input_event(stone: Node, viewport: Node, event: InputEvent, shape
 		if stone.visible:
 			var stone_area = stone.get_node("Area2D")
 			var other_areas = stone_area.get_overlapping_areas()
-			var is_on_top = false
-			print(stone, stone_area, other_areas)
-			if other_areas.size() > 0:
-				is_on_top = true
-				for area in other_areas:
-					var other_stone = area.get_parent()
-					if area.is_visible_in_tree():
-						print(stone.z_index, other_stone.z_index)
-						is_on_top = is_on_top and stone.z_index > other_stone.z_index || (stone.z_index == other_stone.z_index and stone_area.is_greater_than(area))
-			else:
-				is_on_top = true
+			var is_on_top = true
+			# check for stones in front ???
+			#if other_areas.size() > 0:
+			#	is_on_top = true
+			#	for area in other_areas:
+			#		var other_stone = area.get_parent()
+			#		if area.is_visible_in_tree():
+			#			print(stone.z_index, other_stone.z_index)
+			#			is_on_top = is_on_top and stone.z_index > other_stone.z_index || (stone.z_index == other_stone.z_index and stone_area.is_greater_than(area))
+			#else:
+			#	is_on_top = true
 			if is_on_top:
 				stone_counter = stone_counter + 1
 				stone.get_node("Area2D/CollisionPolygon2D").disabled = true
 				stone.visible = false
+				if boulder_sound:
+					boulder_sound.pitch_scale = randf_range(0.91, 1.44)
+					boulder_sound.play()

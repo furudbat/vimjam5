@@ -1,8 +1,8 @@
 extends Control
 
-@onready var player_icon = %PlayerIcon
-@onready var enemy_icon = %EnemyIcon
-@onready var panel: Panel = %Panel
+@onready var player_icon := %PlayerIcon
+@onready var enemy_icon := %EnemyIcon
+@onready var panel := %Panel
 
 @export var distance: int = 0
 @export var player_pos_m: int = 0

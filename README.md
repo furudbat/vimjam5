@@ -8,7 +8,7 @@ Entry for [VimJam5](https://itch.io/jam/vimjam5) - Run from the Aztec Beast Ahui
 
 ## Description
 
-_@TODO: story_
+Our adventurous coati named Fee found an old ruin while exploring their local jungle. While inspecting the closer she found herself in a pickle and is now trying to escape an ancient beast. During the escape she needs to overcome many obstacles to reach the exit.
 
 Solve Microgames like in WarioWare and escape the Beast.
 
@@ -42,7 +42,7 @@ Solve Microgames like in WarioWare and escape the Beast.
 
 ## How to play
 
-You are auto-running on the main map, if you reach an obstacl, solve the Microgame.
+You are auto-running on the main map, if you reach an obstacle, solve the Microgame.
 Keep running until you reach the Exit.
 Keep a good distance from the the Beast, if it catches you, it's Game Over.
 Don't let the Timer run out or bad things will happen.
@@ -73,8 +73,27 @@ Use <kbd>LMB</kbd> to click through the Prolog (Comic) or hold <kbd>RMB</kbd> to
 ### 3rd party assets
 
 #### Music
+    
+    "Thunderhead" Kevin MacLeod (incompetech.com)
+    Licensed under Creative Commons: By Attribution 4.0 License
+    http://creativecommons.org/licenses/by/4.0/
+
+    "The Complex" Kevin MacLeod (incompetech.com)
+    Licensed under Creative Commons: By Attribution 4.0
+    http://creativecommons.org/licenses/by/4.0/
+
+- by Kevin MacLeod ([incompetech.com](https://incompetech.com/music/royalty-free/music.html)) - [Creative Commons: By Attribution 4.0 License](http://creativecommons.org/licenses/by/4.0/)
+
 
 #### Sound
+
+- Monster or beast sounds: [pauliuw](https://opengameart.org/content/monster-or-beast-sounds) - [CC0 ; Public Domain](https://creativecommons.org/publicdomain/zero/1.0/)
+- Animal or beast sounds: [pauliuw](https://opengameart.org/content/animal-or-beast-sounds) - [CC0 ; Public Domain](https://creativecommons.org/publicdomain/zero/1.0/)
+- RPG Sound Pack: [artisticdude](https://opengameart.org/content/rpg-sound-pack) - [CC0 ; Public Domain](https://creativecommons.org/publicdomain/zero/1.0/)
+- Fantozzi's Footsteps (Grass/Sand & Stone): [Fantozzi](https://opengameart.org/content/fantozzis-footsteps-grasssand-stone) - [CC0 ; Public Domain](https://creativecommons.org/publicdomain/zero/1.0/)
+- Various Sound Effects: [Spring Spring](https://opengameart.org/content/various-sound-effects-0) - [CC0 ; Public Domain](https://creativecommons.org/publicdomain/zero/1.0/)
+- Moving Boulder: [themightyglider](https://opengameart.org/content/moving-boulder) - [CC0 ; Public Domain](https://creativecommons.org/publicdomain/zero/1.0/)
+- Fireplace Sound loop: [PagDev](https://opengameart.org/content/fireplace-sound-loop) - [CC0 ; Public Domain](https://creativecommons.org/publicdomain/zero/1.0/)
 
 ### License
 
