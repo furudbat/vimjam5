@@ -41,7 +41,7 @@ region = Rect2(336, 112, 128, 112)
 atlas = ExtResource("2_3xoi3")
 region = Rect2(0, 64, 176, 160)
 
-[node name="MiniGame1" type="Node2D"]
+[node name="Boulders1" type="Node2D"]
 script = ExtResource("1_0ow33")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]

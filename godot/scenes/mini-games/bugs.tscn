@@ -14,7 +14,7 @@ _data = {
 }
 point_count = 5
 
-[node name="MiniGame2" type="Node2D"]
+[node name="Bugs1" type="Node2D"]
 script = ExtResource("1_tswgs")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]

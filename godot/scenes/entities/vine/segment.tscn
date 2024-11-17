@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3qk2yv2vr1th"]
+
+[ext_resource type="Texture2D" uid="uid://bwfg1yhk83egf" path="res://assets/spr_vine.png" id="1_ryqbb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ucg7d"]
+radius = 8.0
+height = 64.0
+
+[node name="VineSegment" type="RigidBody2D"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("CapsuleShape2D_ucg7d")
+
+[node name="SprVine" type="Sprite2D" parent="."]
+texture = ExtResource("1_ryqbb")
