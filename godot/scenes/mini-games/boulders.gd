@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 			#win_sound.play()
 		if win:
 			win_cooldown = win_cooldown + delta
-		if win_cooldown >= 0.7:
+		if win_cooldown >= 0.6:
 			puzzle_solved.emit()
 			started = false
 			return

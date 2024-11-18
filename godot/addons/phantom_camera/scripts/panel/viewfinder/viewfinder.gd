@@ -431,7 +431,7 @@ func _on_dead_zone_changed() -> void:
 		pcam_host = _active_pcam.get_pcam_host_owner()
 		if not _active_pcam == pcam_host.get_active_pcam():
 			_active_pcam == pcam_host.get_active_pcam()
-			print("Active pcam in viewfinder: ", _active_pcam)
+			#print("Active pcam in viewfinder: ", _active_pcam)
 
 	var dead_zone_width: float = _active_pcam.dead_zone_width * camera_viewport_panel.size.x
 	var dead_zone_height: float = _active_pcam.dead_zone_height * camera_viewport_panel.size.y

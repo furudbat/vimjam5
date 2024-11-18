@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://dpbc70giyiuvd"]
+[gd_scene load_steps=17 format=3 uid="uid://dpbc70giyiuvd"]
 
 [ext_resource type="Script" path="res://scenes/mini-games/boulders.gd" id="1_0ow33"]
+[ext_resource type="Texture2D" uid="uid://dqbxmj6d7pr2" path="res://assets/spr_icons_16x16.png" id="2_3vo6u"]
 [ext_resource type="Texture2D" uid="uid://dyasteg351mgy" path="res://assets/spr_boulders.png" id="2_3xoi3"]
 [ext_resource type="AudioStream" uid="uid://dx74balur6fig" path="res://assets/sounds/boulder_cave_in/crush.wav" id="3_s10qc"]
 [ext_resource type="AudioStream" uid="uid://cvx16hjbt15wa" path="res://assets/sounds/win/win sound 2-1.wav" id="4_gv03q"]
@@ -10,6 +11,10 @@ bg_color = Color(0.188235, 0.129412, 0.176471, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3b60"]
 bg_color = Color(0.188235, 0.129412, 0.176471, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojtd6"]
+atlas = ExtResource("2_3vo6u")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eqfff"]
 atlas = ExtResource("2_3xoi3")
@@ -69,9 +74,17 @@ offset_bottom = 23.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="PanelContainer/Title/CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Title/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Title/CenterContainer/HBoxContainer"]
 layout_mode = 2
 text = "Clear the Path"
+
+[node name="Sprite2D" type="Sprite2D" parent="PanelContainer/Title/CenterContainer/HBoxContainer"]
+position = Vector2(113, 5)
+texture = SubResource("AtlasTexture_ojtd6")
+centered = false
 
 [node name="MiniGame" type="Panel" parent="PanelContainer"]
 unique_name_in_owner = true

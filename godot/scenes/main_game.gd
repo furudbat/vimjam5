@@ -50,6 +50,7 @@ enum GameState {
 var game_state = GameState.MAP
 
 var game_over_fadeout = 0
+var game_over_scene = preload("res://scenes/game_over.tscn")
 
 
 func _ready() -> void:
@@ -75,12 +76,13 @@ func _process(delta: float) -> void:
 				return
 	if game_state == GameState.GAME_OVER:
 		game_over_fadeout = game_over_fadeout + delta
-		if game_over_fadeout >= 1.0:
-			get_tree().current_scene.queue_free()
-			var game_over_scene = preload("res://scenes/game_over.tscn").instantiate()
-			get_tree().root.add_child(game_over_scene)
-			get_tree().current_scene = game_over_scene
-			return
+		# TODO: show game over scren AFTER catch ???
+		#if game_over_fadeout >= 1.0:
+		#get_tree().current_scene.queue_free()
+		#var game_over_scene = game_over_scene.instantiate()
+		#get_tree().root.add_child(game_over_scene)
+		#get_tree().current_scene = game_over_scene
+		return
 			
 	if enemy_boosted:
 		beast_meter.enemy_state = beast_meter.EnemyIconState.ANGRY
@@ -200,6 +202,11 @@ func _game_over():
 		content_container.remove_child(current_obstical_scene)
 	current_obstical_scene = null
 	current_obstical_tile = null
+	# @NOTE: show direct game over
+	get_tree().current_scene.queue_free()
+	var game_over_scene = game_over_scene.instantiate()
+	get_tree().root.add_child(game_over_scene)
+	get_tree().current_scene = game_over_scene
 	
 func _win_game():
 	game_timer.paused = true

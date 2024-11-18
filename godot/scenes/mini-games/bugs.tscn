@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dls36054mstgb"]
+[gd_scene load_steps=9 format=3 uid="uid://dls36054mstgb"]
 
 [ext_resource type="Script" path="res://scenes/mini-games/bugs.gd" id="1_tswgs"]
+[ext_resource type="Texture2D" uid="uid://dqbxmj6d7pr2" path="res://assets/spr_icons_16x16.png" id="2_hr6rn"]
 [ext_resource type="AudioStream" uid="uid://ckhscajo38s3d" path="res://assets/sounds/bugs/random3.wav" id="2_qbj5h"]
 [ext_resource type="AudioStream" uid="uid://cvx16hjbt15wa" path="res://assets/sounds/win/win sound 2-1.wav" id="3_sg1hx"]
 
@@ -9,6 +10,10 @@ bg_color = Color(0.188235, 0.129412, 0.176471, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14klj"]
 bg_color = Color(0.188235, 0.129412, 0.176471, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ib5pp"]
+atlas = ExtResource("2_hr6rn")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="Curve2D" id="Curve2D_lwh2q"]
 _data = {
@@ -36,15 +41,22 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_14klj")
 
 [node name="CenterContainer" type="CenterContainer" parent="PanelContainer/Title"]
 custom_minimum_size = Vector2(378, 216)
-layout_mode = 0
 offset_right = 80.0
 offset_bottom = 23.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="PanelContainer/Title/CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Title/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Title/CenterContainer/HBoxContainer"]
 layout_mode = 2
 text = "Swat the Bugs"
+
+[node name="Sprite2D" type="Sprite2D" parent="PanelContainer/Title/CenterContainer/HBoxContainer"]
+position = Vector2(113, 5)
+texture = SubResource("AtlasTexture_ib5pp")
+centered = false
 
 [node name="MiniGame" type="Panel" parent="PanelContainer"]
 unique_name_in_owner = true

@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://hp6gjjavixtg"]
+[gd_scene load_steps=11 format=3 uid="uid://hp6gjjavixtg"]
 
 [ext_resource type="Script" path="res://scenes/mini-games/vines.gd" id="1_ao8eq"]
+[ext_resource type="Texture2D" uid="uid://dqbxmj6d7pr2" path="res://assets/spr_icons_16x16.png" id="2_aaiie"]
 [ext_resource type="PackedScene" uid="uid://caq6j3cq024bw" path="res://scenes/mini-games/vines/vine_1.tscn" id="2_lsn5b"]
 [ext_resource type="PackedScene" uid="uid://bb1r625ch2x8j" path="res://scenes/mini-games/vines/vine_2.tscn" id="3_dew2e"]
 [ext_resource type="Script" path="res://scenes/mini-games/line_drawer.gd" id="4_dbyqg"]
@@ -12,6 +13,10 @@ bg_color = Color(0.188235, 0.129412, 0.176471, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14klj"]
 bg_color = Color(0.188235, 0.129412, 0.176471, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt46y"]
+atlas = ExtResource("2_aaiie")
+region = Rect2(0, 0, 16, 16)
 
 [node name="Vines1" type="Node2D"]
 script = ExtResource("1_ao8eq")
@@ -39,9 +44,17 @@ offset_bottom = 23.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="PanelContainer/Title/CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Title/CenterContainer"]
 layout_mode = 2
-text = "Cut the Vine"
+
+[node name="Label" type="Label" parent="PanelContainer/Title/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "Cut the Vines"
+
+[node name="Sprite2D" type="Sprite2D" parent="PanelContainer/Title/CenterContainer/HBoxContainer"]
+position = Vector2(113, 5)
+texture = SubResource("AtlasTexture_vt46y")
+centered = false
 
 [node name="MiniGame" type="Panel" parent="PanelContainer"]
 unique_name_in_owner = true
@@ -60,12 +73,12 @@ position = Vector2(200, -56)
 position = Vector2(304, -48)
 
 [node name="Vine_2" parent="PanelContainer/MiniGame" instance=ExtResource("3_dew2e")]
-position = Vector2(504, 32)
+position = Vector2(504, -6.67572e-06)
 rotation = 1.51501
 
 [node name="Vine_3" parent="PanelContainer/MiniGame" instance=ExtResource("3_dew2e")]
-position = Vector2(504, 176)
-rotation = 1.63906
+position = Vector2(504, 144)
+rotation = 1.66791
 
 [node name="LineDrawer" type="Node2D" parent="."]
 unique_name_in_owner = true

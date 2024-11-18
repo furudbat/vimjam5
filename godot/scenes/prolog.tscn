@@ -305,13 +305,13 @@ centered = false
 [node name="FireSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("28_hduhr")
-volume_db = 2.337
+volume_db = 3.546
 bus = &"Sound"
 
 [node name="ClickSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("34_mmcjr")
-volume_db = 1.169
+volume_db = 0.585
 pitch_scale = 0.16
 bus = &"Sound"
 
@@ -325,7 +325,7 @@ bus = &"Sound"
 [node name="FallSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("36_mq65k")
-volume_db = -13.904
+volume_db = -11.567
 pitch_scale = 0.91
 bus = &"Sound"
 

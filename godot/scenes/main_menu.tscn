@@ -140,7 +140,7 @@ custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 8
-text = "                     furudbat"
+text = "       2024"
 vertical_alignment = 2
 
 [node name="Credit2" type="Label" parent="UI/Panel/VBoxContainer/Footer/HBoxContainer"]
@@ -148,7 +148,7 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 8
-text = "                  Blacktiger5"
+text = "        furudbat & Blacktiger5"
 vertical_alignment = 2
 
 [node name="ButtonSoundPlayer" type="AudioStreamPlayer" parent="."]
