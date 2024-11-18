@@ -50,9 +50,9 @@ Don't let the Timer run out or bad things will happen.
 ### Controls
 
 Every Microgame have a little introduction at the start, <kbd>LMB</kbd> (left-click) to start the Microgame.
-Most of the Microgames are solvable by clicking on something, keep an eye on special mouse and control promts like <kbd>RMB</kbd> or <kbd>mouse wheel up/down</kbd> (for example to rotate something).
+Most of the Microgames are solvable by clicking on something, keep an eye on special mouse and control prompts like <kbd>RMB</kbd>.
 
-Use <kbd>LMB</kbd> to click through the Prolog (Comic) or hold <kbd>RMB</kbd> to skip.
+Use <kbd>LMB</kbd> to click through the prolog (Comic) or hold <kbd>RMB</kbd> to skip.
 
 ## Screenshots
 
