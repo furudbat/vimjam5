@@ -35,8 +35,8 @@ func _process(delta: float) -> void:
 				if tile_child.player_entered_obsticale:
 					tile_child.connect("player_entered_obsticale", _on_boulder_obstacle_reached)
 					obsticales = obsticales + 1
-					if OS.is_debug_build():
-						print(obsticales, tile_child.name, tile_child)
+					#if OS.is_debug_build():
+					#	print(obsticales, tile_child.name, tile_child)
 				
 		get_obsticales_counter.emit(obsticales)
 		inited_scene_tiles = true                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
@@ -51,19 +51,23 @@ func _process(delta: float) -> void:
 	player.direction = player_direction
 	player.player_velocity = player_velocity
 	
-	## Win
-	if player_path.progress_ratio >= 1.0:
-		player_reach_end.emit()
-		return
+	# Debug
+	if OS.is_debug_build():
+		if Input.is_key_pressed(KEY_F6):
+			player_path.progress_ratio = 0.9
 
 func _physics_process(delta: float) -> void:
 	if player_is_moving:
 		player_path.progress = player_path.progress + player_velocity.y
 	
-	if enemy_is_moving:
-		enemy_path.progress = player_path.progress - distance*Constants.TILE_PX_PER_M/2
+	enemy_path.progress = player_path.progress - distance*Constants.TILE_PX_PER_M
 	#if enemy_is_moving:
 	#	enemy_path.progress = enemy_path.progress + enemy_velocity.y
+	
+	# Win
+	if active and player_path.progress_ratio >= 1.0:
+		player_reach_end.emit()
+		return
 
 func _get_direction_at_progress(path: Path2D, progress_ratio: float) -> Vector2:
 	var curve = path.curve

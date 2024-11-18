@@ -49,6 +49,8 @@ enum GameState {
 }
 var game_state = GameState.MAP
 
+var game_over_fadeout = 0
+
 
 func _ready() -> void:
 	level_timer.autostart = false
@@ -60,6 +62,7 @@ func _ready() -> void:
 	level = 0
 	section = 0
 	_reset_timer()
+	level_timer.start(Constants.TIMER_TIME_SEC)
 	
 func _process(delta: float) -> void:
 	if OS.is_debug_build():
@@ -70,6 +73,14 @@ func _process(delta: float) -> void:
 				content_container.add_child(current_obstical_scene)
 				game_state = GameState.OBSTACLE
 				return
+	if game_state == GameState.GAME_OVER:
+		game_over_fadeout = game_over_fadeout + delta
+		if game_over_fadeout >= 1.0:
+			get_tree().current_scene.queue_free()
+			var game_over_scene = preload("res://scenes/game_over.tscn").instantiate()
+			get_tree().root.add_child(game_over_scene)
+			get_tree().current_scene = game_over_scene
+			return
 			
 	if enemy_boosted:
 		beast_meter.enemy_state = beast_meter.EnemyIconState.ANGRY
@@ -114,6 +125,12 @@ func _process(delta: float) -> void:
 			enemy_state = CharacterState.STOPPED
 		if Input.is_key_pressed(KEY_F3):
 			_puzzle_solved()
+		if Input.is_key_pressed(KEY_F4):
+			distance = 0
+			_game_over()
+		if Input.is_key_pressed(KEY_F5):
+			level_timer.stop()
+			_on_timer_timeout()
 
 func _physics_process(delta: float) -> void:
 	if game_state == GameState.MAP or game_state == GameState.OBSTACLE:
@@ -144,14 +161,15 @@ func _next_level():
 			# Last level pass, no level left ... win
 			return false
 			
-	assert(level < Constants.LEVELS_TIME_SEC.size())
 	return true
 
 func _reset_timer():
 	# setup player/enemy
 	player_acceleration_factor = Constants.PLAYER_ACCELERATION_FACTOR
+	enemy_acceleration_factor = Constants.ENEMY_ACCELERATION_FACTOR
 	if not enemy_boosted:
-		level_timer.start(Constants.LEVELS_TIME_SEC[level])
+		#assert(level < Constants.LEVELS_TIME_SEC.size())
+		#level_timer.start(Constants.LEVELS_TIME_SEC[level])
 		enemy_velocity_boost = 1.0
 		if level == 0 and section == 0:
 			player_velocity = Constants.START_PLAYER_VELOCITY
@@ -182,10 +200,6 @@ func _game_over():
 		content_container.remove_child(current_obstical_scene)
 	current_obstical_scene = null
 	current_obstical_tile = null
-	get_tree().current_scene.queue_free()
-	var game_over_scene = preload("res://scenes/game_over.tscn").instantiate()
-	get_tree().root.add_child(game_over_scene)
-	get_tree().current_scene = game_over_scene
 	
 func _win_game():
 	game_timer.paused = true
@@ -225,6 +239,7 @@ func _puzzle_solved():
 func _on_timer_timeout():
 	enemy_boosted = true
 	enemy_velocity_boost = 1.0
+	enemy_acceleration_factor = Constants.BOOST_ENEMY_ACCELERATION_FACTOR
 	beast_sound.play()
 
 func _on_game_timer_timeout() -> void:

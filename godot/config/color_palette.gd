@@ -1,3 +1,5 @@
+extends Node2D
+
 const PALETTE = [
 	Color("#30212d"),
 	Color("#504764"),

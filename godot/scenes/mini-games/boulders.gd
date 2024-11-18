@@ -3,6 +3,7 @@ extends Node2D
 @onready var title := %Title
 @onready var mini_game := %MiniGame
 @onready var boulder_sound := %BoulderSound1
+@onready var win_sound := %WinSoundPlayer
 
 signal puzzle_solved()
 
@@ -12,6 +13,7 @@ var stone_counter = 0
 var stones = []
 var win_cooldown = 0
 var mouse_entered = false
+var win = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -32,9 +34,12 @@ func _process(delta: float) -> void:
 			mini_game.visible = true
 			return
 	else:
-		if stone_counter >= stones.size():
+		if not win and stone_counter >= stones.size():
+			win = true
+			#win_sound.play()
+		if win:
 			win_cooldown = win_cooldown + delta
-		if win_cooldown >= 0.5:
+		if win_cooldown >= 0.7:
 			puzzle_solved.emit()
 			started = false
 			return

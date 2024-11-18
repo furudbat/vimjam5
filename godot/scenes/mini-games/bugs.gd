@@ -3,6 +3,7 @@ extends Node
 @onready var title := %Title
 @onready var mini_game := %MiniGame
 @onready var bug_sound := %BugSound1
+@onready var win_sound := %WinSoundPlayer
 
 @onready var mob_spawn_path := %MobPath
 @onready var mob_spawn_location := %MobSpawnLocation
@@ -19,6 +20,7 @@ signal puzzle_solved()
 var bug_smushed_counter = 0
 var started = false
 var win_cooldown = 0
+@export var win = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,9 +37,12 @@ func _process(delta: float) -> void:
 			mob_timer.start(bug_respawn_time)
 			return
 	else:
-		if bug_smushed_counter >= bug_smushed_win:
+		if not win and bug_smushed_counter >= bug_smushed_win:
+			win = true
+			#win_sound.play()
+		if win:
 			win_cooldown = win_cooldown + delta
-		if win_cooldown >= 0.9:
+		if win_cooldown >= 1.1:
 			puzzle_solved.emit()
 			started = false
 			return
@@ -63,11 +68,13 @@ func _on_mob_timer_timeout() -> void:
 	var velocity = Vector2(randi_range(bug_velocity_min, bug_velocity_max), 0)
 	mob.linear_velocity = velocity.rotated(direction)
 	
-	# Spawn the mob by adding it to the Main scene.
-	add_child(mob)
+	if not win:
+		# Spawn the mob by adding it to the Main scene.
+		add_child(mob)
 	
 func _bug_smushed() -> void:
-	bug_smushed_counter = bug_smushed_counter + 1
-	if bug_sound:
-		bug_sound.pitch_scale = randf_range(0.83, 1.34)
-		bug_sound.play()
+	if not win:
+		bug_smushed_counter = bug_smushed_counter + 1
+		if bug_sound:
+			bug_sound.pitch_scale = randf_range(0.83, 1.34)
+			bug_sound.play()

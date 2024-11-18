@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dls36054mstgb"]
+[gd_scene load_steps=7 format=3 uid="uid://dls36054mstgb"]
 
 [ext_resource type="Script" path="res://scenes/mini-games/bugs.gd" id="1_tswgs"]
 [ext_resource type="AudioStream" uid="uid://ckhscajo38s3d" path="res://assets/sounds/bugs/random3.wav" id="2_qbj5h"]
+[ext_resource type="AudioStream" uid="uid://cvx16hjbt15wa" path="res://assets/sounds/win/win sound 2-1.wav" id="3_sg1hx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_171vh"]
 bg_color = Color(0.188235, 0.129412, 0.176471, 1)
@@ -70,6 +71,13 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 stream = ExtResource("2_qbj5h")
 volume_db = 1.753
+bus = &"Sound"
+
+[node name="WinSoundPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_sg1hx")
+volume_db = 2.921
+pitch_scale = 1.09
 bus = &"Sound"
 
 [connection signal="timeout" from="PanelContainer/MiniGame/MobTimer" to="." method="_on_mob_timer_timeout"]

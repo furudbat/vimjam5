@@ -56,9 +56,15 @@ Use <kbd>LMB</kbd> to click through the Prolog (Comic) or hold <kbd>RMB</kbd> to
 
 ## Screenshots
 
+![screenshot gif](screenshots/screenshot000.gif)
+![screenshot001](screenshots/screenshot001.png)
+![screenshot002](screenshots/screenshot002.png)
+![screenshot003](screenshots/screenshot003.png)
+![screenshot004](screenshots/screenshot004.png)
+
 ## Links
 
-- itch.io Release: https://furudbat.itch.io/
+- itch.io Release: https://furudbat.itch.io/echoes-of-the-aztec-beast
 - https://github.com/furudbat/vimjam5
 
 - https://github.com/bitbrain/godot-gamejam
@@ -84,6 +90,8 @@ Use <kbd>LMB</kbd> to click through the Prolog (Comic) or hold <kbd>RMB</kbd> to
 
 - by Kevin MacLeod ([incompetech.com](https://incompetech.com/music/royalty-free/music.html)) - [Creative Commons: By Attribution 4.0 License](http://creativecommons.org/licenses/by/4.0/)
 
+- Sinister Instrumental Music: [Antenalosmusic](https://freesound.org/people/Antenalosmusic/sounds/731713/) - [CC0 ; Public Domain](https://creativecommons.org/publicdomain/zero/1.0/)
+
 
 #### Sound
 
@@ -94,6 +102,7 @@ Use <kbd>LMB</kbd> to click through the Prolog (Comic) or hold <kbd>RMB</kbd> to
 - Various Sound Effects: [Spring Spring](https://opengameart.org/content/various-sound-effects-0) - [CC0 ; Public Domain](https://creativecommons.org/publicdomain/zero/1.0/)
 - Moving Boulder: [themightyglider](https://opengameart.org/content/moving-boulder) - [CC0 ; Public Domain](https://creativecommons.org/publicdomain/zero/1.0/)
 - Fireplace Sound loop: [PagDev](https://opengameart.org/content/fireplace-sound-loop) - [CC0 ; Public Domain](https://creativecommons.org/publicdomain/zero/1.0/)
+- Win Sound: [remaxim](https://opengameart.org/content/win-sound-2) - [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)
 
 ### License
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://dpbc70giyiuvd"]
+[gd_scene load_steps=15 format=3 uid="uid://dpbc70giyiuvd"]
 
 [ext_resource type="Script" path="res://scenes/mini-games/boulders.gd" id="1_0ow33"]
 [ext_resource type="Texture2D" uid="uid://dyasteg351mgy" path="res://assets/spr_boulders.png" id="2_3xoi3"]
 [ext_resource type="AudioStream" uid="uid://dx74balur6fig" path="res://assets/sounds/boulder_cave_in/crush.wav" id="3_s10qc"]
+[ext_resource type="AudioStream" uid="uid://cvx16hjbt15wa" path="res://assets/sounds/win/win sound 2-1.wav" id="4_gv03q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwk8e"]
 bg_color = Color(0.188235, 0.129412, 0.176471, 1)
@@ -170,4 +171,11 @@ polygon = PackedVector2Array(-40, -8, -16, -24, 0, -24, 32, -16, 40, 0, 40, 24, 
 [node name="BoulderSound1" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("3_s10qc")
+bus = &"Sound"
+
+[node name="WinSoundPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_gv03q")
+volume_db = 2.337
+pitch_scale = 1.09
 bus = &"Sound"

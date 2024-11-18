@@ -31,6 +31,10 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		if is_smushed:
 			return  # Prevent multiple clicks during smushed state
 			
+		# @NOTE(workaround): if game already won
+		if get_parent().win:
+			return
+			
 		bug_smushed.emit()
 			
 		# Play smushed animation and set smushed state

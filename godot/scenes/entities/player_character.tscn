@@ -215,10 +215,10 @@ tracks/1/path = NodePath("../CollisionShape2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.3, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Vector2(0, 1)]
+"values": [Vector2(0, 1), Vector2(0, 1), Vector2(0, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -227,10 +227,10 @@ tracks/2/path = NodePath("../CollisionShape2D:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Vector2(1, 1)]
+"values": [Vector2(1, 1), Vector2(0.9, 0.9), Vector2(1, 1), Vector2(0.9, 0.9)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -239,10 +239,10 @@ tracks/3/path = NodePath("../CollisionShape2D:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0.0]
+"values": [0.0, 0.0, 0.0, 0.0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -277,8 +277,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eyt5g"]
-radius = 6.0
-height = 18.0
+radius = 8.0
+height = 16.0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iecb4"]
 animation = &"player/walk_up"
@@ -327,9 +327,10 @@ autoplay = "walk_up"
 texture = ExtResource("1_r7dfq")
 hframes = 3
 vframes = 4
-frame = 7
+frame = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["CollisionShapes2D"]]
+unique_name_in_owner = true
 shape = SubResource("CapsuleShape2D_eyt5g")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

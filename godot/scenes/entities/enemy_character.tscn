@@ -123,6 +123,42 @@ tracks/1/keys = {
 "update": 1,
 "values": [Vector2(10, 3), Vector2(0, 1), Vector2(-9, -1), Vector2(1, -2)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BodyCollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(0, 3)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../BodyCollisionShape2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../BodyCollisionShape2D:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ijlov"]
 _data = {
@@ -131,7 +167,7 @@ _data = {
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eyt5g"]
 radius = 5.78957
-height = 22.0
+height = 18.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qacs0"]
 radius = 6.08276
@@ -185,11 +221,14 @@ hframes = 2
 vframes = 6
 
 [node name="BodyCollisionShape2D" type="CollisionShape2D" parent="." groups=["CollisionShapes2D"]]
+unique_name_in_owner = true
 shape = SubResource("CapsuleShape2D_eyt5g")
+disabled = true
 
 [node name="HandCollisionShape2D" type="CollisionShape2D" parent="." groups=["CollisionShapes2D"]]
 position = Vector2(22, 1)
 shape = SubResource("CircleShape2D_qacs0")
+disabled = true
 debug_color = Color(0.787872, 0.100001, 1, 0.42)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

@@ -4,6 +4,7 @@ extends Node2D
 @onready var mini_game := %MiniGame
 @onready var line_node := %CutLine
 @onready var cut_sound := %VineCutSound1
+@onready var win_sound := %WinSoundPlayer
 
 signal puzzle_solved()
 
@@ -14,6 +15,7 @@ var cutting = false
 var cut_line_points: Array[Vector2] = []
 var win_cooldown = 0
 var init_vines = false
+var win = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -65,7 +67,10 @@ func _process(delta: float) -> void:
 				vine.visible = true
 			return
 	else:
-		if vines_cut_counter >= vines.size():
+		if not win and vines_cut_counter >= vines.size():
+			win = true
+			#win_sound.play()
+		if win:
 			win_cooldown = win_cooldown + delta
 		if win_cooldown >= 1.2:
 			puzzle_solved.emit()

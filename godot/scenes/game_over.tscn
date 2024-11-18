@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bsfrgkv3h1046"]
+[gd_scene load_steps=12 format=3 uid="uid://bsfrgkv3h1046"]
 
 [ext_resource type="Script" path="res://scenes/win.gd" id="1_nf3g7"]
 [ext_resource type="Texture2D" uid="uid://duv4t31k22mo2" path="res://assets/spr_beast.png" id="2_2kroq"]
 [ext_resource type="Texture2D" uid="uid://dxucpedb6sctc" path="res://assets/spr_character.png" id="3_b3go8"]
+[ext_resource type="AudioStream" uid="uid://dqwuv1f46cjih" path="res://assets/731713__antenalosmusic__sinister-instrumental-music.mp3" id="4_kfip4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_atuew"]
 bg_color = Color(0.188235, 0.129412, 0.176471, 1)
@@ -263,6 +264,11 @@ libraries = {
 "game_over_enemy": SubResource("AnimationLibrary_83scb")
 }
 autoplay = "game_over_enemy/walk_left"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_kfip4")
+volume_db = -1.753
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/Panel/CenterContainer/VBoxContainer/MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/CenterContainer/VBoxContainer/MarginContainer/VBoxContainer/BackToMainMenu2" to="." method="_on_back_to_main_menu_pressed"]

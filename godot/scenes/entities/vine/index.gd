@@ -11,8 +11,8 @@ func _ready() -> void:
 	vine_segments = _get_local_nodes_in_group("VineSegments")
 	vine_pin_joints = _get_local_nodes_in_group("VinePinJoints")
 	
-	if OS.is_debug_build():
-		print(vine_segments.size())
+	#if OS.is_debug_build():
+	#	print(vine_segments.size())
 	
 	for i in range(vine_segments.size()):
 		var segment = vine_segments[i]
@@ -36,7 +36,6 @@ func _process(delta: float) -> void:
 
 func _on_segment_mouse_entered(segment, index, shape_idx) -> void:
 	if not cut:
-		print(segment, index)
 		if Input.is_action_pressed("primary_action") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			if(_cut_segment(index)):
 				cut = true

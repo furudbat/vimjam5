@@ -1,6 +1,7 @@
+extends Node2D
 
 # distance setting (beast meter) 
-const MAX_DISTANCE_M: float = 200
+const MAX_DISTANCE_M: float = 180
 ## player/beast start distance at the game start
 const START_DISTANCE = 50
 const DISTANCE_LOW = 10
@@ -17,15 +18,17 @@ const START_PLAYER_VELOCITY: Vector2 = Vector2(0, 0.75)
 const NEXT_LEVEL_START_PLAYER_VELOCITY: Vector2 = Vector2(0, 1)
 const START_ENEMY_VELOCITY: Vector2 = Vector2(0, 1)
 
-const ENEMY_VELOCITY_WHEN_PLAYER_STOPPED: Vector2 = Vector2(0, 2.3)
-const ENEMY_MAX_VELOCITY: Vector2 = Vector2(0, 1.2)
+const ENEMY_VELOCITY_WHEN_PLAYER_STOPPED: Vector2 = Vector2(0, 2.01)
+const ENEMY_MAX_VELOCITY: Vector2 = Vector2(0, 1.185)
+const ENEMY_ACCELERATION_FACTOR: float = 0.48
+const BOOST_ENEMY_ACCELERATION_FACTOR: float = 0.64
 
-const PLAYER_ACCELERATION_FACTOR: float = 0.65
-const PLAYER_MAX_VELOCITY: Vector2 = Vector2(0, 1.9)
+const PLAYER_ACCELERATION_FACTOR: float = 0.68
+const PLAYER_MAX_VELOCITY: Vector2 = Vector2(0, 2.055)
 
 # Map
-const TILE_PX_PER_M: int = 16
-const MAP_MOVEMENT_SPEED_UP: float = 0.40
+const TILE_PX_PER_M: int = 3.5
+const MAP_MOVEMENT_SPEED_UP: float = 0.38
 
 # Levels
 const MAX_GAMES = 1
@@ -46,10 +49,11 @@ const MAX_GAMES = 1
 #]
 
 const LEVELS_TIME_SEC = [
-	40,
-	60,
 	30,
-	20,
+	40,
+	25,
+	30,
 ]
+const TIMER_TIME_SEC = 60*1 + 13
 const MAX_SECTIONS = 3
 const MAX_LEVELS = 4
