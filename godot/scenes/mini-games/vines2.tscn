@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://blkabuqfdibdd"]
+[gd_scene load_steps=9 format=3 uid="uid://csi0cefn3n3vs"]
 
 [ext_resource type="Script" path="res://scenes/mini-games/vines.gd" id="1_n36l5"]
-[ext_resource type="PackedScene" uid="uid://d0po6un7bfv8e" path="res://scenes/entities/vine/vine1.tscn" id="2_lnf0h"]
-[ext_resource type="PackedScene" uid="uid://dfpsnv7buqwv4" path="res://scenes/entities/vine/vine2.tscn" id="3_dsk43"]
-[ext_resource type="PackedScene" uid="uid://cyxgqtvjktbip" path="res://scenes/entities/vine/vine3.tscn" id="4_hsrwy"]
-[ext_resource type="PackedScene" uid="uid://b8ghifbsbsxpa" path="res://scenes/entities/vine/vine4.tscn" id="5_mrevm"]
+[ext_resource type="PackedScene" uid="uid://caq6j3cq024bw" path="res://scenes/mini-games/vines/vine_1.tscn" id="2_qa6uf"]
+[ext_resource type="PackedScene" uid="uid://bb1r625ch2x8j" path="res://scenes/mini-games/vines/vine_2.tscn" id="3_weqe4"]
+[ext_resource type="Script" path="res://scenes/mini-games/line_drawer.gd" id="4_abqqj"]
 [ext_resource type="AudioStream" uid="uid://b7ay6lelssyfi" path="res://assets/sounds/swing_cut/swing.wav" id="6_owl07"]
 [ext_resource type="AudioStream" uid="uid://cvx16hjbt15wa" path="res://assets/sounds/win/win sound 2-1.wav" id="7_0op03"]
 
@@ -14,7 +13,7 @@ bg_color = Color(0.188235, 0.129412, 0.176471, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14klj"]
 bg_color = Color(0.188235, 0.129412, 0.176471, 1)
 
-[node name="Vines2" type="Node2D"]
+[node name="Vines1" type="Node2D"]
 script = ExtResource("1_n36l5")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -51,33 +50,38 @@ layout_mode = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_14klj")
 
-[node name="Vine" parent="PanelContainer/MiniGame" groups=["Vines"] instance=ExtResource("2_lnf0h")]
-position = Vector2(24, -40)
+[node name="Vine_1" parent="PanelContainer/MiniGame" instance=ExtResource("2_qa6uf")]
+position = Vector2(80, -72)
 
-[node name="Vine2" parent="PanelContainer/MiniGame" instance=ExtResource("3_dsk43")]
-position = Vector2(72, -16)
+[node name="Vine_6" parent="PanelContainer/MiniGame" instance=ExtResource("2_qa6uf")]
+position = Vector2(144, -72)
 
-[node name="Vine3" parent="PanelContainer/MiniGame" instance=ExtResource("4_hsrwy")]
-position = Vector2(160, -8)
+[node name="Vine_4" parent="PanelContainer/MiniGame" instance=ExtResource("2_qa6uf")]
+position = Vector2(200, -56)
 
-[node name="Vine4" parent="PanelContainer/MiniGame" instance=ExtResource("5_mrevm")]
-position = Vector2(280, -72)
+[node name="Vine_5" parent="PanelContainer/MiniGame" instance=ExtResource("2_qa6uf")]
+position = Vector2(304, -48)
 
-[node name="Vine5" parent="PanelContainer/MiniGame" instance=ExtResource("4_hsrwy")]
-position = Vector2(216, -40)
+[node name="Vine_8" parent="PanelContainer/MiniGame" instance=ExtResource("2_qa6uf")]
+position = Vector2(360, -48)
 
-[node name="Vine6" parent="PanelContainer/MiniGame" instance=ExtResource("3_dsk43")]
-position = Vector2(120, -48)
+[node name="Vine_2" parent="PanelContainer/MiniGame" instance=ExtResource("3_weqe4")]
+position = Vector2(504, 7.99999)
+rotation = 1.51501
 
-[node name="Vine7" parent="PanelContainer/MiniGame" groups=["Vines"] instance=ExtResource("2_lnf0h")]
-position = Vector2(336, -16)
+[node name="Vine_7" parent="PanelContainer/MiniGame" instance=ExtResource("3_weqe4")]
+position = Vector2(496, 128)
+rotation = 1.51501
 
-[node name="CutLine" type="Line2D" parent="PanelContainer/MiniGame"]
+[node name="Vine_3" parent="PanelContainer/MiniGame" instance=ExtResource("3_weqe4")]
+position = Vector2(504, 104)
+rotation = 1.63906
+
+[node name="LineDrawer" type="Node2D" parent="."]
 unique_name_in_owner = true
-z_index = 2
-width = 2.0
-default_color = Color(0.858824, 0.458824, 0.27451, 1)
-texture_mode = 2
+z_index = 50
+position = Vector2(-48, -24)
+script = ExtResource("4_abqqj")
 
 [node name="VineCutSound1" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
@@ -89,6 +93,6 @@ bus = &"Sound"
 [node name="WinSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("7_0op03")
-volume_db = 1.753
+volume_db = 2.337
 pitch_scale = 1.09
 bus = &"Sound"

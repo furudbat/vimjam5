@@ -327,7 +327,6 @@ autoplay = "walk_up"
 texture = ExtResource("1_r7dfq")
 hframes = 3
 vframes = 4
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["CollisionShapes2D"]]
 unique_name_in_owner = true

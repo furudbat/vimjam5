@@ -2,11 +2,19 @@ extends Node2D
 
 @onready var title := %Title
 @onready var mini_game := %MiniGame
-@onready var line_node := %CutLine
+#@onready var line_node := %CutLine
 @onready var cut_sound := %VineCutSound1
 @onready var win_sound := %WinSoundPlayer
+@onready var line_drawer := %LineDrawer
 
 signal puzzle_solved()
+
+# Points for drawing the line
+var line_start: Vector2
+var line_end: Vector2
+var is_drawing = false
+var total_vines = 0  # Total number of vines
+var cut_vines = []   # List of vines that are cut
 
 var started = false
 var vines = []
@@ -22,15 +30,11 @@ func _ready() -> void:
 	title.visible = true
 	mini_game.visible = false
 
-	# @FIXME: vines not aviable on ready ???
-	if not init_vines:
-		var vs = get_tree().get_nodes_in_group("Vines")
-		for i in range(vs.size()):
-			var vine = vs[i]
-			vine.cut_segment.connect(func(segment_index): _cut_segment(vine, i, segment_index))
-			vines.append(vine)
-			vine.visible = false
-		init_vines = true
+	for child in mini_game.get_children():
+		if child.name.begins_with("Vine_"):
+			total_vines += 1
+			if child.has_signal("vine_cut"):
+				child.connect("vine_cut", Callable(self, "_on_vine_cut"))
 
 func _cut_segment(vine, vine_index, segment_index):
 	vines_cut_counter = vines_cut_counter + 1
@@ -39,19 +43,21 @@ func _cut_segment(vine, vine_index, segment_index):
 	
 func _input(event):
 	if started:
-		if event is InputEventMouseMotion:
-			# @NOTE(workaround): ajust mnouse position ... 
-			var mouse_pos = event.position - Vector2(426 - 378, 240 - 216)
-			# Handle mouse press
-			if Input.is_action_pressed("primary_action") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):  # BUTTON_LEFT = 1
-				if not cutting:  # If cutting hasn't started yet
-					_start_cut(mouse_pos)
+		if event is InputEventMouseButton:
+			if event.button_index == MOUSE_BUTTON_LEFT:
+				if event.pressed:
+					line_drawer.line_start = event.position
+					line_drawer.line_end = event.position
+					line_drawer.is_drawing = true
+					line_drawer.queue_redraw()
 				else:
-					_update_cut(mouse_pos)
-		# Handle mouse release (using InputEventMouseButton)
-		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
-			_end_cut()
-			_update_line()
+					line_drawer.line_end = event.position
+					line_drawer.is_drawing = false
+					line_drawer.queue_redraw()
+					_check_collision(line_drawer.line_start, line_drawer.line_end)
+		elif event is InputEventMouseMotion and line_drawer.is_drawing:
+			line_drawer.line_end = event.position
+			line_drawer.queue_redraw()
 			if cut_sound:
 				cut_sound.pitch_scale = randf_range(0.78, 1.14)
 				cut_sound.play()
@@ -67,9 +73,6 @@ func _process(delta: float) -> void:
 				vine.visible = true
 			return
 	else:
-		if not win and vines_cut_counter >= vines.size():
-			win = true
-			#win_sound.play()
 		if win:
 			win_cooldown = win_cooldown + delta
 		if win_cooldown >= 1.2:
@@ -77,21 +80,34 @@ func _process(delta: float) -> void:
 			started = false
 			return
 			
-func _start_cut(start_position: Vector2):
-	cutting = true
-	cut_line_points.clear()
-	cut_line_points.append(start_position)
-	_update_line()
+# Draw the line
+#func _draw():
+	#if is_drawing:
+		#draw_line(line_start, line_end, ColorPalette.ACCENT, 2)
 
-func _update_cut(new_position: Vector2):
-	cut_line_points.append(new_position)
-	_update_line()
+# Check for collisions along the drawn line
+func _check_collision(start_point: Vector2, end_point: Vector2):
+	var space_state = get_world_2d().direct_space_state
 
-func _end_cut():
-	cutting = false
-	cut_line_points.clear()
-	_update_line()
+	# Create and configure the ray query parameters
+	var query = PhysicsRayQueryParameters2D.new()
+	query.from = start_point
+	query.to = end_point
 
-func _update_line():
-	line_node.points = cut_line_points
-	pass
+	# Perform a raycast to detect collisions
+	var result = space_state.intersect_ray(query)
+
+	if result.size() > 0:  # Check if there is a collision
+		var hit_node = result["collider"]
+		if hit_node and hit_node.has_method("cut_segment"):
+			hit_node.cut_segment()
+
+func _on_vine_cut(vine):
+	if vine not in cut_vines:
+		cut_vines.append(vine)
+		vine.set_process(false)
+
+	# Check if all vines are cut
+	if not win and cut_vines.size() >= total_vines:
+		win = true
+		#win_sound.play()

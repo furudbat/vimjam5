@@ -18,8 +18,8 @@ const START_PLAYER_VELOCITY: Vector2 = Vector2(0, 0.75)
 const NEXT_LEVEL_START_PLAYER_VELOCITY: Vector2 = Vector2(0, 1)
 const START_ENEMY_VELOCITY: Vector2 = Vector2(0, 1)
 
-const ENEMY_VELOCITY_WHEN_PLAYER_STOPPED: Vector2 = Vector2(0, 2.01)
-const ENEMY_MAX_VELOCITY: Vector2 = Vector2(0, 1.185)
+const ENEMY_VELOCITY_WHEN_PLAYER_STOPPED: Vector2 = Vector2(0, 1.95)
+const ENEMY_MAX_VELOCITY: Vector2 = Vector2(0, 1.17)
 const ENEMY_ACCELERATION_FACTOR: float = 0.48
 const BOOST_ENEMY_ACCELERATION_FACTOR: float = 0.64
 
@@ -27,7 +27,7 @@ const PLAYER_ACCELERATION_FACTOR: float = 0.68
 const PLAYER_MAX_VELOCITY: Vector2 = Vector2(0, 2.055)
 
 # Map
-const TILE_PX_PER_M: int = 3.5
+const TILE_PX_PER_M: float = 3.5
 const MAP_MOVEMENT_SPEED_UP: float = 0.38
 
 # Levels
@@ -54,6 +54,6 @@ const LEVELS_TIME_SEC = [
 	25,
 	30,
 ]
-const TIMER_TIME_SEC = 60*1 + 13
+const TIMER_TIME_SEC = 60*1 + 10
 const MAX_SECTIONS = 3
 const MAX_LEVELS = 4

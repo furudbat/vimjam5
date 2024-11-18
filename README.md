@@ -2,7 +2,7 @@
 
 ![logo](img/logo.png)
 
-![godot](https://img.shields.io/badge/Godot%20Compatible-4.3%2B-%234385B5)
+[![Godot Engine](https://img.shields.io/badge/Godot-%23FFFFFF.svg?logo=godot-engine)](#) [![Itch.io](https://img.shields.io/badge/itch.io-%23FF0B34.svg?logo=Itch.io&logoColor=white)](https://furudbat.itch.io/echoes-of-the-aztec-beast) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 Entry for [VimJam5](https://itch.io/jam/vimjam5) - Run from the Aztec Beast Ahuizotl by solving Microgames and escape the Temple
 
@@ -23,7 +23,7 @@ Solve Microgames like in WarioWare and escape the Beast.
 - [x] Timer (Countdown) - beast gets big boost
 - [x] Beast Meter - see the distance of the beast
 - [x] Game Over - when beast is catched up
-- [ ] Solve Microgames (obstacles)
+- [x] Solve Microgames (obstacles)
     - [x] 3/? Microgames
         - [x] win conditions
         - [ ] ~~stun by making mistakes~~
@@ -57,7 +57,7 @@ Use <kbd>LMB</kbd> to click through the prolog (Comic) or hold <kbd>RMB</kbd> to
 ## Screenshots
 
 ![screenshot gif](screenshots/screenshot000.gif)
-![screenshot001](screenshots/screenshot001.png)
+![screenshot001](screenshots/screenshots001.png)
 ![screenshot002](screenshots/screenshot002.png)
 ![screenshot003](screenshots/screenshot003.png)
 ![screenshot004](screenshots/screenshot004.png)
@@ -65,7 +65,6 @@ Use <kbd>LMB</kbd> to click through the prolog (Comic) or hold <kbd>RMB</kbd> to
 ## Links
 
 - itch.io Release: https://furudbat.itch.io/echoes-of-the-aztec-beast
-- https://github.com/furudbat/vimjam5
 
 - https://github.com/bitbrain/godot-gamejam
 - https://itch.io/jam/vimjam5

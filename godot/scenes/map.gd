@@ -44,12 +44,10 @@ func _process(delta: float) -> void:
 	var enemy_direction = _get_direction_at_progress(path, enemy_path.progress_ratio)
 	enemy.is_moving = enemy_is_moving
 	enemy.direction = enemy_direction
-	enemy.enemy_velocity = enemy_velocity
 	
 	var player_direction = _get_direction_at_progress(path, player_path.progress_ratio)
 	player.is_moving = player_is_moving
 	player.direction = player_direction
-	player.player_velocity = player_velocity
 	
 	# Debug
 	if OS.is_debug_build():
@@ -57,8 +55,11 @@ func _process(delta: float) -> void:
 			player_path.progress_ratio = 0.9
 
 func _physics_process(delta: float) -> void:
+	enemy.enemy_velocity = enemy_velocity
+	player.player_velocity = player_velocity
+	
 	if player_is_moving:
-		player_path.progress = player_path.progress + player_velocity.y
+		player_path.progress += player_velocity.y
 	
 	enemy_path.progress = player_path.progress - distance*Constants.TILE_PX_PER_M
 	#if enemy_is_moving:
