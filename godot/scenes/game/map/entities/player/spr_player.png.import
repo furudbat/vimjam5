@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duv4t31k22mo2"
-path="res://.godot/imported/beast.png-b1eafd44376315880c1f72a56959196f.ctex"
+uid="uid://dxucpedb6sctc"
+path="res://.godot/imported/spr_player.png-b5019f6f0768ee737a92677ebcdce292.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/game/map/entities/enemy/beast.png"
-dest_files=["res://.godot/imported/beast.png-b1eafd44376315880c1f72a56959196f.ctex"]
+source_file="res://scenes/game/map/entities/player/spr_player.png"
+dest_files=["res://.godot/imported/spr_player.png-b5019f6f0768ee737a92677ebcdce292.ctex"]
 
 [params]
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dxnjv8cf5koqo"
+path="res://.godot/imported/Arid Foothills.mp3-4c37c366f327cc1e3e1351f6526a8bc7.mp3str"
+
+[deps]
+
+source_file="res://scenes/common/music/Arid Foothills.mp3"
+dest_files=["res://.godot/imported/Arid Foothills.mp3-4c37c366f327cc1e3e1351f6526a8bc7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

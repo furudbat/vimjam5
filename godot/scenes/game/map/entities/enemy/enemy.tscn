@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://b3aye25ikfuxd"]
 
 [ext_resource type="Script" path="res://scenes/game/map/entities/enemy/enemy.gd" id="1_wcotn"]
-[ext_resource type="Texture2D" uid="uid://duv4t31k22mo2" path="res://scenes/game/map/entities/enemy/beast.png" id="2_mco34"]
+[ext_resource type="Texture2D" uid="uid://duv4t31k22mo2" path="res://scenes/game/map/entities/enemy/spr_beast.png" id="2_mco34"]
 
 [sub_resource type="Animation" id="Animation_7ty3o"]
 length = 0.001

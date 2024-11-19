@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_a0lot"]
 [ext_resource type="PackedScene" uid="uid://dmf4aww4lq23r" path="res://scenes/game/map/tiles/vines_2.tscn" id="6_uxyts"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_85iyn"]
-[ext_resource type="Texture2D" uid="uid://duv4t31k22mo2" path="res://scenes/game/map/entities/enemy/beast.png" id="11_e6trj"]
+[ext_resource type="Texture2D" uid="uid://duv4t31k22mo2" path="res://scenes/game/map/entities/enemy/spr_beast.png" id="11_e6trj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8b1bm"]
 texture = ExtResource("3_2wy62")

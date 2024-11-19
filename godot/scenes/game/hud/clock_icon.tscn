@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bahukad66037c"]
 
 [ext_resource type="Script" path="res://scenes/game/hud/clock_icon.gd" id="1_kj7sg"]
-[ext_resource type="Texture2D" uid="uid://c07d8g4rhif8w" path="res://scenes/game/hud/clock.png" id="2_mavff"]
+[ext_resource type="Texture2D" uid="uid://c07d8g4rhif8w" path="res://scenes/game/hud/spr_clock.png" id="2_mavff"]
 
 [node name="ClockIcon" type="Control"]
 layout_mode = 3

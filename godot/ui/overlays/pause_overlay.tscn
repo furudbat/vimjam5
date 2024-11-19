@@ -52,3 +52,8 @@ text = "settings"
 unique_name_in_owner = true
 layout_mode = 2
 text = "leave_game"
+
+[connection signal="pressed" from="VBoxContainer3/SettingsContainer/BackButton" to="." method="_pause_menu"]
+[connection signal="pressed" from="VBoxContainer3/MenuContainer/ResumeButton" to="." method="_resume"]
+[connection signal="pressed" from="VBoxContainer3/MenuContainer/SettingsButton" to="." method="_settings"]
+[connection signal="pressed" from="VBoxContainer3/MenuContainer/ExitButton" to="." method="_exit"]

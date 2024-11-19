@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bl0mlwsefaan2"]
 
 [ext_resource type="Script" path="res://scenes/game/mini_games/vines/entities/vinesegment.gd" id="1_w7eaa"]
-[ext_resource type="Texture2D" uid="uid://bwfg1yhk83egf" path="res://scenes/game/mini_games/vines/entities/vinesegment.png" id="2_j0uj2"]
+[ext_resource type="Texture2D" uid="uid://bwfg1yhk83egf" path="res://scenes/game/mini_games/vines/entities/spr_vinesegment.png" id="2_j0uj2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xu2y"]
 size = Vector2(20, 64)

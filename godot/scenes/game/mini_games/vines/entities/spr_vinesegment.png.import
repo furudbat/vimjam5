@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmnpldgvcuogc"
-path="res://.godot/imported/bg.png-716d632989c5da282f43430280b79aba.ctex"
+uid="uid://bwfg1yhk83egf"
+path="res://.godot/imported/spr_vinesegment.png-ffc9302a2a6bb5fb2cf21293e5d473d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/bg.png"
-dest_files=["res://.godot/imported/bg.png-716d632989c5da282f43430280b79aba.ctex"]
+source_file="res://scenes/game/mini_games/vines/entities/spr_vinesegment.png"
+dest_files=["res://.godot/imported/spr_vinesegment.png-ffc9302a2a6bb5fb2cf21293e5d473d6.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhgqey515ddmu"
-path="res://.godot/imported/icons.png-55b455945f28d2c78c4dd43a4f59a52d.ctex"
+path="res://.godot/imported/spr_head_icons.png-1c0bec901780dbcbd828d0dcab0f78e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/game/beast_meter/components/icons.png"
-dest_files=["res://.godot/imported/icons.png-55b455945f28d2c78c4dd43a4f59a52d.ctex"]
+source_file="res://scenes/game/hud/beast_meter/components/spr_head_icons.png"
+dest_files=["res://.godot/imported/spr_head_icons.png-1c0bec901780dbcbd828d0dcab0f78e7.ctex"]
 
 [params]
 

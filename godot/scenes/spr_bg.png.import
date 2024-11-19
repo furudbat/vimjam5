@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c07d8g4rhif8w"
-path="res://.godot/imported/clock.png-25050905de662495d22907ee7461f120.ctex"
+uid="uid://dmnpldgvcuogc"
+path="res://.godot/imported/spr_bg.png-322df13cf8b1bb99d7078dc15cd86f4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/game/hud/clock.png"
-dest_files=["res://.godot/imported/clock.png-25050905de662495d22907ee7461f120.ctex"]
+source_file="res://scenes/spr_bg.png"
+dest_files=["res://.godot/imported/spr_bg.png-322df13cf8b1bb99d7078dc15cd86f4d.ctex"]
 
 [params]
 

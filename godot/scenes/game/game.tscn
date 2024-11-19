@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cucifq7erg4dn" path="res://scenes/game/hud/hud.png" id="7_box1l"]
 [ext_resource type="AudioStream" uid="uid://cv1q5fi7y0nqq" path="res://scenes/game/bgm.mp3" id="7_ql71s"]
 [ext_resource type="AudioStream" uid="uid://b74ph5ls33txr" path="res://assets/sounds/beast/Roar.wav" id="8_grv20"]
-[ext_resource type="PackedScene" uid="uid://dkn2wjni2qgwb" path="res://scenes/game/beast_meter/beast_meter.tscn" id="8_te4fg"]
+[ext_resource type="PackedScene" uid="uid://dkn2wjni2qgwb" path="res://scenes/game/hud/beast_meter/beast_meter.tscn" id="8_te4fg"]
 [ext_resource type="PackedScene" uid="uid://drwkdtdcofl3e" path="res://scenes/game/hud/level_timer.tscn" id="9_ukmyv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ifta"]

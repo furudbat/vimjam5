@@ -69,16 +69,15 @@ func _physics_process(delta: float) -> void:
 		player_reach_end.emit()
 		return
 
-func _get_direction_at_progress(path: Path2D, progress_ratio: float) -> Vector2:
-	var curve = path.curve
+func _get_direction_at_progress(direction_path: Path2D, progress_ratio: float) -> Vector2:
+	var curve = direction_path.curve
 	var path_length = curve.get_baked_length()
-	var distance = progress_ratio * path_length
+	var local_distance = progress_ratio * path_length
 
-	var current_position = curve.sample_baked(distance)
-	var next_position = curve.sample_baked(distance + 0.1)
+	var current_position = curve.sample_baked(local_distance)
+	var next_position = curve.sample_baked(local_distance + 0.1)
 
-	var direction = (current_position - next_position).normalized()
-	return direction
+	return (current_position - next_position).normalized()
 
 func _on_player_entered_obsticale(node, body, mini_game: String) -> void:
 	if OS.is_debug_build():

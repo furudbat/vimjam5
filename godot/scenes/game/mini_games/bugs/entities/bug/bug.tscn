@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://dj3oxo4idcsgp"]
 
 [ext_resource type="Script" path="res://scenes/game/mini_games/bugs/entities/bug/bug.gd" id="1_w413w"]
-[ext_resource type="Texture2D" uid="uid://cars4pvqdoapn" path="res://scenes/game/mini_games/bugs/entities/bug/bugs.png" id="2_n818q"]
+[ext_resource type="Texture2D" uid="uid://cars4pvqdoapn" path="res://scenes/game/mini_games/bugs/entities/bug/spr_bugs.png" id="2_n818q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ge22o"]
 atlas = ExtResource("2_n818q")

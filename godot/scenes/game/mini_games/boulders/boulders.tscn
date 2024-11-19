@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/game/mini_games/boulders/boulders.gd" id="1_0ow33"]
 [ext_resource type="Texture2D" uid="uid://dqbxmj6d7pr2" path="res://assets/spr_icons_16x16.png" id="2_3vo6u"]
-[ext_resource type="Texture2D" uid="uid://dyasteg351mgy" path="res://scenes/game/mini_games/boulders/boulders.png" id="2_3xoi3"]
+[ext_resource type="Texture2D" uid="uid://dyasteg351mgy" path="res://scenes/game/mini_games/boulders/spr_boulders.png" id="2_3xoi3"]
 [ext_resource type="AudioStream" uid="uid://dx74balur6fig" path="res://assets/sounds/boulder_cave_in/crush.wav" id="3_s10qc"]
 [ext_resource type="AudioStream" uid="uid://cvx16hjbt15wa" path="res://assets/sounds/win/win sound 2-1.wav" id="4_gv03q"]
 

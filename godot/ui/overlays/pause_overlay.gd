@@ -10,10 +10,7 @@ signal game_exited
 @onready var back_button := %BackButton
 
 func _ready() -> void:
-	resume_button.pressed.connect(_resume)
-	settings_button.pressed.connect(_settings)
-	exit_button.pressed.connect(_exit)
-	back_button.pressed.connect(_pause_menu)
+	pass
 	
 func grab_button_focus() -> void:
 	resume_button.grab_focus()

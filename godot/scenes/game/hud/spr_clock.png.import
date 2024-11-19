@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cars4pvqdoapn"
-path="res://.godot/imported/bugs.png-bbed7f2d918b101efe9bfa7d04e8ae67.ctex"
+uid="uid://c07d8g4rhif8w"
+path="res://.godot/imported/spr_clock.png-09ba1e38bb4716ace888554297c0b99a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/game/mini_games/bugs/entities/bug/bugs.png"
-dest_files=["res://.godot/imported/bugs.png-bbed7f2d918b101efe9bfa7d04e8ae67.ctex"]
+source_file="res://scenes/game/hud/spr_clock.png"
+dest_files=["res://.godot/imported/spr_clock.png-09ba1e38bb4716ace888554297c0b99a.ctex"]
 
 [params]
 

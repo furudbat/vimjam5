@@ -31,7 +31,7 @@ UserSettings="*res://globals/user_settings.gd"
 GlobalScenes="*res://scenes/index.gd"
 MiniGames="*res://scenes/game/mini_games/index.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
-TitleBgm="*res://scenes/common/title_bgm.tscn"
+TitleBgm="*res://scenes/common/music/title_bgm.tscn"
 
 [display]
 
@@ -45,7 +45,7 @@ window/stretch/scale_mode="integer"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/ColorPreview/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [gui]
 

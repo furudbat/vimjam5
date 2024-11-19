@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://byfcvdix8s7a"]
 
 [ext_resource type="Script" path="res://scenes/game/map/entities/player/player.gd" id="1_bvlor"]
-[ext_resource type="Texture2D" uid="uid://dxucpedb6sctc" path="res://scenes/game/map/entities/player/player.png" id="2_apv0y"]
+[ext_resource type="Texture2D" uid="uid://dxucpedb6sctc" path="res://scenes/game/map/entities/player/spr_player.png" id="2_apv0y"]
 [ext_resource type="AudioStream" uid="uid://bjrokuj3fejpm" path="res://assets/sounds/footsteps/ogg/Fantozzi-StoneL2.ogg" id="3_ruyti"]
 [ext_resource type="AudioStream" uid="uid://b178xfx06x3v7" path="res://assets/sounds/footsteps/ogg/Fantozzi-StoneR1.ogg" id="4_nnqbq"]
 
