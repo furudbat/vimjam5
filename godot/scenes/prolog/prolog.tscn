@@ -1,0 +1,358 @@
+[gd_scene load_steps=47 format=3 uid="uid://ck46epavjai3"]
+
+[ext_resource type="Script" path="res://scenes/prolog/prolog.gd" id="1_3y4gn"]
+[ext_resource type="Texture2D" uid="uid://dqbxmj6d7pr2" path="res://assets/spr_icons_16x16.png" id="2_gguwk"]
+[ext_resource type="Texture2D" uid="uid://vm7t4v62xok0" path="res://scenes/prolog/panels/pannel_1/Lore-Comic1.png" id="3_jc88h"]
+[ext_resource type="Texture2D" uid="uid://ci6md7oqn7yrd" path="res://scenes/prolog/panels/pannel_1/Lore-Comic2.png" id="4_nh4ks"]
+[ext_resource type="Texture2D" uid="uid://dilgo6a1ialqp" path="res://scenes/prolog/panels/pannel_1/Lore-Comic3.png" id="5_tm5rk"]
+[ext_resource type="Texture2D" uid="uid://c0aoa8o0rsa5i" path="res://scenes/prolog/panels/pannel_1/Lore-Comic4.png" id="6_serov"]
+[ext_resource type="Texture2D" uid="uid://d2fcc0fk6pddv" path="res://scenes/prolog/panels/pannel_1/Lore-Comic5.png" id="7_83u4w"]
+[ext_resource type="Texture2D" uid="uid://bwfdhoh44afiy" path="res://scenes/prolog/panels/pannel_2/Lore-Comic6.png" id="8_mhs16"]
+[ext_resource type="Texture2D" uid="uid://d23s2kojlr0oo" path="res://scenes/prolog/panels/pannel_2/Lore-Comic7.png" id="9_t3prf"]
+[ext_resource type="Texture2D" uid="uid://dm6yji0s0cemb" path="res://scenes/prolog/panels/pannel_2/Lore-Comic8.png" id="10_dotds"]
+[ext_resource type="Texture2D" uid="uid://b4d5ojriukbww" path="res://scenes/prolog/panels/pannel_3/Lore-Comic9.png" id="11_fhgxq"]
+[ext_resource type="Texture2D" uid="uid://c8rth8cc5xfhb" path="res://scenes/prolog/panels/pannel_3/Lore-Comic10.png" id="12_h7unn"]
+[ext_resource type="Texture2D" uid="uid://c87t1vuygokbf" path="res://scenes/prolog/panels/pannel_3/Lore-Comic11.png" id="13_q8bpv"]
+[ext_resource type="Texture2D" uid="uid://ct8gf2u80ow6r" path="res://scenes/prolog/panels/pannel_4/Lore-Comic12.png" id="14_wtf1f"]
+[ext_resource type="Texture2D" uid="uid://tgfn6qg76lx3" path="res://scenes/prolog/panels/pannel_4/Lore-Comic13.png" id="15_sh6bn"]
+[ext_resource type="Texture2D" uid="uid://6e3y4ply2342" path="res://scenes/prolog/panels/pannel_4/Lore-Comic14-2.png" id="16_cmg80"]
+[ext_resource type="Texture2D" uid="uid://86lbrgfjnj0v" path="res://scenes/prolog/panels/pannel_4/Lore-Comic14-1.png" id="16_g3gq3"]
+[ext_resource type="Texture2D" uid="uid://canpjamxny0cx" path="res://scenes/prolog/panels/pannel_4/Lore-Comic14-3.png" id="17_36g0p"]
+[ext_resource type="Texture2D" uid="uid://p4sc3yxhcw8b" path="res://scenes/prolog/panels/pannel_4/Lore-Comic14-4.png" id="18_hbf33"]
+[ext_resource type="Texture2D" uid="uid://cxg7ervt0kh0k" path="res://scenes/prolog/panels/pannel_4/Lore-Comic14-5.png" id="19_usfdm"]
+[ext_resource type="Texture2D" uid="uid://cvqee6vxnj33j" path="res://scenes/prolog/panels/pannel_4/Lore-Comic15.png" id="21_340y2"]
+[ext_resource type="Texture2D" uid="uid://c78or8733g35j" path="res://scenes/prolog/panels/pannel_5/Lore-Comic16.png" id="22_dywyc"]
+[ext_resource type="Texture2D" uid="uid://1khqep75t5fn" path="res://scenes/prolog/panels/pannel_5/Lore-Comic17.png" id="23_i50ja"]
+[ext_resource type="Texture2D" uid="uid://dbsjljf1i00fj" path="res://scenes/prolog/panels/pannel_5/Lore-Comic18.png" id="24_6i1uc"]
+[ext_resource type="Texture2D" uid="uid://ckwy04x5vac1o" path="res://scenes/prolog/panels/pannel_5/Lore-Comic19.png" id="25_4wixw"]
+[ext_resource type="Texture2D" uid="uid://io5pq4ifawtb" path="res://scenes/prolog/panels/pannel_5/Lore-Comic20.png" id="26_nxa1w"]
+[ext_resource type="Texture2D" uid="uid://djvru6k6lnbsg" path="res://scenes/prolog/panels/pannel_5/Lore-Comic21.png" id="27_ruka2"]
+[ext_resource type="AudioStream" uid="uid://738fidry78b6" path="res://assets/sounds/misc/fire.wav" id="28_hduhr"]
+[ext_resource type="Texture2D" uid="uid://bigo055a7jk31" path="res://scenes/prolog/panels/pannel_5/Lore-Comic22.png" id="28_rb3o1"]
+[ext_resource type="Texture2D" uid="uid://b3oxswbp6kfnp" path="res://scenes/prolog/panels/pannel_6/Lore-Comic23.png" id="29_ujtop"]
+[ext_resource type="Texture2D" uid="uid://cdkt18lvt55r6" path="res://scenes/prolog/panels/pannel_6/Lore-Comic24.png" id="30_w5u77"]
+[ext_resource type="Texture2D" uid="uid://bcmpwmbyx38kg" path="res://scenes/prolog/panels/pannel_6/Lore-Comic25.png" id="31_v8r53"]
+[ext_resource type="Texture2D" uid="uid://gnuvc0smfgki" path="res://scenes/prolog/panels/pannel_6/Lore-Comic26.png" id="32_k56xr"]
+[ext_resource type="AudioStream" uid="uid://bpqwj7pgisumn" path="res://assets/sounds/misc/rustling_of_the_weeds.wav" id="34_fjpag"]
+[ext_resource type="AudioStream" uid="uid://bp42mtr5y8nvl" path="res://assets/sounds/misc/click.wav" id="34_mmcjr"]
+[ext_resource type="AudioStream" uid="uid://c3nenslq8oga3" path="res://assets/sounds/boulder_cave_in/cave_in.wav" id="35_yssan"]
+[ext_resource type="AudioStream" uid="uid://dlep8vgdflt58" path="res://assets/sounds/misc/fall.wav" id="36_mq65k"]
+[ext_resource type="AudioStream" uid="uid://b74ph5ls33txr" path="res://assets/sounds/beast/Roar.wav" id="37_f81ey"]
+[ext_resource type="AudioStream" uid="uid://dx74balur6fig" path="res://assets/sounds/boulder_cave_in/crush.wav" id="39_lvudt"]
+[ext_resource type="AudioStream" uid="uid://bp2c663u5md54" path="res://assets/sounds/footsteps/ogg/Fantozzi-StoneR3.ogg" id="40_yut6f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57le1"]
+bg_color = Color(0.188235, 0.129412, 0.176471, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ttkq"]
+atlas = ExtResource("2_gguwk")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6p4gn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcvl0"]
+atlas = ExtResource("2_gguwk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tqnm7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_22sx3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jc88h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nh4ks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tm5rk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_serov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_83u4w")
+}],
+"loop": false,
+"name": &"panel1",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_mhs16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_t3prf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_dotds")
+}],
+"loop": false,
+"name": &"panel2",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_fhgxq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_h7unn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_q8bpv")
+}],
+"loop": false,
+"name": &"panel3",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_wtf1f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_sh6bn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_g3gq3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_cmg80")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_36g0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_hbf33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_usfdm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_340y2")
+}],
+"loop": false,
+"name": &"panel4",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_dywyc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_i50ja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_6i1uc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_4wixw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_nxa1w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_ruka2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_rb3o1")
+}],
+"loop": false,
+"name": &"panel5",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29_ujtop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_w5u77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_v8r53")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_k56xr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_k56xr")
+}],
+"loop": false,
+"name": &"panel6",
+"speed": 3.0
+}]
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_3y4gn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_57le1")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -17.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/separation = 2
+
+[node name="SkipProgressBar" type="ProgressBar" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(34, 18)
+layout_mode = 2
+size_flags_vertical = 1
+show_percentage = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/SkipProgressBar"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -6.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/SkipProgressBar/HBoxContainer"]
+texture = SubResource("AtlasTexture_7ttkq")
+centered = false
+offset = Vector2(0, -2)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/SkipProgressBar/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="SkipLabel" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/SkipProgressBar/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.188235, 0.129412, 0.176471, 1)
+theme_override_font_sizes/font_size = 8
+text = "Skip"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6p4gn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(34, 0)
+layout_mode = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+texture = SubResource("AtlasTexture_gcvl0")
+centered = false
+offset = Vector2(0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="NextLabel" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/PanelContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 8
+text = "Next
+"
+horizontal_alignment = 1
+
+[node name="Skip" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(46, 0)
+layout_mode = 2
+text = "SKIP"
+icon = SubResource("ViewportTexture_tqnm7")
+flat = true
+
+[node name="Next" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+text = "NEXT"
+flat = true
+
+[node name="SlideShow" type="AnimatedSprite2D" parent="CanvasLayer"]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_22sx3")
+animation = &"panel6"
+autoplay = "panel1"
+centered = false
+
+[node name="FireSoundPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("28_hduhr")
+volume_db = 3.546
+bus = &"Sound"
+
+[node name="ClickSoundPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("34_mmcjr")
+volume_db = 0.585
+pitch_scale = 0.16
+bus = &"Sound"
+
+[node name="CaveSoundPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("35_yssan")
+volume_db = 2.921
+pitch_scale = 1.14
+bus = &"Sound"
+
+[node name="FallSoundPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("36_mq65k")
+volume_db = -11.567
+pitch_scale = 0.91
+bus = &"Sound"
+
+[node name="BeastSoundPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("37_f81ey")
+volume_db = 6.793
+pitch_scale = 1.67
+bus = &"Sound"
+
+[node name="RustlingSoundPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("34_fjpag")
+volume_db = -5.843
+bus = &"Sound"
+
+[node name="LandingSoundPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("39_lvudt")
+volume_db = -5.258
+pitch_scale = 1.9
+bus = &"Sound"
+
+[node name="RunSoundPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("40_yut6f")
+pitch_scale = 1.27
+bus = &"Sound"
+
+[connection signal="frame_changed" from="CanvasLayer/SlideShow" to="." method="_on_slide_show_frame_changed"]

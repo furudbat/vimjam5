@@ -1,0 +1,165 @@
+[gd_scene load_steps=13 format=3 uid="uid://cik30de5gaaah"]
+
+[ext_resource type="Script" path="res://scenes/game/game.gd" id="1_2a8mx"]
+[ext_resource type="PackedScene" uid="uid://b4rvrpxovts82" path="res://scenes/game/map/map.tscn" id="2_bigen"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_qc23y"]
+[ext_resource type="Texture2D" uid="uid://cucifq7erg4dn" path="res://scenes/game/hud/hud.png" id="7_box1l"]
+[ext_resource type="AudioStream" uid="uid://cv1q5fi7y0nqq" path="res://scenes/game/bgm.mp3" id="7_ql71s"]
+[ext_resource type="AudioStream" uid="uid://b74ph5ls33txr" path="res://assets/sounds/beast/Roar.wav" id="8_grv20"]
+[ext_resource type="PackedScene" uid="uid://dkn2wjni2qgwb" path="res://scenes/game/beast_meter/beast_meter.tscn" id="8_te4fg"]
+[ext_resource type="PackedScene" uid="uid://drwkdtdcofl3e" path="res://scenes/game/hud/level_timer.tscn" id="9_ukmyv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ifta"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ic21"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_33xar"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dfog6"]
+
+[node name="IngameScene" type="Node2D"]
+script = ExtResource("1_2a8mx")
+
+[node name="Map" parent="." instance=ExtResource("2_bigen")]
+unique_name_in_owner = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
+position = Vector2(208.779, 143.831)
+rotation = 0.0023483
+process_callback = 0
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("6_qc23y")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="HUD" type="Sprite2D" parent="CanvasLayer"]
+z_index = 100
+texture = ExtResource("7_box1l")
+centered = false
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(426, 240)
+offset_right = 426.0
+offset_bottom = 240.0
+split_offset = 48
+collapsed = true
+dragger_visibility = 2
+
+[node name="MeterContainer" type="VBoxContainer" parent="CanvasLayer/HSplitContainer"]
+z_index = 111
+layout_mode = 2
+
+[node name="DistancePanel" type="Panel" parent="CanvasLayer/HSplitContainer/MeterContainer"]
+z_index = 111
+custom_minimum_size = Vector2(48, 24)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0ifta")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/HSplitContainer/MeterContainer/DistancePanel"]
+custom_minimum_size = Vector2(48, 8)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Distance" type="Label" parent="CanvasLayer/HSplitContainer/MeterContainer/DistancePanel/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "0m"
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HSplitContainer/MeterContainer"]
+z_index = 112
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8ic21")
+
+[node name="BeastMeter" parent="CanvasLayer/HSplitContainer/MeterContainer/PanelContainer" instance=ExtResource("8_te4fg")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MainContainer" type="VBoxContainer" parent="CanvasLayer/HSplitContainer"]
+z_index = 101
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="InfoPanel" type="Panel" parent="CanvasLayer/HSplitContainer/MainContainer"]
+z_index = 111
+custom_minimum_size = Vector2(48, 24)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_33xar")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/HSplitContainer/MainContainer/InfoPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 24.0
+grow_horizontal = 2
+collapsed = true
+dragger_visibility = 2
+
+[node name="InfoContainer" type="HBoxContainer" parent="CanvasLayer/HSplitContainer/MainContainer/InfoPanel/HSplitContainer"]
+z_index = 12
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/HSplitContainer/MainContainer/InfoPanel/HSplitContainer/InfoContainer"]
+custom_minimum_size = Vector2(48, 8)
+layout_mode = 2
+
+[node name="Info" type="Label" parent="CanvasLayer/HSplitContainer/MainContainer/InfoPanel/HSplitContainer/InfoContainer/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HSplitContainer/MainContainer/InfoPanel/HSplitContainer"]
+z_index = 12
+custom_minimum_size = Vector2(66, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TimerUI" parent="CanvasLayer/HSplitContainer/MainContainer/InfoPanel/HSplitContainer/HBoxContainer" instance=ExtResource("9_ukmyv")]
+unique_name_in_owner = true
+layout_mode = 2
+time = -1
+
+[node name="LevelTimer" type="Timer" parent="CanvasLayer/HSplitContainer/MainContainer/InfoPanel/HSplitContainer/HBoxContainer"]
+unique_name_in_owner = true
+
+[node name="ContentContainer" type="PanelContainer" parent="CanvasLayer/HSplitContainer/MainContainer"]
+unique_name_in_owner = true
+z_index = 9
+z_as_relative = false
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dfog6")
+
+[node name="GameTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ql71s")
+volume_db = -17.528
+autoplay = true
+
+[node name="BeastSoundPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("8_grv20")
+volume_db = 7.962
+pitch_scale = 1.71
+bus = &"Sound"
+
+[connection signal="get_obsticales_counter" from="Map" to="." method="_on_map_get_obsticales_counter"]
+[connection signal="obstical_reached" from="Map" to="." method="_obstical_reached"]
+[connection signal="player_reach_end" from="Map" to="." method="_on_map_player_reach_end"]
+[connection signal="timeout" from="CanvasLayer/HSplitContainer/MainContainer/InfoPanel/HSplitContainer/HBoxContainer/LevelTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]

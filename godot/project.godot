@@ -13,23 +13,25 @@ config_version=5
 config/name="Echoes of the Aztec Beast"
 config/description="Entry for VimJam5 - Run from the Aztec Beast Ahuizotl by solving Microgames and escape the temple"
 config/version="0.1.0"
-run/main_scene="res://scenes/main_menu.tscn"
+run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.3")
 run/max_fps=60
 boot_splash/bg_color=Color(0.188235, 0.129412, 0.176471, 1)
 boot_splash/show_image=false
 boot_splash/fullsize=false
 boot_splash/use_filter=false
-config/icon="res://spr_icon_128x128.png"
+config/icon="res://icon/128x128.png"
 
 [autoload]
 
-ColorPalette="*res://config/color_palette.gd"
-Constants="*res://config/constants.gd"
-ThemeManager="*res://settings/theme_manager.gd"
-UserSettings="*res://settings/user_settings.gd"
+ColorPalette="*res://globals/color_palette.gd"
+Constants="*res://globals/constants.gd"
+ThemeManager="*res://globals/theme_manager.gd"
+UserSettings="*res://globals/user_settings.gd"
+GlobalScenes="*res://scenes/index.gd"
+MiniGames="*res://scenes/game/mini_games/index.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
-TitleBgm="*res://scenes/title_bgm.tscn"
+TitleBgm="*res://scenes/common/title_bgm.tscn"
 
 [display]
 

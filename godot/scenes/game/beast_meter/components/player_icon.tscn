@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://48kr7nnu51iy"]
+
+[ext_resource type="Texture2D" uid="uid://bhgqey515ddmu" path="res://scenes/game/beast_meter/components/icons.png" id="1_aylrb"]
+
+[node name="PlayerIcon" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_aylrb")
+offset = Vector2(16, 16)
+hframes = 3

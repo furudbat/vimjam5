@@ -1,0 +1,274 @@
+[gd_scene load_steps=12 format=3 uid="uid://bsfrgkv3h1046"]
+
+[ext_resource type="Script" path="res://scenes/win/win.gd" id="1_nf3g7"]
+[ext_resource type="Texture2D" uid="uid://duv4t31k22mo2" path="res://scenes/game/map/entities/enemy/beast.png" id="2_2kroq"]
+[ext_resource type="Texture2D" uid="uid://dxucpedb6sctc" path="res://scenes/game/map/entities/player/player.png" id="3_b3go8"]
+[ext_resource type="AudioStream" uid="uid://dqwuv1f46cjih" path="res://scenes/game_over/bgm.mp3" id="4_kfip4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_atuew"]
+bg_color = Color(0.188235, 0.129412, 0.176471, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oybt3"]
+atlas = ExtResource("3_b3go8")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="Animation" id="Animation_7ty3o"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(30, -3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Player:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5708]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Player:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3rrgb"]
+_data = {
+"RESET": SubResource("Animation_7ty3o")
+}
+
+[sub_resource type="Animation" id="Animation_x0m3v"]
+resource_name = "walk_left"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(30, -3), Vector2(30, -1), Vector2(26, 3.00001)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Player:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-1.5708, -1.85703, -1.29402]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Player:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vhalg"]
+resource_name = "walk_right"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-34, -6), Vector2(-35, 2.86102e-06), Vector2(-28, 6), Vector2(-29, -4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Player:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-4.57451, -4.53988, -5.21418, -5.00724]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Player:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_83scb"]
+_data = {
+"walk_left": SubResource("Animation_x0m3v"),
+"walk_right": SubResource("Animation_vhalg")
+}
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_nf3g7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+custom_minimum_size = Vector2(426, 240)
+offset_right = 426.0
+offset_bottom = 240.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_atuew")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="CanvasLayer/Panel/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Game Over"
+
+[node name="Time" type="Label" parent="CanvasLayer/Panel/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Time: 0000"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/CenterContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Restart" type="Button" parent="CanvasLayer/Panel/CenterContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8
+text = "Restart"
+
+[node name="BackToMainMenu2" type="Button" parent="CanvasLayer/Panel/CenterContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8
+text = " Back to Main Menu "
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="CanvasLayer"]
+z_index = 2
+position = Vector2(217, 199)
+
+[node name="Player" type="Sprite2D" parent="CanvasLayer/CharacterBody2D2"]
+position = Vector2(30, -3)
+rotation = -1.5708
+texture = SubResource("AtlasTexture_oybt3")
+
+[node name="Beast" type="Sprite2D" parent="CanvasLayer/CharacterBody2D2"]
+position = Vector2(-2, 0)
+texture = ExtResource("2_2kroq")
+hframes = 2
+vframes = 6
+frame = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/CharacterBody2D2"]
+unique_name_in_owner = true
+root_node = NodePath("../Beast")
+libraries = {
+"": SubResource("AnimationLibrary_3rrgb"),
+"game_over_enemy": SubResource("AnimationLibrary_83scb")
+}
+autoplay = "game_over_enemy/walk_left"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_kfip4")
+volume_db = -1.753
+autoplay = true
+
+[connection signal="pressed" from="CanvasLayer/Panel/CenterContainer/VBoxContainer/MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/CenterContainer/VBoxContainer/MarginContainer/VBoxContainer/BackToMainMenu2" to="." method="_on_back_to_main_menu_pressed"]
