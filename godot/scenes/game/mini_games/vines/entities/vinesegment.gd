@@ -13,7 +13,7 @@ signal segment_cut
 # Function to cut this segment
 func cut_segment():
 	# Emit a signal to notify the parent vine
-	emit_signal("segment_cut", self)
+	segment_cut.emit(self)
 	# Disable this segment so it no longer interacts with the game
 	#self.custom_integrator = true  # Stop physics integration
 	#self.angular_velocity = 0.0  # Stop rotation

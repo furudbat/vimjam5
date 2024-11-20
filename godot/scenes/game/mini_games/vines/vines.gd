@@ -86,7 +86,7 @@ func _input(event):
 			_check_collision(_line_start, _line_end)
 			if not _is_line_drawing:
 				_is_line_drawing = false
-				#line_drawer.line_end = event.position
+				#line_drawer.line_end = _line_end
 				#line_drawer.queue_redraw()
 				cut_drawer.clear_points()
 				_line_start = Vector2(-MAX_CUT_LENGTH - 5, -MAX_CUT_LENGTH - 5)

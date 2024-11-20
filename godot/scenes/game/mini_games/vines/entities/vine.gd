@@ -8,7 +8,7 @@ func _ready():
 	# Connect all segment's segment_cut signals to the method for handling cuts
 	for segment in get_children():
 		if segment.has_signal("segment_cut"):
-			segment.connect("segment_cut", Callable(self, "_on_segment_cut"))
+			segment.segment_cut.connect(_on_segment_cut)
 
 func _on_segment_cut(cut_segment):
 	if is_cut:
@@ -17,7 +17,7 @@ func _on_segment_cut(cut_segment):
 	# Mark the vine as cut
 	is_cut = true
 	#print("Vine is being cut:", self)
-	emit_signal("vine_cut", self)
+	vine_cut.emit(self)
 
 	# Remove joints associated with the cut segment
 	var joint_removed = false

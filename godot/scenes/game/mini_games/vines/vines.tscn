@@ -80,6 +80,12 @@ rotation = 1.51501
 position = Vector2(504, 144)
 rotation = 1.66791
 
+[node name="CutLine" type="Line2D" parent="."]
+unique_name_in_owner = true
+z_index = 50
+width = 2.0
+default_color = Color(0.858824, 0.458824, 0.27451, 1)
+
 [node name="LineDrawer" type="Node2D" parent="."]
 unique_name_in_owner = true
 z_index = 50
