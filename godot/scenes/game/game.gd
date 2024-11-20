@@ -38,7 +38,7 @@ var _current_obstical_tile: Node = null
 var _player_state := CharacterState.STOPPED
 var _enemy_state := CharacterState.STOPPED
 var _game_state := GameState.MAP
-var _game_over_fadeout: int = 0
+var _game_over_fadeout: float = 0
 
 # Scene Nodes
 @onready var beast_meter := %BeastMeter
@@ -176,7 +176,7 @@ func _reset_timer():
 		else:
 			_player_velocity = Constants.NEXT_LEVEL_START_PLAYER_VELOCITY
 	
-func _obstical_reached(tile, body, mini_game: String):
+func _obstical_reached(tile, _body, mini_game: String):
 	if _game_state == GameState.MAP:
 		if not tile.open:
 			_current_obstical_scene = MiniGames.get_scene(mini_game).instantiate()

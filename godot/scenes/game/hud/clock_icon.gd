@@ -4,10 +4,11 @@ extends Control
 @onready var sprite := %Sprite2D
 @onready var sprite_timer := %SpriteTimer
 
-@export var time = 0
+const SWAP_TIME_SEC = 0.55
+
+@export var time: int = 0
 
 var frame = 0
-const SWAP_TIME_SEC = 0.55
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
