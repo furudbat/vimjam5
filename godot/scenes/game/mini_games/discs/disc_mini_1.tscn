@@ -1,0 +1,160 @@
+[gd_scene load_steps=16 format=3 uid="uid://b744b822mtrrr"]
+
+[ext_resource type="Script" path="res://scenes/game/mini_games/discs/disc_mini_1.gd" id="1_5s1p5"]
+[ext_resource type="Texture2D" uid="uid://dqbxmj6d7pr2" path="res://assets/spr_icons_16x16.png" id="2_sijm5"]
+[ext_resource type="Texture2D" uid="uid://tym87tug1u8y" path="res://scenes/game/mini_games/discs/spr_disc_bg.png" id="3_6q6v4"]
+[ext_resource type="Texture2D" uid="uid://d6ejtgyg018a" path="res://scenes/game/mini_games/discs/disc_1/spr_slice_1_highlight.png" id="4_s2rot"]
+[ext_resource type="Texture2D" uid="uid://bmjydcg0iakfm" path="res://scenes/game/mini_games/discs/disc_1/spr_slice_1.png" id="5_j06ye"]
+[ext_resource type="Texture2D" uid="uid://2aabjdksqqxq" path="res://scenes/game/mini_games/discs/disc_1/spr_slice_2_highlight.png" id="6_2ie62"]
+[ext_resource type="Texture2D" uid="uid://htgj3toxcjxw" path="res://scenes/game/mini_games/discs/disc_1/spr_slice_2.png" id="7_jlvxv"]
+[ext_resource type="Script" path="res://addons/donut_collision_polygon2D/donut_collision_polygon2D.gd" id="8_ohbu0"]
+[ext_resource type="Texture2D" uid="uid://b5pq3y8b8i1g6" path="res://scenes/game/mini_games/discs/disc_1/spr_slice_3_highlight.png" id="8_olr08"]
+[ext_resource type="Texture2D" uid="uid://bnvgx0s6ly0k2" path="res://scenes/game/mini_games/discs/disc_1/spr_slice_3.png" id="9_f4ubd"]
+[ext_resource type="Texture2D" uid="uid://dveipp5o15232" path="res://scenes/game/mini_games/discs/disc_1/spr_slice_4_highlight.png" id="10_474to"]
+[ext_resource type="Texture2D" uid="uid://bbrsbkn4cx5u4" path="res://scenes/game/mini_games/discs/disc_1/spr_slice_4.png" id="11_fkkoq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3b60"]
+bg_color = Color(0.188235, 0.129412, 0.176471, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spmb2"]
+atlas = ExtResource("2_sijm5")
+region = Rect2(48, 0, 32, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vr20i"]
+radius = 23.0
+
+[node name="Disc1" type="Node2D"]
+script = ExtResource("1_5s1p5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Title" type="Panel" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(378, 216)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_k3b60")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Title"]
+custom_minimum_size = Vector2(378, 216)
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 23.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Title/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Title/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "Rotate the Stonediscs"
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Title/CenterContainer/HBoxContainer"]
+position = Vector2(187, 12)
+texture = SubResource("AtlasTexture_spmb2")
+
+[node name="MiniGame" type="Panel" parent="CanvasLayer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(378, 216)
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_k3b60")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/MiniGame"]
+custom_minimum_size = Vector2(378, 216)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.0
+offset_top = -108.0
+offset_right = 189.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DiskContainer" type="MarginContainer" parent="CanvasLayer/MiniGame/CenterContainer"]
+layout_mode = 2
+
+[node name="BG" type="Sprite2D" parent="CanvasLayer/MiniGame/CenterContainer/DiskContainer"]
+texture = ExtResource("3_6q6v4")
+
+[node name="Slice1" type="Node2D" parent="CanvasLayer/MiniGame/CenterContainer/DiskContainer" groups=["Slices", "Slides"]]
+
+[node name="Highlight" type="Sprite2D" parent="CanvasLayer/MiniGame/CenterContainer/DiskContainer/Slice1"]
+texture = ExtResource("4_s2rot")
+
+[node name="Sprite" type="Sprite2D" parent="CanvasLayer/MiniGame/CenterContainer/DiskContainer/Slice1"]
+texture = ExtResource("5_j06ye")
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/MiniGame/CenterContainer/DiskContainer/Slice1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/MiniGame/CenterContainer/DiskContainer/Slice1/Area2D"]
+shape = SubResource("CircleShape2D_vr20i")
+
+[node name="Slice2" type="Node2D" parent="CanvasLayer/MiniGame/CenterContainer/DiskContainer" groups=["Slices"]]
+rotation = 1.74533
+
+[node name="Highlight" type="Sprite2D" parent="CanvasLayer/MiniGame/CenterContainer/DiskContainer/Slice2"]
+texture = ExtResource("6_2ie62")
+
+[node name="Sprite" type="Sprite2D" parent="CanvasLayer/MiniGame/CenterContainer/DiskContainer/Slice2"]
+texture = ExtResource("7_jlvxv")
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/MiniGame/CenterContainer/DiskContainer/Slice2"]
+
+[node name="DonutCollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/MiniGame/CenterContainer/DiskContainer/Slice2/Area2D"]
+polygon = PackedVector2Array(2.705e-15, -44.1775, 8.6186, -43.3286, 16.906, -40.8147, 24.5437, -36.7323, 31.2382, -31.2382, 36.7323, -24.5437, 40.8147, -16.906, 43.3286, -8.6186, 44.1775, 0, 43.3286, 8.6186, 40.8147, 16.906, 36.7323, 24.5437, 31.2382, 31.2382, 24.5437, 36.7323, 16.906, 40.8147, 8.6186, 43.3286, 2.705e-15, 44.1775, -8.6186, 43.3286, -16.906, 40.8147, -24.5437, 36.7323, -31.2382, 31.2382, -36.7323, 24.5437, -40.8147, 16.906, -43.3286, 8.6186, -44.1775, 5.41e-15, -43.3286, -8.6186, -40.8147, -16.906, -36.7323, -24.5437, -31.2382, -31.2382, -24.5437, -36.7323, -16.906, -40.8147, -8.6186, -43.3286, -8.11501e-15, -44.1775, -4.42006e-15, -24.0625, -4.69436, -23.6001, -9.20832, -22.2309, -13.3684, -20.0072, -17.0148, -17.0148, -20.0072, -13.3684, -22.2309, -9.20832, -23.6001, -4.69436, -24.0625, 2.94671e-15, -23.6001, 4.69436, -22.2309, 9.20832, -20.0072, 13.3684, -17.0148, 17.0148, -13.3684, 20.0072, -9.20832, 22.2309, -4.69436, 23.6001, 1.47335e-15, 24.0625, 4.69436, 23.6001, 9.20832, 22.2309, 13.3684, 20.0072, 17.0148, 17.0148, 20.0072, 13.3684, 22.2309, 9.20832, 23.6001, 4.69436, 24.0625, 0, 23.6001, -4.69436, 22.2309, -9.20832, 20.0072, -13.3684, 17.0148, -17.0148, 13.3684, -20.0072, 9.20832, -22.2309, 4.69436, -23.6001, 1.47335e-15, -24.0625, 0.0001, -44.1774)
+script = ExtResource("8_ohbu0")
+radius = 34.12
+width = 20.115
+
+[node name="Slice3" type="Node2D" parent="CanvasLayer/MiniGame/CenterContainer/DiskContainer" groups=["Slices"]]
+rotation = 1.74533
+
+[node name="Highlight" type="Sprite2D" parent="CanvasLayer/MiniGame/CenterContainer/DiskContainer/Slice3"]
+texture = ExtResource("8_olr08")
+
+[node name="Sprite" type="Sprite2D" parent="CanvasLayer/MiniGame/CenterContainer/DiskContainer/Slice3"]
+texture = ExtResource("9_f4ubd")
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/MiniGame/CenterContainer/DiskContainer/Slice3"]
+
+[node name="DonutCollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/MiniGame/CenterContainer/DiskContainer/Slice3/Area2D"]
+polygon = PackedVector2Array(4.04748e-15, -66.1025, 12.896, -64.8324, 25.2963, -61.0707, 36.7246, -54.9622, 46.7415, -46.7415, 54.9622, -36.7246, 61.0707, -25.2963, 64.8324, -12.896, 66.1025, 0, 64.8324, 12.896, 61.0707, 25.2963, 54.9622, 36.7246, 46.7415, 46.7415, 36.7246, 54.9622, 25.2963, 61.0707, 12.896, 64.8324, 4.04748e-15, 66.1025, -12.896, 64.8324, -25.2963, 61.0707, -36.7246, 54.9622, -46.7415, 46.7415, -54.9622, 36.7246, -61.0707, 25.2963, -64.8324, 12.896, -66.1025, 8.09495e-15, -64.8324, -12.896, -61.0707, -25.2963, -54.9622, -36.7246, -46.7415, -46.7415, -36.7246, -54.9622, -25.2963, -61.0707, -12.896, -64.8324, -1.21424e-14, -66.1025, -8.44749e-15, -45.9875, -8.97172, -45.1039, -17.5987, -42.4869, -25.5493, -38.2372, -32.5181, -32.5181, -38.2372, -25.5493, -42.4869, -17.5987, -45.1039, -8.97172, -45.9875, 5.63166e-15, -45.1039, 8.97172, -42.4869, 17.5987, -38.2372, 25.5493, -32.5181, 32.5181, -25.5493, 38.2372, -17.5987, 42.4869, -8.97172, 45.1039, 2.81583e-15, 45.9875, 8.97172, 45.1039, 17.5987, 42.4869, 25.5493, 38.2372, 32.5181, 32.5181, 38.2372, 25.5493, 42.4869, 17.5987, 45.1039, 8.97172, 45.9875, 0, 45.1039, -8.97172, 42.4869, -17.5987, 38.2372, -25.5493, 32.5181, -32.5181, 25.5493, -38.2372, 17.5987, -42.4869, 8.97172, -45.1039, 2.81583e-15, -45.9875, 0.0001, -66.1024)
+script = ExtResource("8_ohbu0")
+radius = 56.045
+width = 20.115
+
+[node name="Slice4" type="Node2D" parent="CanvasLayer/MiniGame/CenterContainer/DiskContainer" groups=["Slices"]]
+rotation = 0.349066
+
+[node name="Highlight" type="Sprite2D" parent="CanvasLayer/MiniGame/CenterContainer/DiskContainer/Slice4"]
+texture = ExtResource("10_474to")
+
+[node name="Sprite" type="Sprite2D" parent="CanvasLayer/MiniGame/CenterContainer/DiskContainer/Slice4"]
+texture = ExtResource("11_fkkoq")
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/MiniGame/CenterContainer/DiskContainer/Slice4/Sprite"]
+
+[node name="DonutCollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/MiniGame/CenterContainer/DiskContainer/Slice4/Sprite/Area2D"]
+polygon = PackedVector2Array(5.50614e-15, -89.925, 17.5435, -88.1971, 34.4128, -83.0799, 49.9597, -74.7699, 63.5866, -63.5866, 74.7699, -49.9597, 83.0799, -34.4128, 88.1971, -17.5435, 89.925, 0, 88.1971, 17.5435, 83.0799, 34.4128, 74.7699, 49.9597, 63.5866, 63.5866, 49.9597, 74.7699, 34.4128, 83.0799, 17.5435, 88.1971, 5.50614e-15, 89.925, -17.5435, 88.1971, -34.4128, 83.0799, -49.9597, 74.7699, -63.5866, 63.5866, -74.7699, 49.9597, -83.0799, 34.4128, -88.1971, 17.5435, -89.925, 1.10123e-14, -88.1971, -17.5435, -83.0799, -34.4128, -74.7699, -49.9597, -63.5866, -63.5866, -49.9597, -74.7699, -34.4128, -83.0799, -17.5435, -88.1971, -1.65184e-14, -89.925, -1.25176e-14, -68.145, -13.2944, -66.8356, -26.078, -62.9578, -37.8593, -56.6605, -48.1858, -48.1858, -56.6605, -37.8593, -62.9578, -26.078, -66.8356, -13.2944, -68.145, 8.34508e-15, -66.8356, 13.2944, -62.9578, 26.078, -56.6605, 37.8593, -48.1858, 48.1858, -37.8593, 56.6605, -26.078, 62.9578, -13.2944, 66.8356, 4.17254e-15, 68.145, 13.2944, 66.8356, 26.078, 62.9578, 37.8593, 56.6605, 48.1858, 48.1858, 56.6605, 37.8593, 62.9578, 26.078, 66.8356, 13.2944, 68.145, 0, 66.8356, -13.2944, 62.9578, -26.078, 56.6605, -37.8593, 48.1858, -48.1858, 37.8593, -56.6605, 26.078, -62.9578, 13.2944, -66.8356, 4.17254e-15, -68.145, 0.0001, -89.9249)
+script = ExtResource("8_ohbu0")
+radius = 79.035
+width = 21.78
+
+[connection signal="mouse_entered" from="CanvasLayer/MiniGame/CenterContainer/DiskContainer/Slice1/Area2D" to="." method="_on_slice_1_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MiniGame/CenterContainer/DiskContainer/Slice1/Area2D" to="." method="_on_slice_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MiniGame/CenterContainer/DiskContainer/Slice2/Area2D" to="." method="_on_slice_2_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MiniGame/CenterContainer/DiskContainer/Slice2/Area2D" to="." method="_on_slice_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MiniGame/CenterContainer/DiskContainer/Slice3/Area2D" to="." method="_on_slice_3_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MiniGame/CenterContainer/DiskContainer/Slice3/Area2D" to="." method="_on_slice_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MiniGame/CenterContainer/DiskContainer/Slice4/Sprite/Area2D" to="." method="_on_slice_4_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MiniGame/CenterContainer/DiskContainer/Slice4/Sprite/Area2D" to="." method="_on_slice_mouse_exited"]

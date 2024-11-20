@@ -20,7 +20,7 @@ boot_splash/bg_color=Color(0.188235, 0.129412, 0.176471, 1)
 boot_splash/show_image=false
 boot_splash/fullsize=false
 boot_splash/use_filter=false
-config/icon="res://icon/128x128.png"
+config/icon="res://assets/icon/128x128.png"
 
 [autoload]
 
@@ -37,6 +37,7 @@ GlobalScenes="*res://scenes/index.gd"
 MiniGames="*res://scenes/game/mini_games/index.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 TitleBgm="*res://scenes/common/music/title_bgm.tscn"
+Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 
 [display]
 
@@ -50,7 +51,7 @@ window/stretch/scale_mode="integer"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/ColorPreview/plugin.cfg", "res://addons/gdLinter/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/ColorPreview/plugin.cfg", "res://addons/SignalVisualizer/plugin.cfg", "res://addons/donut_collision_polygon2D/plugin.cfg", "res://addons/gdLinter/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [gui]
 
