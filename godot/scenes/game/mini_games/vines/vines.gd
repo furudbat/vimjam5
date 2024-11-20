@@ -5,9 +5,13 @@ extends Node2D
 #@onready var line_node := %CutLine
 @onready var cut_sound := %VineCutSound1
 @onready var win_sound := %WinSoundPlayer
+# @DEPRECATED: use cut_drawer
 @onready var line_drawer := %LineDrawer
+@onready var cut_drawer := %CutLine
 
 signal puzzle_solved()
+
+const MAX_CUT_LENGTH = 30
 
 # Points for drawing the line
 var line_start: Vector2
@@ -25,16 +29,20 @@ var win_cooldown = 0
 var init_vines = false
 var win = false
 
+var _line_start: Vector2 = Vector2(-MAX_CUT_LENGTH, -MAX_CUT_LENGTH - 5)
+var _line_end: Vector2 = Vector2(-MAX_CUT_LENGTH, -MAX_CUT_LENGTH - 5)
+var _is_line_drawing: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	title.visible = true
 	mini_game.visible = false
 
-	for child in mini_game.get_children():
-		if child.name.begins_with("Vine_"):
+	for vine in get_tree().get_nodes_in_group("Vines"):
+		if vine.name.begins_with("Vine_"):
 			total_vines += 1
-			if child.has_signal("vine_cut"):
-				child.connect("vine_cut", Callable(self, "_on_vine_cut"))
+			if vine.vine_cut:
+				vine.vine_cut.connect(_on_vine_cut)
 
 func _cut_segment(vine, vine_index, segment_index):
 	vines_cut_counter = vines_cut_counter + 1
@@ -43,24 +51,49 @@ func _cut_segment(vine, vine_index, segment_index):
 	
 func _input(event):
 	if started:
+		var end_cut = false
 		if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_LEFT:
 				if event.pressed:
-					line_drawer.line_start = event.position
-					line_drawer.line_end = event.position
-					line_drawer.is_drawing = true
-					line_drawer.queue_redraw()
+					if not _is_line_drawing:
+						_line_start = event.position
+						_line_end = event.position
+						_is_line_drawing = true
+						#line_drawer.line_start = _line_start
+						#line_drawer.line_end = _line_end
+						#line_drawer.is_drawing = true
+						#line_drawer.queue_redraw()
+						cut_drawer.add_point(event.position)
 				else:
-					line_drawer.line_end = event.position
-					line_drawer.is_drawing = false
-					line_drawer.queue_redraw()
-					_check_collision(line_drawer.line_start, line_drawer.line_end)
-		elif event is InputEventMouseMotion and line_drawer.is_drawing:
-			line_drawer.line_end = event.position
-			line_drawer.queue_redraw()
-			if cut_sound:
-				cut_sound.pitch_scale = randf_range(0.78, 1.14)
-				cut_sound.play()
+					end_cut = false
+					if _is_line_drawing:
+						end_cut = true
+						if event.position.distance_squared_to(_line_start) <= MAX_CUT_LENGTH*MAX_CUT_LENGTH:
+							cut_drawer.add_point(event.position)
+							_line_end = event.position
+					_is_line_drawing = false
+		elif event is InputEventMouseMotion:
+			if _is_line_drawing:
+				if event.position.distance_squared_to(_line_start) <= MAX_CUT_LENGTH*MAX_CUT_LENGTH:
+					cut_drawer.add_point(event.position)
+					_line_end = event.position
+				else:
+					end_cut = true
+					
+		if end_cut:
+			cut_drawer.add_point(_line_start)
+			cut_drawer.add_point(_line_end)
+			_check_collision(_line_start, _line_end)
+			if not _is_line_drawing:
+				_is_line_drawing = false
+				#line_drawer.line_end = event.position
+				#line_drawer.queue_redraw()
+				cut_drawer.clear_points()
+				_line_start = Vector2(-MAX_CUT_LENGTH - 5, -MAX_CUT_LENGTH - 5)
+				_line_end = Vector2(-MAX_CUT_LENGTH - 5, -MAX_CUT_LENGTH - 5)
+				if cut_sound:
+					cut_sound.pitch_scale = randf_range(0.78, 1.14)
+					cut_sound.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
