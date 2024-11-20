@@ -9,8 +9,8 @@ extends Node
 	"vines2": preload("res://scenes/game/mini_games/vines/vines_2.tscn"),
 }
 
-func get_scene(name: String):
-	return MiniGames.get(name)
+func get_scene(scene_name: String):
+	return MiniGames.get(scene_name)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

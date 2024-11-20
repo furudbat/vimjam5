@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bry4i6wcbvapj"
+path="res://.godot/imported/Deeper Into the Dungeon.ogg-939fccabfb8fb06bdfbdab37865a3a64.oggvorbisstr"
+
+[deps]
+
+source_file="res://addons/top_down/assets/music/Deeper Into the Dungeon.ogg"
+dest_files=["res://.godot/imported/Deeper Into the Dungeon.ogg-939fccabfb8fb06bdfbdab37865a3a64.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
