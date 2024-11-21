@@ -20,8 +20,7 @@ var _start_coolown = 0
 @onready var land_sound := %LandingSoundPlayer
 @onready var run_sound := %RunSoundPlayer
 
-@onready var main_game_scene = preload("res://scenes/game/game.tscn")
-
+@onready var main_game_scene = preload("res://scenes/game_main/game_main.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

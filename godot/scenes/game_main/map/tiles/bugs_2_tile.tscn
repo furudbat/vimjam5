@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgnvjenh7upwe"]
+
+[ext_resource type="Script" path="res://scenes/game_main/map/tiles/bugs_tile.gd" id="1_npfap"]
+[ext_resource type="Texture2D" uid="uid://bf8ttxbe4wlua" path="res://scenes/game_main/map/tileset.png" id="2_wrgtk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svfpd"]
+atlas = ExtResource("2_wrgtk")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydwqq"]
+size = Vector2(24, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehjf0"]
+
+[node name="BugsTile" type="CharacterBody2D"]
+script = ExtResource("1_npfap")
+mini_game = "bugs2"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = SubResource("AtlasTexture_svfpd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ydwqq")
+disabled = true
+
+[node name="Obstacle" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_ehjf0")
+
+[connection signal="body_entered" from="Obstacle" to="." method="_on_obstacle_body_entered"]

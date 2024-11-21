@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=3 uid="uid://dls36054mstgb"]
+
+[ext_resource type="Script" path="res://scenes/game_main/mini_games/bugs_mini_game/bugs_mini_game.gd" id="1_5vv1o"]
+[ext_resource type="Texture2D" uid="uid://dqbxmj6d7pr2" path="res://assets/spr_icons_16x16.png" id="2_ux0kq"]
+[ext_resource type="AudioStream" uid="uid://ckhscajo38s3d" path="res://scenes/game_main/mini_games/bugs_mini_game/sounds/random3.wav" id="3_qijcq"]
+[ext_resource type="AudioStream" uid="uid://cvx16hjbt15wa" path="res://assets/sounds/win/win sound 2-1.wav" id="4_cjbuj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_171vh"]
+bg_color = Color(0.188235, 0.129412, 0.176471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14klj"]
+bg_color = Color(0.188235, 0.129412, 0.176471, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ib5pp"]
+atlas = ExtResource("2_ux0kq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="Curve2D" id="Curve2D_lwh2q"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 376, 0, 0, 0, 0, 0, 376, 216, 0, 0, 0, 0, 0, 216, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="BugsMiniGame1" type="Node2D"]
+script = ExtResource("1_5vv1o")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+z_index = 1
+clip_contents = true
+offset_right = 378.0
+offset_bottom = 216.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_171vh")
+
+[node name="Title" type="Panel" parent="PanelContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(378, 216)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_14klj")
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/Title"]
+custom_minimum_size = Vector2(378, 216)
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 23.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Title/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Title/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "Swat the Bugs"
+
+[node name="Sprite2D" type="Sprite2D" parent="PanelContainer/Title/CenterContainer/HBoxContainer"]
+position = Vector2(113, 5)
+texture = SubResource("AtlasTexture_ib5pp")
+centered = false
+
+[node name="MiniGame" type="Panel" parent="PanelContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(378, 216)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_14klj")
+
+[node name="MobTimer" type="Timer" parent="PanelContainer/MiniGame"]
+unique_name_in_owner = true
+wait_time = 0.5
+
+[node name="StartPosition" type="Marker2D" parent="PanelContainer/MiniGame"]
+position = Vector2(192, 104)
+
+[node name="MobPath" type="Path2D" parent="PanelContainer/MiniGame"]
+unique_name_in_owner = true
+curve = SubResource("Curve2D_lwh2q")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="PanelContainer/MiniGame/MobPath"]
+unique_name_in_owner = true
+
+[node name="BugSound1" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_qijcq")
+volume_db = 1.753
+bus = &"Sound"
+
+[node name="WinSoundPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_cjbuj")
+volume_db = 2.921
+pitch_scale = 1.09
+bus = &"Sound"
+
+[connection signal="timeout" from="PanelContainer/MiniGame/MobTimer" to="." method="_on_mob_timer_timeout"]
