@@ -7,11 +7,12 @@ extends Node2D
 @onready var win_sound := %WinSoundPlayer
 # @DEPRECATED: use cut_drawer
 @onready var line_drawer := %LineDrawer
-@onready var cut_drawer := %CutLine
+#@onready var cut_drawer := %CutLine
 
 signal puzzle_solved()
 
-const MAX_CUT_LENGTH = 30
+const MAX_CUT_LENGTH = 80
+const MINIMUM_CUT_LENGTH = 15
 
 # Points for drawing the line
 var line_start: Vector2
@@ -37,6 +38,7 @@ var _is_line_drawing: bool = false
 func _ready() -> void:
 	title.visible = true
 	mini_game.visible = false
+	line_drawer.minimum_cut_length = MINIMUM_CUT_LENGTH
 
 	for vine in get_tree().get_nodes_in_group("Vines"):
 		if vine.name.begins_with("Vine_"):
@@ -50,7 +52,7 @@ func _cut_segment(vine, vine_index, segment_index):
 		print(vine, vine_index, segment_index)
 	
 func _input(event):
-	if started:
+	if started and not win:
 		var end_cut = false
 		if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_LEFT:
@@ -59,36 +61,43 @@ func _input(event):
 						_line_start = event.position
 						_line_end = event.position
 						_is_line_drawing = true
-						#line_drawer.line_start = _line_start
-						#line_drawer.line_end = _line_end
-						#line_drawer.is_drawing = true
-						#line_drawer.queue_redraw()
-						cut_drawer.add_point(event.position)
+						line_drawer.line_start = _line_start
+						line_drawer.line_end = _line_end
+						line_drawer.is_drawing = true
+						line_drawer.queue_redraw()
+						#cut_drawer.add_point(event.position)
 				else:
 					end_cut = false
 					if _is_line_drawing:
 						end_cut = true
 						if event.position.distance_squared_to(_line_start) <= MAX_CUT_LENGTH*MAX_CUT_LENGTH:
-							cut_drawer.add_point(event.position)
+							#cut_drawer.add_point(event.position)
 							_line_end = event.position
 					_is_line_drawing = false
+					line_drawer.line_end = _line_end
+					line_drawer.queue_redraw()
 		elif event is InputEventMouseMotion:
 			if _is_line_drawing:
 				if event.position.distance_squared_to(_line_start) <= MAX_CUT_LENGTH*MAX_CUT_LENGTH:
-					cut_drawer.add_point(event.position)
+					#cut_drawer.add_point(event.position)
 					_line_end = event.position
 				else:
+					var direction = (event.position - _line_start).normalized()
+					_line_end = _line_start + direction * MAX_CUT_LENGTH
 					end_cut = true
+				line_drawer.line_end = _line_end
+				line_drawer.queue_redraw()
 					
 		if end_cut:
-			cut_drawer.add_point(_line_start)
-			cut_drawer.add_point(_line_end)
+			#cut_drawer.add_point(_line_start)
+			#cut_drawer.add_point(_line_end)
 			_check_collision(_line_start, _line_end)
 			if not _is_line_drawing:
 				_is_line_drawing = false
-				#line_drawer.line_end = _line_end
-				#line_drawer.queue_redraw()
-				cut_drawer.clear_points()
+				line_drawer.line_end = _line_end
+				line_drawer.is_drawing = false
+				line_drawer.queue_redraw()
+				#cut_drawer.clear_points()
 				_line_start = Vector2(-MAX_CUT_LENGTH - 5, -MAX_CUT_LENGTH - 5)
 				_line_end = Vector2(-MAX_CUT_LENGTH - 5, -MAX_CUT_LENGTH - 5)
 				if cut_sound:
@@ -120,20 +129,56 @@ func _process(delta: float) -> void:
 
 # Check for collisions along the drawn line
 func _check_collision(start_point: Vector2, end_point: Vector2):
-	var space_state = get_world_2d().direct_space_state
+	if start_point.distance_to(end_point) < MINIMUM_CUT_LENGTH:
+		return false
+		
+	var ret = false
+	var n_segments = get_tree().get_nodes_in_group("Segments").size()
+	for n in range(n_segments):
+		var space_state = get_world_2d().direct_space_state
+		# Create a PhysicsRayQueryParameters2D and set its from and to properties
+		var query_1 = PhysicsRayQueryParameters2D.new()
+		query_1.from = start_point
+		query_1.to = end_point
+		query_1.hit_from_inside = true
+		
+		var query_2 = PhysicsRayQueryParameters2D.new()
+		query_2.from = end_point
+		query_2.to = start_point
+		query_2.hit_from_inside = true
 
-	# Create and configure the ray query parameters
-	var query = PhysicsRayQueryParameters2D.new()
-	query.from = start_point
-	query.to = end_point
+		# Perform the raycast for both directions
+		var results = []
+		var result_1 = space_state.intersect_ray(query_1)
+		var result_2 = space_state.intersect_ray(query_2)
 
-	# Perform a raycast to detect collisions
-	var result = space_state.intersect_ray(query)
+		# Collect the results from both raycasts
+		if result_1:
+			results.append(result_1)
+		if result_2:
+			results.append(result_2)
 
-	if result.size() > 0:  # Check if there is a collision
-		var hit_node = result["collider"]
-		if hit_node and hit_node.has_method("cut_segment"):
-			hit_node.cut_segment()
+		# Print the results (for debugging purposes)
+		#print("Found ", results.size(), " collisions.")
+
+		# Check if there were any hits and process them
+		for res in results:
+			var hit_node = res["collider"]
+			if hit_node and hit_node.has_method("cut_segment"):
+				#print("Hit: ", hit_node.name)
+				# Only cut if we haven't started drawing the line yet
+				if not _is_line_drawing:
+					hit_node.cut_segment()
+					var collision_shape = hit_node.get_node("CollisionShape2D") as CollisionShape2D
+					if collision_shape:
+						collision_shape.disabled = true
+					ret = true
+		
+		if results.size() == 0:
+			break
+			
+	return ret
+
 
 func _on_vine_cut(vine):
 	if vine not in cut_vines:

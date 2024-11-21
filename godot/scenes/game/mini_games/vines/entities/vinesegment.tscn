@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bwfg1yhk83egf" path="res://scenes/game/mini_games/vines/entities/spr_vinesegment.png" id="2_j0uj2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xu2y"]
-size = Vector2(20, 64)
+size = Vector2(12, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n1gbv"]
 atlas = ExtResource("2_j0uj2")
@@ -15,8 +15,9 @@ input_pickable = true
 script = ExtResource("1_w7eaa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 32)
+position = Vector2(-1, 32)
 shape = SubResource("RectangleShape2D_6xu2y")
+one_way_collision_margin = 0.0
 
 [node name="SprVine" type="Sprite2D" parent="."]
 unique_name_in_owner = true

@@ -38,6 +38,9 @@ func _on_segment_cut(cut_segment):
 		if segment is RigidBody2D and segment.has_method("set_cut_state"):
 			#print("Updating segment texture:", segment.name)
 			segment.set_cut_state(true)  # Call this on each segment in this vine
+			var collision_shape = segment.get_node("CollisionShape2D") as CollisionShape2D
+			#if collision_shape:
+			#	collision_shape.disabled = true
 
 	# Handle static body connections if no joint was removed
 	if not joint_removed:
