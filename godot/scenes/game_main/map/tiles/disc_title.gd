@@ -2,14 +2,14 @@ extends CharacterBody2D
 
 signal player_entered_obsticale(node: CharacterBody2D, body: Node2D, mini_game: String)
 
-const MINI_SLICES_REGION: Rect2 = Rect2(64, 160, 32, 32)
+const MINI_SLICES_REGION: Rect2 = Rect2(0, 224, 32, 32)
 const OPEN_REGION: Rect2 = Rect2(0, 96, 32, 32)
 
 # Scene Nodes
 @onready var sprite := %Sprite2D
 
 @export var open: bool = false
-@export var mini_game: String = "disc_mini_1"
+@export var mini_game: String = "discs1"
 
 func _process(delta: float) -> void:
 	if open:

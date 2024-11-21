@@ -9,7 +9,7 @@ const OPEN_REGION: Rect2 = Rect2(0, 96, 32, 32)
 @onready var sprite := %Sprite2D
 
 @export var open: bool = false
-@export var mini_game: String = "vines"
+@export var mini_game: String = "vines1"
 
 func _process(delta: float) -> void:
 	if open:

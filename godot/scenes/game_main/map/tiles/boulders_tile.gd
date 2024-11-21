@@ -6,7 +6,7 @@ const BOULDER_REGION: Rect2 = Rect2(0, 160, 32, 32)
 const OPEN_REGION: Rect2 = Rect2(0, 96, 32, 32)
 
 @export var open: bool = false
-@export var mini_game: String = "boulders"
+@export var mini_game: String = "boulders1"
 
 # Scene Nodes
 @onready var sprite := %Sprite2D

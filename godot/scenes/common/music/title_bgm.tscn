@@ -4,5 +4,5 @@
 
 [node name="BGM" type="AudioStreamPlayer"]
 stream = ExtResource("1_iqwm5")
-volume_db = 4.09
+volume_db = -2.802
 bus = &"Music"

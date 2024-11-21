@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://hp6gjjavixtg"]
+[gd_scene load_steps=12 format=3 uid="uid://hp6gjjavixtg"]
 
 [ext_resource type="Script" path="res://scenes/game_main/mini_games/vines_mini_game/vines_mini_game.gd" id="1_ao8eq"]
 [ext_resource type="Texture2D" uid="uid://dqbxmj6d7pr2" path="res://assets/spr_icons_16x16.png" id="2_aaiie"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scenes/game_main/mini_games/vines_mini_game/line_drawer.gd" id="4_dbyqg"]
 [ext_resource type="AudioStream" uid="uid://b7ay6lelssyfi" path="res://scenes/game_main/mini_games/vines_mini_game/sounds/swing_cut/swing.wav" id="6_j081m"]
 [ext_resource type="AudioStream" uid="uid://cvx16hjbt15wa" path="res://assets/sounds/win/win sound 2-1.wav" id="7_ju2ij"]
+[ext_resource type="AudioStream" uid="uid://bpqwj7pgisumn" path="res://assets/sounds/misc/rustling_of_the_weeds.wav" id="8_hwjce"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_171vh"]
 bg_color = Color(0.188235, 0.129412, 0.176471, 1)
@@ -107,4 +108,10 @@ unique_name_in_owner = true
 stream = ExtResource("7_ju2ij")
 volume_db = 2.337
 pitch_scale = 1.09
+bus = &"Sound"
+
+[node name="VineRustleSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("8_hwjce")
+volume_db = -8.145
 bus = &"Sound"

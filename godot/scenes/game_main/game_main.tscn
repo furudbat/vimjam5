@@ -150,6 +150,7 @@ autostart = true
 stream = ExtResource("7_ql71s")
 volume_db = -17.528
 autoplay = true
+bus = &"Music"
 
 [node name="BeastSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
