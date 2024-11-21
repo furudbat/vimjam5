@@ -22,7 +22,7 @@ position = Vector2(0, 8)
 node_a = NodePath("../End")
 node_b = NodePath("../vinesegment")
 
-[node name="vinesegment" parent="." instance=ExtResource("2_jr7u2")]
+[node name="vinesegment" parent="." groups=["Segments"] instance=ExtResource("2_jr7u2")]
 position = Vector2(0, 8)
 collision_layer = 2
 collision_mask = 0
@@ -32,7 +32,7 @@ position = Vector2(0, 72)
 node_a = NodePath("../vinesegment")
 node_b = NodePath("../vinesegment2")
 
-[node name="vinesegment2" parent="." instance=ExtResource("2_jr7u2")]
+[node name="vinesegment2" parent="." groups=["Segments"] instance=ExtResource("2_jr7u2")]
 position = Vector2(0, 72)
 collision_layer = 2
 collision_mask = 0
@@ -43,7 +43,7 @@ node_a = NodePath("../vinesegment2")
 node_b = NodePath("../vinesegment3")
 softness = 0.1
 
-[node name="vinesegment3" parent="." instance=ExtResource("2_jr7u2")]
+[node name="vinesegment3" parent="." groups=["Segments"] instance=ExtResource("2_jr7u2")]
 position = Vector2(0, 136)
 collision_layer = 2
 collision_mask = 0
@@ -54,7 +54,7 @@ node_a = NodePath("../vinesegment3")
 node_b = NodePath("../vinesegment4")
 softness = 0.1
 
-[node name="vinesegment4" parent="." instance=ExtResource("2_jr7u2")]
+[node name="vinesegment4" parent="." groups=["Segments"] instance=ExtResource("2_jr7u2")]
 position = Vector2(0, 200)
 collision_layer = 2
 collision_mask = 0
@@ -65,7 +65,7 @@ node_a = NodePath("../vinesegment4")
 node_b = NodePath("../vinesegment5")
 softness = 0.1
 
-[node name="vinesegment5" parent="." instance=ExtResource("2_jr7u2")]
+[node name="vinesegment5" parent="." groups=["Segments"] instance=ExtResource("2_jr7u2")]
 position = Vector2(0, 264)
 collision_layer = 2
 collision_mask = 0
@@ -76,7 +76,7 @@ node_a = NodePath("../vinesegment5")
 node_b = NodePath("../vinesegment6")
 softness = 0.1
 
-[node name="vinesegment6" parent="." instance=ExtResource("2_jr7u2")]
+[node name="vinesegment6" parent="." groups=["Segments"] instance=ExtResource("2_jr7u2")]
 position = Vector2(0, 328)
 collision_layer = 2
 collision_mask = 0
@@ -87,7 +87,7 @@ node_a = NodePath("../vinesegment6")
 node_b = NodePath("../vinesegment7")
 softness = 0.1
 
-[node name="vinesegment7" parent="." instance=ExtResource("2_jr7u2")]
+[node name="vinesegment7" parent="." groups=["Segments"] instance=ExtResource("2_jr7u2")]
 position = Vector2(0, 392)
 collision_layer = 2
 collision_mask = 0
@@ -98,7 +98,7 @@ node_a = NodePath("../vinesegment7")
 node_b = NodePath("../vinesegment8")
 softness = 0.1
 
-[node name="vinesegment8" parent="." instance=ExtResource("2_jr7u2")]
+[node name="vinesegment8" parent="." groups=["Segments"] instance=ExtResource("2_jr7u2")]
 position = Vector2(0, 456)
 collision_layer = 2
 collision_mask = 0
@@ -108,7 +108,7 @@ position = Vector2(0, 520)
 node_a = NodePath("../vinesegment8")
 node_b = NodePath("../vinesegment9")
 
-[node name="vinesegment9" parent="." instance=ExtResource("2_jr7u2")]
+[node name="vinesegment9" parent="." groups=["Segments"] instance=ExtResource("2_jr7u2")]
 position = Vector2(0, 520)
 collision_layer = 2
 collision_mask = 0

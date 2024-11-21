@@ -7,6 +7,7 @@ extends Node
 	"boulders2": preload("res://scenes/game/mini_games/boulders/boulders_2.tscn"),
 	"bugs2": preload("res://scenes/game/mini_games/bugs/bugs_2.tscn"),
 	"vines2": preload("res://scenes/game/mini_games/vines/vines_2.tscn"),
+	"disc_mini_1": preload("res://scenes/game/mini_games/discs/disc_mini_1.tscn"),
 }
 
 func get_scene(scene_name: String):

@@ -51,7 +51,7 @@ window/stretch/scale_mode="integer"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/ColorPreview/plugin.cfg", "res://addons/SignalVisualizer/plugin.cfg", "res://addons/donut_collision_polygon2D/plugin.cfg", "res://addons/gdLinter/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/ColorPreview/plugin.cfg", "res://addons/SignalVisualizer/plugin.cfg", "res://addons/donut_collision_polygon2D/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [gui]
 

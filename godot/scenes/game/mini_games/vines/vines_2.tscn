@@ -63,32 +63,38 @@ layout_mode = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_14klj")
 
-[node name="Vine_1" parent="PanelContainer/MiniGame" instance=ExtResource("2_qa6uf")]
+[node name="Vine_1" parent="PanelContainer/MiniGame" groups=["Vines"] instance=ExtResource("2_qa6uf")]
 position = Vector2(56, -72)
 
-[node name="Vine_6" parent="PanelContainer/MiniGame" instance=ExtResource("2_qa6uf")]
+[node name="Vine_6" parent="PanelContainer/MiniGame" groups=["Vines"] instance=ExtResource("2_qa6uf")]
 position = Vector2(136, -72)
 
-[node name="Vine_4" parent="PanelContainer/MiniGame" instance=ExtResource("2_qa6uf")]
+[node name="Vine_4" parent="PanelContainer/MiniGame" groups=["Vines"] instance=ExtResource("2_qa6uf")]
 position = Vector2(200, -56)
 
-[node name="Vine_5" parent="PanelContainer/MiniGame" instance=ExtResource("2_qa6uf")]
+[node name="Vine_5" parent="PanelContainer/MiniGame" groups=["Vines"] instance=ExtResource("2_qa6uf")]
 position = Vector2(287, -48)
 
-[node name="Vine_8" parent="PanelContainer/MiniGame" instance=ExtResource("2_qa6uf")]
+[node name="Vine_8" parent="PanelContainer/MiniGame" groups=["Vines"] instance=ExtResource("2_qa6uf")]
 position = Vector2(328, -48)
 
-[node name="Vine_2" parent="PanelContainer/MiniGame" instance=ExtResource("3_weqe4")]
+[node name="Vine_2" parent="PanelContainer/MiniGame" groups=["Vines"] instance=ExtResource("3_weqe4")]
 position = Vector2(504, -7.15256e-06)
 rotation = 1.51501
 
-[node name="Vine_7" parent="PanelContainer/MiniGame" instance=ExtResource("3_weqe4")]
+[node name="Vine_7" parent="PanelContainer/MiniGame" groups=["Vines"] instance=ExtResource("3_weqe4")]
 position = Vector2(496, 104)
 rotation = 1.51501
 
-[node name="Vine_3" parent="PanelContainer/MiniGame" instance=ExtResource("3_weqe4")]
+[node name="Vine_3" parent="PanelContainer/MiniGame" groups=["Vines"] instance=ExtResource("3_weqe4")]
 position = Vector2(504, 88)
 rotation = 1.63906
+
+[node name="CutLine" type="Line2D" parent="."]
+unique_name_in_owner = true
+z_index = 50
+width = 2.0
+default_color = Color(0.858824, 0.458824, 0.27451, 1)
 
 [node name="LineDrawer" type="Node2D" parent="."]
 unique_name_in_owner = true

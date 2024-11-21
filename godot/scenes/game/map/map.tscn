@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://b4rvrpxovts82"]
+[gd_scene load_steps=26 format=4 uid="uid://b4rvrpxovts82"]
 
 [ext_resource type="PackedScene" uid="uid://bfjcm2dfwma20" path="res://scenes/game/map/tiles/boulders.tscn" id="2_ehx0m"]
 [ext_resource type="Texture2D" uid="uid://bf8ttxbe4wlua" path="res://scenes/game/map/tileset.png" id="3_2wy62"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_a0lot"]
 [ext_resource type="PackedScene" uid="uid://dmf4aww4lq23r" path="res://scenes/game/map/tiles/vines_2.tscn" id="6_uxyts"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_85iyn"]
+[ext_resource type="PackedScene" uid="uid://b5kdkv3ei5is2" path="res://scenes/game/map/tiles/disc_slices.tscn" id="9_dl65r"]
 [ext_resource type="Texture2D" uid="uid://duv4t31k22mo2" path="res://scenes/game/map/entities/enemy/spr_beast.png" id="11_e6trj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8b1bm"]
@@ -75,6 +76,7 @@ scenes/3/scene = ExtResource("4_ivjr7")
 scenes/4/scene = ExtResource("4_4sy5d")
 scenes/5/scene = ExtResource("5_bly6k")
 scenes/6/scene = ExtResource("6_uxyts")
+scenes/7/scene = ExtResource("9_dl65r")
 
 [sub_resource type="TileSet" id="TileSet_08081"]
 tile_size = Vector2i(32, 32)

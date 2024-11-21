@@ -11,7 +11,7 @@ var started = false
 
 var stone_counter = 0
 var stones = []
-var win_cooldown = 0
+var win_cooldown: float = 0
 var mouse_entered = false
 var win = false
 
