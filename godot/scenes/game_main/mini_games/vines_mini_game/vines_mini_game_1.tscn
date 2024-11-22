@@ -84,13 +84,13 @@ rotation = 1.51501
 position = Vector2(504, 144)
 rotation = 1.66791
 
-[node name="CutLine" type="Line2D" parent="."]
+[node name="CutLine" type="Line2D" parent="PanelContainer/MiniGame"]
 unique_name_in_owner = true
 z_index = 50
 width = 2.0
 default_color = Color(0.858824, 0.458824, 0.27451, 1)
 
-[node name="LineDrawer" type="Node2D" parent="."]
+[node name="LineDrawer" type="Node2D" parent="PanelContainer/MiniGame"]
 unique_name_in_owner = true
 z_index = 50
 position = Vector2(-48, -24)
@@ -115,3 +115,7 @@ unique_name_in_owner = true
 stream = ExtResource("8_hwjce")
 volume_db = -8.145
 bus = &"Sound"
+
+[node name="WinTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 1.2

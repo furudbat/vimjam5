@@ -65,15 +65,6 @@ func _ready() -> void:
 	SoundManager.play_music_from_player($Bgm)
 	
 func _process(delta: float) -> void:
-	if OS.is_debug_build():
-		if Input.is_key_pressed(KEY_ENTER):
-			if _game_state == GameState.MAP:
-				var dummy_scene = preload("res://scenes/game_main/mini_games/dummy.tscn")
-				_current_obstical_scene = dummy_scene.instantiate()
-				_current_obstical_scene.puzzle_solved.connect(_puzzle_solved)
-				content_container.add_child(_current_obstical_scene)
-				_game_state = GameState.OBSTACLE
-				return
 	if _game_state == GameState.GAME_OVER:
 		_game_over_fadeout = _game_over_fadeout + delta
 		# TODO: show game over scren AFTER catch ???

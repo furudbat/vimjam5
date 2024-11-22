@@ -109,3 +109,7 @@ stream = ExtResource("5_l3o0u")
 volume_db = 2.337
 pitch_scale = 1.09
 bus = &"Sound"
+
+[node name="WinTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.6

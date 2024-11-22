@@ -1,20 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8yr1r8pwdysn"]
+[gd_scene load_steps=5 format=3 uid="uid://c8yr1r8pwdysn"]
 
-[ext_resource type="Script" path="res://scenes/game_main/mini_games/dummy.gd" id="1_cix72"]
+[ext_resource type="Script" path="res://scenes/game_main/mini_games/mini_game.gd" id="1_cix72"]
+[ext_resource type="Texture2D" uid="uid://dqbxmj6d7pr2" path="res://assets/spr_icons_16x16.png" id="2_id5rs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3b60"]
 bg_color = Color(0.188235, 0.129412, 0.176471, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyfcm"]
+atlas = ExtResource("2_id5rs")
+region = Rect2(0, 0, 16, 16)
+
 [node name="Dummy" type="Node2D"]
 script = ExtResource("1_cix72")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="PanelContainer" parent="."]
+z_index = 1
+mouse_filter = 1
 
 [node name="Title" type="Panel" parent="CanvasLayer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(378, 216)
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_k3b60")
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Title"]
@@ -25,15 +31,22 @@ offset_bottom = 23.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="CanvasLayer/Title/CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Title/CenterContainer"]
 layout_mode = 2
-text = "Press LMB"
+
+[node name="Label" type="Label" parent="CanvasLayer/Title/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "Test"
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Title/CenterContainer/HBoxContainer"]
+position = Vector2(113, 5)
+texture = SubResource("AtlasTexture_dyfcm")
+centered = false
 
 [node name="MiniGame" type="Panel" parent="CanvasLayer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(378, 216)
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_k3b60")
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/MiniGame"]
@@ -44,6 +57,6 @@ offset_bottom = 23.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="CanvasLayer/MiniGame/CenterContainer"]
-layout_mode = 2
-text = "DO IT!"
+[node name="WinTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.6

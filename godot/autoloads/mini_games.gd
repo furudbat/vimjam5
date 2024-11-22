@@ -1,6 +1,6 @@
 extends Node
 
-# @NOTE: names for tiles (mini game)
+# @NOTE(MiniGames): add new MiniGames here, for tiles (mini game name in tile: mini game scene)
 @onready var MiniGames = {
 	"boulders1": preload("res://scenes/game_main/mini_games/boulders_mini_game/boulders_mini_game_1.tscn"),
 	"bugs1": preload("res://scenes/game_main/mini_games/bugs_mini_game/bugs_mini_game_1.tscn"),

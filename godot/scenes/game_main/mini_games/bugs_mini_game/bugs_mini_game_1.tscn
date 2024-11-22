@@ -21,8 +21,11 @@ _data = {
 }
 point_count = 5
 
-[node name="BugsMiniGame1" type="Node2D"]
+[node name="BugsMiniGame1" type="Node2D" groups=["Bugs"]]
 script = ExtResource("1_5vv1o")
+bug_velocity_min = 120
+bug_velocity_max = 160
+bug_respawn_time = 0.2
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 z_index = 1
@@ -92,5 +95,9 @@ stream = ExtResource("4_cjbuj")
 volume_db = 2.921
 pitch_scale = 1.09
 bus = &"Sound"
+
+[node name="WinTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.6
 
 [connection signal="timeout" from="PanelContainer/MiniGame/MobTimer" to="." method="_on_mob_timer_timeout"]

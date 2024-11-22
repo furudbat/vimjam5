@@ -1,7 +1,20 @@
-extends Node2D
+extends MiniGame
 
-@onready var title := %Title
-@onready var mini_game := %MiniGame
+const MAX_CUT_LENGTH = 80
+const MINIMUM_CUT_LENGTH = 15
+
+var _vines = []
+var _vines_cut_counter: int = 0
+var _cutting: bool = false
+var _cut_line_points: Array[Vector2] = []
+var _init_vines: bool = false
+
+var _line_start: Vector2 = Vector2(-MAX_CUT_LENGTH, -MAX_CUT_LENGTH - 5)
+var _line_end: Vector2 = Vector2(-MAX_CUT_LENGTH, -MAX_CUT_LENGTH - 5)
+var _is_line_drawing: bool = false
+var _total_vines: int = 0  # Total number of vines
+var _cut_vines = []   # List of vines that are cut
+
 #@onready var line_node := %CutLine
 @onready var cut_sound := %VineCutSound1
 @onready var win_sound := %WinSoundPlayer
@@ -10,50 +23,24 @@ extends Node2D
 @onready var line_drawer := %LineDrawer
 #@onready var cut_drawer := %CutLine
 
-signal puzzle_solved()
-
-const MAX_CUT_LENGTH = 80
-const MINIMUM_CUT_LENGTH = 15
-
-# Points for drawing the line
-var line_start: Vector2
-var line_end: Vector2
-var is_drawing = false
-var total_vines = 0  # Total number of vines
-var cut_vines = []   # List of vines that are cut
-
-var started = false
-var vines = []
-var vines_cut_counter = 0
-var cutting = false
-var cut_line_points: Array[Vector2] = []
-var win_cooldown = 0
-var init_vines = false
-var win = false
-
-var _line_start: Vector2 = Vector2(-MAX_CUT_LENGTH, -MAX_CUT_LENGTH - 5)
-var _line_end: Vector2 = Vector2(-MAX_CUT_LENGTH, -MAX_CUT_LENGTH - 5)
-var _is_line_drawing: bool = false
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	title.visible = true
-	mini_game.visible = false
+	super()
+	self.check_win_condition = func(): return _cut_vines.size() >= _total_vines
+
 	line_drawer.minimum_cut_length = MINIMUM_CUT_LENGTH
 
 	for vine in get_tree().get_nodes_in_group("Vines"):
 		if vine.name.begins_with("Vine_"):
-			total_vines += 1
+			_total_vines += 1
 			if vine.vine_cut:
 				vine.vine_cut.connect(_on_vine_cut)
 
 func _cut_segment(vine, vine_index, segment_index):
-	vines_cut_counter = vines_cut_counter + 1
-	if OS.is_debug_build():
-		print(vine, vine_index, segment_index)
+	_vines_cut_counter = _vines_cut_counter + 1
 	
 func _input(event):
-	if started and not win:
+	if _started and not has_won():
 		var end_cut = false
 		if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_LEFT:
@@ -105,24 +92,6 @@ func _input(event):
 					cut_sound.pitch_scale = randf_range(0.78, 1.14)
 					cut_sound.play()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if not started:
-		if Input.is_action_just_released("primary_action"):
-			started = true
-			title.visible = false
-			mini_game.visible = true
-			for vine in vines:
-				vine.visible = true
-			return
-	else:
-		if win:
-			win_cooldown = win_cooldown + delta
-		if win_cooldown >= 1.2:
-			puzzle_solved.emit()
-			started = false
-			return
-			
 # Draw the line
 #func _draw():
 	#if is_drawing:
@@ -159,14 +128,10 @@ func _check_collision(start_point: Vector2, end_point: Vector2):
 		if result_2:
 			results.append(result_2)
 
-		# Print the results (for debugging purposes)
-		#print("Found ", results.size(), " collisions.")
-
 		# Check if there were any hits and process them
 		for res in results:
 			var hit_node = res["collider"]
 			if hit_node and hit_node.has_method("cut_segment"):
-				#print("Hit: ", hit_node.name)
 				# Only cut if we haven't started drawing the line yet
 				if not _is_line_drawing:
 					hit_node.cut_segment()
@@ -182,13 +147,8 @@ func _check_collision(start_point: Vector2, end_point: Vector2):
 
 
 func _on_vine_cut(vine):
-	if vine not in cut_vines:
-		cut_vines.append(vine)
+	if vine not in _cut_vines:
+		_cut_vines.append(vine)
 		vine.set_process(false)
 		rustle_sound.pitch_scale = 0.55 + (randi() % 3) * 0.05
-		rustle_sound.play()
-
-	# Check if all vines are cut
-	if not win and cut_vines.size() >= total_vines:
-		win = true
-		#win_sound.play()
+		SoundManager.play_ui_sound_from_player(rustle_sound)

@@ -19,7 +19,7 @@ bg_color = Color(0.188235, 0.129412, 0.176471, 1)
 atlas = ExtResource("2_xp4lf")
 region = Rect2(0, 0, 16, 16)
 
-[node name="VinesMiniGame1" type="Node2D"]
+[node name="VinesMiniGame2" type="Node2D"]
 script = ExtResource("1_n36l5")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -122,3 +122,7 @@ unique_name_in_owner = true
 stream = ExtResource("8_58osj")
 volume_db = -8.145
 bus = &"Sound"
+
+[node name="WinTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 1.2

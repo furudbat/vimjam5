@@ -21,7 +21,7 @@ _data = {
 }
 point_count = 5
 
-[node name="BugsMiniGame2" type="Node2D"]
+[node name="BugsMiniGame2" type="Node2D" groups=["Bugs"]]
 script = ExtResource("1_pgkqt")
 bug_smushed_win = 8
 bug_velocity_min = 90
@@ -96,5 +96,9 @@ stream = ExtResource("3_hryeh")
 volume_db = 2.921
 pitch_scale = 1.09
 bus = &"Sound"
+
+[node name="WinTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.6
 
 [connection signal="timeout" from="PanelContainer/MiniGame/MobTimer" to="." method="_on_mob_timer_timeout"]
