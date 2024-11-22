@@ -54,6 +54,6 @@ const LEVELS_TIME_SEC = [
 	25,
 	30,
 ]
-const TIMER_TIME_SEC = 60*1 + 10
+const TIMER_TIME_SEC = 60*1 + 15
 const MAX_SECTIONS = 3
 const MAX_LEVELS = 4

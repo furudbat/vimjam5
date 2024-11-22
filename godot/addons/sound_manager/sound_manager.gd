@@ -78,6 +78,12 @@ func play_sound_with_pitch(resource: AudioStream, pitch: float = 1.0, override_b
 	return player
 
 
+func play_sound_from_player(resource: AudioStreamPlayer, override_bus: String = "") -> AudioStreamPlayer:
+	var player = sound_effects.play(resource.stream, override_bus)
+	player.pitch_scale = resource.pitch_scale
+	return player
+
+
 func stop_sound(resource: AudioStream) -> void:
 	return sound_effects.stop(resource)
 
@@ -89,6 +95,12 @@ func play_ui_sound(resource: AudioStream, override_bus: String = "") -> AudioStr
 func play_ui_sound_with_pitch(resource: AudioStream, pitch: float = 1.0, override_bus: String = "") -> AudioStreamPlayer:
 	var player = ui_sound_effects.play(resource, override_bus)
 	player.pitch_scale = pitch
+	return player
+
+
+func play_ui_sound_from_player(resource: AudioStreamPlayer, pitch: float = 1.0, override_bus: String = "") -> AudioStreamPlayer:
+	var player = ui_sound_effects.play(resource.stream, override_bus)
+	player.pitch_scale = resource.pitch_scale
 	return player
 
 
@@ -121,6 +133,11 @@ func set_ambient_sound_volume(volume_between_0_and_1: float) -> void:
 func play_ambient_sound(resource: AudioStream, fade_in_duration: float = 0.0, override_bus: String = "") -> AudioStreamPlayer:
 	return ambient_sounds.play(resource, fade_in_duration, override_bus)
 
+
+func play_ambient_sound_from_player(resource: AudioStreamPlayer, fade_in_duration: float = 0.0, override_bus: String = "") -> AudioStreamPlayer:
+	var player = ambient_sounds.play(resource.stream, fade_in_duration, override_bus)
+	player.pitch_scale = resource.pitch_scale
+	return player
 
 func stop_ambient_sound(resource: AudioStream, fade_out_duration: float = 0.0) -> void:
 	ambient_sounds.stop(resource, fade_out_duration)
@@ -161,6 +178,12 @@ func play_music_at_volume(resource: AudioStream, volume: float = 0.0, crossfade_
 
 func play_music_from_position_at_volume(resource: AudioStream, position: float = 0.0, volume: float = 0.0, crossfade_duration: float = 0.0, override_bus: String = "") -> AudioStreamPlayer:
 	return music.play(resource, position, volume, crossfade_duration, override_bus)
+
+
+func play_music_from_player(resource: AudioStreamPlayer, crossfade_duration: float = 0.0, override_bus: String = "") -> AudioStreamPlayer:
+	var player = music.play(resource.stream, 0.0, resource.volume_db, crossfade_duration, override_bus)
+	player.pitch_scale = resource.pitch_scale
+	return player
 
 
 func get_music_track_history() -> Array:

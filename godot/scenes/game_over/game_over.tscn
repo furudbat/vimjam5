@@ -265,10 +265,8 @@ libraries = {
 }
 autoplay = "game_over_enemy/walk_left"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Bgm" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_kfip4")
-volume_db = -1.753
-autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/Panel/CenterContainer/VBoxContainer/MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/CenterContainer/VBoxContainer/MarginContainer/VBoxContainer/BackToMainMenu2" to="." method="_on_back_to_main_menu_pressed"]

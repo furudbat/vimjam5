@@ -24,10 +24,10 @@ config/icon="res://assets/icon/128x128.png"
 
 [autoload]
 
-ColorPalette="*res://globals/color_palette.gd"
-Constants="*res://globals/constants.gd"
-ThemeManager="*res://globals/theme_manager.gd"
-UserSettings="*res://globals/user_settings.gd"
+ColorPalette="*res://autoloads/color_palette.gd"
+Constants="*res://autoloads/constants.gd"
+ThemeManager="*res://autoloads/theme_manager.gd"
+UserSettings="*res://autoloads/user_settings.gd"
 SoundManager="*res://addons/sound_manager/sound_manager.gd"
 MusicManager="res://addons/top_down/scenes/autoloads/music.tscn"
 LoadManager="res://addons/great_games_library/nodes/LoadManager/LoadManager.gd"

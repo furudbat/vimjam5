@@ -50,4 +50,4 @@ func _sound_volume_button_on_click(active):
 
 func _on_sound_volume_slider_volume_changed(val: Variant) -> void:
 	if sound_active:
-		SoundManager.play_sound($Sample.stream)
+		SoundManager.play_sound_from_player($Sample)

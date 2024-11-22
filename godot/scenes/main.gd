@@ -17,7 +17,7 @@ func _ready() -> void:
 	continue_button.visible = SaveGame.has_save() and SaveGame.ENABLED
 	# @NOTE: disabled for web
 	exit_button.visible = false
-	SoundManager.play_music($Bgm1.stream)
+	SoundManager.play_music_from_player($Bgm1)
 	
 
 #
@@ -25,11 +25,11 @@ func _ready() -> void:
 #
 
 func _on_new_game_button_pressed() -> void:
-	SoundManager.play_ui_sound($MenuSelect.stream)
+	SoundManager.play_ui_sound_from_player($MenuSelect)
 	GlobalScenes.change_scene(GlobalScenes.Scenes.Prolog)
 	
 func _on_continue_button_pressed() -> void:
-	SoundManager.play_ui_sound($MenuSelect.stream)
+	SoundManager.play_ui_sound_from_player($MenuSelect)
 	_new_game = false
 	GlobalScenes.change_scene(GlobalScenes.Scenes.Prolog)
 

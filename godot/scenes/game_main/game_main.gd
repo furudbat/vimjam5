@@ -62,7 +62,7 @@ func _ready() -> void:
 	_reset_timer()
 	level_timer.start(Constants.TIMER_TIME_SEC)
 	
-	SoundManager.play_music($Bgm.stream)
+	SoundManager.play_music_from_player($Bgm)
 	
 func _process(delta: float) -> void:
 	if OS.is_debug_build():
@@ -241,7 +241,7 @@ func _on_timer_timeout():
 	_enemy_boosted = true
 	_enemy_velocity_boost = 1.0
 	_enemy_acceleration_factor = Constants.BOOST_ENEMY_ACCELERATION_FACTOR
-	SoundManager.play_sound_with_pitch($BeastSoundPlayer.stream, $BeastSoundPlayer.pitch_scale)
+	SoundManager.play_sound_from_player($BeastSoundPlayer)
 
 func _on_game_timer_timeout() -> void:
 	_game_time += 1
