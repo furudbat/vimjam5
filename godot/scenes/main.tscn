@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dv2y18ye8j7o0"]
+[gd_scene load_steps=8 format=3 uid="uid://dv2y18ye8j7o0"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_20hqd"]
 [ext_resource type="Texture2D" uid="uid://dmnpldgvcuogc" path="res://scenes/spr_bg.png" id="2_037g4"]
 [ext_resource type="Texture2D" uid="uid://cm2s5wdnc1cy4" path="res://assets/spr_logo2.png" id="3_x1e42"]
 [ext_resource type="PackedScene" uid="uid://nbaodrlopo7y" path="res://ui/components/game_settings.tscn" id="4_tlf3x"]
 [ext_resource type="AudioStream" uid="uid://dpmuc2x5riune" path="res://assets/sounds/menu/snd_menu_select.wav" id="5_5lxid"]
+[ext_resource type="AudioStream" uid="uid://dxnjv8cf5koqo" path="res://assets/music/bgm1.mp3" id="5_k4sxh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6ojf"]
 bg_color = Color(0.188235, 0.129412, 0.176471, 1)
@@ -151,11 +152,12 @@ theme_override_font_sizes/font_size = 8
 text = "        furudbat & Blacktiger5"
 vertical_alignment = 2
 
-[node name="ButtonSoundPlayer" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
+[node name="Bgm1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_k4sxh")
+bus = &"Music"
+
+[node name="MenuSelect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_5lxid")
-pitch_scale = 0.88
-bus = &"Sound"
 
 [connection signal="pressed" from="UI/Panel/VBoxContainer/MarginContainer/HBoxContainer/CenterContainer/MainMenu/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="UI/Panel/VBoxContainer/MarginContainer/HBoxContainer/CenterContainer/MainMenu/NewGameButton" to="." method="_on_new_game_button_pressed"]

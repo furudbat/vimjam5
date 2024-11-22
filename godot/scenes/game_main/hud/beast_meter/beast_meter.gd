@@ -1,23 +1,6 @@
+
+
 extends Control
-
-@onready var player_icon := %PlayerIcon
-@onready var enemy_icon := %EnemyIcon
-@onready var panel := %Panel
-
-@export var distance: int = 0
-@export var player_pos_m: int = 0
-@export var enemy_pos_m: int = 0
-
-enum EnemyIconState {
-	NORMAL,
-	ANGRY,
-}
-@export var enemy_state = EnemyIconState.NORMAL
-enum PlayerIconState {
-	RUNNING,
-	STOPPED,
-}
-@export var player_state = PlayerIconState.RUNNING
 
 const MARGIN_Y = 8
 const ICON_SIZE = 32
@@ -30,6 +13,25 @@ const MAX_RANGE_Y: int = PANEL_SIZE_Y - ICON_SIZE
 
 const M_PX_SCALE: float = abs(Constants.MAX_DISTANCE_M / MAX_RANGE_Y)
 
+enum EnemyIconState {
+	NORMAL,
+	ANGRY,
+}
+enum PlayerIconState {
+	RUNNING,
+	STOPPED,
+}
+
+@export var distance: int = 0
+@export var player_pos_m: int = 0
+@export var enemy_pos_m: int = 0
+
+@export var enemy_state = EnemyIconState.NORMAL
+@export var player_state = PlayerIconState.RUNNING
+
+@onready var player_icon := %PlayerIcon
+@onready var enemy_icon := %EnemyIcon
+@onready var panel := %Panel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

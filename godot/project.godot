@@ -28,15 +28,15 @@ ColorPalette="*res://globals/color_palette.gd"
 Constants="*res://globals/constants.gd"
 ThemeManager="*res://globals/theme_manager.gd"
 UserSettings="*res://globals/user_settings.gd"
-SoundManager="*res://addons/top_down/scenes/autoloads/sound_manager.tscn"
-MusicManager="*res://addons/top_down/scenes/autoloads/music.tscn"
-LoadManager="*res://addons/great_games_library/nodes/LoadManager/LoadManager.gd"
-Transition="*res://addons/top_down/scenes/autoloads/transition.tscn"
-PersistentData="*res://addons/top_down/scenes/autoloads/persistent_data.tscn"
+SoundManager="*res://addons/sound_manager/sound_manager.gd"
+MusicManager="res://addons/top_down/scenes/autoloads/music.tscn"
+LoadManager="res://addons/great_games_library/nodes/LoadManager/LoadManager.gd"
+Transition="res://addons/top_down/scenes/autoloads/transition.tscn"
+PersistentData="res://addons/top_down/scenes/autoloads/persistent_data.tscn"
 GlobalScenes="*res://scenes/index.gd"
+TitleBgm="res://scenes/common/music/title_bgm.tscn"
 MiniGames="*res://scenes/game_main/mini_games/index.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
-TitleBgm="*res://scenes/common/music/title_bgm.tscn"
 Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 
 [display]
@@ -51,7 +51,7 @@ window/stretch/scale_mode="integer"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/ColorPreview/plugin.cfg", "res://addons/SignalVisualizer/plugin.cfg", "res://addons/donut_collision_polygon2D/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/ColorPreview/plugin.cfg", "res://addons/SignalVisualizer/plugin.cfg", "res://addons/donut_collision_polygon2D/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
 
 [gui]
 

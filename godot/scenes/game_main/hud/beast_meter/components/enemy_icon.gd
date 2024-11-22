@@ -1,13 +1,14 @@
 extends Node2D
 
-# Scene Nodes
-@onready var sprite := %Sprite2D
-
 enum EnemyIconState {
 	NORMAL,
 	ANGRY,
 }
+
 @export var state = EnemyIconState.NORMAL
+
+# Scene Nodes
+@onready var sprite := %Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cpo1u33eut0i4" path="res://ui/components/float_range_game_settings_option.tscn" id="1_0gpwr"]
 [ext_resource type="Script" path="res://ui/components/game_settings.gd" id="1_eje8l"]
 [ext_resource type="PackedScene" uid="uid://w0kkqhcx1ngl" path="res://ui/components/icons.tscn" id="2_xgmqi"]
-[ext_resource type="AudioStream" uid="uid://d22yqkiifhbv2" path="res://assets/sounds/menu/snd_menu_move.wav" id="4_3h2py"]
+[ext_resource type="AudioStream" uid="uid://dpmuc2x5riune" path="res://assets/sounds/menu/snd_menu_select.wav" id="4_2rh2n"]
 
 [node name="GameSettings" type="VBoxContainer"]
 script = ExtResource("1_eje8l")
@@ -83,9 +83,8 @@ layout_mode = 2
 size_flags_vertical = 4
 property = "soundvolume"
 
-[node name="SoundSamplePlayer" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("4_3h2py")
+[node name="Sample" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2rh2n")
 bus = &"Sound"
 
 [connection signal="volume_changed" from="MarginContainer/GridContainer/SoundVolumeSlider" to="." method="_on_sound_volume_slider_volume_changed"]

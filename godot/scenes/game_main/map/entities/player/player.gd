@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 @export var direction: Vector2 = Vector2(1, 0)
 @export var is_moving: bool = false
-
 @export var player_velocity: Vector2 = Vector2.ZERO
 
 # Scene Nodes

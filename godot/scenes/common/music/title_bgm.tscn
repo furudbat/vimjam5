@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkw277piiegyb"]
-
-[ext_resource type="AudioStream" uid="uid://dxnjv8cf5koqo" path="res://scenes/common/music/Arid Foothills.mp3" id="1_iqwm5"]
-
-[node name="BGM" type="AudioStreamPlayer"]
-stream = ExtResource("1_iqwm5")
-volume_db = 4.09
-bus = &"Music"

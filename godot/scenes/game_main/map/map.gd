@@ -14,6 +14,7 @@ signal get_obsticales_counter(obsticales: int)
 var _inited_scene_tiles: bool = false
 var _obsticales: int = 0
 
+# Scene Nodes
 @onready var path := %Path2D
 @onready var player_path := %PlayerPath
 @onready var player := %Player

@@ -6,19 +6,18 @@ var _new_game: bool = true
 @onready var continue_button := %ContinueButton
 @onready var new_game_button := %NewGameButton
 @onready var exit_button := %ExitButton
-@onready var button_sound := %ButtonSoundPlayer
 
 #
 # build-in
 #
 
 func _ready() -> void:
+	SoundManager.set_default_music_bus("Music")
+	SoundManager.set_default_sound_bus("Sound")
 	continue_button.visible = SaveGame.has_save() and SaveGame.ENABLED
 	# @NOTE: disabled for web
 	exit_button.visible = false
-	
-	TitleBgm.autoplay = true
-	TitleBgm.play()
+	SoundManager.play_music($Bgm1.stream)
 	
 
 #
@@ -26,14 +25,12 @@ func _ready() -> void:
 #
 
 func _on_new_game_button_pressed() -> void:
-	# @FIXME: play button across scene transition
-	#button_sound.play()
+	SoundManager.play_ui_sound($MenuSelect.stream)
 	GlobalScenes.change_scene(GlobalScenes.Scenes.Prolog)
 	
 func _on_continue_button_pressed() -> void:
+	SoundManager.play_ui_sound($MenuSelect.stream)
 	_new_game = false
-	# @FIXME: play button across scene transition
-	#button_sound.play()
 	GlobalScenes.change_scene(GlobalScenes.Scenes.Prolog)
 
 func _on_exit_button_pressed() -> void:

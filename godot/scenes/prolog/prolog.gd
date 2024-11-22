@@ -44,7 +44,6 @@ func _process(delta: float) -> void:
 	if _panel > MAX_PANELS:
 		_start_coolown += delta
 	if _start_coolown >= START_AT_TIME or _skip_time_pressed >= SKIP_AT_TIME:
-		TitleBgm.stop()
 		get_tree().change_scene_to_packed(main_game_scene)
 
 func _physics_process(delta: float) -> void:

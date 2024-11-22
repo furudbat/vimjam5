@@ -1,8 +1,8 @@
 extends Node2D
 
-@onready var time_label := %Time
-
 @export var time = 0
+
+@onready var time_label := %Time
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

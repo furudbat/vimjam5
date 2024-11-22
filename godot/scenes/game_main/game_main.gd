@@ -48,7 +48,6 @@ var _game_over_fadeout: float = 0
 @onready var timer_ui := %TimerUI
 @onready var content_container := %ContentContainer
 @onready var map := %Map
-@onready var beast_sound := %BeastSoundPlayer
 
 
 func _ready() -> void:
@@ -62,6 +61,8 @@ func _ready() -> void:
 	_section = 0
 	_reset_timer()
 	level_timer.start(Constants.TIMER_TIME_SEC)
+	
+	SoundManager.play_music($Bgm.stream)
 	
 func _process(delta: float) -> void:
 	if OS.is_debug_build():
@@ -240,7 +241,7 @@ func _on_timer_timeout():
 	_enemy_boosted = true
 	_enemy_velocity_boost = 1.0
 	_enemy_acceleration_factor = Constants.BOOST_ENEMY_ACCELERATION_FACTOR
-	beast_sound.play()
+	SoundManager.play_sound_with_pitch($BeastSoundPlayer.stream, $BeastSoundPlayer.pitch_scale)
 
 func _on_game_timer_timeout() -> void:
 	_game_time += 1

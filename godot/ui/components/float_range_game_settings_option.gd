@@ -12,5 +12,6 @@ func _ready():
 func _on_float_range_game_settings_option_value_changed(val):
 	if !initialised:
 		initialised = true
+	else:
+		volume_changed.emit(val)
 	UserSettings.set_value(property, val)
-	volume_changed.emit(val)
