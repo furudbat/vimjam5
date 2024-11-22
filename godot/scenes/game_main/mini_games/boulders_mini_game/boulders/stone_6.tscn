@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://byne3wab6do50"]
+
+[ext_resource type="Texture2D" uid="uid://dyasteg351mgy" path="res://scenes/game_main/mini_games/boulders_mini_game/spr_boulders.png" id="1_j2mvy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqfff"]
+atlas = ExtResource("1_j2mvy")
+region = Rect2(0, 64, 176, 160)
+
+[node name="Stone4" type="Sprite2D" groups=["Stones"]]
+z_index = 1
+texture = SubResource("AtlasTexture_eqfff")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-8, 16)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-55, -45, -19, -85, 1, -84, 37, -47, 52, -15, 68, -2, 70, 57, 62, 64, 15, 64, 11, 60, -42, 60, -64, 40)
