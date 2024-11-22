@@ -6,7 +6,7 @@ const BUGS_REGION: Rect2 = Rect2(32, 160, 32, 32)
 const OPEN_REGION: Rect2 = Rect2(0, 96, 32, 32)
 
 @export var open: bool = false
-@export var mini_game: String = "bugs"
+@export var mini_game: String = "bugs1"
 
 # Scene Nodes
 @onready var sprite := %Sprite2D

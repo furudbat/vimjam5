@@ -6,7 +6,7 @@ const VINES_REGION: Rect2 = Rect2(64, 160, 32, 32)
 const OPEN_REGION: Rect2 = Rect2(0, 96, 32, 32)
 
 @export var open: bool = false
-@export var mini_game: String = "vines"
+@export var mini_game: String = "vines1"
 
 # Scene Nodes
 @onready var sprite := %Sprite2D

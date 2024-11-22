@@ -5,6 +5,7 @@ extends Node2D
 #@onready var line_node := %CutLine
 @onready var cut_sound := %VineCutSound1
 @onready var win_sound := %WinSoundPlayer
+@onready var rustle_sound := %VineRustleSound
 # @DEPRECATED: use cut_drawer
 @onready var line_drawer := %LineDrawer
 #@onready var cut_drawer := %CutLine
@@ -184,6 +185,8 @@ func _on_vine_cut(vine):
 	if vine not in cut_vines:
 		cut_vines.append(vine)
 		vine.set_process(false)
+		rustle_sound.pitch_scale = 0.55 + (randi() % 3) * 0.05
+		rustle_sound.play()
 
 	# Check if all vines are cut
 	if not win and cut_vines.size() >= total_vines:

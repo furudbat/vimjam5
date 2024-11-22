@@ -15,7 +15,7 @@ var _slices = []
 var _slice_solved_timers = {}
 var _slices_solved = {}
 var is_fading = false
-var initial_volume_db = 2
+var initial_volume_db = 0
 
 @onready var title := %Title
 @onready var mini_game := %MiniGame
