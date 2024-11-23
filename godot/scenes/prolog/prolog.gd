@@ -8,6 +8,9 @@ var _skip_time_pressed = 0
 var _panel = 1
 var _start_coolown = 0
 
+var _fall_sound: AudioStreamPlayer = null
+var _beast_sound: AudioStreamPlayer = null
+
 @onready var slide_show_animation := %SlideShow
 @onready var skip_progress := %SkipProgressBar
 
@@ -54,33 +57,35 @@ func _on_slide_show_frame_changed() -> void:
 	# @NOTE: very hard codes sound play in scnes ... in future use animation tree and audio nodes
 	if slide_show_animation.animation == "panel1":
 		if slide_show_animation.frame == 1:
-			bush_sound.play()
+			SoundManager.play_ui_sound_from_player(bush_sound)
 	elif slide_show_animation.animation == "panel2":
 		if slide_show_animation.frame == 0:
-			fire_sound.play()
+			SoundManager.play_ambient_sound_from_player(fire_sound)
 	elif slide_show_animation.animation == "panel3":
 		if slide_show_animation.frame == 2:
-			click_sound.play()
+			SoundManager.play_ui_sound_from_player(click_sound)
 	elif slide_show_animation.animation == "panel4":
 		if slide_show_animation.frame == 1:
-			cave_sound.play()
+			SoundManager.play_ui_sound_from_player(cave_sound)
 		if slide_show_animation.frame == 2:
-			fall_sound.play()
-		if slide_show_animation.frame >= 3:
+			_fall_sound = SoundManager.play_ui_sound_from_player(fall_sound)
+		if _fall_sound and slide_show_animation.frame >= 3:
 			fall_sound.volume_db -= 1.05
 		if slide_show_animation.frame >= 3:
 			slide_show_animation.speed_scale += 1.2
+		if slide_show_animation.frame == 4:
+			SoundManager.stop_all_ambient_sounds(0.5)
 	elif slide_show_animation.animation == "panel5":
 		if slide_show_animation.frame == 0:
+			SoundManager.stop_all_ambient_sounds()
 			slide_show_animation.speed_scale = 1.0
-			fire_sound.stop()
 		if slide_show_animation.frame == 2:
-			land_sound.play()
+			SoundManager.play_ui_sound_from_player(land_sound)
 		if slide_show_animation.frame == 4:
-			beast_sound.play()
+			_beast_sound = SoundManager.play_ui_sound_from_player(beast_sound)
 	elif slide_show_animation.animation == "panel6":
-		if slide_show_animation.frame >= 0 and slide_show_animation.frame < 3:
-			beast_sound.volume_db += 0.57
+		if _beast_sound and slide_show_animation.frame >= 0 and slide_show_animation.frame < 3:
+			_beast_sound.volume_db += 0.57
 		if slide_show_animation.frame >= 2 and slide_show_animation.frame <= 4:
 			run_sound.pitch_scale = randf_range(1.25, 1.45)
-			run_sound.play()
+			SoundManager.play_ui_sound_from_player(run_sound)

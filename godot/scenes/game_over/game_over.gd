@@ -11,3 +11,6 @@ func _process(delta: float) -> void:
 
 func _on_back_to_main_menu_pressed() -> void:
 	GlobalScenes.change_scene(GlobalScenes.Scenes.MainMenu)
+
+func _on_restart_pressed() -> void:
+	GlobalScenes.change_scene(GlobalScenes.Scenes.MainGame)

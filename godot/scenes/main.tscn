@@ -161,6 +161,8 @@ bus = &"Music"
 [node name="MenuSelect" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("5_5lxid")
+volume_db = -9.699
+pitch_scale = 1.12
 bus = &"Sound"
 
 [connection signal="pressed" from="UI/Panel/VBoxContainer/MarginContainer/HBoxContainer/CenterContainer/MainMenu/ContinueButton" to="." method="_on_continue_button_pressed"]

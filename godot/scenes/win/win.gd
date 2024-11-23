@@ -6,7 +6,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	# @TODO: play winning screen music
+	SoundManager.stop_music(0.3)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,7 +22,3 @@ func _format_time(seconds: int) -> String:
 	var minutes = seconds / 60
 	var remaining_seconds = seconds % 60
 	return "%02d:%02d" % [minutes, remaining_seconds]
-
-
-func _on_restart_pressed() -> void:
-	GlobalScenes.change_scene(GlobalScenes.Scenes.MainGame)

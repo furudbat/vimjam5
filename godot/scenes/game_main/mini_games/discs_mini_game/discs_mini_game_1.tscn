@@ -178,14 +178,12 @@ quality = 64
 unique_name_in_owner = true
 stream = ExtResource("13_1x1i6")
 volume_db = -8.591
-pitch_scale = 1.06
 bus = &"Sound"
 
 [node name="MoveSlice" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("14_gh15r")
-volume_db = -1.735
-pitch_scale = 0.6
+volume_db = 1.617
 bus = &"Sound"
 
 [node name="WinTimer" type="Timer" parent="."]

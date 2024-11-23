@@ -318,8 +318,8 @@ bus = &"Sound"
 [node name="CaveSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("35_yssan")
-volume_db = 2.921
-pitch_scale = 1.14
+volume_db = 1.304
+pitch_scale = 1.2
 bus = &"Sound"
 
 [node name="FallSoundPlayer" type="AudioStreamPlayer" parent="."]
