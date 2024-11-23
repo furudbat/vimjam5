@@ -6,9 +6,9 @@ extends MiniGame
 @export var bug_respawn_time = 0.3
 
 var _bug_smushed_counter = 0
-var _all_bugs_smushed = true
 
 @onready var bug_sound := %BugSound1
+@onready var all_bug_sound := %BugSound2
 @onready var win_sound := %WinSoundPlayer
 
 @onready var mob_spawn_path := %MobPath
@@ -22,9 +22,22 @@ func _ready() -> void:
 	super()
 	self.check_win_condition = func(): return _bug_smushed_counter >= bug_smushed_win
 	on_started.connect(_on_started)
+	on_won.connect(_on_won)
 
 func _on_started() -> void:
 	mob_timer.start(bug_respawn_time)
+
+func _on_won() -> void:
+	# delay smush all bugs
+	await get_tree().create_timer(self.win_cooldown_sec/2).timeout
+	all_bug_sound.pitch_scale = randf_range(0.83, 1.34)
+	SoundManager.play_sound_from_player(all_bug_sound)
+
+	var bugs = get_tree().get_nodes_in_group("Bugs")
+	for bug in bugs:
+		if bug.has_method("smush_bug"):
+			bug.smush_bug()
+
 
 func _on_mob_timer_timeout() -> void:
 	if not has_won():
@@ -55,6 +68,5 @@ func _on_mob_timer_timeout() -> void:
 func _bug_smushed() -> void:
 	if not has_won():
 		_bug_smushed_counter = _bug_smushed_counter + 1
-		if bug_sound:
-			bug_sound.pitch_scale = randf_range(0.83, 1.34)
-			bug_sound.play()
+		bug_sound.pitch_scale = randf_range(0.83, 1.34)
+		SoundManager.play_sound_from_player(bug_sound)

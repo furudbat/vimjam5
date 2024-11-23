@@ -80,6 +80,7 @@ func play_sound_with_pitch(resource: AudioStream, pitch: float = 1.0, override_b
 
 func play_sound_from_player(resource: AudioStreamPlayer, override_bus: String = "") -> AudioStreamPlayer:
 	var player = sound_effects.play(resource.stream, override_bus)
+	player.volume_db = resource.volume_db
 	player.pitch_scale = resource.pitch_scale
 	return player
 
@@ -100,6 +101,7 @@ func play_ui_sound_with_pitch(resource: AudioStream, pitch: float = 1.0, overrid
 
 func play_ui_sound_from_player(resource: AudioStreamPlayer, pitch: float = 1.0, override_bus: String = "") -> AudioStreamPlayer:
 	var player = ui_sound_effects.play(resource.stream, override_bus)
+	player.volume_db = resource.volume_db
 	player.pitch_scale = resource.pitch_scale
 	return player
 
@@ -136,6 +138,7 @@ func play_ambient_sound(resource: AudioStream, fade_in_duration: float = 0.0, ov
 
 func play_ambient_sound_from_player(resource: AudioStreamPlayer, fade_in_duration: float = 0.0, override_bus: String = "") -> AudioStreamPlayer:
 	var player = ambient_sounds.play(resource.stream, fade_in_duration, override_bus)
+	player.volume_db = resource.volume_db
 	player.pitch_scale = resource.pitch_scale
 	return player
 
@@ -181,7 +184,7 @@ func play_music_from_position_at_volume(resource: AudioStream, position: float =
 
 
 func play_music_from_player(resource: AudioStreamPlayer, crossfade_duration: float = 0.0, override_bus: String = "") -> AudioStreamPlayer:
-	var player = music.play(resource.stream, 0.0, resource.volume_db, crossfade_duration, override_bus)
+	var player = music.play(resource.stream, 0.0, db_to_linear(resource.volume_db), crossfade_duration, override_bus)
 	player.pitch_scale = resource.pitch_scale
 	return player
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dls36054mstgb"]
+[gd_scene load_steps=10 format=3 uid="uid://dls36054mstgb"]
 
 [ext_resource type="Script" path="res://scenes/game_main/mini_games/bugs_mini_game/bugs_mini_game.gd" id="1_5vv1o"]
 [ext_resource type="Texture2D" uid="uid://dqbxmj6d7pr2" path="res://assets/spr_icons_16x16.png" id="2_ux0kq"]
 [ext_resource type="AudioStream" uid="uid://ckhscajo38s3d" path="res://scenes/game_main/mini_games/bugs_mini_game/sounds/random3.wav" id="3_qijcq"]
 [ext_resource type="AudioStream" uid="uid://cvx16hjbt15wa" path="res://assets/sounds/win/win sound 2-1.wav" id="4_cjbuj"]
+[ext_resource type="AudioStream" uid="uid://c4fy4bvg2abrj" path="res://scenes/game_main/mini_games/bugs_mini_game/sounds/snd_splathit.wav" id="4_oryfu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_171vh"]
 bg_color = Color(0.188235, 0.129412, 0.176471, 1)
@@ -26,6 +27,7 @@ script = ExtResource("1_5vv1o")
 bug_velocity_min = 120
 bug_velocity_max = 160
 bug_respawn_time = 0.2
+win_cooldown_sec = 1.2
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 z_index = 1
@@ -86,6 +88,12 @@ unique_name_in_owner = true
 [node name="BugSound1" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("3_qijcq")
+volume_db = 1.753
+bus = &"Sound"
+
+[node name="BugSound2" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_oryfu")
 volume_db = 1.753
 bus = &"Sound"
 

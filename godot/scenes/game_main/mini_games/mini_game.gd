@@ -1,12 +1,12 @@
 class_name MiniGame
 extends Node2D
 
-signal puzzle_solved()
-signal on_started()
-signal on_won()
+signal puzzle_solved() 	# gets called at the end of the win
+signal on_started() 	# gets called after the Intruduction, when the mini starts
+signal on_won()			# on mini game win (see check_win_condition)
 
-@export var check_win_condition: Callable
-@export var win_calldown_sec: float = 0.9
+@export var check_win_condition: Callable		# func() -> bool: checks every frame if mini game is won
+@export var win_cooldown_sec: float = 0.9		# Cooldown for after winning, after that puzzle_solved gets triggert
 
 var _started = false
 var _win = false
@@ -47,7 +47,7 @@ func _check_win(pred: Callable) -> bool:
 	# not won and win (cooldown) timer not started, yet .. check for win
 	if not _win and _win_timer.is_stopped() and pred.call():
 		_win_timer.timeout.connect(func(): puzzle_solved.emit())
-		_win_timer.start(win_calldown_sec)
+		_win_timer.start(win_cooldown_sec)
 		print_debug("WIN")
 		_win = true
 		on_won.emit()
@@ -55,4 +55,4 @@ func _check_win(pred: Callable) -> bool:
 	return false
 
 func has_won():
-	return _started and not _win_timer.is_stopped() and _win
+	return _win and _started and not _win_timer.is_stopped()

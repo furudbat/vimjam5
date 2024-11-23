@@ -21,6 +21,7 @@ region = Rect2(0, 0, 16, 16)
 
 [node name="VinesMiniGame2" type="Node2D"]
 script = ExtResource("1_n36l5")
+win_cooldown_sec = 0.95
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 z_index = 1
