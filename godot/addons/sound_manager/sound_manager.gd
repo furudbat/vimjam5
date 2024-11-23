@@ -99,7 +99,7 @@ func play_ui_sound_with_pitch(resource: AudioStream, pitch: float = 1.0, overrid
 	return player
 
 
-func play_ui_sound_from_player(resource: AudioStreamPlayer, pitch: float = 1.0, override_bus: String = "") -> AudioStreamPlayer:
+func play_ui_sound_from_player(resource: AudioStreamPlayer, override_bus: String = "") -> AudioStreamPlayer:
 	var player = ui_sound_effects.play(resource.stream, override_bus)
 	player.volume_db = resource.volume_db
 	player.pitch_scale = resource.pitch_scale

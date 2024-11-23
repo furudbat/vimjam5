@@ -4,6 +4,10 @@ const ROTATE_PER_WHEEL_PRESS: int = 10
 const WIN_TOLERANZE_DEGREE: float = 0.0
 const HOLD_STILL_FOR_SLICE_SOLVED_TIME: float = 0.5
 const INITIAL_VOLUME_DB: int = 0
+const TOTAL_DURATION = 0.6  
+const FADE_DURATION = 0.4  
+const FADE_STEPS = 10
+const PLAY_DURATION = TOTAL_DURATION - FADE_DURATION 
 
 @export var fixed_slice_index: int = 0
 
@@ -11,7 +15,12 @@ var _selected_slice_nr: int = 0
 var _slices = []
 var _slice_solved_timers = {}
 var _slices_solved = {}
-var _is_fading: bool = false
+
+var _slice_part_1_player: AudioStreamPlayer = null
+var _slice_part_2_player: AudioStreamPlayer = null
+var _is_fading_out: bool = false
+var _fade_time: float = 0.0
+var _fade_step: int = 0
 
 @onready var complete_slice := %CompleteSilce
 @onready var move_slice := %MoveSlice
@@ -74,6 +83,19 @@ func _process(delta: float) -> void:
 				else:
 					if i == fixed_slice_index:
 						_slices_solved[i] = true
+	if _is_fading_out:
+		_fade_time += delta
+		# 1. wait for full PLAY_DURATION
+		# 2. fade out the rest of the sounnd
+		if (_fade_step == 0  and _fade_time >= PLAY_DURATION) or (_fade_step > 0 and _fade_time >= FADE_DURATION / FADE_STEPS):
+			# Gradually reduce the volume
+			move_slice.volume_db = lerp(int(INITIAL_VOLUME_DB), -60, _fade_step / float(FADE_STEPS))
+			_fade_time = 0
+			_fade_step = _fade_step + 1
+			if _fade_step >= FADE_STEPS:
+				_is_fading_out = false
+				move_slice.stop()
+				move_slice.volume_db = INITIAL_VOLUME_DB
 
 func _on_won():
 	_selected_slice_nr = 0
@@ -109,41 +131,34 @@ func _on_slice_mouse_exited(slice: Node):
 	_selected_slice_nr = 0
 	
 func _play_click_clack():
+	const SLICE_COMPLETE_DEPLAY_SEC = 0.2
+
+	if _slice_part_1_player:
+		_slice_part_1_player.stop()
+	if _slice_part_2_player:
+		_slice_part_2_player.stop()
+
 	complete_slice.pitch_scale = 0.5
-	complete_slice.play()
-	await get_tree().create_timer(0.2).timeout  # Adjust the time as needed
-	complete_slice.stop()
-	
-	complete_slice.pitch_scale = 1.0 
-	complete_slice.play()
-	await complete_slice.finished
+	_slice_part_1_player = SoundManager.play_sound_from_player(complete_slice)
+	get_tree().create_timer(SLICE_COMPLETE_DEPLAY_SEC).timeout.connect(func(): 
+		if _slice_part_1_player:
+			_slice_part_1_player.stop()
+			_slice_part_1_player = null
+		complete_slice.pitch_scale = 1.0 
+		_slice_part_2_player = SoundManager.play_ui_sound_from_player(complete_slice)
+		_slice_part_2_player.finished.connect(func(): _slice_part_2_player = null)
+	)
 	
 func _play_move_slice():
-	if move_slice.is_playing() and not _is_fading:
-		await move_slice.finished
-	elif _is_fading:
-		_is_fading = false
+	var play_move_slice_randomize_and_start_fade = func():
+		move_slice.volume_db = INITIAL_VOLUME_DB 
+		move_slice.play()
+		move_slice.pitch_scale = 0.55 + (randi() % 3) * 0.05
+		_is_fading_out = true
+		_fade_time = 0.0
+
+	if not move_slice.is_playing():
+		play_move_slice_randomize_and_start_fade.call()
+	elif _is_fading_out:
 		move_slice.stop()
-	move_slice.volume_db = INITIAL_VOLUME_DB 
-	move_slice.play()
-	_randomize_and_fade()
-
-func _randomize_and_fade():
-	move_slice.pitch_scale = 0.55 + (randi() % 3) * 0.05
-
-	const TOTAL_DURATION = 0.6  
-	const FADE_DURATION = 0.4  
-	const FADE_STEPS = 10
-	const PLAY_DURATION = TOTAL_DURATION - FADE_DURATION 
-
-	await get_tree().create_timer(PLAY_DURATION).timeout
-	_is_fading = true
-	for step in range(FADE_STEPS):  # Divide fade into steps
-		if not _is_fading:
-			return
-		move_slice.volume_db = lerp(int(INITIAL_VOLUME_DB), -60, step / float(FADE_STEPS))  # Gradual fade
-		await get_tree().create_timer(FADE_DURATION / float(FADE_STEPS)).timeout
-
-	move_slice.stop()
-	move_slice.volume_db = INITIAL_VOLUME_DB 
-	_is_fading = false
+		play_move_slice_randomize_and_start_fade.call()

@@ -108,21 +108,6 @@ func _process(delta: float) -> void:
 		if _distance <= 0:
 			_game_over()
 			return
-	
-	# Debug
-	if OS.is_debug_build():
-		if Input.is_key_pressed(KEY_SPACE):
-			_player_state = CharacterState.STOPPED
-		if Input.is_key_pressed(KEY_BACKSPACE):
-			_enemy_state = CharacterState.STOPPED
-		if Input.is_key_pressed(KEY_F3):
-			_puzzle_solved()
-		if Input.is_key_pressed(KEY_F4):
-			_distance = 0
-			_game_over()
-		if Input.is_key_pressed(KEY_F5):
-			level_timer.stop()
-			_on_timer_timeout()
 
 func _physics_process(delta: float) -> void:
 	if _game_state == GameState.MAP or _game_state == GameState.OBSTACLE:
@@ -240,6 +225,22 @@ func _on_game_timer_timeout() -> void:
 func _on_map_player_reach_end() -> void:
 	_win_game()
 
-
 func _on_map_get_obsticales_counter(obsticales: int) -> void:
 	_obsticales_counter = obsticales
+
+func _input(event: InputEvent) -> void:
+	# Debug
+	if OS.is_debug_build():
+		if event is InputEventKey and not event.pressed:
+			if event.keycode == KEY_SPACE:
+				_player_state = CharacterState.STOPPED
+			if event.keycode == KEY_BACKSPACE:
+				_enemy_state = CharacterState.STOPPED
+			if event.keycode == KEY_F3:
+				_puzzle_solved()
+			if event.keycode == KEY_F4:
+				_distance = 0
+				_game_over()
+			if event.keycode == KEY_F5:
+				level_timer.stop()
+				_on_timer_timeout()

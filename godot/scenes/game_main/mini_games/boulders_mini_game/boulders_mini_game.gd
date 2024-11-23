@@ -50,7 +50,7 @@ func _on_stone_input_event(self_stone: Node, viewport: Node, event: InputEvent, 
 			# Play sound
 			if boulder_sound:
 				boulder_sound.pitch_scale = randf_range(0.91, 1.44)
-				boulder_sound.play()
+				SoundManager.play_ui_sound_from_player(boulder_sound)
 			_stone_removing = true
 
 # Function to check if a point is inside a polygon

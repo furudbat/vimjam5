@@ -39,9 +39,11 @@ animations = [{
 }]
 
 [node name="Win" type="Node2D"]
+z_index = 150
 script = ExtResource("1_eggqx")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 custom_minimum_size = Vector2(426, 240)

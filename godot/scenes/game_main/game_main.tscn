@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=13 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" path="res://scenes/game_main/game_main.gd" id="1_2a8mx"]
 [ext_resource type="PackedScene" uid="uid://b4rvrpxovts82" path="res://scenes/game_main/map/map.tscn" id="2_bigen"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_qc23y"]
+[ext_resource type="AudioStream" uid="uid://b74ph5ls33txr" path="res://assets/sounds/beast/Roar.wav" id="7_6xxay"]
 [ext_resource type="Texture2D" uid="uid://cucifq7erg4dn" path="res://scenes/game_main/hud/hud.png" id="7_box1l"]
 [ext_resource type="AudioStream" uid="uid://cv1q5fi7y0nqq" path="res://scenes/game_main/bgm.mp3" id="7_ql71s"]
 [ext_resource type="PackedScene" uid="uid://dkn2wjni2qgwb" path="res://scenes/game_main/hud/beast_meter/beast_meter.tscn" id="8_te4fg"]
@@ -146,13 +147,16 @@ unique_name_in_owner = true
 autostart = true
 
 [node name="BeastSoundPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_ql71s")
+unique_name_in_owner = true
+stream = ExtResource("7_6xxay")
 volume_db = 7.962
 pitch_scale = 1.71
 bus = &"Sound"
 
 [node name="Bgm" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
 stream = ExtResource("7_ql71s")
+volume_db = -2.811
 bus = &"Music"
 
 [connection signal="get_obsticales_counter" from="Map" to="." method="_on_map_get_obsticales_counter"]

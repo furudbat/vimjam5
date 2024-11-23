@@ -29,14 +29,15 @@ func _on_started() -> void:
 
 func _on_won() -> void:
 	# delay smush all bugs
-	await get_tree().create_timer(self.win_cooldown_sec/2).timeout
-	all_bug_sound.pitch_scale = randf_range(0.83, 1.34)
-	SoundManager.play_sound_from_player(all_bug_sound)
+	get_tree().create_timer(self.win_cooldown_sec/2).timeout.connect(func():
+		all_bug_sound.pitch_scale = randf_range(0.83, 1.34)
+		SoundManager.play_ui_sound_from_player(all_bug_sound)
 
-	var bugs = get_tree().get_nodes_in_group("Bugs")
-	for bug in bugs:
-		if bug.has_method("smush_bug"):
-			bug.smush_bug()
+		var bugs = get_tree().get_nodes_in_group("Bugs")
+		for bug in bugs:
+			if bug.has_method("smush_bug"):
+				bug.smush_bug()
+	)
 
 
 func _on_mob_timer_timeout() -> void:
@@ -69,4 +70,4 @@ func _bug_smushed() -> void:
 	if not has_won():
 		_bug_smushed_counter = _bug_smushed_counter + 1
 		bug_sound.pitch_scale = randf_range(0.83, 1.34)
-		SoundManager.play_sound_from_player(bug_sound)
+		SoundManager.play_ui_sound_from_player(bug_sound)
