@@ -24,8 +24,8 @@ point_count = 5
 
 [node name="BugsMiniGame1" type="Node2D" groups=["Bugs"]]
 script = ExtResource("1_5vv1o")
-bug_velocity_min = 120
-bug_velocity_max = 160
+bug_velocity_min = 60
+bug_velocity_max = 120
 bug_respawn_time = 0.2
 win_cooldown_sec = 1.2
 
@@ -88,13 +88,13 @@ unique_name_in_owner = true
 [node name="BugSound1" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("3_qijcq")
-volume_db = 0.136
+volume_db = -6.0
 bus = &"Sound"
 
 [node name="BugSound2" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("4_oryfu")
-volume_db = 0.675
+volume_db = -2.0
 bus = &"Sound"
 
 [node name="WinSoundPlayer" type="AudioStreamPlayer" parent="."]
