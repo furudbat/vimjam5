@@ -15,10 +15,16 @@ func _ready() -> void:
 	SoundManager.set_default_music_bus("Music")
 	SoundManager.set_default_sound_bus("Sound")
 	continue_button.visible = SaveGame.has_save() and SaveGame.ENABLED
-	# @NOTE: disabled for web
-	exit_button.visible = false
+	if OS.has_feature("HTML5"):
+		# @NOTE: disabled for web
+		exit_button.visible = false
 	SoundManager.play_music_from_player($Bgm1)
 	
+func _input(event: InputEvent) -> void:
+	if OS.is_debug_build() or (OS.has_feature("Windows") or OS.has_feature("OSX") or OS.has_feature("Linux")):
+		if event is InputEventKey and not event.pressed:
+			if event.keycode == KEY_F11:
+				UserSettings.toggle_fullscreen()
 
 #
 # private
