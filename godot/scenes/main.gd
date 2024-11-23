@@ -25,11 +25,11 @@ func _ready() -> void:
 #
 
 func _on_new_game_button_pressed() -> void:
-	SoundManager.play_ui_sound_from_player($MenuSelect)
+	#SoundManager.play_ui_sound_from_player($MenuSelect)
 	GlobalScenes.change_scene(GlobalScenes.Scenes.Prolog)
 	
 func _on_continue_button_pressed() -> void:
-	SoundManager.play_ui_sound_from_player($MenuSelect)
+	#SoundManager.play_ui_sound_from_player($MenuSelect)
 	_new_game = false
 	GlobalScenes.change_scene(GlobalScenes.Scenes.Prolog)
 

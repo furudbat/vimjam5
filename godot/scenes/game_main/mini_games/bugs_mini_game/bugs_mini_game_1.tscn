@@ -88,13 +88,13 @@ unique_name_in_owner = true
 [node name="BugSound1" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("3_qijcq")
-volume_db = 1.753
+volume_db = 0.136
 bus = &"Sound"
 
 [node name="BugSound2" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("4_oryfu")
-volume_db = 1.753
+volume_db = 0.675
 bus = &"Sound"
 
 [node name="WinSoundPlayer" type="AudioStreamPlayer" parent="."]

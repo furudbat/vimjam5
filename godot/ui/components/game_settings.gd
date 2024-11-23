@@ -9,6 +9,7 @@ extends VBoxContainer
 @onready var sound_sample := %SoundSamplePlayer
 
 var sound_active = true
+var _sound_sample_is_playing = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -49,5 +50,6 @@ func _sound_volume_button_on_click(active):
 
 
 func _on_sound_volume_slider_volume_changed(val: Variant) -> void:
-	if sound_active:
-		SoundManager.play_sound_from_player($Sample)
+	if sound_active and not _sound_sample_is_playing:
+		SoundManager.play_sound_from_player($Sample).finished.connect(func(): _sound_sample_is_playing = false)
+		_sound_sample_is_playing = true

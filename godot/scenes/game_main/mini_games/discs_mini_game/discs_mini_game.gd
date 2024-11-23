@@ -18,6 +18,7 @@ var _slices_solved = {}
 var _slice_part_1_player: AudioStreamPlayer = null
 var _slice_part_2_player: AudioStreamPlayer = null
 var _move_slice_player: AudioStreamPlayer = null
+var _is_move_slice_playing: bool = false
 var _is_fading_out: bool = false
 var _fade_time: float = 0.0
 var _fade_step: int = 0
@@ -83,19 +84,23 @@ func _process(delta: float) -> void:
 				else:
 					if i == fixed_slice_index:
 						_slices_solved[i] = true
-	if _is_fading_out:
+	if _is_move_slice_playing:
 		_fade_time += delta
 		# 1. wait for full PLAY_DURATION (_fade_step == 0)
 		# 2. fade out the rest of the sound (_fade_step > 0)
-		if (_fade_step == 0  and _fade_time >= PLAY_DURATION) or (_fade_step > 0 and _fade_time >= FADE_DURATION / FADE_STEPS):
+		if (_fade_step == 0 and _fade_time >= PLAY_DURATION) or (_fade_step > 0 and _fade_time >= FADE_DURATION / FADE_STEPS):
 			# Gradually reduce the volume
-			if _move_slice_player:
+			if _is_fading_out and _move_slice_player:
 				# use start volume from move_slice_sound
 				_move_slice_player.volume_db = lerp(move_slice_sound.volume_db, move_slice_sound.volume_db-60, _fade_step / float(FADE_STEPS))
 			_fade_time = 0
 			_fade_step = _fade_step + 1
+			if _fade_step == 1:
+				# start fading
+				_is_fading_out = true
 			if _fade_step >= FADE_STEPS:
 				_is_fading_out = false
+				_is_move_slice_playing = false
 				_fade_step = 0
 				if _move_slice_player:
 					_move_slice_player.stop()
@@ -146,6 +151,7 @@ func _play_click_clack():
 
 	complete_slice_sound.pitch_scale = PART_1_PITCH
 	_slice_part_1_player = SoundManager.play_sound_from_player(complete_slice_sound)
+	_slice_part_1_player.volume_db = complete_slice_sound.volume_db + 1.56 # make first click a bit louder
 	# wait for part 1 sound (click) to finish
 	get_tree().create_timer(SLICE_COMPLETE_DEPLAY_SEC).timeout.connect(func(): 
 		# play part 2 of click **clack** sound
@@ -162,13 +168,17 @@ func _play_move_slice():
 		move_slice_sound.pitch_scale = 0.55 + (randi() % 3) * 0.05
 		_move_slice_player = SoundManager.play_ui_sound_from_player(move_slice_sound)
 		#_move_slice_player.volume_db = move_slice_sound.volume_db 
-		_is_fading_out = true
+		_is_fading_out = false
+		_is_move_slice_playing = true
 		_fade_time = 0.0
 		_fade_step = 0
 
-	if not _move_slice_player:
+	if _is_move_slice_playing and not _is_fading_out:
+		return
+
+	if not _is_move_slice_playing:
 		play_move_slice_randomize_and_start_fade.call()
-	elif not _is_fading_out:
+	elif _is_fading_out:
 		if _move_slice_player:
 			_move_slice_player.stop()
 		play_move_slice_randomize_and_start_fade.call()

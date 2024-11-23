@@ -100,7 +100,7 @@ script = ExtResource("4_dbyqg")
 [node name="VineCutSound1" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("6_j081m")
-volume_db = -2.337
+volume_db = 1.974
 pitch_scale = 0.93
 bus = &"Sound"
 
@@ -114,7 +114,7 @@ bus = &"Sound"
 [node name="VineRustleSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("8_hwjce")
-volume_db = -8.145
+volume_db = -15.15
 bus = &"Sound"
 
 [node name="WinTimer" type="Timer" parent="."]

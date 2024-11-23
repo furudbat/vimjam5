@@ -89,13 +89,13 @@ unique_name_in_owner = true
 [node name="BugSound1" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("2_c4sig")
-volume_db = 1.753
+volume_db = 0.136
 bus = &"Sound"
 
 [node name="WinSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("3_hryeh")
-volume_db = 2.921
+volume_db = 0.766
 pitch_scale = 1.09
 bus = &"Sound"
 

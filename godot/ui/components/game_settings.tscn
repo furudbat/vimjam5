@@ -85,6 +85,7 @@ property = "soundvolume"
 
 [node name="Sample" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_2rh2n")
+pitch_scale = 1.15
 bus = &"Sound"
 
 [connection signal="volume_changed" from="MarginContainer/GridContainer/SoundVolumeSlider" to="." method="_on_sound_volume_slider_volume_changed"]
