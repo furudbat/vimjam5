@@ -9,10 +9,11 @@ extends Node
 	"boulders2": preload("res://scenes/game_main/mini_games/boulders_mini_game/boulders_mini_game_2.tscn"),
 	"bugs2": preload("res://scenes/game_main/mini_games/bugs_mini_game/bugs_mini_game_2.tscn"),
 	"vines2": preload("res://scenes/game_main/mini_games/vines_mini_game/vines_mini_game_2.tscn"),
+	"discs2": preload("res://scenes/game_main/mini_games/discs_mini_game/discs_mini_game_2.tscn"),
 }
 
 func get_scene(scene_name: String):
-	assert(MiniGames.get(scene_name))
+	assert(MiniGames.has(scene_name))
 	return MiniGames.get(scene_name)
 
 # Called when the node enters the scene tree for the first time.

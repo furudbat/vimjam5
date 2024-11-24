@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://crb1kdggsvk0n"]
 
-[ext_resource type="Script" path="res://scenes/game_main/map/tiles/bugs_tile.gd" id="1_w1mcr"]
-[ext_resource type="Texture2D" uid="uid://bf8ttxbe4wlua" path="res://scenes/game_main/map/tileset.png" id="2_4n6ht"]
+[ext_resource type="Script" path="res://scenes/game_main/map/tiles/mini_game_tile.gd" id="1_1kg5k"]
+[ext_resource type="Texture2D" uid="uid://nll1o0b0vpa7" path="res://scenes/game_main/map/tileset.png" id="2_4n6ht"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_svfpd"]
 atlas = ExtResource("2_4n6ht")
@@ -13,7 +13,8 @@ size = Vector2(24, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yhc2a"]
 
 [node name="Bugs1Tile" type="CharacterBody2D"]
-script = ExtResource("1_w1mcr")
+script = ExtResource("1_1kg5k")
+obstacle_region = Rect2(32, 160, 32, 32)
 mini_game = "bugs1"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

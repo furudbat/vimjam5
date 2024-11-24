@@ -6,9 +6,16 @@ const HOLD_STILL_FOR_SLICE_SOLVED_TIME: float = 0.5
 const TOTAL_DURATION = 0.6  
 const FADE_DURATION = 0.4  
 const FADE_STEPS = 10
-const PLAY_DURATION = TOTAL_DURATION - FADE_DURATION 
+const PLAY_DURATION = TOTAL_DURATION - FADE_DURATION
+
+const DISCS_ROTATIONS_DEG = [
+	[50, 100, 240, 20],
+	[30, 50, 220, 100],
+	[250, 30, 120, 90]
+]
 
 @export var fixed_slice_index: int = 0
+@export var start_randomize: bool = true
 
 var _selected_slice_nr: int = 0
 var _slices = []
@@ -32,12 +39,19 @@ func _ready() -> void:
 	self.check_win_condition = _check_win_condition
 	self.on_won.connect(_on_won)
 	
+	var rindex = randi_range(0, DISCS_ROTATIONS_DEG.size()-1)
+	var rotations = DISCS_ROTATIONS_DEG[rindex]
 	var slices = get_tree().get_nodes_in_group("Slices")
 	for i in range(slices.size()):
 		var slice = slices[i]
 		var area = slice.get_node("Area2D")
 		area.input_event.connect(func(viewport, event, shape_idx): _on_slice_input_event(slice, i, viewport, event, shape_idx))
 		area.mouse_exited.connect(func(): _on_slice_mouse_exited(slice))
+		if start_randomize:
+			slice.rotation_degrees = rotations[i % slices.size()]
+		if i == fixed_slice_index:
+			slice.rotation_degrees = 0
+		print_debug(slice.rotation_degrees)
 		_slices.append(slice)
 		_slice_solved_timers[i] = 0
 		_slices_solved[i] = false
@@ -46,7 +60,7 @@ func _check_win_condition() -> bool:
 	var slices = get_tree().get_nodes_in_group("Slices")
 	var win = true
 	for i in range(slices.size()):
-		if i != 0:
+		if i != fixed_slice_index:
 			win = win and _slices_solved[i]
 	return win
 
@@ -61,7 +75,7 @@ func _process(delta: float) -> void:
 			var slice = slices[i]
 			var highlight = slice.get_node("Highlight")
 			var overlay = slice.get_node("Overlay")
-			highlight.visible = _selected_slice_nr > 1 and not _slices_solved[i] and _selected_slice_nr == i+1
+			highlight.visible = i != fixed_slice_index and _selected_slice_nr >= 1 and not _slices_solved[i] and _selected_slice_nr == i+1
 			overlay.visible = _slices_solved[i]
 		
 		# check wining
@@ -78,7 +92,7 @@ func _process(delta: float) -> void:
 							_slice_solved_timers[i] = delta
 					else:
 						_slice_solved_timers[i] = 0
-				if i != 0 and not _slices_solved[i] and _slice_solved_timers[i] >= HOLD_STILL_FOR_SLICE_SOLVED_TIME:
+				if i != fixed_slice_index and not _slices_solved[i] and _slice_solved_timers[i] >= HOLD_STILL_FOR_SLICE_SOLVED_TIME:
 					_play_click_clack()
 					_slices_solved[i] = true
 				else:
@@ -116,17 +130,19 @@ func _input(event: InputEvent) -> void:
 	if _started and event is InputEventMouseButton:
 		var slices = get_tree().get_nodes_in_group("Slices")
 		if event.is_action_pressed("mouse_wheel_up"):
-			if _selected_slice_nr > 1 and _selected_slice_nr-1 < slices.size():
+			if _selected_slice_nr != fixed_slice_index+1 and _selected_slice_nr > 0 and _selected_slice_nr-1 < slices.size():
 				var selected_slice = slices[_selected_slice_nr-1]
 				if not _slices_solved[_selected_slice_nr-1]:
 					selected_slice.rotation_degrees = (int(selected_slice.rotation_degrees) + ROTATE_PER_WHEEL_PRESS) % 360
 					_play_move_slice()
+					print_debug(selected_slice.rotation_degrees)
 		elif event.is_action_pressed("mouse_wheel_down"):
-			if _selected_slice_nr > 1 and _selected_slice_nr-1 < slices.size():
+			if _selected_slice_nr != fixed_slice_index+1 and _selected_slice_nr > 0 and _selected_slice_nr-1 < slices.size():
 				var selected_slice = slices[_selected_slice_nr-1]
 				if not _slices_solved[_selected_slice_nr-1]:
 					selected_slice.rotation_degrees = (int(selected_slice.rotation_degrees) - ROTATE_PER_WHEEL_PRESS) % 360
 					_play_move_slice()
+					print_debug(selected_slice.rotation_degrees)
 				
 
 func _on_slice_input_event(slice: Node, slice_index: int, viewport: Node, event: InputEvent, shape_idx: int) -> void:

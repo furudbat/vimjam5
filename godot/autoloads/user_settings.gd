@@ -12,6 +12,7 @@ const MASTERVOLUME = "mastervolume"
 const MUSICVOLUME = "musicvolume"
 const SOUNDVOLUME = "soundvolume"
 const GAME_LANGUAGE = "game_locale"
+const FULLSCREEN = "fullscreen"
 
 const AUDIO_BUS_MASTER = "Master"
 const AUDIO_BUS_SOUND = "Sound"
@@ -24,10 +25,12 @@ var USER_SETTING_DEFAULTS = {
 	MASTERVOLUME: 100,
 	MUSICVOLUME: 70,
 	SOUNDVOLUME: 60,
-	GAME_LANGUAGE: "en"
+	GAME_LANGUAGE: "en",
+	FULLSCREEN: false,
 }
 
 var config: ConfigFile
+var _window_override_size: Vector2
 
 func _ready():
 	config = ConfigFile.new()
@@ -50,8 +53,25 @@ func set_value(key, value):
 		_mute_bus(MUSICVOLUME_ENABLED, AUDIO_BUS_MUSIC)
 	if key == SOUNDVOLUME_ENABLED:
 		_mute_bus(SOUNDVOLUME_ENABLED, AUDIO_BUS_SOUND)
+	if key == FULLSCREEN:
+		value = toggle_fullscreen()
+		config.set_value(SECTION, key, value)
 	on_value_change.emit(key, value)
 	
+func toggle_fullscreen():
+	var is_fullscreen = DisplayServer.window_get_mode() == DisplayServer.WindowMode.WINDOW_MODE_FULLSCREEN
+
+	if is_fullscreen:
+		# Switching back to windowed mode: reapply window override size
+		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_WINDOWED)
+		if _window_override_size:
+			DisplayServer.window_set_size(_window_override_size)
+		return false
+	else:
+		_window_override_size = DisplayServer.window_get_size()
+		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_FULLSCREEN)
+		return true
+
 func get_value(key):
 	return config.get_value(SECTION, key, _get_default(key))
 	
