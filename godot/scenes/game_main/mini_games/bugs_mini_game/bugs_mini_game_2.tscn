@@ -24,10 +24,10 @@ point_count = 5
 
 [node name="BugsMiniGame2" type="Node2D" groups=["Bugs"]]
 script = ExtResource("1_pgkqt")
-bug_smushed_win = 8
-bug_velocity_min = 90
-bug_velocity_max = 160
-bug_respawn_time = 0.25
+bug_smushed_win = 9
+bug_velocity_min = 70
+bug_velocity_max = 170
+bug_respawn_time = 0.15
 win_cooldown_sec = 1.1
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -89,7 +89,7 @@ unique_name_in_owner = true
 [node name="BugSound1" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("2_c4sig")
-volume_db = 0.136
+volume_db = -6.0
 bus = &"Sound"
 
 [node name="WinSoundPlayer" type="AudioStreamPlayer" parent="."]
@@ -106,7 +106,7 @@ wait_time = 0.6
 [node name="BugSound2" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("5_v1j85")
-volume_db = 1.753
+volume_db = -2.0
 bus = &"Sound"
 
 [connection signal="timeout" from="PanelContainer/MiniGame/MobTimer" to="." method="_on_mob_timer_timeout"]

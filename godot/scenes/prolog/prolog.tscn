@@ -305,53 +305,54 @@ centered = false
 [node name="FireSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("28_hduhr")
-volume_db = 3.546
+volume_db = 5.0
 bus = &"Sound"
 
 [node name="ClickSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("34_mmcjr")
-volume_db = 0.585
+volume_db = -5.0
 pitch_scale = 0.16
 bus = &"Sound"
 
 [node name="CaveSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("35_yssan")
-volume_db = 1.304
+volume_db = -3.0
 pitch_scale = 1.2
 bus = &"Sound"
 
 [node name="FallSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("36_mq65k")
-volume_db = -11.567
+volume_db = -15.0
 pitch_scale = 0.91
 bus = &"Sound"
 
 [node name="BeastSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("37_f81ey")
-volume_db = 6.793
+volume_db = 7.0
 pitch_scale = 1.67
 bus = &"Sound"
 
 [node name="RustlingSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("34_fjpag")
-volume_db = -5.843
+volume_db = -10.0
 bus = &"Sound"
 
 [node name="LandingSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("39_lvudt")
-volume_db = -5.258
+volume_db = -10.0
 pitch_scale = 1.9
 bus = &"Sound"
 
 [node name="RunSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("40_yut6f")
+volume_db = -6.0
 pitch_scale = 1.27
 bus = &"Sound"
 

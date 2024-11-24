@@ -88,8 +88,8 @@ animations = [{
 size = Vector2(32, 32)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o2ihc"]
-radius = 17.0
-height = 34.0
+radius = 18.0
+height = 36.0
 
 [node name="Bug" type="RigidBody2D" groups=["mobs"]]
 z_index = 2
