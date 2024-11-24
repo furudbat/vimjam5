@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5pq3y8b8i1g6"
-path="res://.godot/imported/spr_slice_3_highlight.png-30dd7002ddcd7384e6da934903df6c11.ctex"
+uid="uid://i813quu4owh2"
+path="res://.godot/imported/spr_slice_2_overlay.png-06318873f9cd5ba7579d4ee3bb836312.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/game_main/mini_games/discs_mini_game/disc_1/spr_slice_3_highlight.png"
-dest_files=["res://.godot/imported/spr_slice_3_highlight.png-30dd7002ddcd7384e6da934903df6c11.ctex"]
+source_file="res://scenes/game_main/mini_games/discs_mini_game/common/spr_slice_2_overlay.png"
+dest_files=["res://.godot/imported/spr_slice_2_overlay.png-06318873f9cd5ba7579d4ee3bb836312.ctex"]
 
 [params]
 

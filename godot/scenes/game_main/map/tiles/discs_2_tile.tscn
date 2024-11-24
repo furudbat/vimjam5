@@ -1,21 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfjcm2dfwma20"]
+[gd_scene load_steps=6 format=3 uid="uid://37pi682b5rk1"]
 
-[ext_resource type="Script" path="res://scenes/game_main/map/tiles/mini_game_tile.gd" id="1_1s44k"]
-[ext_resource type="Texture2D" uid="uid://nll1o0b0vpa7" path="res://scenes/game_main/map/tileset.png" id="2_gk22k"]
+[ext_resource type="Script" path="res://scenes/game_main/map/tiles/mini_game_tile.gd" id="1_vek4k"]
+[ext_resource type="Texture2D" uid="uid://nll1o0b0vpa7" path="res://scenes/game_main/map/tileset.png" id="2_abirc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_svfpd"]
-atlas = ExtResource("2_gk22k")
-region = Rect2(0, 160, 32, 32)
+atlas = ExtResource("2_abirc")
+region = Rect2(0, 224, 32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ydwqq"]
 size = Vector2(24, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1oxho"]
 
-[node name="Boulders1Tile" type="CharacterBody2D"]
-script = ExtResource("1_1s44k")
-obstacle_region = Rect2(0, 160, 32, 32)
-mini_game = "boulders1"
+[node name="Discs2Tile" type="CharacterBody2D"]
+script = ExtResource("1_vek4k")
+obstacle_region = Rect2(0, 224, 32, 32)
+mini_game = "discs2"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true

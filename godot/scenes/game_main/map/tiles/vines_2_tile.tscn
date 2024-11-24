@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dmf4aww4lq23r"]
 
-[ext_resource type="Script" path="res://scenes/game_main/map/tiles/vines_tile.gd" id="1_4rn3k"]
-[ext_resource type="Texture2D" uid="uid://bf8ttxbe4wlua" path="res://scenes/game_main/map/tileset.png" id="2_2u2tu"]
+[ext_resource type="Script" path="res://scenes/game_main/map/tiles/mini_game_tile.gd" id="1_yfoed"]
+[ext_resource type="Texture2D" uid="uid://nll1o0b0vpa7" path="res://scenes/game_main/map/tileset.png" id="2_2u2tu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_svfpd"]
 atlas = ExtResource("2_2u2tu")
@@ -13,7 +13,8 @@ size = Vector2(24, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2v844"]
 
 [node name="Vines2Tile" type="CharacterBody2D"]
-script = ExtResource("1_4rn3k")
+script = ExtResource("1_yfoed")
+obstacle_region = Rect2(64, 160, 32, 32)
 mini_game = "vines2"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

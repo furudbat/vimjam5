@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b5kdkv3ei5is2"]
 
-[ext_resource type="Script" path="res://scenes/game_main/map/tiles/disc_title.gd" id="1_m4ffg"]
+[ext_resource type="Script" path="res://scenes/game_main/map/tiles/mini_game_tile.gd" id="1_38e5b"]
 [ext_resource type="Texture2D" uid="uid://nll1o0b0vpa7" path="res://scenes/game_main/map/tileset.png" id="2_qp33j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_svfpd"]
@@ -13,7 +13,9 @@ size = Vector2(24, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1oxho"]
 
 [node name="Discs1Tile" type="CharacterBody2D"]
-script = ExtResource("1_m4ffg")
+script = ExtResource("1_38e5b")
+obstacle_region = Rect2(0, 224, 32, 32)
+mini_game = "discs1"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true

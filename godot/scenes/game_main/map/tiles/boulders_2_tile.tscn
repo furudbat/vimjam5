@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c5yvtak6mhqkq"]
 
-[ext_resource type="Script" path="res://scenes/game_main/map/tiles/boulders_tile.gd" id="1_q4njc"]
-[ext_resource type="Texture2D" uid="uid://bf8ttxbe4wlua" path="res://scenes/game_main/map/tileset.png" id="2_hwg24"]
+[ext_resource type="Script" path="res://scenes/game_main/map/tiles/mini_game_tile.gd" id="1_c8qki"]
+[ext_resource type="Texture2D" uid="uid://nll1o0b0vpa7" path="res://scenes/game_main/map/tileset.png" id="2_hwg24"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_svfpd"]
 atlas = ExtResource("2_hwg24")
@@ -13,7 +13,8 @@ size = Vector2(24, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1oxho"]
 
 [node name="Boulders2Tile" type="CharacterBody2D"]
-script = ExtResource("1_q4njc")
+script = ExtResource("1_c8qki")
+obstacle_region = Rect2(0, 160, 32, 32)
 mini_game = "boulders2"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
