@@ -1,29 +1,29 @@
 class_name TransitionManager
 extends CanvasLayer
 
-@export var texture_rect:TextureRect
-@export var transition_time:float = 1.0
-@export var bool_resource:BoolResource
+@export var texture_rect: TextureRect
+@export var transition_time: float = 1.0
+@export var bool_resource: BoolResource
 
-var tween:Tween
+var tween: Tween
 
 func _ready()->void:
 	visible = false
 
-func change_scene(path:String)->void:
+func change_scene(scene_path: String)->void:
 	bool_resource.set_value(true)
 	# wait for rendering everything on a screen
-	RenderingServer.frame_post_draw.connect(_post_draw.bind(path), CONNECT_ONE_SHOT)
+	RenderingServer.frame_post_draw.connect(_post_draw.bind(scene_path), CONNECT_ONE_SHOT)
 
-func _post_draw(path:String)->void:
-	var _game_resolution:Vector2i = get_viewport().content_scale_size
-	var _viewport_size:Vector2i = get_viewport().size
-	var _multiply:float = _game_resolution.y / float(_viewport_size.y)
+func _post_draw(scene_path: String)->void:
+	var _game_resolution: Vector2i = get_viewport().content_scale_size
+	var _viewport_size: Vector2i = get_viewport().size
+	var _multiply: float = _game_resolution.y / float(_viewport_size.y)
 	
 	# get texture from the screen
-	var _image:Image = get_viewport().get_texture().get_image()
+	var _image: Image = get_viewport().get_texture().get_image()
 	_image.resize(int(ceil(_viewport_size.x * _multiply)), _game_resolution.y, Image.INTERPOLATE_NEAREST)
-	var _image_texture:ImageTexture = ImageTexture.create_from_image(_image)
+	var _image_texture: ImageTexture = ImageTexture.create_from_image(_image)
 	texture_rect.texture = _image_texture
 	
 	get_tree().current_scene.visible = false
@@ -31,10 +31,10 @@ func _post_draw(path:String)->void:
 	transition_progress(0.0)
 	
 	# TODO: refactor to start loading as soon as possible, but need solid workaround for race conditions
-	ThreadUtility.load_resource(path, scene_loaded)
+	ThreadUtility.load_resource(scene_path, scene_loaded)
 
 ## Set transition in motion
-func scene_loaded(scene:PackedScene)->void:
+func scene_loaded(scene: PackedScene)->void:
 	assert(scene != null)
 	get_tree().change_scene_to_packed(scene)
 	

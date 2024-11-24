@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bxj12cduwftxm"]
 
-[ext_resource type="Script" path="res://addons/top_down/scripts/game/TransitionManager.gd" id="1_b8a2a"]
-[ext_resource type="Material" uid="uid://dfinp0iie47mi" path="res://addons/top_down/resources/materials/transition_material.tres" id="2_ha7dd"]
-[ext_resource type="Resource" uid="uid://df4nqpa0at8qn" path="res://addons/top_down/resources/global_resources/transition_bool_resource.tres" id="2_m4tfm"]
+[ext_resource type="Script" path="res://scenes/TransitionManager.gd" id="1_t0w4f"]
+[ext_resource type="Resource" uid="uid://df4nqpa0at8qn" path="res://addons/top_down/resources/global_resources/transition_bool_resource.tres" id="2_rmia7"]
+[ext_resource type="Material" uid="uid://dfinp0iie47mi" path="res://addons/top_down/resources/materials/transition_material.tres" id="3_j5syg"]
 
 [sub_resource type="Animation" id="Animation_y5efb"]
 length = 0.001
@@ -21,7 +21,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_g4wgy"]
 resource_name = "transition"
-length = 0.5
+length = 0.9
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -29,7 +29,7 @@ tracks/0/path = NodePath("TextureRect:material:shader_parameter/progress")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.8),
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [0.0, 1.0]
@@ -42,13 +42,13 @@ _data = {
 }
 
 [node name="Transition" type="CanvasLayer" node_paths=PackedStringArray("texture_rect")]
-layer = 5
-script = ExtResource("1_b8a2a")
+layer = 128
+script = ExtResource("1_t0w4f")
 texture_rect = NodePath("TextureRect")
-bool_resource = ExtResource("2_m4tfm")
+bool_resource = ExtResource("2_rmia7")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-material = ExtResource("2_ha7dd")
+material = ExtResource("3_j5syg")
 offset_right = 40.0
 offset_bottom = 40.0
 

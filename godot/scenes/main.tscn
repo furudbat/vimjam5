@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dv2y18ye8j7o0"]
+[gd_scene load_steps=9 format=3 uid="uid://dv2y18ye8j7o0"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_20hqd"]
+[ext_resource type="PackedScene" uid="uid://bxj12cduwftxm" path="res://scenes/transition.tscn" id="2_6mnv2"]
 [ext_resource type="Texture2D" uid="uid://dmnpldgvcuogc" path="res://scenes/spr_bg.png" id="2_037g4"]
 [ext_resource type="Texture2D" uid="uid://cm2s5wdnc1cy4" path="res://assets/spr_logo2.png" id="3_x1e42"]
 [ext_resource type="PackedScene" uid="uid://nbaodrlopo7y" path="res://ui/components/game_settings.tscn" id="4_tlf3x"]
@@ -12,6 +13,9 @@ bg_color = Color(0.188235, 0.129412, 0.176471, 1)
 
 [node name="MainMenuScene" type="Node2D"]
 script = ExtResource("1_20hqd")
+
+[node name="Transition" parent="." instance=ExtResource("2_6mnv2")]
+unique_name_in_owner = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 
