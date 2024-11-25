@@ -9,6 +9,8 @@ func _ready() -> void:
 	# @TODO: play winning screen music
 	SoundManager.stop_music(0.3)
 
+func _on_transition_finished(params):
+	time = params.time
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -16,7 +18,7 @@ func _process(delta: float) -> void:
 
 
 func _on_back_to_main_menu_pressed() -> void:
-	GlobalScenes.change_scene(GlobalScenes.Scenes.MainMenu)
+	Transition.change_scene(GlobalScenes.Scenes.MainMenu, 0.3)
 
 func _format_time(seconds: int) -> String:
 	var minutes = seconds / 60

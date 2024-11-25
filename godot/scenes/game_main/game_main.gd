@@ -178,7 +178,7 @@ func _game_over():
 	_current_obstical_scene = null
 	_current_obstical_tile = null
 	# @NOTE: show direct game over
-	Transition.change_scene(GlobalScenes.Scenes.GameOver)
+	Transition.change_scene(GlobalScenes.Scenes.GameOver, 0.25)
 	
 func _win_game():
 	game_timer.paused = true
@@ -192,11 +192,12 @@ func _win_game():
 		content_container.remove_child(_current_obstical_scene)
 	_current_obstical_scene = null
 	_current_obstical_tile = null
-	var win_scene = GlobalScenes.WinScene.instantiate()
-	win_scene.time = _game_time
-	get_tree().current_scene.queue_free()
-	get_tree().root.add_child(win_scene)
-	get_tree().current_scene = win_scene
+	Transition.change_scene(GlobalScenes.Scenes.Win, 0.25, { time = _game_time })
+	#var win_scene = GlobalScenes.WinScene.instantiate()
+	#win_scene.time = _game_time
+	#get_tree().current_scene.queue_free()
+	#get_tree().root.add_child(win_scene)
+	#get_tree().current_scene = win_scene
 	
 func _puzzle_solved():
 	if _game_state == GameState.OBSTACLE:

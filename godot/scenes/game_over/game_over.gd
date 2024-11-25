@@ -10,7 +10,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_back_to_main_menu_pressed() -> void:
-	GlobalScenes.change_scene(GlobalScenes.Scenes.MainMenu)
+	Transition.change_scene(GlobalScenes.Scenes.MainMenu, 0.3)
 
 func _on_restart_pressed() -> void:
-	GlobalScenes.change_scene(GlobalScenes.Scenes.MainGame)
+	Transition.change_scene(GlobalScenes.Scenes.MainGame, 0.1)

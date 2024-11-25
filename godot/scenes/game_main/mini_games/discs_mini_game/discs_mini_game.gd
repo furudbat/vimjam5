@@ -46,7 +46,7 @@ func _ready() -> void:
 		var slice = slices[i]
 		var area = slice.get_node("Area2D")
 		area.input_event.connect(func(viewport, event, shape_idx): _on_slice_input_event(slice, i, viewport, event, shape_idx))
-		area.mouse_exited.connect(func(): _on_slice_mouse_exited(slice))
+		area.mouse_exited.connect(_on_slice_mouse_exited.bind(slice))
 		if start_randomize:
 			slice.rotation_degrees = rotations[i % slices.size()]
 		if i == fixed_slice_index:

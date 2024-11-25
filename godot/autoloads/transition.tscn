@@ -54,6 +54,9 @@ bool_resource = ExtResource("2_45x0v")
 [node name="TextureRect" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_0ckc2")
 custom_minimum_size = Vector2(426, 240)
+offset_left = -1.0
+offset_right = 425.0
+offset_bottom = 240.0
 stretch_mode = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -23,13 +23,12 @@ var _beast_sound: AudioStreamPlayer = null
 @onready var land_sound := %LandingSoundPlayer
 @onready var run_sound := %RunSoundPlayer
 
-@onready var main_game_scene = preload("res://scenes/game_main/game_main.tscn")
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	skip_progress.max_value = SKIP_AT_TIME
 	
-func _on_transition_finished():
+func _on_transition_finished(params):
+	print("_on_transition_finished")
 	slide_show_animation.play("panel1")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -50,7 +49,7 @@ func _process(delta: float) -> void:
 	if _panel > MAX_PANELS:
 		_start_coolown += delta
 	if _start_coolown >= START_AT_TIME or _skip_time_pressed >= SKIP_AT_TIME:
-		get_tree().change_scene_to_packed(main_game_scene)
+		Transition.change_scene(GlobalScenes.Scenes.MainGame, 0.15)
 
 func _physics_process(delta: float) -> void:
 	pass

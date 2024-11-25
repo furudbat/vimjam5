@@ -22,6 +22,7 @@ func _ready() -> void:
 		var scene_path = Scenes[scene_name]
 		assert(ResourceLoader.exists(scene_path), "Invalid path: %s" % scene_path)
 
+## @DEPRECATED: use Transition.change_scene
 # Function to load a scene dynamically
 func change_scene(scene_path: String) -> void:
 	var scene = load(scene_path)
@@ -30,6 +31,7 @@ func change_scene(scene_path: String) -> void:
 	else:
 		push_error("Failed to load scene at path: ", scene_path)
 
+## @DEPRECATED: use Transition.change_scene
 func change_scene_by_name(scene_name: String) -> void:
 	assert(Scenes[scene_name])
 	var scene = load(Scenes[scene_name])
