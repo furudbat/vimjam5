@@ -298,8 +298,7 @@ flat = true
 [node name="SlideShow" type="AnimatedSprite2D" parent="CanvasLayer"]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_22sx3")
-animation = &"panel6"
-autoplay = "panel1"
+animation = &"panel1"
 centered = false
 
 [node name="FireSoundPlayer" type="AudioStreamPlayer" parent="."]

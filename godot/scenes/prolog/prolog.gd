@@ -28,6 +28,9 @@ var _beast_sound: AudioStreamPlayer = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	skip_progress.max_value = SKIP_AT_TIME
+	
+func _on_transition_finished():
+	slide_show_animation.play("panel1")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

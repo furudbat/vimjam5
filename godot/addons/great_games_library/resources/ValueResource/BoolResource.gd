@@ -4,8 +4,11 @@ extends ValueResource
 signal changed_true
 signal changed_false
 
-@export var value:bool : set = set_value
-@export var default_value:bool
+@export var value: bool : set = set_value
+@export var default_value: bool
+
+func get_value():
+	return value
 
 func set_value(_value:bool)->void:
 	if value == _value:

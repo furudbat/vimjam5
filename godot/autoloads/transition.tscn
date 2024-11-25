@@ -1,8 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxj12cduwftxm"]
+[gd_scene load_steps=8 format=3 uid="uid://bxj12cduwftxm"]
 
-[ext_resource type="Script" path="res://scenes/TransitionManager.gd" id="1_t0w4f"]
-[ext_resource type="Resource" uid="uid://df4nqpa0at8qn" path="res://addons/top_down/resources/global_resources/transition_bool_resource.tres" id="2_rmia7"]
-[ext_resource type="Material" uid="uid://dfinp0iie47mi" path="res://addons/top_down/resources/materials/transition_material.tres" id="3_j5syg"]
+[ext_resource type="Script" path="res://autoloads/transition.gd" id="1_t0w4f"]
+[ext_resource type="Resource" uid="uid://df4nqpa0at8qn" path="res://resources/global_resources/transition_bool_resource.tres" id="2_45x0v"]
+[ext_resource type="Shader" path="res://assets/shaders/shader_transition_dither.gdshader" id="3_opyy5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ckc2"]
+shader = ExtResource("3_opyy5")
+shader_parameter/progress = 0.0
 
 [sub_resource type="Animation" id="Animation_y5efb"]
 length = 0.001
@@ -21,7 +25,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_g4wgy"]
 resource_name = "transition"
-length = 0.9
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -29,7 +33,7 @@ tracks/0/path = NodePath("TextureRect:material:shader_parameter/progress")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8),
+"times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [0.0, 1.0]
@@ -45,12 +49,12 @@ _data = {
 layer = 128
 script = ExtResource("1_t0w4f")
 texture_rect = NodePath("TextureRect")
-bool_resource = ExtResource("2_rmia7")
+bool_resource = ExtResource("2_45x0v")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-material = ExtResource("3_j5syg")
-offset_right = 40.0
-offset_bottom = 40.0
+material = SubResource("ShaderMaterial_0ckc2")
+custom_minimum_size = Vector2(426, 240)
+stretch_mode = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

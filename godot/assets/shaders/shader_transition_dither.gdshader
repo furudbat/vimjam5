@@ -2,7 +2,7 @@ shader_type canvas_item;
 
 // --- Uniforms --- //
 
-uniform float intensity: hint_range(0.0, 1.0, 0.05) = 0.0;
+uniform float progress: hint_range(0.0, 1.0, 0.05) = 0.0;
 
 
 // --- Constants --- //
@@ -15,5 +15,5 @@ const mat4 THRESHOLD_MATRIX = mat4(
 // --- Functions --- //
 void fragment() {
 	vec2 uv = UV / TEXTURE_PIXEL_SIZE;
-	COLOR.a *= step(0.0, THRESHOLD_MATRIX[int(uv.x) % 4][int(uv.y) % 4] - intensity);
+	COLOR.a *= step(0.0, THRESHOLD_MATRIX[int(uv.x) % 4][int(uv.y) % 4] - progress);
 }

@@ -68,6 +68,7 @@ Use <kbd>LMB</kbd> to click through the prolog (Comic) or hold <kbd>RMB</kbd> to
 
 - https://github.com/bitbrain/godot-gamejam
 - https://itch.io/jam/vimjam5
+- https://github.com/nezvers/Godot-GameTemplate
 
 ## Credits
 

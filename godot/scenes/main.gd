@@ -33,12 +33,12 @@ func _input(event: InputEvent) -> void:
 
 func _on_new_game_button_pressed() -> void:
 	#SoundManager.play_ui_sound_from_player($MenuSelect)
-	transition.change_scene(GlobalScenes.Scenes.Prolog)
+	Transition.change_scene(GlobalScenes.Scenes.Prolog)
 	
 func _on_continue_button_pressed() -> void:
 	#SoundManager.play_ui_sound_from_player($MenuSelect)
 	_new_game = false
-	transition.change_scene(GlobalScenes.Scenes.Prolog)
+	Transition.change_scene(GlobalScenes.Scenes.Prolog)
 
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()

@@ -178,7 +178,7 @@ func _game_over():
 	_current_obstical_scene = null
 	_current_obstical_tile = null
 	# @NOTE: show direct game over
-	GlobalScenes.change_scene(GlobalScenes.Scenes.GameOver)
+	Transition.change_scene(GlobalScenes.Scenes.GameOver)
 	
 func _win_game():
 	game_timer.paused = true
