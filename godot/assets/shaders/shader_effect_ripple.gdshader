@@ -41,7 +41,7 @@ void fragment() {
 
     // Outline mask
     float outline_mask = 1.0 - rectanglef(fgrid, rect_mask + 0.1, rect_mask + 0.1, 0.0) - grid_mask;
-	outline_mask *= float(enable_outline); // outline disable | enable    
+	outline_mask *= float(enable_outline); // outline disable | enable
     vec4 tex = texture(TEXTURE, UV); // Original texture color and alpha
 
     // Mix ripple effect only on visible areas (tex.a > 0.0)

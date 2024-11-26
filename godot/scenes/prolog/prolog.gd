@@ -8,28 +8,23 @@ var _skip_time_pressed = 0
 var _panel = 1
 var _start_coolown = 0
 
-var _fall_sound: AudioStreamPlayer = null
-var _beast_sound: AudioStreamPlayer = null
-
-@onready var slide_show_animation := %SlideShow
 @onready var skip_progress := %SkipProgressBar
 
+@onready var panel_1: Node2D = %Panel1
+@onready var panel_2: Node2D = %Panel2
+@onready var panel_3: Node2D = %Panel3
+@onready var panel_4: Node2D = %Panel4
+@onready var panel_5_6: Node2D = %Panel56
+
 @onready var fire_sound := %FireSoundPlayer
-@onready var click_sound := %ClickSoundPlayer
-@onready var cave_sound := %CaveSoundPlayer
-@onready var fall_sound := %FallSoundPlayer
-@onready var beast_sound := %BeastSoundPlayer
-@onready var bush_sound := %RustlingSoundPlayer
-@onready var land_sound := %LandingSoundPlayer
-@onready var run_sound := %RunSoundPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	skip_progress.max_value = SKIP_AT_TIME
 	
 func _on_transition_finished(params):
-	print("_on_transition_finished")
-	slide_show_animation.play("panel1")
+	panel_1.visible = true
+	panel_1.get_node("AnimationPlayer").play("panel_1")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -43,8 +38,42 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("primary_action"):
 		if _panel <= MAX_PANELS:
 			_panel += 1
-			if _panel <= MAX_PANELS:
-				slide_show_animation.play("panel%d" % _panel)
+			if _panel == 2:
+				#panel_1.visible = false
+				panel_1.get_node("AnimationPlayer").seek(panel_1.get_node("AnimationPlayer").get_animation("panel_1").length, true)
+				panel_1.get_node("AnimationPlayer").stop(true)
+				panel_2.visible = true
+				panel_2.get_node("AnimationPlayer").play("panel_2")
+				SoundManager.play_ambient_sound_from_player(fire_sound, 0.2)
+			if _panel == 3:
+				#panel_2.visible = false
+				panel_2.get_node("AnimationPlayer").seek(panel_2.get_node("AnimationPlayer").get_animation("panel_2").length, true)
+				panel_2.get_node("AnimationPlayer").stop(true)
+				panel_3.visible = true
+				panel_3.get_node("AnimationPlayer").play("panel_3")
+			if _panel == 4:
+				#panel_3.visible = false
+				panel_3.get_node("AnimationPlayer").seek(panel_3.get_node("AnimationPlayer").get_animation("panel_3").length, true)
+				panel_3.get_node("AnimationPlayer").pause()
+				panel_4.visible = true
+				panel_4.get_node("AnimationPlayer").play("panel_4")
+			if _panel == 5:
+				SoundManager.stop_all_ambient_sounds(0.5)
+				panel_1.visible = false
+				panel_2.visible = false
+				panel_3.visible = false
+				panel_4.visible = false
+				panel_4.get_node("AnimationPlayer").seek(panel_4.get_node("AnimationPlayer").get_animation("panel_4").length, true)
+				panel_4.get_node("AnimationPlayer").pause()
+				panel_5_6.visible = true
+				panel_5_6.get_node("AnimationPlayer").play("panel_5")
+			if _panel == 6:
+				#panel_4.visible = false
+				#panel_4.get_node("AnimationPlayer").seek(panel_4.get_node("AnimationPlayer").get_animation("panel_4").length)
+				#panel_4.get_node("AnimationPlayer").pause()
+				#panel_5_6.visible = true
+				panel_5_6.get_node("AnimationPlayer").play("panel_6")
+				
 		
 	if _panel > MAX_PANELS:
 		_start_coolown += delta
@@ -53,41 +82,3 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	pass
-
-
-func _on_slide_show_frame_changed() -> void:
-	# @NOTE: very hard codes sound play in scnes ... in future use animation tree and audio nodes
-	if slide_show_animation.animation == "panel1":
-		if slide_show_animation.frame == 1:
-			SoundManager.play_ui_sound_from_player(bush_sound)
-	elif slide_show_animation.animation == "panel2":
-		if slide_show_animation.frame == 0:
-			SoundManager.play_ambient_sound_from_player(fire_sound)
-	elif slide_show_animation.animation == "panel3":
-		if slide_show_animation.frame == 2:
-			SoundManager.play_ui_sound_from_player(click_sound)
-	elif slide_show_animation.animation == "panel4":
-		if slide_show_animation.frame == 1:
-			SoundManager.play_ui_sound_from_player(cave_sound)
-		if slide_show_animation.frame == 2:
-			_fall_sound = SoundManager.play_ui_sound_from_player(fall_sound)
-		if _fall_sound and slide_show_animation.frame >= 3:
-			fall_sound.volume_db -= 1.05
-		if slide_show_animation.frame >= 3:
-			slide_show_animation.speed_scale += 1.2
-		if slide_show_animation.frame == 4:
-			SoundManager.stop_all_ambient_sounds(0.5)
-	elif slide_show_animation.animation == "panel5":
-		if slide_show_animation.frame == 0:
-			SoundManager.stop_all_ambient_sounds()
-			slide_show_animation.speed_scale = 1.0
-		if slide_show_animation.frame == 2:
-			SoundManager.play_ui_sound_from_player(land_sound)
-		if slide_show_animation.frame == 4:
-			_beast_sound = SoundManager.play_ui_sound_from_player(beast_sound)
-	elif slide_show_animation.animation == "panel6":
-		if _beast_sound and slide_show_animation.frame >= 0 and slide_show_animation.frame < 3:
-			_beast_sound.volume_db += 0.57
-		if slide_show_animation.frame >= 2 and slide_show_animation.frame <= 4:
-			run_sound.pitch_scale = randf_range(1.25, 1.45)
-			SoundManager.play_ui_sound_from_player(run_sound)

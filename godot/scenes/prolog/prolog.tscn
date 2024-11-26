@@ -1,8 +1,12 @@
-[gd_scene load_steps=42 format=3 uid="uid://ck46epavjai3"]
+[gd_scene load_steps=14 format=3 uid="uid://ck46epavjai3"]
 
 [ext_resource type="Script" path="res://scenes/prolog/prolog.gd" id="1_3y4gn"]
+[ext_resource type="PackedScene" uid="uid://bwq0q75c6c60w" path="res://scenes/prolog/panels/panel_1/panel_1.tscn" id="2_0glj1"]
 [ext_resource type="Texture2D" uid="uid://dqbxmj6d7pr2" path="res://assets/spr_icons_16x16.png" id="2_gguwk"]
-[ext_resource type="Shader" path="res://assets/shaders/shader_transition_dither.gdshader" id="3_5frvy"]
+[ext_resource type="PackedScene" uid="uid://dqrsll13v7vqp" path="res://scenes/prolog/panels/panel_2/panel_2.tscn" id="3_g8wkp"]
+[ext_resource type="PackedScene" uid="uid://dmvx80l04war2" path="res://scenes/prolog/panels/panel_3/panel_3.tscn" id="4_jgd2q"]
+[ext_resource type="PackedScene" uid="uid://ifb2pwb5gp2k" path="res://scenes/prolog/panels/panel_4/panel_4.tscn" id="5_smlac"]
+[ext_resource type="PackedScene" uid="uid://bkkvx4ixwm64x" path="res://scenes/prolog/panels/panel_5_6/panel_5_6.tscn" id="6_kqivy"]
 [ext_resource type="AudioStream" uid="uid://738fidry78b6" path="res://assets/sounds/misc/fire.wav" id="28_hduhr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57le1"]
@@ -20,226 +24,6 @@ region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_tqnm7"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_k3qtk"]
-shader = ExtResource("3_5frvy")
-shader_parameter/intensity = 0.0
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6hhsa"]
-load_path = "res://.godot/imported/Lore-Comic1.png-d0e325aa02da43ba863629f2b48d6b6e.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ic767"]
-load_path = "res://.godot/imported/Lore-Comic2.png-083b6a00759e4cc96fa1d23a2a0cae28.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_55wno"]
-load_path = "res://.godot/imported/Lore-Comic3.png-715459f869183ea13f5821e612e12e7f.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xdihs"]
-load_path = "res://.godot/imported/Lore-Comic4.png-4a7be32b8e74db8b38bba17842bd05f1.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r77gp"]
-load_path = "res://.godot/imported/Lore-Comic5.png-444e31ce77a6d966bb1810112d997ec1.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sp1wt"]
-load_path = "res://.godot/imported/Lore-Comic6.png-930d35b0b291de0d735459a3bd9c90f1.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ys23u"]
-load_path = "res://.godot/imported/Lore-Comic7.png-af6b59ee46ac0166b4a8be59e5b3b2fc.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_aosya"]
-load_path = "res://.godot/imported/Lore-Comic8.png-482ad7f52b6c3f38e061169862014e0c.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_aobix"]
-load_path = "res://.godot/imported/Lore-Comic9.png-69dfb1e650bc68930b0a2d3bd6f27288.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tg773"]
-load_path = "res://.godot/imported/Lore-Comic10.png-20a494c2deafa18f30b9bcbcd828ffb6.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_grklu"]
-load_path = "res://.godot/imported/Lore-Comic11.png-6f93d18cb7597abcb76d1fe2beb99342.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cejjq"]
-load_path = "res://.godot/imported/Lore-Comic12.png-f9257f903d7292e7ee3d7cfdde5ed245.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dihqv"]
-load_path = "res://.godot/imported/Lore-Comic13.png-1be2a2a05bb2a1f547a322c737cb69c1.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_miwq2"]
-load_path = "res://.godot/imported/Lore-Comic14-1.png-1ca89e00548471c6e4249d50488503d3.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ywudg"]
-load_path = "res://.godot/imported/Lore-Comic14-2.png-61776b77111d5f99a35a89687146e6ea.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hbvh2"]
-load_path = "res://.godot/imported/Lore-Comic14-3.png-053cd92ca987bfc08000e11007d2b922.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_74uvj"]
-load_path = "res://.godot/imported/Lore-Comic14-4.png-1a5a17e3a42c3e3611ee0a3b7a8fc178.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ymcyb"]
-load_path = "res://.godot/imported/Lore-Comic14-5.png-2c6756d750940ebeecacc734d8eec4ff.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_30ijq"]
-load_path = "res://.godot/imported/Lore-Comic15.png-45dfc88d7e10a91eea4a451617ca3dcf.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l8jjy"]
-load_path = "res://.godot/imported/Lore-Comic16.png-df03e4bc14f519e190fa5912cd8f58a4.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lf4qa"]
-load_path = "res://.godot/imported/Lore-Comic17.png-d9b8c58e53916d61ccd7a731bfd0cf5a.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qbhqo"]
-load_path = "res://.godot/imported/Lore-Comic18.png-3ea150891e74cc4fc7d5b9cc5cc805ad.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_prmxf"]
-load_path = "res://.godot/imported/Lore-Comic19.png-2ed9e9d9dc97c6b3a21fa6061d6f7a77.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x2gyr"]
-load_path = "res://.godot/imported/Lore-Comic20.png-b9cfc3a975046ac0ac8f96bb4444b2db.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kueec"]
-load_path = "res://.godot/imported/Lore-Comic21.png-145193ad29fd372212bf9b39bffd46e3.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bhk75"]
-load_path = "res://.godot/imported/Lore-Comic22.png-1841c5f14258b9b1540c56c8bf827500.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ct5s8"]
-load_path = "res://.godot/imported/Lore-Comic23.png-5838f6655eb111a59165a9e03d7e5eb9.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_johq1"]
-load_path = "res://.godot/imported/Lore-Comic24.png-6d04158f712ac8c376ced0f654da33b3.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ig5an"]
-load_path = "res://.godot/imported/Lore-Comic25.png-5146acd98d31b6e9cdd699e4efb29b3c.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bmkxh"]
-load_path = "res://.godot/imported/Lore-Comic26.png-7f8ef8b4db5a045085e3b8194f4689e4.ctex"
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_22sx3"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_6hhsa")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_ic767")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_55wno")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_xdihs")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_r77gp")
-}],
-"loop": false,
-"name": &"panel1",
-"speed": 2.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_sp1wt")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_ys23u")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_aosya")
-}],
-"loop": false,
-"name": &"panel2",
-"speed": 2.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_aobix")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_tg773")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_grklu")
-}],
-"loop": false,
-"name": &"panel3",
-"speed": 2.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_cejjq")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_dihqv")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_miwq2")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_ywudg")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_hbvh2")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_74uvj")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_ymcyb")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_30ijq")
-}],
-"loop": false,
-"name": &"panel4",
-"speed": 2.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_l8jjy")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_lf4qa")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_qbhqo")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_prmxf")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_x2gyr")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_kueec")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_bhk75")
-}],
-"loop": false,
-"name": &"panel5",
-"speed": 2.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_ct5s8")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_johq1")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_ig5an")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_bmkxh")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_bmkxh")
-}],
-"loop": false,
-"name": &"panel6",
-"speed": 3.0
-}]
-
 [node name="Intro" type="Node2D"]
 script = ExtResource("1_3y4gn")
 
@@ -253,7 +37,32 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_57le1")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel"]
+[node name="PanelsContainer" type="MarginContainer" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_right = 426.0
+offset_bottom = 240.0
+
+[node name="Panel4" parent="CanvasLayer/Panel/PanelsContainer" instance=ExtResource("5_smlac")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Panel3" parent="CanvasLayer/Panel/PanelsContainer" instance=ExtResource("4_jgd2q")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Panel2" parent="CanvasLayer/Panel/PanelsContainer" instance=ExtResource("3_g8wkp")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Panel1" parent="CanvasLayer/Panel/PanelsContainer" instance=ExtResource("2_0glj1")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Panel56" parent="CanvasLayer/Panel/PanelsContainer" instance=ExtResource("6_kqivy")]
+unique_name_in_owner = true
+visible = false
+
+[node name="ButtonPromtsContainer" type="MarginContainer" parent="CanvasLayer/Panel"]
 z_index = 2
 layout_mode = 1
 anchors_preset = 3
@@ -266,20 +75,20 @@ offset_top = -17.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/ButtonPromtsContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_constants/separation = 2
 
-[node name="SkipProgressBar" type="ProgressBar" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
+[node name="SkipProgressBar" type="ProgressBar" parent="CanvasLayer/Panel/ButtonPromtsContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(34, 18)
 layout_mode = 2
 size_flags_vertical = 1
 show_percentage = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/SkipProgressBar"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/ButtonPromtsContainer/HBoxContainer/SkipProgressBar"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -292,43 +101,43 @@ grow_vertical = 2
 theme_override_constants/separation = 4
 alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/SkipProgressBar/HBoxContainer"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel/ButtonPromtsContainer/HBoxContainer/SkipProgressBar/HBoxContainer"]
 texture = SubResource("AtlasTexture_7ttkq")
 centered = false
 offset = Vector2(0, -2)
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/SkipProgressBar/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel/ButtonPromtsContainer/HBoxContainer/SkipProgressBar/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="SkipLabel" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/SkipProgressBar/HBoxContainer/MarginContainer"]
+[node name="SkipLabel" type="Label" parent="CanvasLayer/Panel/ButtonPromtsContainer/HBoxContainer/SkipProgressBar/HBoxContainer/MarginContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.188235, 0.129412, 0.176471, 1)
 theme_override_font_sizes/font_size = 8
 text = "Skip"
 horizontal_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Panel/ButtonPromtsContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_6p4gn")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/ButtonPromtsContainer/HBoxContainer/PanelContainer"]
 custom_minimum_size = Vector2(34, 0)
 layout_mode = 2
 theme_override_constants/separation = 2
 alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel/ButtonPromtsContainer/HBoxContainer/PanelContainer/HBoxContainer"]
 texture = SubResource("AtlasTexture_gcvl0")
 centered = false
 offset = Vector2(0, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel/ButtonPromtsContainer/HBoxContainer/PanelContainer/HBoxContainer"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="NextLabel" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/PanelContainer/HBoxContainer/MarginContainer"]
+[node name="NextLabel" type="Label" parent="CanvasLayer/Panel/ButtonPromtsContainer/HBoxContainer/PanelContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_font_sizes/font_size = 8
@@ -336,7 +145,7 @@ text = "Next
 "
 horizontal_alignment = 1
 
-[node name="Skip" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
+[node name="Skip" type="Button" parent="CanvasLayer/Panel/ButtonPromtsContainer/HBoxContainer"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(46, 0)
@@ -345,7 +154,7 @@ text = "SKIP"
 icon = SubResource("ViewportTexture_tqnm7")
 flat = true
 
-[node name="Next" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
+[node name="Next" type="Button" parent="CanvasLayer/Panel/ButtonPromtsContainer/HBoxContainer"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(48, 0)
@@ -353,17 +162,8 @@ layout_mode = 2
 text = "NEXT"
 flat = true
 
-[node name="SlideShow" type="AnimatedSprite2D" parent="CanvasLayer"]
-unique_name_in_owner = true
-material = SubResource("ShaderMaterial_k3qtk")
-sprite_frames = SubResource("SpriteFrames_22sx3")
-animation = &"panel1"
-centered = false
-
 [node name="FireSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("28_hduhr")
 volume_db = 5.0
 bus = &"Sound"
-
-[connection signal="frame_changed" from="CanvasLayer/SlideShow" to="." method="_on_slide_show_frame_changed"]
