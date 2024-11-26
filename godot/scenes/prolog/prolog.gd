@@ -69,8 +69,8 @@ func _process(delta: float) -> void:
 				panel_5_6.get_node("AnimationPlayer").play("panel_5")
 			if _panel == 6:
 				#panel_4.visible = false
-				#panel_4.get_node("AnimationPlayer").seek(panel_4.get_node("AnimationPlayer").get_animation("panel_4").length)
-				#panel_4.get_node("AnimationPlayer").pause()
+				panel_5_6.get_node("AnimationPlayer").seek(panel_5_6.get_node("AnimationPlayer").get_animation("panel_5").length, true)
+				panel_5_6.get_node("AnimationPlayer").pause()
 				#panel_5_6.visible = true
 				panel_5_6.get_node("AnimationPlayer").play("panel_6")
 				
