@@ -1,45 +1,9 @@
-[gd_scene load_steps=47 format=3 uid="uid://ck46epavjai3"]
+[gd_scene load_steps=42 format=3 uid="uid://ck46epavjai3"]
 
 [ext_resource type="Script" path="res://scenes/prolog/prolog.gd" id="1_3y4gn"]
 [ext_resource type="Texture2D" uid="uid://dqbxmj6d7pr2" path="res://assets/spr_icons_16x16.png" id="2_gguwk"]
-[ext_resource type="Texture2D" uid="uid://vm7t4v62xok0" path="res://scenes/prolog/panels/pannel_1/Lore-Comic1.png" id="3_jc88h"]
-[ext_resource type="Texture2D" uid="uid://ci6md7oqn7yrd" path="res://scenes/prolog/panels/pannel_1/Lore-Comic2.png" id="4_nh4ks"]
-[ext_resource type="Texture2D" uid="uid://dilgo6a1ialqp" path="res://scenes/prolog/panels/pannel_1/Lore-Comic3.png" id="5_tm5rk"]
-[ext_resource type="Texture2D" uid="uid://c0aoa8o0rsa5i" path="res://scenes/prolog/panels/pannel_1/Lore-Comic4.png" id="6_serov"]
-[ext_resource type="Texture2D" uid="uid://d2fcc0fk6pddv" path="res://scenes/prolog/panels/pannel_1/Lore-Comic5.png" id="7_83u4w"]
-[ext_resource type="Texture2D" uid="uid://bwfdhoh44afiy" path="res://scenes/prolog/panels/pannel_2/Lore-Comic6.png" id="8_mhs16"]
-[ext_resource type="Texture2D" uid="uid://d23s2kojlr0oo" path="res://scenes/prolog/panels/pannel_2/Lore-Comic7.png" id="9_t3prf"]
-[ext_resource type="Texture2D" uid="uid://dm6yji0s0cemb" path="res://scenes/prolog/panels/pannel_2/Lore-Comic8.png" id="10_dotds"]
-[ext_resource type="Texture2D" uid="uid://b4d5ojriukbww" path="res://scenes/prolog/panels/pannel_3/Lore-Comic9.png" id="11_fhgxq"]
-[ext_resource type="Texture2D" uid="uid://c8rth8cc5xfhb" path="res://scenes/prolog/panels/pannel_3/Lore-Comic10.png" id="12_h7unn"]
-[ext_resource type="Texture2D" uid="uid://c87t1vuygokbf" path="res://scenes/prolog/panels/pannel_3/Lore-Comic11.png" id="13_q8bpv"]
-[ext_resource type="Texture2D" uid="uid://ct8gf2u80ow6r" path="res://scenes/prolog/panels/pannel_4/Lore-Comic12.png" id="14_wtf1f"]
-[ext_resource type="Texture2D" uid="uid://tgfn6qg76lx3" path="res://scenes/prolog/panels/pannel_4/Lore-Comic13.png" id="15_sh6bn"]
-[ext_resource type="Texture2D" uid="uid://6e3y4ply2342" path="res://scenes/prolog/panels/pannel_4/Lore-Comic14-2.png" id="16_cmg80"]
-[ext_resource type="Texture2D" uid="uid://86lbrgfjnj0v" path="res://scenes/prolog/panels/pannel_4/Lore-Comic14-1.png" id="16_g3gq3"]
-[ext_resource type="Texture2D" uid="uid://canpjamxny0cx" path="res://scenes/prolog/panels/pannel_4/Lore-Comic14-3.png" id="17_36g0p"]
-[ext_resource type="Texture2D" uid="uid://p4sc3yxhcw8b" path="res://scenes/prolog/panels/pannel_4/Lore-Comic14-4.png" id="18_hbf33"]
-[ext_resource type="Texture2D" uid="uid://cxg7ervt0kh0k" path="res://scenes/prolog/panels/pannel_4/Lore-Comic14-5.png" id="19_usfdm"]
-[ext_resource type="Texture2D" uid="uid://cvqee6vxnj33j" path="res://scenes/prolog/panels/pannel_4/Lore-Comic15.png" id="21_340y2"]
-[ext_resource type="Texture2D" uid="uid://c78or8733g35j" path="res://scenes/prolog/panels/pannel_5/Lore-Comic16.png" id="22_dywyc"]
-[ext_resource type="Texture2D" uid="uid://1khqep75t5fn" path="res://scenes/prolog/panels/pannel_5/Lore-Comic17.png" id="23_i50ja"]
-[ext_resource type="Texture2D" uid="uid://dbsjljf1i00fj" path="res://scenes/prolog/panels/pannel_5/Lore-Comic18.png" id="24_6i1uc"]
-[ext_resource type="Texture2D" uid="uid://ckwy04x5vac1o" path="res://scenes/prolog/panels/pannel_5/Lore-Comic19.png" id="25_4wixw"]
-[ext_resource type="Texture2D" uid="uid://io5pq4ifawtb" path="res://scenes/prolog/panels/pannel_5/Lore-Comic20.png" id="26_nxa1w"]
-[ext_resource type="Texture2D" uid="uid://djvru6k6lnbsg" path="res://scenes/prolog/panels/pannel_5/Lore-Comic21.png" id="27_ruka2"]
+[ext_resource type="Shader" path="res://assets/shaders/shader_transition_dither.gdshader" id="3_5frvy"]
 [ext_resource type="AudioStream" uid="uid://738fidry78b6" path="res://assets/sounds/misc/fire.wav" id="28_hduhr"]
-[ext_resource type="Texture2D" uid="uid://bigo055a7jk31" path="res://scenes/prolog/panels/pannel_5/Lore-Comic22.png" id="28_rb3o1"]
-[ext_resource type="Texture2D" uid="uid://b3oxswbp6kfnp" path="res://scenes/prolog/panels/pannel_6/Lore-Comic23.png" id="29_ujtop"]
-[ext_resource type="Texture2D" uid="uid://cdkt18lvt55r6" path="res://scenes/prolog/panels/pannel_6/Lore-Comic24.png" id="30_w5u77"]
-[ext_resource type="Texture2D" uid="uid://bcmpwmbyx38kg" path="res://scenes/prolog/panels/pannel_6/Lore-Comic25.png" id="31_v8r53"]
-[ext_resource type="Texture2D" uid="uid://gnuvc0smfgki" path="res://scenes/prolog/panels/pannel_6/Lore-Comic26.png" id="32_k56xr"]
-[ext_resource type="AudioStream" uid="uid://bpqwj7pgisumn" path="res://assets/sounds/misc/rustling_of_the_weeds.wav" id="34_fjpag"]
-[ext_resource type="AudioStream" uid="uid://bp42mtr5y8nvl" path="res://assets/sounds/misc/click.wav" id="34_mmcjr"]
-[ext_resource type="AudioStream" uid="uid://c3nenslq8oga3" path="res://assets/sounds/boulder_cave_in/cave_in.wav" id="35_yssan"]
-[ext_resource type="AudioStream" uid="uid://dlep8vgdflt58" path="res://assets/sounds/misc/fall.wav" id="36_mq65k"]
-[ext_resource type="AudioStream" uid="uid://b74ph5ls33txr" path="res://assets/sounds/beast/Roar.wav" id="37_f81ey"]
-[ext_resource type="AudioStream" uid="uid://dx74balur6fig" path="res://assets/sounds/boulder_cave_in/crush.wav" id="39_lvudt"]
-[ext_resource type="AudioStream" uid="uid://bp2c663u5md54" path="res://assets/sounds/footsteps/ogg/Fantozzi-StoneR3.ogg" id="40_yut6f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57le1"]
 bg_color = Color(0.188235, 0.129412, 0.176471, 1)
@@ -56,23 +20,117 @@ region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_tqnm7"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k3qtk"]
+shader = ExtResource("3_5frvy")
+shader_parameter/intensity = 0.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6hhsa"]
+load_path = "res://.godot/imported/Lore-Comic1.png-d0e325aa02da43ba863629f2b48d6b6e.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ic767"]
+load_path = "res://.godot/imported/Lore-Comic2.png-083b6a00759e4cc96fa1d23a2a0cae28.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_55wno"]
+load_path = "res://.godot/imported/Lore-Comic3.png-715459f869183ea13f5821e612e12e7f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xdihs"]
+load_path = "res://.godot/imported/Lore-Comic4.png-4a7be32b8e74db8b38bba17842bd05f1.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r77gp"]
+load_path = "res://.godot/imported/Lore-Comic5.png-444e31ce77a6d966bb1810112d997ec1.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sp1wt"]
+load_path = "res://.godot/imported/Lore-Comic6.png-930d35b0b291de0d735459a3bd9c90f1.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ys23u"]
+load_path = "res://.godot/imported/Lore-Comic7.png-af6b59ee46ac0166b4a8be59e5b3b2fc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_aosya"]
+load_path = "res://.godot/imported/Lore-Comic8.png-482ad7f52b6c3f38e061169862014e0c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_aobix"]
+load_path = "res://.godot/imported/Lore-Comic9.png-69dfb1e650bc68930b0a2d3bd6f27288.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tg773"]
+load_path = "res://.godot/imported/Lore-Comic10.png-20a494c2deafa18f30b9bcbcd828ffb6.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_grklu"]
+load_path = "res://.godot/imported/Lore-Comic11.png-6f93d18cb7597abcb76d1fe2beb99342.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cejjq"]
+load_path = "res://.godot/imported/Lore-Comic12.png-f9257f903d7292e7ee3d7cfdde5ed245.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dihqv"]
+load_path = "res://.godot/imported/Lore-Comic13.png-1be2a2a05bb2a1f547a322c737cb69c1.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_miwq2"]
+load_path = "res://.godot/imported/Lore-Comic14-1.png-1ca89e00548471c6e4249d50488503d3.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ywudg"]
+load_path = "res://.godot/imported/Lore-Comic14-2.png-61776b77111d5f99a35a89687146e6ea.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hbvh2"]
+load_path = "res://.godot/imported/Lore-Comic14-3.png-053cd92ca987bfc08000e11007d2b922.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_74uvj"]
+load_path = "res://.godot/imported/Lore-Comic14-4.png-1a5a17e3a42c3e3611ee0a3b7a8fc178.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ymcyb"]
+load_path = "res://.godot/imported/Lore-Comic14-5.png-2c6756d750940ebeecacc734d8eec4ff.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_30ijq"]
+load_path = "res://.godot/imported/Lore-Comic15.png-45dfc88d7e10a91eea4a451617ca3dcf.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l8jjy"]
+load_path = "res://.godot/imported/Lore-Comic16.png-df03e4bc14f519e190fa5912cd8f58a4.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lf4qa"]
+load_path = "res://.godot/imported/Lore-Comic17.png-d9b8c58e53916d61ccd7a731bfd0cf5a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qbhqo"]
+load_path = "res://.godot/imported/Lore-Comic18.png-3ea150891e74cc4fc7d5b9cc5cc805ad.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_prmxf"]
+load_path = "res://.godot/imported/Lore-Comic19.png-2ed9e9d9dc97c6b3a21fa6061d6f7a77.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x2gyr"]
+load_path = "res://.godot/imported/Lore-Comic20.png-b9cfc3a975046ac0ac8f96bb4444b2db.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kueec"]
+load_path = "res://.godot/imported/Lore-Comic21.png-145193ad29fd372212bf9b39bffd46e3.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bhk75"]
+load_path = "res://.godot/imported/Lore-Comic22.png-1841c5f14258b9b1540c56c8bf827500.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ct5s8"]
+load_path = "res://.godot/imported/Lore-Comic23.png-5838f6655eb111a59165a9e03d7e5eb9.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_johq1"]
+load_path = "res://.godot/imported/Lore-Comic24.png-6d04158f712ac8c376ced0f654da33b3.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ig5an"]
+load_path = "res://.godot/imported/Lore-Comic25.png-5146acd98d31b6e9cdd699e4efb29b3c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bmkxh"]
+load_path = "res://.godot/imported/Lore-Comic26.png-7f8ef8b4db5a045085e3b8194f4689e4.ctex"
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_22sx3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_jc88h")
+"texture": SubResource("CompressedTexture2D_6hhsa")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_nh4ks")
+"texture": SubResource("CompressedTexture2D_ic767")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_tm5rk")
+"texture": SubResource("CompressedTexture2D_55wno")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_serov")
+"texture": SubResource("CompressedTexture2D_xdihs")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_83u4w")
+"texture": SubResource("CompressedTexture2D_r77gp")
 }],
 "loop": false,
 "name": &"panel1",
@@ -80,13 +138,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_mhs16")
+"texture": SubResource("CompressedTexture2D_sp1wt")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_t3prf")
+"texture": SubResource("CompressedTexture2D_ys23u")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_dotds")
+"texture": SubResource("CompressedTexture2D_aosya")
 }],
 "loop": false,
 "name": &"panel2",
@@ -94,13 +152,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_fhgxq")
+"texture": SubResource("CompressedTexture2D_aobix")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_h7unn")
+"texture": SubResource("CompressedTexture2D_tg773")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_q8bpv")
+"texture": SubResource("CompressedTexture2D_grklu")
 }],
 "loop": false,
 "name": &"panel3",
@@ -108,28 +166,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("14_wtf1f")
+"texture": SubResource("CompressedTexture2D_cejjq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_sh6bn")
+"texture": SubResource("CompressedTexture2D_dihqv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_g3gq3")
+"texture": SubResource("CompressedTexture2D_miwq2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_cmg80")
+"texture": SubResource("CompressedTexture2D_ywudg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_36g0p")
+"texture": SubResource("CompressedTexture2D_hbvh2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("18_hbf33")
+"texture": SubResource("CompressedTexture2D_74uvj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_usfdm")
+"texture": SubResource("CompressedTexture2D_ymcyb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("21_340y2")
+"texture": SubResource("CompressedTexture2D_30ijq")
 }],
 "loop": false,
 "name": &"panel4",
@@ -137,25 +195,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("22_dywyc")
+"texture": SubResource("CompressedTexture2D_l8jjy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("23_i50ja")
+"texture": SubResource("CompressedTexture2D_lf4qa")
 }, {
 "duration": 1.0,
-"texture": ExtResource("24_6i1uc")
+"texture": SubResource("CompressedTexture2D_qbhqo")
 }, {
 "duration": 1.0,
-"texture": ExtResource("25_4wixw")
+"texture": SubResource("CompressedTexture2D_prmxf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("26_nxa1w")
+"texture": SubResource("CompressedTexture2D_x2gyr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("27_ruka2")
+"texture": SubResource("CompressedTexture2D_kueec")
 }, {
 "duration": 1.0,
-"texture": ExtResource("28_rb3o1")
+"texture": SubResource("CompressedTexture2D_bhk75")
 }],
 "loop": false,
 "name": &"panel5",
@@ -163,19 +221,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("29_ujtop")
+"texture": SubResource("CompressedTexture2D_ct5s8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("30_w5u77")
+"texture": SubResource("CompressedTexture2D_johq1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("31_v8r53")
+"texture": SubResource("CompressedTexture2D_ig5an")
 }, {
 "duration": 1.0,
-"texture": ExtResource("32_k56xr")
+"texture": SubResource("CompressedTexture2D_bmkxh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("32_k56xr")
+"texture": SubResource("CompressedTexture2D_bmkxh")
 }],
 "loop": false,
 "name": &"panel6",
@@ -297,6 +355,7 @@ flat = true
 
 [node name="SlideShow" type="AnimatedSprite2D" parent="CanvasLayer"]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_k3qtk")
 sprite_frames = SubResource("SpriteFrames_22sx3")
 animation = &"panel1"
 centered = false
@@ -305,54 +364,6 @@ centered = false
 unique_name_in_owner = true
 stream = ExtResource("28_hduhr")
 volume_db = 5.0
-bus = &"Sound"
-
-[node name="ClickSoundPlayer" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("34_mmcjr")
-volume_db = -5.0
-pitch_scale = 0.16
-bus = &"Sound"
-
-[node name="CaveSoundPlayer" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("35_yssan")
-volume_db = -3.0
-pitch_scale = 1.2
-bus = &"Sound"
-
-[node name="FallSoundPlayer" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("36_mq65k")
-volume_db = -15.0
-pitch_scale = 0.91
-bus = &"Sound"
-
-[node name="BeastSoundPlayer" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("37_f81ey")
-volume_db = 7.0
-pitch_scale = 1.67
-bus = &"Sound"
-
-[node name="RustlingSoundPlayer" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("34_fjpag")
-volume_db = -10.0
-bus = &"Sound"
-
-[node name="LandingSoundPlayer" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("39_lvudt")
-volume_db = -10.0
-pitch_scale = 1.9
-bus = &"Sound"
-
-[node name="RunSoundPlayer" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("40_yut6f")
-volume_db = -6.0
-pitch_scale = 1.27
 bus = &"Sound"
 
 [connection signal="frame_changed" from="CanvasLayer/SlideShow" to="." method="_on_slide_show_frame_changed"]
