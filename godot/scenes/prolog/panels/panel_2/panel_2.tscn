@@ -33,7 +33,7 @@ variation_embolden = 0.09
 variation_embolden = 0.07
 
 [sub_resource type="Animation" id="Animation_a0npq"]
-length = 0.001
+length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
