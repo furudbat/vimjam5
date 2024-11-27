@@ -78,6 +78,7 @@ func _process(delta: float) -> void:
 	if _panel > MAX_PANELS:
 		_start_coolown += delta
 	if _start_coolown >= START_AT_TIME or _skip_time_pressed >= SKIP_AT_TIME:
+		SoundManager.stop_all_ambient_sounds()
 		Transition.change_scene(GlobalScenes.Scenes.MainGame, 0.15)
 
 func _physics_process(delta: float) -> void:

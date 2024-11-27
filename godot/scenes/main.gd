@@ -15,6 +15,8 @@ var _new_game: bool = true
 func _ready() -> void:
 	SoundManager.set_default_music_bus("Music")
 	SoundManager.set_default_sound_bus("Sound")
+	SoundManager.set_default_ui_sound_bus("Sound")
+	SoundManager.set_default_ambient_sound_bus("Sound")
 	continue_button.visible = SaveGame.has_save() and SaveGame.ENABLED
 	if OS.has_feature("HTML5"):
 		# @NOTE: disabled for web

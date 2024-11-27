@@ -167,7 +167,7 @@ func _play_click_clack():
 
 	complete_slice_sound.pitch_scale = PART_1_PITCH
 	_slice_part_1_player = SoundManager.play_sound_from_player(complete_slice_sound)
-	_slice_part_1_player.volume_db = complete_slice_sound.volume_db + 1.56 # make first click a bit louder
+	_slice_part_1_player.volume_db = complete_slice_sound.volume_db + 5.56 # make first click a bit louder
 	# wait for part 1 sound (click) to finish
 	get_tree().create_timer(SLICE_COMPLETE_DEPLAY_SEC).timeout.connect(func(): 
 		# play part 2 of click **clack** sound
