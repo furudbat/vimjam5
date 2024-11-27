@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dmf4aww4lq23r" path="res://scenes/game_main/map/tiles/vines_2_tile.tscn" id="6_uxyts"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_85iyn"]
 [ext_resource type="PackedScene" uid="uid://b5kdkv3ei5is2" path="res://scenes/game_main/map/tiles/discs_1_tile.tscn" id="9_dl65r"]
-[ext_resource type="PackedScene" uid="uid://37pi682b5rk1" path="res://scenes/game_main/map/tiles/discs_2_tile.tscn" id="10_ola1k"]
+[ext_resource type="PackedScene" path="res://scenes/game_main/map/tiles/discs_2_tile.tscn" id="10_ola1k"]
 [ext_resource type="Texture2D" uid="uid://duv4t31k22mo2" path="res://scenes/game_main/map/entities/enemy/spr_beast.png" id="11_e6trj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8b1bm"]
@@ -84,7 +84,7 @@ sources/0 = SubResource("TileSetScenesCollectionSource_ok6up")
 
 [sub_resource type="Curve2D" id="Curve2D_1j8rf"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 207, 462, 0, 0, 0, 0, 207, -878, 0, 0, 0, 0, 207, -6160)
+"points": PackedVector2Array(0, 0, 0, 0, 207, 462, 0, 0, 0, 0, 207, -878, 0, 0, 0, 0, 208, -6048)
 }
 point_count = 3
 
@@ -143,13 +143,14 @@ tile_set = SubResource("TileSet_08081")
 
 [node name="Path2D" type="Path2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(1, -222)
 curve = SubResource("Curve2D_1j8rf")
 
 [node name="PlayerPath" type="PathFollow2D" parent="Path2D"]
 unique_name_in_owner = true
-position = Vector2(207, 313.831)
+position = Vector2(207, 356.711)
 rotation = -1.5708
-progress = 148.17
+progress = 105.29
 rotates = false
 loop = false
 
@@ -180,7 +181,7 @@ frame_progress = 0.316073
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 physics_interpolation_mode = 1
-position = Vector2(207, 313.831)
+position = Vector2(208, 134.711)
 rotation = 0.0023483
 script = ExtResource("6_a0lot")
 follow_mode = 5
