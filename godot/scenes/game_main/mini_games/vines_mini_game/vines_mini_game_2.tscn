@@ -107,7 +107,7 @@ script = ExtResource("4_abqqj")
 [node name="VineCutSound1" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("6_owl07")
-volume_db = 13.0
+volume_db = 3.0
 pitch_scale = 0.93
 bus = &"Sound"
 

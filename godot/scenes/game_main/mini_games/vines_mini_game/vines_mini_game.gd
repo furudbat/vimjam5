@@ -88,9 +88,11 @@ func _input(event):
 				#cut_drawer.clear_points()
 				_line_start = Vector2(-MAX_CUT_LENGTH - 5, -MAX_CUT_LENGTH - 5)
 				_line_end = Vector2(-MAX_CUT_LENGTH - 5, -MAX_CUT_LENGTH - 5)
-				if cut_sound:
-					cut_sound.pitch_scale = randf_range(0.78, 1.14)
-					cut_sound.play()
+				# only play sound at minimum cut length
+				if _line_end.distance_squared_to(_line_start) <= MAX_CUT_LENGTH*MAX_CUT_LENGTH:
+					if cut_sound:
+						cut_sound.pitch_scale = randf_range(0.78, 1.14)
+						SoundManager.play_ui_sound_from_player(cut_sound)
 
 # Draw the line
 #func _draw():

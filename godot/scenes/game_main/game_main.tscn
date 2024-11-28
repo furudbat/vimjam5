@@ -156,7 +156,7 @@ bus = &"Sound"
 [node name="Bgm" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("7_ql71s")
-volume_db = -2.811
+volume_db = -20.0
 bus = &"Music"
 
 [connection signal="get_obsticales_counter" from="Map" to="." method="_on_map_get_obsticales_counter"]
