@@ -52,8 +52,9 @@ func _process(delta: float) -> void:
 	# Debug
 	if OS.is_debug_build():
 		if Input.is_key_pressed(KEY_F6):
-			player_path.progress_ratio = 0.9
-
+			#player_path.progress_ratio = 0.9
+			player_path.progress = 105
+			
 func _physics_process(delta: float) -> void:
 	enemy.enemy_velocity = enemy_velocity
 	player.player_velocity = player_velocity
@@ -61,10 +62,9 @@ func _physics_process(delta: float) -> void:
 	if player_is_moving:
 		player_path.progress += player_velocity.y
 	
-	enemy_path.progress = player_path.progress - distance*Constants.TILE_PX_PER_M
+	enemy_path.progress = player_path.progress - distance*Constants.TILE_PX_PER_M + 25
 	#if enemy_is_moving:
 	#	enemy_path.progress = enemy_path.progress + enemy_velocity.y
-	
 	# Win
 	if active and player_path.progress_ratio >= 1.0:
 		player_reach_end.emit()

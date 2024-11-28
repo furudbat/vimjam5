@@ -25,7 +25,7 @@ unique_name_in_owner = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(207, 143.831)
+position = Vector2(208, -35.2886)
 rotation = 0.0023483
 process_callback = 0
 
