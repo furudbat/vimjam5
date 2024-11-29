@@ -29,6 +29,7 @@ shader_parameter/enable_shake = false
 shader_parameter/shake_strength = 0.5
 shader_parameter/shake_bias_x = 0.01
 shader_parameter/shake_bias_y = 0.01
+shader_parameter/shake_speed = 10.0
 shader_parameter/randomness_seed = Vector2(12.9898, 78.233)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rtpgq"]
@@ -38,6 +39,7 @@ shader_parameter/enable_shake = false
 shader_parameter/shake_strength = 0.5
 shader_parameter/shake_bias_x = 0.01
 shader_parameter/shake_bias_y = 0.01
+shader_parameter/shake_speed = 10.0
 shader_parameter/randomness_seed = Vector2(12.9898, 78.233)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mtfwo"]
@@ -47,6 +49,7 @@ shader_parameter/enable_shake = false
 shader_parameter/shake_strength = 0.5
 shader_parameter/shake_bias_x = 0.01
 shader_parameter/shake_bias_y = 0.01
+shader_parameter/shake_speed = 10.0
 shader_parameter/randomness_seed = Vector2(12.9898, 78.233)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_38ppv"]
@@ -73,6 +76,7 @@ shader_parameter/enable_shake = false
 shader_parameter/shake_strength = 0.5
 shader_parameter/shake_bias_x = 0.02
 shader_parameter/shake_bias_y = 0.02
+shader_parameter/shake_speed = 10.0
 shader_parameter/randomness_seed = Vector2(12.9898, 78.233)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h8om5"]
@@ -82,6 +86,7 @@ shader_parameter/enable_shake = false
 shader_parameter/shake_strength = 0.78
 shader_parameter/shake_bias_x = 0.02
 shader_parameter/shake_bias_y = 0.02
+shader_parameter/shake_speed = 10.0
 shader_parameter/randomness_seed = Vector2(12.9898, 78.233)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g0sj7"]
@@ -95,6 +100,7 @@ shader_parameter/enable_shake = false
 shader_parameter/shake_strength = 0.5
 shader_parameter/shake_bias_x = 0.02
 shader_parameter/shake_bias_y = 0.02
+shader_parameter/shake_speed = 10.0
 shader_parameter/randomness_seed = Vector2(12.9898, 78.233)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3fyy0"]

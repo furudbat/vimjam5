@@ -6,7 +6,8 @@ uniform bool enable_shake = false;
 uniform float shake_strength: hint_range(0.0, 1.0, 0.01) = 0.5;
 uniform float shake_bias_x: hint_range(0.0, 0.1, 0.01) = 0.01;
 uniform float shake_bias_y: hint_range(0.0, 0.1, 0.01) = 0.01;
-uniform vec2 randomness_seed = vec2(12.9898, 78.233);
+uniform float shake_speed: hint_range(10.0, 1000.0, 10.0) = 10.0;
+uniform vec2 randomness_seed = vec2(62.9898, 78.233);
 
 // --- Constants --- //
 const mat4 THRESHOLD_MATRIX = mat4(
@@ -25,9 +26,10 @@ void fragment() {
     vec2 uv = UV;
 
     // Compute the shake offsets
-    float dampened_strength = shake_strength * 0.5;
-    float offset_x = (random(vec2(TIME, 0.0)) * 2.0 - 1.0) * dampened_strength * shake_bias_x;
-    float offset_y = (random(vec2(TIME, 1.0)) * 2.0 - 1.0) * dampened_strength * shake_bias_y;
+    float dampened_strength = shake_strength * 0.5; // Halve the strength for a more subtle shake effect
+	float adjusted_time = TIME * 1.0/(shake_speed*500.0); // we need a very low number to influence the aktual speed, 500 is used to amplify: 1.0/(1000*500)=0.000002
+    float offset_x = (random(vec2(adjusted_time, 0.0)) * 2.0 - 1.0) * dampened_strength * shake_bias_x;
+    float offset_y = (random(vec2(adjusted_time, 1.0)) * 2.0 - 1.0) * dampened_strength * shake_bias_y;
 
     vec2 shake_offset = vec2(offset_x, offset_y);
 
