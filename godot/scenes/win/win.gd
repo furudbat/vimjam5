@@ -6,8 +6,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# @TODO: play winning screen music
-	SoundManager.stop_music(0.3)
+	SoundManager.play_music_from_player($Bgm, 0.3)
 
 func _on_transition_finished(params):
 	time = params.time

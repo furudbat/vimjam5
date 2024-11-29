@@ -89,7 +89,11 @@ unique_name_in_owner = true
 [node name="BugSound1" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("2_c4sig")
-volume_db = -6.0
+bus = &"Sound"
+
+[node name="BugSound2" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_v1j85")
 bus = &"Sound"
 
 [node name="WinSoundPlayer" type="AudioStreamPlayer" parent="."]
@@ -102,11 +106,5 @@ bus = &"Sound"
 [node name="WinTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 0.6
-
-[node name="BugSound2" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("5_v1j85")
-volume_db = -2.0
-bus = &"Sound"
 
 [connection signal="timeout" from="PanelContainer/MiniGame/MobTimer" to="." method="_on_mob_timer_timeout"]

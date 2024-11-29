@@ -62,7 +62,7 @@ func _ready() -> void:
 	_reset_timer()
 	level_timer.start(Constants.TIMER_TIME_SEC)
 	
-	SoundManager.play_music_from_player($Bgm)
+	SoundManager.play_music_from_player($Bgm, 0.5)
 	
 func _process(delta: float) -> void:
 	if _game_state == GameState.GAME_OVER:

@@ -15,16 +15,17 @@ Solve Microgames like in WarioWare and escape the Beast.
 ## Features
 
 - [x] Title Screen
-- [ ] Music and Sound
+- [x] Music and Sound
     - [x] Settings
 - [x] Intro: Comic
+    - [x] Shader, effects
 - [x] Map - auto run, solve obstacles to keep running
     - [x] reach Exit -> Win
 - [x] Timer (Countdown) - beast gets big boost
 - [x] Beast Meter - see the distance of the beast
 - [x] Game Over - when beast is catched up
 - [x] Solve Microgames (obstacles)
-    - [x] 3/? Microgames
+    - [x] 4/? Microgames
         - [x] win conditions
         - [ ] ~~stun by making mistakes~~
     - [x] show Contols/Mouse promts
@@ -79,10 +80,6 @@ Use <kbd>LMB</kbd> to click through the prolog (Comic) or hold <kbd>RMB</kbd> to
 ### 3rd party assets
 
 #### Music
-    
-    "Thunderhead" Kevin MacLeod (incompetech.com)
-    Licensed under Creative Commons: By Attribution 4.0 License
-    http://creativecommons.org/licenses/by/4.0/
 
     "The Complex" Kevin MacLeod (incompetech.com)
     Licensed under Creative Commons: By Attribution 4.0
@@ -91,6 +88,7 @@ Use <kbd>LMB</kbd> to click through the prolog (Comic) or hold <kbd>RMB</kbd> to
 - by Kevin MacLeod ([incompetech.com](https://incompetech.com/music/royalty-free/music.html)) - [Creative Commons: By Attribution 4.0 License](http://creativecommons.org/licenses/by/4.0/)
 
 - Sinister Instrumental Music: [Antenalosmusic](https://freesound.org/people/Antenalosmusic/sounds/731713/) - [CC0 ; Public Domain](https://creativecommons.org/publicdomain/zero/1.0/)
+- Ancient Ruins: [Wolfgang_](https://opengameart.org/content/ancient-ruins) - [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
 
 
 #### Sound

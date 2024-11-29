@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 	
 func _master_volume_button_on_click(active):
 	if not active:
-		# @FIXME: update only slider value (for view, not UserSettings)
+		# FIXME: update only slider value (for view, not UserSettings)
 		#master_volume_slider.value = 0
 		pass
 	else:
@@ -33,7 +33,7 @@ func _master_volume_button_on_click(active):
 		
 func _music_volume_button_on_click(active):
 	if not active:
-		# @FIXME: update only slider value (for view, not UserSettings)
+		# FIXME: update only slider value (for view, not UserSettings)
 		#music_volume_slider.value = 0
 		pass
 	else:
@@ -42,7 +42,7 @@ func _music_volume_button_on_click(active):
 func _sound_volume_button_on_click(active):
 	sound_active = active
 	if not active:
-		# @FIXME: update only slider value (for view, not UserSettings)
+		# FIXME: update only slider value (for view, not UserSettings)
 		#sound_volume_slider.value = 0
 		pass
 	else:
