@@ -1,12 +1,12 @@
 shader_type canvas_item;
 
 // --- Uniforms --- //
-uniform float dither_intensity: hint_range(0.0, 1.0, 0.05) = 0.0; // Dissolve intensity
-uniform bool enable_shake = false;                          // Enable or disable the shake
-uniform float shake_strength: hint_range(0.0, 1.0, 0.01) = 0.5; // Overall shake strength
-uniform float shake_bias_x: hint_range(0.0, 0.1, 0.01) = 0.01;   // Horizontal shake bias
-uniform float shake_bias_y: hint_range(0.0, 0.1, 0.01) = 0.01;   // Vertical shake bias
-uniform vec2 randomness_seed = vec2(12.9898, 78.233);           // Randomness seed
+uniform float dither_intensity: hint_range(0.0, 1.0, 0.05) = 0.0; 
+uniform bool enable_shake = false;
+uniform float shake_strength: hint_range(0.0, 1.0, 0.01) = 0.5;
+uniform float shake_bias_x: hint_range(0.0, 0.1, 0.01) = 0.01;
+uniform float shake_bias_y: hint_range(0.0, 0.1, 0.01) = 0.01;
+uniform vec2 randomness_seed = vec2(12.9898, 78.233);
 
 // --- Constants --- //
 const mat4 THRESHOLD_MATRIX = mat4(
@@ -16,7 +16,6 @@ const mat4 THRESHOLD_MATRIX = mat4(
     vec4(16.0 / 17.0,  8.0 / 17.0, 14.0 / 17.0,  6.0 / 17.0));
 
 // --- Functions --- //
-
 // Random number generator based on UV coordinates
 float random(vec2 seed) {
     return fract(sin(dot(seed.xy, randomness_seed)) * 43758.5453);
@@ -26,13 +25,12 @@ void fragment() {
     vec2 uv = UV;
 
     // Compute the shake offsets
-    float dampened_strength = shake_strength * 0.5; // Dampened strength
+    float dampened_strength = shake_strength * 0.5;
     float offset_x = (random(vec2(TIME, 0.0)) * 2.0 - 1.0) * dampened_strength * shake_bias_x;
     float offset_y = (random(vec2(TIME, 1.0)) * 2.0 - 1.0) * dampened_strength * shake_bias_y;
 
     vec2 shake_offset = vec2(offset_x, offset_y);
 
-    // Apply shake only if enabled
     uv += shake_offset * float(enable_shake);
 
     // Handle dithering dissolve
@@ -48,6 +46,5 @@ void fragment() {
     vec4 tex_color = texture(TEXTURE, uv_clamped);
     vec4 dissolved_color = vec4(tex_color.rgb * dissolve_factor, tex_color.a * dissolve_factor);
 
-    // Blend based on the bounds mask
-    COLOR = dissolved_color * in_bounds;
+    COLOR = dissolved_color * in_bounds;     // Blend based on the bounds mask
 }
