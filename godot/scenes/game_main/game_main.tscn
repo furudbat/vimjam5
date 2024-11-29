@@ -25,7 +25,7 @@ unique_name_in_owner = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(208, -35.2886)
+position = Vector2(208, -35.2888)
 rotation = 0.0023483
 process_callback = 0
 
@@ -156,7 +156,7 @@ bus = &"Sound"
 [node name="Bgm" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("7_ql71s")
-volume_db = -20.0
+volume_db = -35.0
 bus = &"Music"
 
 [connection signal="get_obsticales_counter" from="Map" to="." method="_on_map_get_obsticales_counter"]

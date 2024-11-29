@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxerg3ta8pl54"]
+[gd_scene load_steps=9 format=3 uid="uid://cxerg3ta8pl54"]
 
 [ext_resource type="Script" path="res://scenes/win/win.gd" id="1_eggqx"]
 [ext_resource type="Texture2D" uid="uid://dxucpedb6sctc" path="res://scenes/game_main/map/entities/player/spr_player.png" id="2_8ktpc"]
+[ext_resource type="AudioStream" uid="uid://dai1khfl8a2f5" path="res://assets/music/bgm7.ogg" id="3_0vr4l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_atuew"]
 bg_color = Color(0.188235, 0.129412, 0.176471, 1)
@@ -92,5 +93,8 @@ position = Vector2(213, 199)
 sprite_frames = SubResource("SpriteFrames_4hh3x")
 autoplay = "default"
 frame_progress = 0.903115
+
+[node name="Bgm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0vr4l")
 
 [connection signal="pressed" from="CanvasLayer/Panel/CenterContainer/VBoxContainer/MarginContainer/BackToMainMenu" to="." method="_on_back_to_main_menu_pressed"]

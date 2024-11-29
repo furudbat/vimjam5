@@ -33,7 +33,7 @@ func _on_won() -> void:
 		all_bug_sound.pitch_scale = randf_range(0.83, 1.34)
 		SoundManager.play_ui_sound_from_player(all_bug_sound)
 
-		# @FIXME: race condition with scene switching (game over)
+		# FIXME: race condition with scene switching (game over)
 		if get_tree():
 			var bugs = get_tree().get_nodes_in_group("Bugs")
 			for bug in bugs:

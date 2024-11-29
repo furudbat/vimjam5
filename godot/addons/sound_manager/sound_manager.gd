@@ -185,6 +185,7 @@ func play_music_from_position_at_volume(resource: AudioStream, position: float =
 
 func play_music_from_player(resource: AudioStreamPlayer, crossfade_duration: float = 0.0, override_bus: String = "") -> AudioStreamPlayer:
 	var player = music.play(resource.stream, 0.0, db_to_linear(resource.volume_db), crossfade_duration, override_bus)
+	player.volume_db = resource.volume_db
 	player.pitch_scale = resource.pitch_scale
 	return player
 

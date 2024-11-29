@@ -114,7 +114,7 @@ bus = &"Sound"
 [node name="VineRustleSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("8_hwjce")
-volume_db = -25.0
+volume_db = -10.0
 bus = &"Sound"
 
 [node name="WinTimer" type="Timer" parent="."]

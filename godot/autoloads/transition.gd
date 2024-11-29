@@ -41,7 +41,7 @@ func _post_draw(scene_path: String, transition_time: float, parameters: Dictiona
 func _scene_loaded(scene: PackedScene, transition_time: float, parameters: Dictionary)->void:
 	assert(scene != null)
 	get_tree().change_scene_to_packed(scene)
-	# @TODO: pass exported scene parameters into scene
+	# TODO: pass exported scene parameters into scene
 	#get_tree().process_frame.connect(_connect_transition_finished_to_scene, CONNECT_ONE_SHOT)
 	_scene_loading = true
 	_scene_parameters = parameters
@@ -59,7 +59,7 @@ func _transition_progress(t: float)->void:
 func _transition_finished()->void:
 	visible = false
 	bool_resource.set_value(false)
-	# @TODO: better transition, race condition for then scene is loaded and callback
+	# TODO: better transition, race condition for then scene is loaded and callback
 	# Ensure the current scene is ready to handle the signal
 	var new_scene = get_tree().current_scene
 	if new_scene and new_scene.has_method("_on_transition_finished"):
@@ -67,7 +67,7 @@ func _transition_finished()->void:
 			transition_finished.connect(new_scene._on_transition_finished, CONNECT_ONE_SHOT)
 			print_debug("connect transition_finished", new_scene.name, new_scene._on_transition_finished)
 			
-	# @FIXME: didn't gets called new_scene._on_transition_finished
+	# FIXME: didn't gets called new_scene._on_transition_finished
 	#transition_finished.emit(_scene_parameters)
 	if new_scene and new_scene.has_method("_on_transition_finished"):
 		print_debug("emit transition_finished", new_scene.name, new_scene._on_transition_finished)
@@ -79,7 +79,7 @@ func _transition_finished()->void:
 func _process(delta: float) -> void:
 	if _scene_loading:
 		var new_scene = get_tree().current_scene
-		# @TODO: better transition, race condition for then scene is loaded and callback
+		# TODO: better transition, race condition for then scene is loaded and callback
 		if new_scene and new_scene.has_method("_on_transition_finished"):
 			if bool_resource.get_value() and _scene_loading:
 				if not transition_finished.is_connected(new_scene._on_transition_finished):

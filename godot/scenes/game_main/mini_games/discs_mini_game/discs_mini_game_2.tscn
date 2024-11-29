@@ -178,12 +178,13 @@ quality = 64
 [node name="CompleteSilce" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("17_3utl1")
-volume_db = -9.0
+volume_db = -5.0
 bus = &"Sound"
 
 [node name="MoveSlice" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("18_r713l")
+volume_db = 10.0
 bus = &"Sound"
 
 [node name="WinTimer" type="Timer" parent="."]

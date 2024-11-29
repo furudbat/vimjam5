@@ -32,7 +32,7 @@ const MAP_MOVEMENT_SPEED_UP: float = 0.38
 
 # Levels
 #const MAX_GAMES = 1
-# @FIXME: randomize levels
+# FIXME: randomize levels
 #func _random_game():
 	#if MAX_GAMES == 0:
 		#return 0
