@@ -15,16 +15,17 @@ Solve Microgames like in WarioWare and escape the Beast.
 ## Features
 
 - [x] Title Screen
-- [ ] Music and Sound
+- [x] Music and Sound
     - [x] Settings
 - [x] Intro: Comic
+    - [x] Shader, effects
 - [x] Map - auto run, solve obstacles to keep running
     - [x] reach Exit -> Win
 - [x] Timer (Countdown) - beast gets big boost
 - [x] Beast Meter - see the distance of the beast
 - [x] Game Over - when beast is catched up
 - [x] Solve Microgames (obstacles)
-    - [x] 3/? Microgames
+    - [x] 4/? Microgames
         - [x] win conditions
         - [ ] ~~stun by making mistakes~~
     - [x] show Contols/Mouse promts
