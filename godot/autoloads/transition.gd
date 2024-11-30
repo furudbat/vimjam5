@@ -23,22 +23,35 @@ func _post_draw(scene_path: String, transition_time: float, parameters: Dictiona
 	var _game_resolution: Vector2i = get_viewport().content_scale_size
 	var _viewport_size: Vector2i = get_viewport().size
 	var _multiply: float = _game_resolution.y / float(_viewport_size.y)
+	#print_debug(_game_resolution)
+	#print_debug(_viewport_size)
 	
 	# get texture from the screen
 	var _image: Image = get_viewport().get_texture().get_image()
 	_image.resize(int(ceil(_viewport_size.x * _multiply)), _game_resolution.y, Image.INTERPOLATE_NEAREST)
 	var _image_texture: ImageTexture = ImageTexture.create_from_image(_image)
 	texture_rect.texture = _image_texture
+	#print_debug(_image.get_size())
 	
 	get_tree().current_scene.visible = false
 	visible = true
 	_transition_progress(0.0)
+	if OS.has_feature("debug"):
+		print_debug("start transition")
 	
 	# TODO: refactor to start loading as soon as possible, but need solid workaround for race conditions
-	ThreadUtility.load_resource(scene_path, func(scene): _scene_loaded(scene, transition_time, parameters))
+	#ThreadUtility.load_resource(scene_path, func(scene): _scene_loaded(scene, transition_time, parameters))
+	# FIXME: thread support not working in web
+	var scene = load(scene_path)  # Loads the resource synchronously
+	if scene:
+		_scene_loaded(scene, transition_time, parameters)
+	else:
+		printerr("Failed to load scene: ", scene_path)
 
 ## Set transition in motion
 func _scene_loaded(scene: PackedScene, transition_time: float, parameters: Dictionary)->void:
+	if OS.has_feature("debug"):
+		print_debug("scene loaded", scene)
 	assert(scene != null)
 	get_tree().change_scene_to_packed(scene)
 	# TODO: pass exported scene parameters into scene
@@ -57,6 +70,8 @@ func _transition_progress(t: float)->void:
 	(texture_rect.material as ShaderMaterial).set_shader_parameter("progress", t)
 
 func _transition_finished()->void:
+	if OS.has_feature("debug"):
+		print_debug("transition finished")
 	visible = false
 	bool_resource.set_value(false)
 	# TODO: better transition, race condition for then scene is loaded and callback
@@ -65,12 +80,14 @@ func _transition_finished()->void:
 	if new_scene and new_scene.has_method("_on_transition_finished"):
 		if not transition_finished.is_connected(new_scene._on_transition_finished):
 			transition_finished.connect(new_scene._on_transition_finished, CONNECT_ONE_SHOT)
-			print_debug("connect transition_finished", new_scene.name, new_scene._on_transition_finished)
+			if OS.has_feature("debug"):
+				print_debug("connect transition_finished", new_scene.name, new_scene._on_transition_finished)
 			
 	# FIXME: didn't gets called new_scene._on_transition_finished
 	#transition_finished.emit(_scene_parameters)
 	if new_scene and new_scene.has_method("_on_transition_finished"):
-		print_debug("emit transition_finished", new_scene.name, new_scene._on_transition_finished)
+		if OS.has_feature("debug"):
+			print_debug("emit transition_finished", new_scene.name, new_scene._on_transition_finished)
 		new_scene._on_transition_finished(_scene_parameters)
 	
 	_scene_loading = false
@@ -85,11 +102,13 @@ func _process(delta: float) -> void:
 				if not transition_finished.is_connected(new_scene._on_transition_finished):
 					# Connect the signal to the new scene's method
 					transition_finished.connect(new_scene._on_transition_finished, CONNECT_ONE_SHOT)
-					print_debug("connect transition_finished", new_scene.name, new_scene._on_transition_finished)
+					if OS.has_feature("debug"):
+						print_debug("connect transition_finished", new_scene.name, new_scene._on_transition_finished)
 				_scene_loading = false
 			else:
 				# transition already finished
 				new_scene._on_transition_finished(_scene_parameters)
-				print_debug("transition already finished", new_scene.name, new_scene._on_transition_finished)
+				if OS.has_feature("debug"):
+					print_debug("transition already finished", new_scene.name, new_scene._on_transition_finished)
 				_scene_loading = false
 				_scene_parameters = {}

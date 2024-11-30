@@ -51,7 +51,7 @@ func _ready() -> void:
 			slice.rotation_degrees = rotations[i % slices.size()]
 		if i == fixed_slice_index:
 			slice.rotation_degrees = 0
-		print_debug(slice.rotation_degrees)
+		#print_debug(slice.rotation_degrees)
 		_slices.append(slice)
 		_slice_solved_timers[i] = 0
 		_slices_solved[i] = false
@@ -135,14 +135,14 @@ func _input(event: InputEvent) -> void:
 				if not _slices_solved[_selected_slice_nr-1]:
 					selected_slice.rotation_degrees = (int(selected_slice.rotation_degrees) + ROTATE_PER_WHEEL_PRESS) % 360
 					_play_move_slice()
-					print_debug(selected_slice.rotation_degrees)
+					#print_debug(selected_slice.rotation_degrees)
 		elif event.is_action_pressed("mouse_wheel_down"):
 			if _selected_slice_nr != fixed_slice_index+1 and _selected_slice_nr > 0 and _selected_slice_nr-1 < slices.size():
 				var selected_slice = slices[_selected_slice_nr-1]
 				if not _slices_solved[_selected_slice_nr-1]:
 					selected_slice.rotation_degrees = (int(selected_slice.rotation_degrees) - ROTATE_PER_WHEEL_PRESS) % 360
 					_play_move_slice()
-					print_debug(selected_slice.rotation_degrees)
+					#print_debug(selected_slice.rotation_degrees)
 				
 
 func _on_slice_input_event(slice: Node, slice_index: int, viewport: Node, event: InputEvent, shape_idx: int) -> void:

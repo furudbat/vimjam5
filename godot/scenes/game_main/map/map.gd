@@ -81,5 +81,6 @@ func _get_direction_at_progress(direction_path: Path2D, progress_ratio: float) -
 	return (current_position - next_position).normalized()
 
 func _on_player_entered_obsticale(node, body, mini_game: String) -> void:
-	print_debug("Obstacle reached: ", node, " by ", body)
+	if OS.has_feature("debug"):
+		print_debug("Obstacle reached: ", node, " by ", body)
 	obstical_reached.emit(node, body, mini_game)

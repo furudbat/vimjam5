@@ -6,7 +6,7 @@ extends VBoxContainer
 @onready var music_volume_slider := %MusicVolumeSlider
 @onready var sound_volume_button := %SoundVolumeIcon
 @onready var sound_volume_slider := %SoundVolumeSlider
-@onready var sound_sample := %SoundSamplePlayer
+@onready var sound_sample := %Sample
 
 var sound_active = true
 var _sound_sample_is_playing = false

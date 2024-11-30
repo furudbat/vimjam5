@@ -2,7 +2,7 @@ extends Node
 
 @onready var MainMenuScene = load("res://scenes/main.tscn")
 @onready var PrologScene = load("res://scenes/prolog/prolog.tscn")
-@onready var MainGameScene = load("res://scenes/game/game.tscn")
+@onready var MainGameScene = load("res://scenes/game_main/game_main.tscn")
 @onready var GameOverScene = load("res://scenes/game_over/game_over.tscn")
 @onready var WinScene = load("res://scenes/win/win.tscn")
 

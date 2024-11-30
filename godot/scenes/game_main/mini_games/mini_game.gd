@@ -48,7 +48,8 @@ func _check_win(pred: Callable) -> bool:
 	if not _win and _win_timer.is_stopped() and pred.call():
 		_win_timer.timeout.connect(func(): puzzle_solved.emit())
 		_win_timer.start(win_cooldown_sec)
-		print_debug("WIN")
+		if OS.has_feature("debug"):
+			print_debug("WIN")
 		_win = true
 		on_won.emit()
 		return true

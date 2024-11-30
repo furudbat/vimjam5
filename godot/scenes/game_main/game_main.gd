@@ -174,12 +174,16 @@ func _reset_timer():
 func _obstical_reached(tile, _body, mini_game: String):
 	if _game_state == GameState.MAP:
 		if not tile.open:
-			_current_obstical_scene = MiniGames.get_scene(mini_game).instantiate()
-			_current_obstical_scene.puzzle_solved.connect(_puzzle_solved)
-			content_container.add_child(_current_obstical_scene)
 			_game_state = GameState.OBSTACLE
 			_current_obstical_tile = tile
 			_player_state = CharacterState.STOPPED
+			# Defer instantiating and adding the scene, Can't change this state while flushing queries. Use call_deferred() or set_deferred() to change monitoring state instead.
+			call_deferred("_add_obstacle_scene", tile, mini_game)
+
+func _add_obstacle_scene(tile, mini_game: String):
+	_current_obstical_scene = MiniGames.get_scene(mini_game).instantiate()
+	_current_obstical_scene.puzzle_solved.connect(_puzzle_solved)
+	content_container.add_child(_current_obstical_scene)
 
 func _game_over():
 	game_timer.paused = true

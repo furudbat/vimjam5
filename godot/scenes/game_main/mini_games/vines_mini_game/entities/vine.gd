@@ -16,7 +16,8 @@ func _on_segment_cut(cut_segment):
 
 	# Mark the vine as cut
 	is_cut = true
-	print_debug("Vine is being cut:", self)
+	if OS.has_feature("debug"):
+		print_debug("Vine is being cut:", self)
 	vine_cut.emit(self)
 
 	# Remove joints associated with the cut segment

@@ -6,7 +6,6 @@ var _new_game: bool = true
 @onready var continue_button := %ContinueButton
 @onready var new_game_button := %NewGameButton
 @onready var exit_button := %ExitButton
-@onready var transition := %Transition
 
 #
 # build-in
