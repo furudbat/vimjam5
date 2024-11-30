@@ -83,18 +83,23 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_14klj")
 
 [node name="Vine_1" parent="PanelContainer/MiniGame" groups=["Vines"] instance=ExtResource("2_qa6uf")]
 position = Vector2(56, -72)
+rotation = -0.0600396
 
 [node name="Vine_6" parent="PanelContainer/MiniGame" groups=["Vines"] instance=ExtResource("2_qa6uf")]
 position = Vector2(136, -72)
+rotation = 0.0563397
 
 [node name="Vine_4" parent="PanelContainer/MiniGame" groups=["Vines"] instance=ExtResource("2_qa6uf")]
 position = Vector2(200, -56)
+rotation = -0.0293423
 
 [node name="Vine_5" parent="PanelContainer/MiniGame" groups=["Vines"] instance=ExtResource("2_qa6uf")]
 position = Vector2(287, -48)
+rotation = 0.122706
 
 [node name="Vine_8" parent="PanelContainer/MiniGame" groups=["Vines"] instance=ExtResource("2_qa6uf")]
 position = Vector2(328, -48)
+rotation = 0.0940869
 
 [node name="Vine_2" parent="PanelContainer/MiniGame" groups=["Vines"] instance=ExtResource("3_weqe4")]
 position = Vector2(504, -7.15256e-06)
