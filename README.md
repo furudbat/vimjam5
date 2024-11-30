@@ -24,6 +24,7 @@ Solve Microgames like in WarioWare and escape the Beast.
 - [x] Timer (Countdown) - beast gets big boost
 - [x] Beast Meter - see the distance of the beast
 - [x] Game Over - when beast is catched up
+- [x] Win - End game scene
 - [x] Solve Microgames (obstacles)
     - [x] 4/? Microgames
         - [x] win conditions

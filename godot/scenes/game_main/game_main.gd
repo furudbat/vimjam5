@@ -48,7 +48,9 @@ var _game_over_fadeout: float = 0
 @onready var timer_ui := %TimerUI
 @onready var content_container := %ContentContainer
 @onready var map := %Map
-
+@onready var beast_sound_1 := %BeastSoundPlayer1
+@onready var beast_sound_2 := %BeastSoundPlayer2
+@onready var beast_sound_cooldown_timer := %BeastSoundCooldownTimer
 
 func _ready() -> void:
 	level_timer.autostart = false
@@ -60,7 +62,8 @@ func _ready() -> void:
 	_level = 0
 	_section = 0
 	_reset_timer()
-	level_timer.start(Constants.TIMER_TIME_SEC)
+	level_timer.start(Constants.LEVEL_TIMER_SEC)
+	beast_sound_cooldown_timer.stop()
 	
 	SoundManager.play_music_from_player($Bgm, 0.5)
 	
@@ -108,6 +111,21 @@ func _process(delta: float) -> void:
 		if _distance <= 0:
 			_game_over()
 			return
+		if _game_state == GameState.OBSTACLE:
+			# play beast alert sound
+			if beast_sound_cooldown_timer.is_stopped():
+				if level_timer.time_left <= Constants.CLOCK_LOW_TIME_SEC:
+					beast_sound_1.pitch_scale = randf_range(1.7, 1.8)
+					SoundManager.play_sound_from_player(beast_sound_1)
+					beast_sound_cooldown_timer.start()
+				elif _distance <= Constants.DISTANCE_CRITICAL:
+					beast_sound_1.pitch_scale = randf_range(1.6, 1.8)
+					SoundManager.play_sound_from_player(beast_sound_1)
+					beast_sound_cooldown_timer.start()
+				elif _distance <= Constants.DISTANCE_LOW:
+					beast_sound_2.pitch_scale = randf_range(1.7, 1.8)
+					SoundManager.play_sound_from_player(beast_sound_2)
+					beast_sound_cooldown_timer.start()
 
 func _physics_process(delta: float) -> void:
 	if _game_state == GameState.MAP or _game_state == GameState.OBSTACLE:
@@ -218,7 +236,7 @@ func _on_timer_timeout():
 	_enemy_boosted = true
 	_enemy_velocity_boost = 1.0
 	_enemy_acceleration_factor = Constants.BOOST_ENEMY_ACCELERATION_FACTOR
-	SoundManager.play_sound_from_player($BeastSoundPlayer)
+	SoundManager.play_sound_from_player(beast_sound_1)
 
 func _on_game_timer_timeout() -> void:
 	_game_time += 1

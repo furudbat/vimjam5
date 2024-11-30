@@ -23,7 +23,7 @@ void fragment() {
     float offset_y = (random(vec2(adjusted_time, 1.0)) * 2.0 - 1.0) * dampened_strength * shake_bias_y;
     vec2 shake_offset = vec2(offset_x, offset_y);
     uv += shake_offset * float(enable_shake);
-	
+
 	//transpacency handling
     vec2 uv_clamped = clamp(uv, 0.0, 1.0);     // Clamp UVs to prevent stretching of the pixeln at the edge
     float in_bounds = step(0.0, uv.x) * step(uv.x, 1.0) * step(0.0, uv.y) * step(uv.y, 1.0);     // Generate a mask for in-bounds UVs

@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 // --- Uniforms --- //
-uniform float dither_intensity: hint_range(0.0, 1.0, 0.05) = 0.0; 
+uniform float dither_intensity: hint_range(0.0, 1.0, 0.05) = 0.0;
 uniform bool enable_shake = false;
 uniform float shake_strength: hint_range(0.0, 1.0, 0.01) = 0.5;
 uniform float shake_bias_x: hint_range(0.0, 0.1, 0.01) = 0.01;
