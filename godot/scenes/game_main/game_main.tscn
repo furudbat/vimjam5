@@ -150,14 +150,14 @@ autostart = true
 [node name="BeastSoundPlayer1" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("7_6xxay")
-volume_db = 7.962
+volume_db = 5.268
 pitch_scale = 1.71
 bus = &"Sound"
 
 [node name="BeastSoundPlayer2" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("8_bfohk")
-volume_db = 8.082
+volume_db = 5.388
 pitch_scale = 1.6
 bus = &"Sound"
 
@@ -169,7 +169,7 @@ bus = &"Music"
 
 [node name="BeastSoundCooldownTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 5.0
+wait_time = 8.0
 one_shot = true
 
 [connection signal="get_obsticales_counter" from="Map" to="." method="_on_map_get_obsticales_counter"]

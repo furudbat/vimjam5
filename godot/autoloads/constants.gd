@@ -1,12 +1,10 @@
 extends Node2D
 
 # distance setting (beast meter) 
-const MAX_DISTANCE_M: float = 160
+const MAX_DISTANCE_M: float = 170
 ## player/beast start distance at the game start
 const START_DISTANCE = 50
 
-# timer UI
-const CLOCK_LOW_TIME_SEC: float = 10.0
 
 # Meter
 const START_ENEMY_VELOCITY_BOOST: float = 1.0
@@ -29,8 +27,11 @@ const PLAYER_MAX_VELOCITY: Vector2 = Vector2(0, 2.056)
 const TILE_PX_PER_M: float = 3.5
 const MAP_MOVEMENT_SPEED_UP: float = 0.38
 
+# alert sound (triggers)
 const DISTANCE_LOW = 15
 const DISTANCE_CRITICAL = 5
+# timer UI
+const CLOCK_LOW_TIME_SEC: float = 10.0
 
 
 # Levels

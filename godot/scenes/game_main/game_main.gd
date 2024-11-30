@@ -113,19 +113,19 @@ func _process(delta: float) -> void:
 			return
 		if _game_state == GameState.OBSTACLE:
 			# play beast alert sound
-			if beast_sound_cooldown_timer.is_stopped():
+			if beast_sound_cooldown_timer.is_stopped() and level_timer.time_left > 0.0 and _distance > 0:
 				if level_timer.time_left <= Constants.CLOCK_LOW_TIME_SEC:
 					beast_sound_1.pitch_scale = randf_range(1.7, 1.8)
 					SoundManager.play_sound_from_player(beast_sound_1)
-					beast_sound_cooldown_timer.start()
+					beast_sound_cooldown_timer.start(10)
 				elif _distance <= Constants.DISTANCE_CRITICAL:
 					beast_sound_1.pitch_scale = randf_range(1.6, 1.8)
 					SoundManager.play_sound_from_player(beast_sound_1)
-					beast_sound_cooldown_timer.start()
+					beast_sound_cooldown_timer.start(5)
 				elif _distance <= Constants.DISTANCE_LOW:
 					beast_sound_2.pitch_scale = randf_range(1.7, 1.8)
 					SoundManager.play_sound_from_player(beast_sound_2)
-					beast_sound_cooldown_timer.start()
+					beast_sound_cooldown_timer.start(5)
 
 func _physics_process(delta: float) -> void:
 	if _game_state == GameState.MAP or _game_state == GameState.OBSTACLE:
