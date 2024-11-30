@@ -164,7 +164,7 @@ bus = &"Sound"
 [node name="Bgm" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("7_ql71s")
-volume_db = -35.0
+volume_db = -40.0
 bus = &"Music"
 
 [node name="BeastSoundCooldownTimer" type="Timer" parent="."]

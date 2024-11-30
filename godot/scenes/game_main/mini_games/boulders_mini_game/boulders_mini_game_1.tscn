@@ -117,6 +117,7 @@ position = Vector2(82, 79)
 [node name="BoulderSound1" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("4_3f8ii")
+volume_db = 5.0
 bus = &"Sound"
 
 [node name="WinSoundPlayer" type="AudioStreamPlayer" parent="."]
