@@ -121,7 +121,7 @@ func _process(delta: float) -> void:
 				elif _distance <= Constants.DISTANCE_CRITICAL:
 					beast_sound_1.pitch_scale = randf_range(1.6, 1.8)
 					SoundManager.play_sound_from_player(beast_sound_1)
-					beast_sound_cooldown_timer.start(5)
+					beast_sound_cooldown_timer.start(8)
 				elif _distance <= Constants.DISTANCE_LOW:
 					beast_sound_2.pitch_scale = randf_range(1.7, 1.8)
 					SoundManager.play_sound_from_player(beast_sound_2)

@@ -28,8 +28,8 @@ const TILE_PX_PER_M: float = 3.5
 const MAP_MOVEMENT_SPEED_UP: float = 0.38
 
 # alert sound (triggers)
-const DISTANCE_LOW = 15
-const DISTANCE_CRITICAL = 5
+const DISTANCE_LOW = 20
+const DISTANCE_CRITICAL = 10
 # timer UI
 const CLOCK_LOW_TIME_SEC: float = 10.0
 
